@@ -519,7 +519,8 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
   <div class="sec fi">
     <p class="label">DEPARTMENTS</p>
     <h2 class="sec-h">전공안내</h2>
-    <p class="sec-p">학사(Undergraduate) 51개 · 석사(Master's) 약 57개 · 박사(PhD) 17개</p>
+    <p class="sec-p">총 전공 : 학사(Undergraduate) 51개 · 석사(Master's) 약 57개 · 박사(PhD) 17개</p>
+    <p class="sec-p">아래 전공은 학사 전공들 중 추천드리는 전공 일부 입니다.</p>
     <div class="major-grid fi d1">
       <div class="mc"><div class="mc-s">BUSINESS</div><div class="mc-n">Accounting</div><div class="mc-d">BA (Hons)</div></div>
       <div class="mc"><div class="mc-s">SCIENCE</div><div class="mc-n">Applied Chemistry</div><div class="mc-d">BSc (Hons)</div></div>
@@ -784,65 +785,60 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
   <a href="#" class="fb-btn fb-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" title="TOP">TOP</a>
 </div>
 
+
+
 <script>
-function toggleNav(){
-  var m=document.getElementById('mobileNav');
-  m.style.display=m.style.display==='block'?'none':'block';
+// 모바일 네비
+function toggleNav() {
+  var m = document.getElementById('mobileNav');
+  m.style.display = m.style.display === 'block' ? 'none' : 'block';
 }
-function closeNav(){
-  document.getElementById('mobileNav').style.display='none';
+function closeNav() {
+  document.getElementById('mobileNav').style.display = 'none';
 }
-document.addEventListener('click',function(e){
-  var m=document.getElementById('mobileNav'),b=document.getElementById('hamBtn');
-  if(m&&b&&!m.contains(e.target)&&!b.contains(e.target))m.style.display='none';
+document.addEventListener('click', function(e) {
+  var m = document.getElementById('mobileNav');
+  var b = document.getElementById('hamBtn');
+  if (m && b && !m.contains(e.target) && !b.contains(e.target)) {
+    m.style.display = 'none';
+  }
 });
-function toggleQA(el){el.nextElementSibling.classList.toggle('open');}
 
 // 스크롤 페이드인
-var obs=new IntersectionObserver(function(e){
-  e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('v');});
-},{threshold:.08});
-document.querySelectorAll('.fi').forEach(function(el){obs.observe(el);});
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(x) {
+    if (x.isIntersecting) x.target.classList.add('v');
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fi').forEach(function(el) { obs.observe(el); });
 
-// 스크롤 시 nav 활성 메뉴 표시
-var sections=['information','major','calendar','rooms','admission','reviews','inquiry'];
-window.addEventListener('scroll',function(){
-  var pos=window.scrollY+120;
-  sections.forEach(function(id){
-    var el=document.getElementById(id);
-    var link=document.querySelector('a[href="#'+id+'"]');
-    if(!el||!link)return;
-    if(pos>=el.offsetTop&&pos<el.offsetTop+el.offsetHeight){
-      document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.remove('active');});
+// 스크롤 시 nav 활성 메뉴
+var sections = ['information','major','calendar','rooms','admission','reviews','inquiry'];
+window.addEventListener('scroll', function() {
+  var pos = window.scrollY + 120;
+  sections.forEach(function(id) {
+    var el = document.getElementById(id);
+    var link = document.querySelector('a[href="#' + id + '"]');
+    if (!el || !link) return;
+    if (pos >= el.offsetTop && pos < el.offsetTop + el.offsetHeight) {
+      document.querySelectorAll('.nav-links a').forEach(function(a) { a.classList.remove('active'); });
       link.classList.add('active');
     }
   });
 });
-</script>
-<script>
-function playRV(el,id){
-  var img=el.querySelector('img');
-  var btns=el.querySelectorAll('div');
-  var wrap=el.querySelector('div:last-child');
-  var frame=wrap.querySelector('iframe');
-  img.style.opacity='0';
-  el.querySelectorAll('div[style*="border-radius"]').forEach(function(b){b.style.display='none';});
-  wrap.style.display='block';
-  frame.src='https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0';
-}
 
-
-});
-// 재학생후기 유튜브 클릭 (첫 클릭에 바로 재생)
-[['rv1','c2h3t771rVk'],['rv2','6eHbOLJ4ERg'],['rv3','9iGRC82D3G0']].forEach(function(v){
-  var wrap = document.getElementById(v[0]);
-  if(!wrap) return;
-  wrap.addEventListener('click', function(){
-    document.getElementById(v[0]+'-thumb').style.display = 'none';
-    document.getElementById(v[0]+'-btn').style.display = 'none';
-    var f = document.getElementById(v[0]+'-frame');
-    f.src = 'https://www.youtube.com/embed/'+v[1]+'?autoplay=1&rel=0';
-    f.style.display = 'block';
+// 재학생후기 유튜브 (첫 클릭에 바로 재생)
+window.addEventListener('DOMContentLoaded', function() {
+  [['rv1','c2h3t771rVk'], ['rv2','6eHbOLJ4ERg'], ['rv3','9iGRC82D3G0']].forEach(function(v) {
+    var wrap = document.getElementById(v[0]);
+    if (!wrap) return;
+    wrap.addEventListener('click', function() {
+      document.getElementById(v[0] + '-thumb').style.display = 'none';
+      document.getElementById(v[0] + '-btn').style.display = 'none';
+      var f = document.getElementById(v[0] + '-frame');
+      f.src = 'https://www.youtube.com/embed/' + v[1] + '?autoplay=1&rel=0';
+      f.style.display = 'block';
+    });
   });
 });
 </script>

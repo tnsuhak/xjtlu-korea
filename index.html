@@ -253,7 +253,6 @@ h1.hero-title em { font-style:normal; color:var(--gold); }
 }
 .adm { padding:40px 36px; border-right:1px solid var(--rule); border-bottom:1px solid var(--rule); }
 .adm:nth-child(2n) { border-right:none; }
-.adm:nth-last-child(-n+2) { border-bottom:none; }
 .adm-num { font-family:'Playfair Display',serif; font-size:34px; color:var(--gold-lt); line-height:1; margin-bottom:14px; }
 .adm-h { font-size:16px; font-weight:700; color:var(--navy); margin-bottom:10px; }
 .adm-p { font-size:13px; line-height:1.9; color:var(--mid); font-weight:300; margin-bottom:5px; }
@@ -578,18 +577,7 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
         <p class="adm-p"><b>추가 성적 장학금:</b> 최대 50%</p>
         <p class="adm-p"><b>기숙사비:</b> 월 약 1,700위안 (약 38만원)</p>
       </div>
-      <div class="adm" style="grid-column:1/-1;border-right:none;">
-        <div class="adm-num">지원</div>
-        <h3 class="adm-h">지원 데드라인</h3>
-        <ul class="adm-ul" style="margin-top:8px;">
-          <li>1차 라운드: 30 November 2027</li>
-          <li>2차 라운드: 15 January 2027</li>
-          <li>3차 라운드: 28 February 2027</li>
-          <li>4차 라운드: 31 March 2027</li>
-          <li>5차 라운드: 15 May 2027</li>
-        </ul>
-        <p class="adm-p" style="margin-top:14px;color:var(--navy);font-weight:500;">최종 지원 데드라인은 <b>15 May 2027</b> 입니다.</p>
-      </div>
+
     </div>
   </div>
 </div>
@@ -643,54 +631,77 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
     <p class="label">ADMISSION</p>
     <h2 class="sec-h">입학안내</h2>
     <p class="sec-p">한국 학생 기준 입학 요건 및 지원 절차</p>
-    <div class="adm-grid" style="background:#fff;border:1px solid var(--rule);margin-top:48px;">
-      <div class="adm">
-        <div class="adm-num">01</div>
-        <h3 class="adm-h">한국 내신 성적 지원 가능</h3>
-        <p class="adm-p"><b>1학년 입학:</b> 한국 내신 성적 5등급 이내 (9등급제 기준)</p>
-        <p class="adm-p"><b>2학년 편입:</b> 대학교 1학년 이상 이수 및 성적 B+ (고등학교 성적 일부 반영)</p>
-        <p class="adm-p"><b>3학년 편입:</b> 대학교 2~3학년 이상 이수 및 성적 B+ (동일/유사 전공 중요)</p>
-        <br>
-        <h3 class="adm-h">해외고 졸업생</h3>
-        <p class="adm-p">아래 조건 충족 시 2학년 지원 가능 (약간 부족할 시 1학년 입학 가능)</p>
-        <ul class="adm-ul">
-          <li>A-level: BBB</li>
-          <li>IB Diploma: 30 points</li>
-          <li>GPA 3.0/4.0 이상 + AP 3개 (각 4점 이상)</li>
-          <li>GPA 3.0/4.0 이상 + SAT 1280 or ACT 27 + AP 2개 (각 4점 이상)</li>
-        </ul>
-      </div>
-      <div class="adm">
-        <div class="adm-num">02</div>
-        <h3 class="adm-h">영어 성적 요건</h3>
-        <p class="adm-p"><b>1학년 신입학:</b> IELTS 5.0 (각 영역 4.0 이상)</p>
-        <p class="adm-p"><b>2/3학년 편입학:</b> IELTS 6.5 (각 영역 5.5 이상)</p>
-        <br>
-        <div class="adm-num">03</div>
-        <h3 class="adm-h">생활비 비교 (RMB/월)</h3>
-        <table style="width:100%;border-collapse:collapse;font-size:12px;margin-top:12px;">
-          <thead><tr style="background:var(--navy);color:#fff;">
-            <th style="padding:7px 10px;text-align:left;font-weight:500;">항목</th>
-            <th style="padding:7px 10px;text-align:center;font-weight:500;">절약형<br><span style="font-size:10px;opacity:.7;">기숙사·학식</span></th>
-            <th style="padding:7px 10px;text-align:center;font-weight:500;">보통형<br><span style="font-size:10px;opacity:.7;">개인숙소·외식 가끔</span></th>
-            <th style="padding:7px 10px;text-align:center;font-weight:500;">여유형<br><span style="font-size:10px;opacity:.7;">서양식·택시</span></th>
-          </tr></thead>
-          <tbody>
-            <tr style="border-bottom:1px solid var(--rule);"><td style="padding:7px 10px;color:var(--mid);">숙소</td><td style="padding:7px 10px;text-align:center;">1,800</td><td style="padding:7px 10px;text-align:center;">2,700</td><td style="padding:7px 10px;text-align:center;">&gt;3,500</td></tr>
-            <tr style="border-bottom:1px solid var(--rule);background:#fafafa;"><td style="padding:7px 10px;color:var(--mid);">공과금</td><td style="padding:7px 10px;text-align:center;">300</td><td style="padding:7px 10px;text-align:center;">450</td><td style="padding:7px 10px;text-align:center;">600</td></tr>
-            <tr style="border-bottom:1px solid var(--rule);"><td style="padding:7px 10px;color:var(--mid);">식비</td><td style="padding:7px 10px;text-align:center;">1,300</td><td style="padding:7px 10px;text-align:center;">1,800</td><td style="padding:7px 10px;text-align:center;">3,000</td></tr>
-            <tr style="border-bottom:1px solid var(--rule);background:#fafafa;"><td style="padding:7px 10px;color:var(--mid);">교통</td><td style="padding:7px 10px;text-align:center;">100</td><td style="padding:7px 10px;text-align:center;">300</td><td style="padding:7px 10px;text-align:center;">300</td></tr>
-            <tr style="border-bottom:1px solid var(--rule);"><td style="padding:7px 10px;color:var(--mid);">인터넷·폰</td><td style="padding:7px 10px;text-align:center;">200</td><td style="padding:7px 10px;text-align:center;">200</td><td style="padding:7px 10px;text-align:center;">200</td></tr>
-            <tr style="border-bottom:1px solid var(--rule);background:#fafafa;"><td style="padding:7px 10px;color:var(--mid);">여가</td><td style="padding:7px 10px;text-align:center;">0</td><td style="padding:7px 10px;text-align:center;">1,000</td><td style="padding:7px 10px;text-align:center;">2,000</td></tr>
-            <tr style="background:var(--cream);font-weight:700;"><td style="padding:8px 10px;color:var(--navy);">월 합계</td>
-              <td style="padding:8px 10px;text-align:center;color:var(--navy);">3,700<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 82만원</span></td>
-              <td style="padding:8px 10px;text-align:center;color:var(--navy);">6,450<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 142만원</span></td>
-              <td style="padding:8px 10px;text-align:center;color:var(--navy);">9,600<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 215만원</span></td>
-            </tr>
-          </tbody>
-        </table>
-        <p style="font-size:11px;color:var(--mid);margin-top:8px;font-family:'DM Mono',monospace;">* 비자발급 400 RMB · 서비스비 2,000 RMB/년 별도</p>
-      </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--rule);background:#fff;margin-top:48px;">
+
+  <!-- 왼쪽: 01 -->
+  <div style="padding:40px 36px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);">
+    <div class="adm-num">01</div>
+    <h3 class="adm-h">한국 내신 성적 지원 가능</h3>
+    <p class="adm-p"><b>1학년 입학:</b> 한국 내신 성적 5등급 이내 (9등급제 기준)</p>
+    <p class="adm-p"><b>2학년 편입:</b> 대학교 1학년 이상 이수 및 성적 B+ (고등학교 성적 일부 반영)</p>
+    <p class="adm-p"><b>3학년 편입:</b> 대학교 2~3학년 이상 이수 및 성적 B+ (동일/유사 전공 중요)</p>
+    <br>
+    <h3 class="adm-h">해외고 졸업생</h3>
+    <p class="adm-p">아래 조건 충족 시 2학년 지원 가능 (약간 부족할 시 1학년 입학 가능)</p>
+    <ul class="adm-ul">
+      <li>A-level: BBB</li>
+      <li>IB Diploma: 30 points</li>
+      <li>GPA 3.0/4.0 이상 + AP 3개 (각 4점 이상)</li>
+      <li>GPA 3.0/4.0 이상 + SAT 1280 or ACT 27 + AP 2개 (각 4점 이상)</li>
+    </ul>
+  </div>
+
+  <!-- 오른쪽: 02 -->
+  <div style="padding:40px 36px;border-bottom:1px solid var(--rule);">
+    <div class="adm-num">02</div>
+    <h3 class="adm-h">지원 데드라인</h3>
+    <ul class="adm-ul" style="margin-top:8px;">
+      <li>1차 라운드: 30 November 2027</li>
+      <li>2차 라운드: 15 January 2027</li>
+      <li>3차 라운드: 28 February 2027</li>
+      <li>4차 라운드: 31 March 2027</li>
+      <li>5차 라운드: 15 May 2027</li>
+    </ul>
+    <p class="adm-p" style="margin-top:14px;color:var(--navy);font-weight:500;">최종 지원 데드라인은 <b>15 May 2027</b> 입니다.</p>
+  </div>
+
+  <!-- 왼쪽: 03 -->
+  <div style="padding:40px 36px;border-right:1px solid var(--rule);">
+    <div class="adm-num">03</div>
+    <h3 class="adm-h">영어 성적 요건</h3>
+    <p class="adm-p"><b>1학년 신입학:</b> IELTS 5.0 (각 영역 4.0 이상)</p>
+    <p class="adm-p"><b>2/3학년 편입학:</b> IELTS 6.5 (각 영역 5.5 이상)</p>
+  </div>
+
+  <!-- 오른쪽: 04 -->
+  <div style="padding:40px 36px;">
+    <div class="adm-num">04</div>
+    <h3 class="adm-h">생활비 비교 (RMB/월)</h3>
+    <table style="width:100%;border-collapse:collapse;font-size:12px;margin-top:12px;">
+      <thead><tr style="background:var(--navy);color:#fff;">
+        <th style="padding:7px 10px;text-align:left;font-weight:500;">항목</th>
+        <th style="padding:7px 10px;text-align:center;font-weight:500;">절약형<br><span style="font-size:10px;opacity:.7;">기숙사·학식</span></th>
+        <th style="padding:7px 10px;text-align:center;font-weight:500;">보통형<br><span style="font-size:10px;opacity:.7;">개인숙소·외식 가끔</span></th>
+        <th style="padding:7px 10px;text-align:center;font-weight:500;">여유형<br><span style="font-size:10px;opacity:.7;">서양식·택시</span></th>
+      </tr></thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--rule);"><td style="padding:7px 10px;color:var(--mid);">숙소</td><td style="padding:7px 10px;text-align:center;">1,800</td><td style="padding:7px 10px;text-align:center;">2,700</td><td style="padding:7px 10px;text-align:center;">&gt;3,500</td></tr>
+        <tr style="border-bottom:1px solid var(--rule);background:#fafafa;"><td style="padding:7px 10px;color:var(--mid);">공과금</td><td style="padding:7px 10px;text-align:center;">300</td><td style="padding:7px 10px;text-align:center;">450</td><td style="padding:7px 10px;text-align:center;">600</td></tr>
+        <tr style="border-bottom:1px solid var(--rule);"><td style="padding:7px 10px;color:var(--mid);">식비</td><td style="padding:7px 10px;text-align:center;">1,300</td><td style="padding:7px 10px;text-align:center;">1,800</td><td style="padding:7px 10px;text-align:center;">3,000</td></tr>
+        <tr style="border-bottom:1px solid var(--rule);background:#fafafa;"><td style="padding:7px 10px;color:var(--mid);">교통</td><td style="padding:7px 10px;text-align:center;">100</td><td style="padding:7px 10px;text-align:center;">300</td><td style="padding:7px 10px;text-align:center;">300</td></tr>
+        <tr style="border-bottom:1px solid var(--rule);"><td style="padding:7px 10px;color:var(--mid);">인터넷·폰</td><td style="padding:7px 10px;text-align:center;">200</td><td style="padding:7px 10px;text-align:center;">200</td><td style="padding:7px 10px;text-align:center;">200</td></tr>
+        <tr style="border-bottom:1px solid var(--rule);background:#fafafa;"><td style="padding:7px 10px;color:var(--mid);">여가</td><td style="padding:7px 10px;text-align:center;">0</td><td style="padding:7px 10px;text-align:center;">1,000</td><td style="padding:7px 10px;text-align:center;">2,000</td></tr>
+        <tr style="background:var(--cream);font-weight:700;"><td style="padding:8px 10px;color:var(--navy);">월 합계</td>
+          <td style="padding:8px 10px;text-align:center;color:var(--navy);">3,700<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 82만원</span></td>
+          <td style="padding:8px 10px;text-align:center;color:var(--navy);">6,450<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 142만원</span></td>
+          <td style="padding:8px 10px;text-align:center;color:var(--navy);">9,600<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 215만원</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:11px;color:var(--mid);margin-top:8px;font-family:'DM Mono',monospace;">* 비자발급 400 RMB · 서비스비 2,000 RMB/년 별도</p>
+  </div>
+
+</div>
     </div>
   </div>
 </div>

@@ -689,22 +689,28 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
     <h2 class="sec-h">재학생후기</h2>
     <p class="sec-p">XJTLU 재학생들의 생생한 캠퍼스 라이프를 영상으로 만나보세요.</p>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;">
-      <div style="position:relative;padding-bottom:56.25%;background:#000;cursor:pointer;overflow:hidden;" onclick="(function(el){var img=el.querySelector('img');var wrap=el.querySelector('div:last-child');var frame=wrap.querySelector('iframe');img.style.opacity='0';el.querySelector('div[style*=\"border-radius\"]').style.display='none';wrap.style.display='block';frame.src='https://www.youtube.com/embed/c2h3t771rVk?autoplay=1&rel=0';})(this)" >
-        <img src="https://img.youtube.com/vi/c2h3t771rVk/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/c2h3t771rVk/hqdefault.jpg'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .3s;">
-        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:rgba(255,0,0,.9);display:flex;align-items:center;justify-content:center;pointer-events:none;"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
-        <div style="position:absolute;inset:0;display:none;"><iframe style="width:100%;height:100%;border:none;"></iframe></div>
+
+      <div id="rv1" style="position:relative;padding-bottom:56.25%;background:#000;cursor:pointer;overflow:hidden;">
+        <img id="rv1-img" src="https://img.youtube.com/vi/c2h3t771rVk/hqdefault.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+        <div id="rv1-btn" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:rgba(255,0,0,.9);display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
+        <iframe id="rv1-frame" style="position:absolute;inset:0;width:100%;height:100%;border:none;display:none;" allowfullscreen></iframe>
       </div>
-      <div style="position:relative;padding-bottom:56.25%;background:#000;cursor:pointer;overflow:hidden;" onclick="(function(el){var img=el.querySelector('img');var wrap=el.querySelector('div:last-child');var frame=wrap.querySelector('iframe');img.style.opacity='0';el.querySelector('div[style*=\"border-radius\"]').style.display='none';wrap.style.display='block';frame.src='https://www.youtube.com/embed/6eHbOLJ4ERg?autoplay=1&rel=0';})(this)" >
-        <img src="https://img.youtube.com/vi/6eHbOLJ4ERg/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/6eHbOLJ4ERg/hqdefault.jpg'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .3s;">
-        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:rgba(255,0,0,.9);display:flex;align-items:center;justify-content:center;pointer-events:none;"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
-        <div style="position:absolute;inset:0;display:none;"><iframe style="width:100%;height:100%;border:none;"></iframe></div>
+
+      <div id="rv2" style="position:relative;padding-bottom:56.25%;background:#000;cursor:pointer;overflow:hidden;">
+        <img id="rv2-img" src="https://img.youtube.com/vi/6eHbOLJ4ERg/hqdefault.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+        <div id="rv2-btn" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:rgba(255,0,0,.9);display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
+        <iframe id="rv2-frame" style="position:absolute;inset:0;width:100%;height:100%;border:none;display:none;" allowfullscreen></iframe>
       </div>
-      <div style="position:relative;padding-bottom:56.25%;background:#000;cursor:pointer;overflow:hidden;" onclick="(function(el){var img=el.querySelector('img');var wrap=el.querySelector('div:last-child');var frame=wrap.querySelector('iframe');img.style.opacity='0';el.querySelector('div[style*=\"border-radius\"]').style.display='none';wrap.style.display='block';frame.src='https://www.youtube.com/embed/B1Itiv_phbo?autoplay=1&rel=0';})(this)" >
-        <img src="https://img.youtube.com/vi/B1Itiv_phbo/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/B1Itiv_phbo/hqdefault.jpg'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .3s;">
-        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:rgba(255,0,0,.9);display:flex;align-items:center;justify-content:center;pointer-events:none;"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
-        <div style="position:absolute;inset:0;display:none;"><iframe style="width:100%;height:100%;border:none;"></iframe></div>
+
+      <div id="rv3" style="position:relative;padding-bottom:56.25%;background:#000;cursor:pointer;overflow:hidden;">
+        <img id="rv3-img" src="https://img.youtube.com/vi/B1Itiv_phbo/hqdefault.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+        <div id="rv3-btn" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:rgba(255,0,0,.9);display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
+        <iframe id="rv3-frame" style="position:absolute;inset:0;width:100%;height:100%;border:none;display:none;" allowfullscreen></iframe>
       </div>
+
     </div>
+  </div>
+</div>
   </div>
 </div>
   </div>
@@ -823,6 +829,24 @@ function playRV(el,id){
   wrap.style.display='block';
   frame.src='https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0';
 }
+
+// 재학생후기 유튜브 클릭
+var rvData = [
+  {wrap:'rv1', frame:'rv1-frame', img:'rv1-img', btn:'rv1-btn', id:'c2h3t771rVk'},
+  {wrap:'rv2', frame:'rv2-frame', img:'rv2-img', btn:'rv2-btn', id:'6eHbOLJ4ERg'},
+  {wrap:'rv3', frame:'rv3-frame', img:'rv3-img', btn:'rv3-btn', id:'B1Itiv_phbo'}
+];
+rvData.forEach(function(v){
+  var el = document.getElementById(v.wrap);
+  if(!el) return;
+  el.addEventListener('click', function(){
+    document.getElementById(v.img).style.display = 'none';
+    document.getElementById(v.btn).style.display = 'none';
+    var f = document.getElementById(v.frame);
+    f.src = 'https://www.youtube.com/embed/' + v.id + '?autoplay=1&rel=0';
+    f.style.display = 'block';
+  });
+});
 </script>
 </body>
 </html>

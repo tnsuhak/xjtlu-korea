@@ -385,6 +385,52 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
   #floatBtns { bottom:16px; right:12px; }
   #mobileNav { display:none; }
 }
+
+/* 모바일 입학 그리드 */
+@media(max-width:700px){
+  .adm-resp-grid{
+    grid-template-columns:1fr !important;
+    width:100%;
+    max-width:100%;
+    overflow:hidden;
+  }
+  .adm-resp-grid > div{
+    border-right:none !important;
+    border-bottom:1px solid var(--rule) !important;
+    padding:20px 16px !important;
+    max-width:100%;
+    overflow:hidden;
+    word-break:break-word !important;
+    overflow-wrap:break-word !important;
+  }
+  .adm-resp-grid > div:last-child{
+    border-bottom:none !important;
+  }
+  .adm-p, .adm-ul li{
+    word-break:break-word !important;
+    overflow-wrap:break-word !important;
+    white-space:normal !important;
+    max-width:100% !important;
+  }
+}
+
+/* 모바일 텍스트 넘침 방지 */
+.adm-p, .adm-ul li, .adm-h, .sec-p {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+@media(max-width:700px){
+  #cost-table th, #cost-table td{
+    padding:5px 4px !important;
+    font-size:10px !important;
+  }
+  #cost-table th span{
+    font-size:9px !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -407,13 +453,13 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
     </div>
   </a>
   <ul class="nav-links">
-    <li><a href="#information">학교소개</a></li>
-    <li><a href="#major">전공안내</a></li>
-    <li><a href="#calendar">학비·장학금</a></li>
-    <li><a href="#rooms">숙소</a></li>
-    <li><a href="#admission">입학안내</a></li>
-    <li><a href="#reviews">재학생후기</a></li>
-    <li><a href="#inquiry" class="btn-inquiry">입학문의</a></li>
+    <li><a href="information/">학교소개</a></li>
+    <li><a href="major/">전공안내</a></li>
+    <li><a href="tuition/">학비·장학금</a></li>
+    <li><a href="accommodation/">숙소</a></li>
+    <li><a href="admission/">입학안내</a></li>
+    <li><a href="reviews/">재학생후기</a></li>
+    <li><a href="inquiry/" class="btn-inquiry">입학문의</a></li>
   </ul>
   <button class="nav-ham" id="hamBtn" onclick="toggleNav()">
     <span></span><span></span><span></span>
@@ -421,13 +467,13 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
 </header>
 
 <div id="mobileNav">
-  <a href="#information" onclick="closeNav()">학교소개</a>
-  <a href="#major" onclick="closeNav()">전공안내</a>
-  <a href="#calendar" onclick="closeNav()">학비·장학금</a>
-  <a href="#rooms" onclick="closeNav()">숙소</a>
-  <a href="#admission" onclick="closeNav()">입학안내</a>
-  <a href="#reviews" onclick="closeNav()">재학생후기</a>
-  <a href="#inquiry" class="mob-inquiry" onclick="closeNav()">입학문의</a>
+  <a href="information/">학교소개</a>
+  <a href="major/">전공안내</a>
+  <a href="tuition/">학비·장학금</a>
+  <a href="accommodation/">숙소</a>
+  <a href="admission/">입학안내</a>
+  <a href="reviews/">재학생후기</a>
+  <a href="inquiry/" class="mob-inquiry">입학문의</a>
 </div>
 
 <!-- ====== HERO ====== -->
@@ -444,8 +490,8 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
         <em>Xi'an Jiaotong-Liverpool University · Suzhou, China</em>
       </p>
       <div class="hero-btns">
-        <a href="#inquiry" class="btn-gold">입학 상담 신청 →</a>
-        <a href="#information" class="btn-ghost">학교 둘러보기</a>
+        <a href="inquiry/" class="btn-gold">입학 상담 신청 →</a>
+        <a href="information/" class="btn-ghost">학교 둘러보기</a>
       </div>
     </div>
     <div class="fi d2">
@@ -592,21 +638,21 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
     <p class="sec-p">XJTLU는 다양한 기숙사 옵션을 제공합니다. 월 약 1,700위안(약 38만원)의 합리적인 비용으로 거주할 수 있습니다.</p>
     <div style="margin-top:40px;overflow-x:auto;">
         <h3 class="adm-h" style="margin-bottom:16px;">📍 SIP 캠퍼스 (쑤저우)</h3>
-        <table style="width:100%;border-collapse:collapse;font-size:13px;">
+        <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;"><table style="width:100%;min-width:480px;border-collapse:collapse;font-size:13px;">
           <thead><tr style="background:var(--navy);color:#fff;">
-            <th style="padding:10px 14px;text-align:left;font-weight:600;">기숙사명</th>
-            <th style="padding:10px 14px;text-align:center;font-weight:600;">요금(일)</th>
-            <th style="padding:10px 14px;text-align:center;font-weight:600;">월 환산</th>
-            <th style="padding:10px 14px;text-align:left;font-weight:600;">특징</th>
+            <th style="padding:10px 10px;text-align:left;font-weight:600;width:22%;">기숙사명</th>
+            <th style="padding:10px 10px;text-align:center;font-weight:600;width:22%;">요금(일)</th>
+            <th style="padding:10px 10px;text-align:center;font-weight:600;width:26%;">월 환산</th>
+            <th style="padding:10px 10px;text-align:left;font-weight:600;width:30%;">특징</th>
           </tr></thead>
           <tbody>
-            <tr style="border-bottom:1px solid var(--rule);"><td style="padding:10px 14px;font-weight:500;">Parfait International</td><td style="padding:10px 14px;text-align:center;color:var(--navy);font-weight:700;">57 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 1만 2,500원</span></td><td style="padding:10px 14px;text-align:center;">1,710 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 37만 6천원</span></td><td style="padding:10px 14px;color:var(--mid);">1인실+공용주방, 개인화장실</td></tr>
-            <tr style="border-bottom:1px solid var(--rule);background:#fafafa;"><td style="padding:10px 14px;font-weight:500;">Parfait Hotel &amp; Apt</td><td style="padding:10px 14px;text-align:center;color:var(--navy);font-weight:700;">80~90 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 1만 8천원</span></td><td style="padding:10px 14px;text-align:center;">2,400~2,700 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 53~60만원</span></td><td style="padding:10px 14px;color:var(--mid);">스튜디오/더블룸, 발코니</td></tr>
-            <tr style="border-bottom:1px solid var(--rule);"><td style="padding:10px 14px;font-weight:500;">MBA Apartments</td><td style="padding:10px 14px;text-align:center;color:var(--navy);font-weight:700;">50~54 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 1만 1천원</span></td><td style="padding:10px 14px;text-align:center;">1,500~1,620 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 33~36만원</span></td><td style="padding:10px 14px;color:var(--mid);">3인 공용, 공용화장실</td></tr>
-            <tr style="border-bottom:1px solid var(--rule);background:#fafafa;"><td style="padding:10px 14px;font-weight:500;">Scholar's Apartments</td><td style="padding:10px 14px;text-align:center;color:var(--navy);font-weight:700;">85~102 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 2만원</span></td><td style="padding:10px 14px;text-align:center;">2,550~3,060 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 56~67만원</span></td><td style="padding:10px 14px;color:var(--mid);">스튜디오/1베드, 세탁기 포함</td></tr>
-            <tr><td style="padding:10px 14px;font-weight:500;">Wenhua Apartments</td><td style="padding:10px 14px;text-align:center;color:var(--navy);font-weight:700;">57~62 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 1만 3천원</span></td><td style="padding:10px 14px;text-align:center;">1,710~1,860 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 37~41만원</span></td><td style="padding:10px 14px;color:var(--mid);">1인실, 개인화장실·발코니</td></tr>
+            <tr style="border-bottom:1px solid var(--rule);"><td style="padding:10px 14px;font-weight:500;">Parfait International</td><td style="padding:10px 14px;text-align:center;color:var(--navy);font-weight:700;">57 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 1만 2,500원</span></td><td style="padding:10px 14px;text-align:center;">1,710 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 37만 6천원</span></td><td style="padding:8px 10px;color:var(--mid);word-break:keep-all;">1인실+공용주방, 개인화장실</td></tr>
+            <tr style="border-bottom:1px solid var(--rule);background:#fafafa;"><td style="padding:10px 14px;font-weight:500;">Parfait Hotel &amp; Apt</td><td style="padding:10px 14px;text-align:center;color:var(--navy);font-weight:700;">80~90 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 1만 8천원</span></td><td style="padding:10px 14px;text-align:center;">2,400~2,700 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 53~60만원</span></td><td style="padding:8px 10px;color:var(--mid);word-break:keep-all;">스튜디오/더블룸, 발코니</td></tr>
+            <tr style="border-bottom:1px solid var(--rule);"><td style="padding:10px 14px;font-weight:500;">MBA Apartments</td><td style="padding:10px 14px;text-align:center;color:var(--navy);font-weight:700;">50~54 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 1만 1천원</span></td><td style="padding:10px 14px;text-align:center;">1,500~1,620 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 33~36만원</span></td><td style="padding:8px 10px;color:var(--mid);word-break:keep-all;">3인 공용, 공용화장실</td></tr>
+            <tr style="border-bottom:1px solid var(--rule);background:#fafafa;"><td style="padding:10px 14px;font-weight:500;">Scholar's Apartments</td><td style="padding:10px 14px;text-align:center;color:var(--navy);font-weight:700;">85~102 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 2만원</span></td><td style="padding:10px 14px;text-align:center;">2,550~3,060 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 56~67만원</span></td><td style="padding:8px 10px;color:var(--mid);word-break:keep-all;">스튜디오/1베드, 세탁기 포함</td></tr>
+            <tr><td style="padding:10px 14px;font-weight:500;">Wenhua Apartments</td><td style="padding:10px 14px;text-align:center;color:var(--navy);font-weight:700;">57~62 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 1만 3천원</span></td><td style="padding:10px 14px;text-align:center;">1,710~1,860 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 37~41만원</span></td><td style="padding:8px 10px;color:var(--mid);word-break:keep-all;">1인실, 개인화장실·발코니</td></tr>
           </tbody>
-        </table>
+        </table></div>
         <h3 class="adm-h" style="margin:28px 0 16px;">📍 Taicang 캠퍼스 (타이창)</h3>
         <table style="width:100%;border-collapse:collapse;font-size:13px;">
           <thead><tr style="background:var(--navy);color:#fff;">
@@ -631,7 +677,7 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
     <p class="label">ADMISSION</p>
     <h2 class="sec-h">입학안내</h2>
     <p class="sec-p">한국 학생 기준 입학 요건 및 지원 절차</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--rule);background:#fff;margin-top:48px;">
+    <div class="adm-resp-grid" style="display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--rule);background:#fff;margin-top:48px;">
 
   <!-- 왼쪽: 01 -->
   <div style="padding:40px 36px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);">
@@ -677,7 +723,7 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
   <div style="padding:40px 36px;">
     <div class="adm-num">04</div>
     <h3 class="adm-h">생활비 비교 (RMB/월)</h3>
-    <table style="width:100%;border-collapse:collapse;font-size:12px;margin-top:12px;">
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;"><table style="width:100%;border-collapse:collapse;font-size:11px;margin-top:12px;width:100%;">
       <thead><tr style="background:var(--navy);color:#fff;">
         <th style="padding:7px 10px;text-align:left;font-weight:500;">항목</th>
         <th style="padding:7px 10px;text-align:center;font-weight:500;">절약형<br><span style="font-size:10px;opacity:.7;">기숙사·학식</span></th>
@@ -697,7 +743,7 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
           <td style="padding:8px 10px;text-align:center;color:var(--navy);">9,600<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 215만원</span></td>
         </tr>
       </tbody>
-    </table>
+    </table></div>
     <p style="font-size:11px;color:var(--mid);margin-top:8px;font-family:'DM Mono',monospace;">* 비자발급 400 RMB · 서비스비 2,000 RMB/년 별도</p>
   </div>
 
@@ -787,16 +833,16 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
     </div>
     <div class="f-cols">
       <div class="f-col"><h4>QUICK MENU</h4><ul>
-        <li><a href="#information">학교소개</a></li>
-        <li><a href="#major">전공안내</a></li>
-        <li><a href="#calendar">학비·장학금</a></li>
-        <li><a href="#rooms">숙소</a></li>
-        <li><a href="#admission">입학안내</a></li>
-        <li><a href="#reviews">재학생후기</a></li>
+        <li><a href="information/">학교소개</a></li>
+        <li><a href="major/">전공안내</a></li>
+        <li><a href="tuition/">학비·장학금</a></li>
+        <li><a href="accommodation/">숙소</a></li>
+        <li><a href="admission/">입학안내</a></li>
+        <li><a href="reviews/">재학생후기</a></li>
       </ul></div>
       <div class="f-col"><h4>COMMUNITY</h4><ul>
         <li><a href="https://cafe.naver.com/tnsuhak.cafe" target="_blank">네이버 카페</a></li>
-        <li><a href="#inquiry">입학문의</a></li>
+        <li><a href="inquiry/">입학문의</a></li>
         <li><a href="https://youtu.be/B1Itiv_phbo" target="_blank">공식 유튜브</a></li>
       </ul></div>
     </div>
@@ -815,13 +861,13 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
 
 
 
+
 <script>
 // Q&A 토글
 function toggleQA(el) {
   var ans = el.nextElementSibling;
   ans.classList.toggle('open');
 }
-
 // 모바일 네비
 function toggleNav() {
   var m = document.getElementById('mobileNav');
@@ -837,7 +883,6 @@ document.addEventListener('click', function(e) {
     m.style.display = 'none';
   }
 });
-
 // 스크롤 페이드인
 var obs = new IntersectionObserver(function(entries) {
   entries.forEach(function(x) {
@@ -845,32 +890,16 @@ var obs = new IntersectionObserver(function(entries) {
   });
 }, { threshold: 0.08 });
 document.querySelectorAll('.fi').forEach(function(el) { obs.observe(el); });
-
-// 스크롤 시 nav 활성 메뉴
-var sections = ['information','major','calendar','rooms','admission','reviews','inquiry'];
-window.addEventListener('scroll', function() {
-  var pos = window.scrollY + 120;
-  sections.forEach(function(id) {
-    var el = document.getElementById(id);
-    var link = document.querySelector('a[href="#' + id + '"]');
-    if (!el || !link) return;
-    if (pos >= el.offsetTop && pos < el.offsetTop + el.offsetHeight) {
-      document.querySelectorAll('.nav-links a').forEach(function(a) { a.classList.remove('active'); });
-      link.classList.add('active');
-    }
-  });
-});
-
-// 재학생후기 유튜브 (첫 클릭에 바로 재생)
+// 재학생후기 유튜브
 window.addEventListener('DOMContentLoaded', function() {
-  [['rv1','c2h3t771rVk'], ['rv2','6eHbOLJ4ERg'], ['rv3','9iGRC82D3G0']].forEach(function(v) {
+  [['rv1','c2h3t771rVk'],['rv2','6eHbOLJ4ERg'],['rv3','9iGRC82D3G0']].forEach(function(v) {
     var wrap = document.getElementById(v[0]);
     if (!wrap) return;
     wrap.addEventListener('click', function() {
-      document.getElementById(v[0] + '-thumb').style.display = 'none';
-      document.getElementById(v[0] + '-btn').style.display = 'none';
-      var f = document.getElementById(v[0] + '-frame');
-      f.src = 'https://www.youtube.com/embed/' + v[1] + '?autoplay=1&rel=0';
+      document.getElementById(v[0]+'-thumb').style.display = 'none';
+      document.getElementById(v[0]+'-btn').style.display = 'none';
+      var f = document.getElementById(v[0]+'-frame');
+      f.src = 'https://www.youtube.com/embed/'+v[1]+'?autoplay=1&rel=0';
       f.style.display = 'block';
     });
   });

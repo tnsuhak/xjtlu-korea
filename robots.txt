@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# 네이버
+User-agent: Yeti
+Allow: /
+
+# 구글
+User-agent: Googlebot
+Allow: /
+
+# 다음
+User-agent: Daum
+Allow: /
+
+Sitemap: https://xjtlu-korea.netlify.app/sitemap.xml

@@ -1,0 +1,37 @@
+name: Compress XJTLU Korea hero title v2
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/one-off-compress-hero-title-v2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-hero-title:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update hero title layout
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('index.html')
+          text = path.read_text(encoding='utf-8')
+          old = '<h1 class="hero-title">시안교통<br><em>리버풀</em><br>대학교<span style="font-size:0.35em;display:block;color:rgba(255,255,255,.55);font-weight:400;letter-spacing:.05em;margin:6px 0;">(XJTLU)</span></h1>'
+          new = '<h1 class="hero-title">시안교통<br><em>리버풀</em>대학교<span style="font-size:0.35em;display:block;color:rgba(255,255,255,.55);font-weight:400;letter-spacing:.08em;margin:8px 0 0;">(XJTLU)</span></h1>'
+          if old not in text:
+              raise SystemExit('Target hero title snippet not found')
+          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git diff --cached --quiet && exit 0
+          git commit -m 'Compress XJTLU Korea hero title to three lines'
+          git push

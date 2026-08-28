@@ -1,0 +1,47 @@
+name: Remove XJTLU external links from Korea homepage
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/one-off-remove-main-official-links.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-homepage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Keep internal guides and remove XJTLU external links
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('index.html')
+          text = path.read_text(encoding='utf-8')
+
+          old_tuition = '''<div class="source-note"><a href="xjtlu-tuition-scholarships-2027.html"><strong>2027 학비·장학금 상세 가이드 →</strong></a><br><strong>2027 국제학생 모집자료 기준</strong> · 학비, 장학금, 지원 일정은 학교 정책과 환율에 따라 변경될 수 있습니다. 지원 전 <a href="https://www.xjtlu.edu.cn/en/admissions/global/fees-and-scholarships" target="_blank" rel="noopener">XJTLU 공식 학비·장학금 안내</a>와 최신 모집자료를 다시 확인해 주세요.</div>'''
+          new_tuition = '''<div class="source-note"><a href="xjtlu-tuition-scholarships-2027.html"><strong>2027 학비·장학금 상세 가이드 →</strong></a><br><strong>2027 국제학생 모집자료 기준</strong> · 학비, 장학금, 지원 일정은 학교 정책과 환율에 따라 변경될 수 있습니다. 최신 기준과 지원 가능 여부는 상세 가이드와 TNS유학 상담을 통해 확인해 주세요.</div>'''
+
+          old_admission = '''<div class="source-note"><a href="xjtlu-admission-requirements-korea-2027.html"><strong>2027 입학조건·편입 상세 가이드 →</strong></a><br><strong>공식 확인 링크</strong> · <a href="https://www.xjtlu.edu.cn/en/admissions/ug/global/entry-requirements" target="_blank" rel="noopener">입학요건</a> · <a href="https://www.xjtlu.edu.cn/en/admissions/global/qualifications" target="_blank" rel="noopener">국가별 학력요건</a> · <a href="https://www.xjtlu.edu.cn/en/admissions/global/accommodation" target="_blank" rel="noopener">숙소</a> · <a href="https://www.xjtlu.edu.cn/en/study/why-study-at-xjtlu/graduate-destinations" target="_blank" rel="noopener">졸업생 진로</a></div>'''
+          new_admission = '''<div class="source-note"><a href="xjtlu-admission-requirements-korea-2027.html"><strong>2027 입학조건·편입 상세 가이드 →</strong></a></div>'''
+
+          if old_tuition not in text:
+              raise SystemExit('Tuition source block not found')
+          if old_admission not in text:
+              raise SystemExit('Admission source block not found')
+
+          text = text.replace(old_tuition, new_tuition, 1)
+          text = text.replace(old_admission, new_admission, 1)
+          path.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git diff --cached --quiet && exit 0
+          git commit -m 'Remove XJTLU external links from Korea homepage'
+          git push

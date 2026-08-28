@@ -1,0 +1,44 @@
+name: Compact XJTLU Korea official sources
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/one-off-compact-official-sources.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-sources:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compact official source links
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('xjtlu-admission-requirements-korea-2027.html')
+          text = path.read_text(encoding='utf-8')
+
+          old_nav = '<a href="#sources">공식 출처</a>'
+          new_nav = '<a href="#sources">자료 출처</a>'
+          if old_nav in text:
+              text = text.replace(old_nav, new_nav, 1)
+
+          old = '''<section class="section sources" id="sources"><h2>공식 확인 자료</h2><ul><li><a href="https://www.xjtlu.edu.cn/en/admissions/ug/global/entry-requirements" target="_blank" rel="noopener">XJTLU 국제학생 입학요건</a></li><li><a href="https://www.xjtlu.edu.cn/en/admissions/global/qualifications" target="_blank" rel="noopener">XJTLU 국가별 학력요건</a></li><li><a href="https://www.xjtlu.edu.cn/en/admissions/global/how-to-apply" target="_blank" rel="noopener">XJTLU 지원방법</a></li></ul><p>공식 웹페이지는 현재 입학연도에 따라 갱신될 수 있습니다. 2027 학비와 마감일은 2027 국제학생 모집자료 기준으로 병행 확인했습니다.</p></section>'''
+          new = '''<section class="section" id="sources" style="margin-bottom:34px;"><p style="font-size:12px;color:var(--mid);line-height:1.9;margin:0;"><strong style="color:var(--navy);">자료 출처</strong> · 본 안내는 XJTLU 공식 국제학생 모집자료를 기준으로 작성했습니다. <a href="https://www.xjtlu.edu.cn/en/admissions/ug/global/entry-requirements" target="_blank" rel="noopener" style="color:#516b8f;">입학요건 ↗</a> · <a href="https://www.xjtlu.edu.cn/en/admissions/global/qualifications" target="_blank" rel="noopener" style="color:#516b8f;">국가별 학력요건 ↗</a><br>세부 지원 가능 여부와 원서 접수는 TNS유학을 통해 확인해 주세요.</p></section>'''
+          if old not in text:
+              raise SystemExit('Official sources block not found')
+          text = text.replace(old, new, 1)
+          path.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add xjtlu-admission-requirements-korea-2027.html
+          git diff --cached --quiet && exit 0
+          git commit -m 'Compact XJTLU official source links'
+          git push

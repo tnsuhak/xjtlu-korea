@@ -20,105 +20,12 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           from html import escape
+          import base64
           p=Path('xjtlu-programmes-careers-graduate-destinations.html')
           s=p.read_text(encoding='utf-8')
           s=s.replace('<p class="notice" style="margin-top:18px;">공식 웹페이지는 TOP 10·TOP 100 수치의 산정 대상을 별도로 자세히 설명하지 않습니다. 따라서 세 수치를 전체 졸업생 비율로 단순 합산하기보다, 학교가 공개한 대학원 진학 실적으로 이해하는 것이 안전합니다.</p>','')
           s=s.replace('<p class="notice" style="margin-top:18px;"><strong>국제학생 주의:</strong> 중국 내 취업 기회와 실제 근무 가능 여부는 같은 문제가 아닙니다. 외국인은 채용 조건과 함께 취업비자·근무 자격을 별도로 충족해야 합니다.</p>','')
-          raw='''대학교|국가|2023|2024|2025|전년 대비|2027 QS
-스탠퍼드대학교|미국|—|1|1|0|=2
-임페리얼 칼리지 런던|영국|233|243|244|+1|=2
-옥스퍼드대학교|영국|14|9|15|+6|4
-하버드대학교|미국|6|4|4|0|5
-케임브리지대학교|영국|18|23|30|+7|6
-UCL|영국|609|897|1,018|+121|=8
-취리히연방공과대학교(ETH)|스위스|—|1|—|—|=8
-싱가포르국립대학교(NUS)|싱가포르|42|103|104|+1|10
-홍콩대학교|홍콩|22|20|40|+20|11
-난양공과대학교(NTU)|싱가포르|15|31|42|+11|12
-펜실베니아대학교(유펜)|미국|25|21|20|-1|15
-예일대학교|미국|10|4|5|+1|=16
-코넬대학교|미국|17|22|20|-2|=16
-홍콩중문대학교|홍콩|8|3|10|+7|18
-뉴사우스웨일스대학교(UNSW)|호주|32|43|91|+48|19
-UC 버클리|미국|7|11|10|-1|=20
-존스홉킨스대학교|미국|33|70|67|-3|=20
-멜버른대학교|호주|28|65|61|-4|=22
-시카고대학교|미국|2|2|3|+1|24
-뮌헨공과대학교|독일|—|—|5|—|25
-시드니대학교|호주|311|537|282|-255|28
-호주국립대학교(ANU)|호주|21|6|15|+9|29
-맥길대학교|캐나다|1|—|3|—|30
-모나시대학교|호주|29|50|76|+26|31
-토론토대학교|캐나다|1|2|2|0|32
-홍콩과학기술대학교|홍콩|2|2|3|+1|33
-에든버러대학교|영국|119|105|152|+47|35
-킹스칼리지 런던|영국|27|21|41|+20|37
-맨체스터대학교|영국|168|179|153|-26|=40
-퀸즐랜드대학교|호주|43|33|25|-8|=40
-연세대학교|한국|1|—|—|—|42
-컬럼비아대학교|미국|67|106|127|+21|=43
-파리공과대학교(IP Paris)|프랑스|—|—|1|—|=43
-노스웨스턴대학교|미국|9|8|9|+1|=45
-브리티시컬럼비아대학교(UBC)|캐나다|1|1|—|—|45
-델프트공과대학교|네덜란드|4|1|—|—|48
-UCLA|미국|1|3|4|+1|49
-홍콩이공대학교|홍콩|2|5|5|0|50
-미시건대학교 앤아버|미국|13|18|7|-11|51
-홍콩시티대학교|홍콩|2|10|17|+7|=52
-카네기멜런대학교|미국|6|7|7|0|55
-말라야대학교|말레이시아|1|1|—|—|56
-브리스틀대학교|영국|126|102|119|+17|57
-뉴욕대학교(NYU)|미국|39|29|25|-4|58
-KU루벤대학교|벨기에|—|2|—|—|59
-암스테르담대학교|네덜란드|8|8|14|+6|60
-런던정치경제대학교(LSE)|영국|22|14|8|-6|62
-브라운대학교|미국|—|3|3|0|66
-오클랜드대학교|뉴질랜드|—|3|2|-1|67
-버밍엄대학교|영국|15|23|21|-2|=68
-워릭대학교|영국|175|70|70|0|=68
-듀크대학교|미국|14|12|10|-2|70
-룬드대학교|스웨덴|1|1|1|0|71
-텍사스대학교 오스틴|미국|—|1|—|—|72
-일리노이대학교 어바나-샴페인|미국|6|4|5|+1|74
-트리니티 칼리지 더블린|아일랜드|2|1|—|—|75
-리즈대학교|영국|22|7|9|+2|=77
-서호주대학교|호주|4|1|3|+2|=77
-애들레이드대학교|호주|—|1|2|+1|79
-글래스고대학교|영국|40|41|12|-29|80
-UC 샌디에이고|미국|13|8|11|+3|81
-셰필드대학교|영국|—|6|8|+2|=82
-스웨덴왕립공과대학교(KTH)|스웨덴|4|1|1|0|=82
-더럼대학교|영국|15|2|2|0|85
-시드니공과대학교(UTS)|호주|—|1|5|+4|=87
-코펜하겐대학교|덴마크|1|1|1|0|=90
-워싱턴대학교|미국|22|24|30|+6|=92
-펜실베이니아주립대학교|미국|2|1|—|—|=92
-보스턴대학교|미국|15|16|13|-3|94
-오사카대학교|일본|—|1|1|0|95
-노팅엄대학교|영국|—|—|9|—|97
-베를린자유대학교|독일|1|—|1|—|=98
-취리히대학교|스위스|2|—|—|—|=98
-런던 퀸메리대학교|영국|31|6|1|-5|103
-사우샘프턴대학교|영국|42|9|10|+1|=111
-위트레흐트대학교|네덜란드|—|—|1|—|=113
-세인트앤드루스대학교|영국|3|—|—|—|=115
-레이던대학교|네덜란드|1|4|1|-3|=119
-위스콘신대학교 매디슨|미국|3|1|2|+1|=131
-UC 데이비스|미국|—|2|—|—|137
-조지아공과대학교|미국|6|7|3|-4|=142
-서던캘리포니아대학교(USC)|미국|13|4|8|+4|153
-바헤닝언대학교|네덜란드|1|—|—|—|154
-흐로닝언대학교|네덜란드|—|1|—|—|157
-노스캐롤라이나대학교 채플힐|미국|1|—|—|—|=158
-세인트루이스 워싱턴대학교|미국|15|16|8|-8|=162
-바르셀로나대학교|스페인|1|—|—|—|=165
-UC 산타바바라|미국|—|2|1|-1|173
-에모리대학교|미국|—|1|—|—|183
-오하이오주립대학교|미국|—|1|1|0|=201
-플로리다대학교|미국|2|—|—|—|=228
-UC 어바인|미국|4|2|—|—|252
-피츠버그대학교|미국|1|2|1|-1|=279
-카롤린스카연구소|스웨덴|—|—|1|—|미등재'''
+          raw=base64.b64decode('64yA7ZWZ6rWQfOq1reqwgHwyMDIzfDIwMjR8MjAyNXzsoITrhYQg64yA67mEfDIwMjcgUVMK7Iqk7YOg7Y2865Oc64yA7ZWZ6rWQfOuvuOq1rXzigJR8MXwxfDB8PTIK7J6E7Y6Y66as7Ja8IOy5vOumrOyngCDrn7DrjZh87JiB6rWtfDIzM3wyNDN8MjQ0fCsxfD0yCuyYpeyKpO2NvOuTnOuMgO2Vmeq1kHzsmIHqta18MTR8OXwxNXwrNnw0Cu2VmOuyhOuTnOuMgO2Vmeq1kHzrr7jqta18Nnw0fDR8MHw1Cuy8gOyehOu4jOumrOyngOuMgO2Vmeq1kHzsmIHqta18MTh8MjN8MzB8Kzd8NgpVQ0x87JiB6rWtfDYwOXw4OTd8MSwwMTh8KzEyMXw9OArst6jrpqztnojsl7DrsKnqs7Xqs7zrjIDtlZnqtZAoRVRIKXzsiqTsnITsiqR84oCUfDF84oCUfOKAlHw9OArsi7HqsIDtj6zrpbTqta3rpr3rjIDtlZnqtZAoTlVTKXzsi7HqsIDtj6zrpbR8NDJ8MTAzfDEwNHwrMXwxMArtmY3svanrjIDtlZnqtZB87ZmN7L2pfDIyfDIwfDQwfCsyMHwxMQrrgpzslpHqs7Xqs7zrjIDtlZnqtZAoTlRVKXzsi7HqsIDtj6zrpbR8MTV8MzF8NDJ8KzExfDEyCu2OnOyLpOuyoOuLiOyVhOuMgO2Vmeq1kCjsnKDtjpwpfOuvuOq1rXwyNXwyMXwyMHwtMXwxNQrsmIjsnbzrjIDtlZnqtZB866+46rWtfDEwfDR8NXwrMXw9MTYK7L2U64Ss64yA7ZWZ6rWQfOuvuOq1rXwxN3wyMnwyMHwtMnw9MTYK7ZmN7L2p7KSR66y464yA7ZWZ6rWQfO2Zjey9qXw4fDN8MTB8Kzd8MTgK64m07IKs7Jqw7Iqk7Juo7J287Iqk64yA7ZWZ6rWQKFVOU1cpfO2YuOyjvHwzMnw0M3w5MXwrNDh8MTkKVUMg67KE7YG066asfOuvuOq1rXw3fDExfDEwfC0xfD0yMArsobTsiqTtmYntgqjsiqTrjIDtlZnqtZB866+46rWtfDMzfDcwfDY3fC0zfD0yMArrqZzrsoTrpbjrjIDtlZnqtZB87Zi47KO8fDI4fDY1fDYxfC00fD0yMgrsi5zsubTqs6DrjIDtlZnqtZB866+46rWtfDJ8MnwzfCsxfDI0CuuujO2XqOqzteqzvOuMgO2Vmeq1kHzrj4Xsnbx84oCUfOKAlHw1fOKAlHwyNQrsi5zrk5zri4jrjIDtlZnqtZB87Zi47KO8fDMxMXw1Mzd8MjgyfC0yNTV8MjgK7Zi47KO86rWt66a964yA7ZWZ6rWQKEFOVSl87Zi47KO8fDIxfDZ8MTV8Kzl8MjkK66el6ri464yA7ZWZ6rWQfOy6kOuCmOuLpHwxfOKAlHwzfOKAlHwzMArrqqjrgpjsi5zrjIDtlZnqtZB87Zi47KO8fDI5fDUwfDc2fCsyNnwzMQrthqDroaDthqDrjIDtlZnqtZB87LqQ64KY64ukfDF8MnwyfDB8MzIK7ZmN7L2p6rO87ZWZ6riw7Iig64yA7ZWZ6rWQfO2Zjey9qXwyfDJ8M3wrMXwzMwrsl5Drk6DrsoTrn6zrjIDtlZnqtZB87JiB6rWtfDExOXwxMDV8MTUyfCs0N3wzNQrtgrnsiqTsubzrpqzsp4Ag65+w642YfOyYgeq1rXwyN3wyMXw0MXwrMjB8MzcK66eo7LK07Iqk7YSw64yA7ZWZ6rWQfOyYgeq1rXwxNjh8MTc5fDE1M3wtMjZ8PTQwCu2AuOymkOuenOuTnOuMgO2Vmeq1kHztmLjso7x8NDN8MzN8MjV8LTh8PTQwCuyXsOyEuOuMgO2Vmeq1kHztlZzqta18MXzigJR84oCUfOKAlHw0Mgrsu6zrn7zruYTslYTrjIDtlZnqtZB866+46rWtfDY3fDEwNnwxMjd8KzIxfD00MwrtjIzrpqzqs7Xqs7zrjIDtlZnqtZAoSVAgUGFyaXMpfO2UhOuekeyKpHzigJR84oCUfDF84oCUfD00MwrrhbjsiqTsm6jsiqTthLTrjIDtlZnqtZB866+46rWtfDl8OHw5fCsxfD00NQrruIzrpqzti7Dsi5zsu6zrn7zruYTslYTrjIDtlZnqtZAoVUJDKXzsupDrgpjri6R8MXwxfOKAlHzigJR8NDUK64247ZSE7Yq46rO16rO864yA7ZWZ6rWQfOuEpOuNnOuegOuTnHw0fDF84oCUfOKAlHw0OApVQ0xBfOuvuOq1rXwxfDN8NHwrMXw0OQrtmY3svansnbTqs7XrjIDtlZnqtZB87ZmN7L2pfDJ8NXw1fDB8NTAK66+47Iuc6rG064yA7ZWZ6rWQIOyVpOyVhOuyhHzrr7jqta18MTN8MTh8N3wtMTF8NTEK7ZmN7L2p7Iuc7Yuw64yA7ZWZ6rWQfO2Zjey9qXwyfDEwfDE3fCs3fD01MgrsubTrhKTquLDrqZzrn7DrjIDtlZnqtZB866+46rWtfDZ8N3w3fDB8NTUK66eQ65287JW864yA7ZWZ6rWQfOunkOugiOydtOyLnOyVhHwxfDF84oCUfOKAlHw1NgrruIzrpqzsiqTti4DrjIDtlZnqtZB87JiB6rWtfDEyNnwxMDJ8MTE5fCsxN3w1NwrribTsmpXrjIDtlZnqtZAoTllVKXzrr7jqta18Mzl8Mjl8MjV8LTR8NTgKS1Xro6jrsqTrjIDtlZnqtZB867Ko6riw7JeQfOKAlHwyfOKAlHzigJR8NTkK7JWU7Iqk7YWM66W064u064yA7ZWZ6rWQfOuEpOuNnOuegOuTnHw4fDh8MTR8KzZ8NjAK65+w642Y7KCV7LmY6rK97KCc64yA7ZWZ6rWQKExTRSl87JiB6rWtfDIyfDE0fDh8LTZ8NjIK67iM65287Jq064yA7ZWZ6rWQfOuvuOq1rXzigJR8M3wzfDB8NjYK7Jik7YG0656c65Oc64yA7ZWZ6rWQfOuJtOyniOuenOuTnHzigJR8M3wyfC0xfDY3CuuyhOuwjeyXhOuMgO2Vmeq1kHzsmIHqta18MTV8MjN8MjF8LTJ8PTY4CuybjOumreuMgO2Vmeq1kHzsmIHqta18MTc1fDcwfDcwfDB8PTY4CuuTgO2BrOuMgO2Vmeq1kHzrr7jqta18MTR8MTJ8MTB8LTJ8NzAK66Os65Oc64yA7ZWZ6rWQfOyKpOybqOuNtHwxfDF8MXwwfDcxCu2FjeyCrOyKpOuMgO2Vmeq1kCDsmKTsiqTti7R866+46rWtfOKAlHwxfOKAlHzigJR8NzIK7J2866as64W47J2064yA7ZWZ6rWQIOyWtOuwlOuCmC3sg7Ttjpjsnbh866+46rWtfDZ8NHw1fCsxfDc0Cu2KuOumrOuLiO2LsCDsubzrpqzsp4Ag642U67iU66awfOyVhOydvOuenOuTnHwyfDF84oCUfOKAlHw3NQrrpqzspojrjIDtlZnqtZB87JiB6rWtfDIyfDd8OXwrMnw9NzcK7ISc7Zi47KO864yA7ZWZ6rWQfO2YuOyjvHw0fDF8M3wrMnw9NzcK7JWg65Ok66CI7J2065Oc64yA7ZWZ6rWQfO2YuOyjvHzigJR8MXwyfCsxfDc5Cuq4gOuemOyKpOqzoOuMgO2Vmeq1kHzsmIHqta18NDB8NDF8MTJ8LTI5fDgwClVDIOyDjOuUlOyXkOydtOqzoHzrr7jqta18MTN8OHwxMXwrM3w4MQrshbDtlYTrk5zrjIDtlZnqtZB87JiB6rWtfOKAlHw2fDh8KzJ8PTgyCuyKpOybqOuNtOyZleumveqzteqzvOuMgO2Vmeq1kChLVEgpfOyKpOybqOuNtHw0fDF8MXwwfD04MgrrjZTrn7zrjIDtlZnqtZB87JiB6rWtfDE1fDJ8MnwwfDg1CuyLnOuTnOuLiOqzteqzvOuMgO2Vmeq1kChVVFMpfO2YuOyjvHzigJR8MXw1fCs0fD04NwrsvZTtjpztlZjqspDrjIDtlZnqtZB8642066eI7YGsfDF8MXwxfDB8PTkwCuybjOyLse2EtOuMgO2Vmeq1kHzrr7jqta18MjJ8MjR8MzB8KzZ8PTkyCu2OnOyLpOuyoOydtOuLiOyVhOyjvOumveuMgO2Vmeq1kHzrr7jqta18MnwxfOKAlHzigJR8PTkyCuuztOyKpO2EtOuMgO2Vmeq1kHzrr7jqta18MTV8MTZ8MTN8LTN8OTQK7Jik7IKs7Lm064yA7ZWZ6rWQfOydvOuzuHzigJR8MXwxfDB8OTUK64W47YyF7JeE64yA7ZWZ6rWQfOyYgeq1rXzigJR84oCUfDl84oCUfDk3CuuyoOulvOumsOyekOycoOuMgO2Vmeq1kHzrj4Xsnbx8MXzigJR8MXzigJR8PTk4Cuy3qOumrO2eiOuMgO2Vmeq1kHzsiqTsnITsiqR8MnzigJR84oCUfOKAlHw9OTgK65+w642YIO2AuOuplOumrOuMgO2Vmeq1kHzsmIHqta18MzF8NnwxfC01fDEwMwrsgqzsmrDsg5jtlITthLTrjIDtlZnqtZB87JiB6rWtfDQyfDl8MTB8KzF8PTExMQrsnITtirjroIjtnZDtirjrjIDtlZnqtZB864Sk642c656A65OcfOKAlHzigJR8MXzigJR8PTExMwrshLjsnbjtirjslaTrk5zro6jsiqTrjIDtlZnqtZB87JiB6rWtfDN84oCUfOKAlHzigJR8PTExNQrroIjsnbTrjZjrjIDtlZnqtZB864Sk642c656A65OcfDF8NHwxfC0zfD0xMTkK7JyE7Iqk7L2Y7Iug64yA7ZWZ6rWQIOunpOuUlOyKqHzrr7jqta18M3wxfDJ8KzF8PTEzMQpVQyDrjbDsnbTruYTsiqR866+46rWtfOKAlHwyfOKAlHzigJR8MTM3CuyhsOyngOyVhOqzteqzvOuMgO2Vmeq1kHzrr7jqta18Nnw3fDN8LTR8PTE0MgrshJzrjZjsupjrpqztj6zri4jslYTrjIDtlZnqtZAoVVNDKXzrr7jqta18MTN8NHw4fCs0fDE1MwrrsJTtl6Tri53slrjrjIDtlZnqtZB864Sk642c656A65OcfDF84oCUfOKAlHzigJR8MTU0Cu2dkOuhnOuLneyWuOuMgO2Vmeq1kHzrhKTrjZzrnoDrk5x84oCUfDF84oCUfOKAlHwxNTcK64W47Iqk7LqQ66Gk65287J2064KY64yA7ZWZ6rWQIOyxhO2UjO2ekHzrr7jqta18MXzigJR84oCUfOKAlHw9MTU4CuyEuOyduO2KuOujqOydtOyKpCDsm4zsi7HthLTrjIDtlZnqtZB866+46rWtfDE1fDE2fDh8LTh8PTE2MgrrsJTrpbTshYDroZzrgpjrjIDtlZnqtZB87Iqk7Y6Y7J24fDF84oCUfOKAlHzigJR8PTE2NQpVQyDsgrDtg4DrsJTrsJTrnbx866+46rWtfOKAlHwyfDF8LTF8MTczCuyXkOuqqOumrOuMgO2Vmeq1kHzrr7jqta184oCUfDF84oCUfOKAlHwxODMK7Jik7ZWY7J207Jik7KO866a964yA7ZWZ6rWQfOuvuOq1rXzigJR8MXwxfDB8PTIwMQrtlIzroZzrpqzri6TrjIDtlZnqtZB866+46rWtfDJ84oCUfOKAlHzigJR8PTIyOApVQyDslrTrsJTsnbh866+46rWtfDR8MnzigJR84oCUfDI1MgrtlLzsuKDrsoTqt7jrjIDtlZnqtZB866+46rWtfDF8MnwxfC0xfD0yNzkK7Lm066Gk66aw7Iqk7Lm07Jew6rWs7IaMfOyKpOybqOuNtHzigJR84oCUfDF84oCUfOuvuOuTseyerA==').decode('utf-8')
           rows=[line.split('|') for line in raw.splitlines()[1:]]
           trs=[]
           for name,country,y23,y24,y25,delta,rank in rows:

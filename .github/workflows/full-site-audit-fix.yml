@@ -33,12 +33,32 @@ jobs:
               s = s.replace(marker, note + marker)
           p.write_text(s, encoding='utf-8')
           PY
+      - name: Add noopener to target blank links
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          files = [Path('index.html'), Path('xjtlu-admission-requirements-korea-2027.html'), Path('xjtlu-tuition-scholarships-2027.html'), Path('xjtlu-dual-degree-liverpool-2plus2.html')]
+          def fix_tag(m):
+              tag=m.group(0)
+              rel=re.search(r'\brel=(["\'])(.*?)\1', tag, re.I)
+              if rel:
+                  vals=rel.group(2).split()
+                  if 'noopener' not in vals:
+                      vals.append('noopener')
+                      tag=tag[:rel.start(2)]+' '.join(vals)+tag[rel.end(2):]
+                  return tag
+              return tag[:-1]+' rel="noopener">'
+          for p in files:
+              s=p.read_text(encoding='utf-8')
+              s=re.sub(r'<a\b[^>]*\btarget=(["\'])_blank\1[^>]*>', fix_tag, s, flags=re.I)
+              p.write_text(s,encoding='utf-8')
+          PY
       - name: Run static site audit
         run: |
           python - <<'PY'
           from pathlib import Path
           from html.parser import HTMLParser
-          from urllib.parse import urlparse
           import json, re, xml.etree.ElementTree as ET
 
           html_files = [
@@ -70,7 +90,9 @@ jobs:
               if len(re.findall(r'<meta[^>]+name=["\']description["\']',s,re.I)) != 1: errors.append(f'{p}: meta description count')
               for term in ('브로셔','모집자료','transfer-to-the-university-of-liverpool'):
                   if term in s: errors.append(f'{p}: forbidden/stale term {term}')
-              for block in re.findall(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',s,re.I|re.S):
+              blocks=re.findall(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',s,re.I|re.S)
+              if not blocks: errors.append(f'{p}: no JSON-LD')
+              for block in blocks:
                   try: json.loads(block)
                   except Exception as e: errors.append(f'{p}: invalid JSON-LD {e}')
               parser=P(); parser.feed(s)
@@ -84,8 +106,7 @@ jobs:
                   if not u or u.startswith(('#','http://','https://','tel:','mailto:','javascript:','data:')): continue
                   path=u.split('#',1)[0].split('?',1)[0]
                   if not path: continue
-                  if path=='/': target=Path('index.html')
-                  else: target=Path(path.lstrip('/'))
+                  target=Path('index.html') if path=='/' else Path(path.lstrip('/'))
                   if not target.exists(): errors.append(f'{p}: broken local ref {u}')
               for u in parser.hrefs:
                   if u.startswith('#') and u[1:] and u[1:] not in set(parser.ids): errors.append(f'{p}: missing anchor {u}')
@@ -117,13 +138,13 @@ jobs:
           if errors:
               print('\n'.join('ERROR: '+x for x in errors))
               raise SystemExit(1)
-          print('AUDIT PASS: 4 HTML pages, JSON-LD, local links/assets, anchors, canonical/meta/H1, sitemap/robots, source policy and Taicang route.')
+          print('AUDIT PASS: 4 HTML pages, JSON-LD, local links/assets, anchors, canonical/meta/H1, sitemap/robots, target-blank security, source policy and Taicang route.')
           PY
-      - name: Commit fix and remove one-off workflow
+      - name: Commit fixes and remove one-off workflow
         run: |
           git config user.name "tnsuhak"
           git config user.email "tnsuhak@gmail.com"
           git rm .github/workflows/full-site-audit-fix.yml
-          git add xjtlu-dual-degree-liverpool-2plus2.html
-          git commit -m "Fix Taicang Year 1 campus and pass full site audit"
+          git add index.html xjtlu-admission-requirements-korea-2027.html xjtlu-tuition-scholarships-2027.html xjtlu-dual-degree-liverpool-2plus2.html
+          git commit -m "Fix audit issues across XJTLU Korea preview"
           git push origin HEAD:seo/xjtlu-dual-degree-2plus2

@@ -1,0 +1,68 @@
+name: Simplify FAQ copy on 2+2 preview
+
+on:
+  push:
+    branches:
+      - seo/xjtlu-dual-degree-2plus2
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: seo/xjtlu-dual-degree-2plus2
+      - name: Simplify FAQ wording
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('xjtlu-dual-degree-liverpool-2plus2.html')
+          s = p.read_text(encoding='utf-8')
+
+          replacements = {
+            '"name":"XJTLU에서 4년을 모두 공부해도 리버풀대학교 학위를 받나요?","acceptedAnswer":{"@type":"Answer","text":"일반적인 학부과정은 졸업요건을 충족하면 XJTLU 학위와 영국 리버풀대학교 학위를 함께 취득합니다. 다만 XJTLU의 학위수여 권한이 승인된 해당 전공인지 반드시 확인해야 합니다."}':
+            '"name":"2+2를 하지 않아도 리버풀대학교 학위를 받을 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"네. 대부분의 XJTLU 학부과정은 중국에서 4년을 모두 공부해도 졸업요건을 충족하면 XJTLU 학위와 영국 리버풀대학교 학위를 함께 받습니다. 다만 전공에 따라 차이가 있을 수 있으므로 지원 전공에서 두 학위를 모두 받을 수 있는지 확인해 주세요."}',
+
+            '"name":"XJTLU 복수학위와 2+2 과정은 같은 제도인가요?","acceptedAnswer":{"@type":"Answer","text":"아닙니다. 복수학위는 취득 학위 구조이고, 2+2는 1·2학년을 XJTLU에서 공부한 뒤 3·4학년을 영국 리버풀대학교에서 이수하는 선택형 이동 경로입니다."}':
+            '"name":"2+2는 교환학생인가요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 교환학생처럼 한 학기나 1년만 다녀오는 과정이 아닙니다. 보통 1·2학년은 XJTLU에서 공부하고, 3·4학년은 영국 리버풀대학교에서 이어서 전공을 공부하는 방식입니다."}',
+
+            '"name":"모든 XJTLU 전공에서 2+2가 가능한가요?","acceptedAnswer":{"@type":"Answer","text":"대부분의 전공에 연계 경로가 있지만 모든 전공과 조합이 동일하지는 않습니다. 현재 전공에 대응하는 리버풀대학교 과정과 진입조건을 개별 확인해야 합니다."}':
+            '"name":"희망 전공도 2+2가 가능한가요?","acceptedAnswer":{"@type":"Answer","text":"전공마다 다릅니다. XJTLU에서 선택한 전공과 리버풀대학교의 연결 전공이 있는지, 영국으로 이동하기 위해 필요한 성적이나 과목 조건이 무엇인지 확인해야 합니다. 희망 전공과 현재 학력을 알려주시면 TNS유학에서 현재 기준으로 확인해 드립니다."}',
+
+            '"name":"2+2 학생은 리버풀대학교 학비 할인을 받나요?","acceptedAnswer":{"@type":"Answer","text":"XJTLU 재학생이 3·4학년을 리버풀대학교로 이동하는 2+2 경로를 선택하면 리버풀대학교 국제학생 학비에서 10% 할인이 안내되어 있습니다."}':
+            '"name":"2+2 비용은 중국에서 4년 공부할 때와 같은가요?","acceptedAnswer":{"@type":"Answer","text":"아닙니다. 중국에서 공부할 때는 XJTLU 학비와 생활비가 적용되고, 영국으로 이동한 3·4학년에는 리버풀대학교 국제학생 학비와 영국 생활비를 부담합니다. 대신 XJTLU 2+2 학생은 리버풀대학교 학비 10% 할인을 받을 수 있습니다."}',
+
+            '<details><summary>2+2를 하지 않아도 리버풀대학교 졸업장이 나오나요?</summary><p>일반적인 대상 학부과정에서는 그렇습니다. XJTLU에서 4년을 이수하더라도 졸업요건을 충족하면 XJTLU와 리버풀대학교 학위를 함께 취득합니다. 다만 지원 전공의 학위수여 형태는 반드시 확인해야 합니다.</p></details>':
+            '<details><summary>2+2를 하지 않아도 리버풀대학교 학위를 받을 수 있나요?</summary><p>네. 대부분의 XJTLU 학부과정은 중국에서 4년을 모두 공부해도 졸업요건을 충족하면 XJTLU 학위와 영국 리버풀대학교 학위를 함께 받습니다. 다만 전공에 따라 차이가 있을 수 있으므로 지원 전공에서 두 학위를 모두 받을 수 있는지 확인해 주세요.</p></details>',
+
+            '<details><summary>2+2는 교환학생인가요?</summary><p>단기 교환학생과 다릅니다. 1·2학년을 XJTLU에서 이수한 뒤 3·4학년을 리버풀대학교의 연계 학위과정에서 완료하는 경로입니다.</p></details>':
+            '<details><summary>2+2는 교환학생인가요?</summary><p>아니요. 교환학생처럼 한 학기나 1년만 다녀오는 과정이 아닙니다. 보통 1·2학년은 XJTLU에서 공부하고, 3·4학년은 영국 리버풀대학교에서 이어서 전공을 공부하는 방식입니다.</p></details>',
+
+            '<details><summary>2+2 비용은 중국 4년과 같은가요?</summary><p>아닙니다. 영국에서 공부하는 3·4학년에는 리버풀대학교 국제학생 학비와 영국 생활비가 적용됩니다. XJTLU 2+2 학생에게 리버풀대학교 학비 10% 할인이 안내되어 있습니다.</p></details>':
+            '<details><summary>2+2 비용은 중국에서 4년 공부할 때와 같은가요?</summary><p>아닙니다. 중국에서 공부할 때는 XJTLU 학비와 생활비가 적용되고, 영국으로 이동한 3·4학년에는 리버풀대학교 국제학생 학비와 영국 생활비를 부담합니다. 대신 XJTLU 2+2 학생은 리버풀대학교 학비 10% 할인을 받을 수 있습니다.</p></details>',
+
+            '<details><summary>희망 전공의 2+2 가능 여부는 어떻게 확인하나요?</summary><p>XJTLU 전공과 연결되는 리버풀대학교 과정, 학업 진입조건, 과목 구성을 개별 확인해야 합니다. TNS유학 상담 시 희망 전공을 알려주시면 현재 공식 과정 기준으로 확인해 드립니다.</p></details>':
+            '<details><summary>희망 전공도 2+2가 가능한가요?</summary><p>전공마다 다릅니다. XJTLU에서 선택한 전공과 리버풀대학교의 연결 전공이 있는지, 영국으로 이동하기 위해 필요한 성적이나 과목 조건이 무엇인지 확인해야 합니다. 희망 전공과 현재 학력을 알려주시면 TNS유학에서 현재 기준으로 확인해 드립니다.</p></details>'
+          }
+
+          changed = 0
+          for old, new in replacements.items():
+              if old in s:
+                  s = s.replace(old, new)
+                  changed += 1
+
+          if changed < 8:
+              raise SystemExit(f'Expected 8 FAQ replacements, made {changed}')
+
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit preview changes
+        run: |
+          git config user.name "tnsuhak"
+          git config user.email "tnsuhak@gmail.com"
+          git add xjtlu-dual-degree-liverpool-2plus2.html
+          git commit -m "Rewrite 2+2 FAQ in plain Korean"
+          git push origin HEAD:seo/xjtlu-dual-degree-2plus2

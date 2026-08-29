@@ -1,0 +1,73 @@
+name: Correct Taicang 2+1+1 section on preview
+
+on:
+  push:
+    branches:
+      - seo/xjtlu-dual-degree-2plus2
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: seo/xjtlu-dual-degree-2plus2
+      - name: Rewrite Taicang 2+1+1 section from Liverpool official source
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('xjtlu-dual-degree-liverpool-2plus2.html')
+          s = p.read_text(encoding='utf-8')
+
+          s = s.replace(
+            'XJTLU 복수학위와 리버풀대학교 2+2 차이, 중국 4년과 영국 2+2의 학비·숙소비 구조, 취득 학위, 타이창 2+1+1 대상 전공을 2027 공식 자료 기준으로 정리했습니다.',
+            'XJTLU 복수학위와 리버풀대학교 2+2 차이, 중국 4년과 영국 2+2의 학비·숙소비, 타이창 2+1+1 대상 전공과 학업 경로를 공식 자료 기준으로 정리했습니다.'
+          )
+
+          new_section = '''<section class="section"><h2>타이창 학생을 위한 2+1+1</h2><p class="lead"><strong>2+1+1은 XJTLU 타이창 캠퍼스의 일부 전공 학생이 3학년 1년을 영국 리버풀대학교에서 공부한 뒤, 4학년에 다시 타이창으로 돌아와 졸업하는 프로그램입니다.</strong> 1·2학년은 XJTLU Entrepreneur College(Taicang), 3학년은 University of Liverpool, 4학년은 다시 타이창에서 공부합니다.</p><div class="route"><div><b>1학년</b><span>XJTLU · 타이창</span></div><i>→</i><div><b>2학년</b><span>XJTLU · 타이창</span></div><i>→</i><div><b>3학년</b><span>University of Liverpool</span></div><i>→</i><div><b>4학년</b><span>XJTLU · 타이창</span></div></div><p class="lead" style="margin-top:22px;">3학년에는 리버풀대학교에서 전공에 맞춰 구성된 수업을 듣고, 4학년에는 타이창으로 돌아와 기업 파트너와 연결된 졸업 프로젝트를 진행합니다. 졸업하면 <strong>중국 XJTLU 학위 + 영국 리버풀대학교 학위</strong>를 함께 받습니다.</p><div class="grid"><article class="card"><span class="tag">현재 공식 대상 전공</span><h3>2+1+1이 가능한 3개 전공</h3><ul><li><strong>Data Science and Big Data Technology</strong><br>데이터사이언스·빅데이터</li><li><strong>Intelligent Supply Chain</strong><br>지능형 공급망</li><li><strong>Artificial Intelligence (Advanced Industrial Artificial Intelligence)</strong><br>인공지능·첨단 산업 AI</li></ul><p>타이창의 모든 전공이 2+1+1 대상은 아닙니다. 현재 University of Liverpool 공식 안내에는 위 3개 전공이 명시되어 있습니다.</p></article><article class="card"><span class="tag">2026 영국 1년 비용</span><h3>리버풀 3학년 학비</h3><p>2026 기준 학비는 <strong>£27,000</strong> <span style="color:var(--mid);font-size:12px;">(약 5,033만원)</span>이며, XJTLU에서 리버풀로 진학하는 학생은 기본 <strong>10% 학비 할인</strong>을 받아 <strong>£24,300</strong> <span style="color:var(--mid);font-size:12px;">(약 4,530만원)</span>이 됩니다.</p><p>또한 전공 내 <strong>상위 5%</strong>이면서 STEM 전공 평균 <strong>80% 이상</strong> 또는 비STEM 전공 평균 <strong>70% 이상</strong>인 학생은 리버풀대학교 Vice-Chancellor’s Merit Scholarship으로 <strong>학비 30% 할인</strong>을 받을 수 있습니다. 이 장학금은 기본 10% 할인과 중복 적용되지 않습니다.</p></article></div><div class="notice" style="margin-top:18px;"><strong>신청 시점:</strong> 2학년(Stage 2) 재학 중 신청할 수 있으며, 현재 공식 안내의 신청 기간은 1월~4월입니다. 실제 지원 시에는 해당 연도의 대상 전공, 성적조건, 학비를 다시 확인합니다.</div></section>'''
+
+          pattern = r'<section class="section"><h2>타이창 2\+1\+1은 별도 경로</h2>.*?</section>'
+          s2, n = re.subn(pattern, new_section, s, count=1, flags=re.S)
+          if n != 1:
+              raise SystemExit(f'Taicang section replacement count={n}')
+          s = s2
+
+          old_source = '<a href="https://www.xjtlu.edu.cn/en/study/undergraduate/" target="_blank" rel="noopener" style="color:#516b8f;">타이창 전공 ↗</a>'
+          new_source = '<a href="https://www.liverpool.ac.uk/xjtlu/study-in-liverpool/2-1-1-programme/" target="_blank" rel="noopener" style="color:#516b8f;">타이창 2+1+1 ↗</a>'
+          if old_source in s:
+              s = s.replace(old_source, new_source)
+          elif 'https://www.liverpool.ac.uk/xjtlu/study-in-liverpool/2-1-1-programme/' not in s:
+              raise SystemExit('Taicang source link target not found')
+
+          required = [
+            '타이창 학생을 위한 2+1+1',
+            '2+1+1이 가능한 3개 전공',
+            'Intelligent Supply Chain',
+            'Artificial Intelligence (Advanced Industrial Artificial Intelligence)',
+            '£24,300',
+            '학비 30% 할인',
+            '1월~4월',
+            '2-1-1-programme/'
+          ]
+          missing = [x for x in required if x not in s]
+          if missing:
+              raise SystemExit('Missing expected content: ' + ', '.join(missing))
+
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit preview changes
+        run: |
+          git config user.name "tnsuhak"
+          git config user.email "tnsuhak@gmail.com"
+          git add xjtlu-dual-degree-liverpool-2plus2.html
+          if git diff --cached --quiet; then
+            echo "No content changes"
+            exit 0
+          fi
+          git commit -m "Correct Taicang 2+1+1 programme details"
+          git push origin HEAD:seo/xjtlu-dual-degree-2plus2

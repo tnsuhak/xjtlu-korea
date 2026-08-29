@@ -1,0 +1,66 @@
+name: Add KRW conversions and early-bird tuition on preview
+
+on:
+  push:
+    branches:
+      - seo/xjtlu-dual-degree-2plus2
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: seo/xjtlu-dual-degree-2plus2
+      - name: Update KRW references
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('xjtlu-dual-degree-liverpool-2plus2.html')
+          s = p.read_text(encoding='utf-8')
+
+          s = s.replace(
+            '<strong>2027년 99,000 RMB</strong><br><span style="color:var(--mid);font-size:12px;">장학금·얼리버드 적용 전</span>',
+            '<strong>2027년 99,000 RMB</strong> <span style="color:var(--mid);font-size:12px;">(약 2,027만원)</span><br><strong style="color:#8a6b20;">얼리버드 10% 적용 시 89,100 RMB</strong> <span style="color:var(--mid);font-size:12px;">(약 1,824만원)</span><br><span style="color:var(--mid);font-size:12px;">얼리버드 적용 조건 충족 시 · 입학 장학금은 별도 심사</span>'
+          )
+          s = s.replace(
+            '<strong>현재 공개 2026/27 기준 약 £27,000~£32,000/년</strong><br><span style="color:var(--mid);font-size:12px;">전공별 차이 · XJTLU 2+2 학생 10% 할인 시 약 £24,300~£28,800/년. 2027/28 이후 금액은 추후 공식 발표 기준</span>',
+            '<strong>현재 공개 2026/27 기준 약 £27,000~£32,000/년</strong> <span style="color:var(--mid);font-size:12px;">(약 5,033만~5,965만원)</span><br><strong style="color:#8a6b20;">XJTLU 2+2 학생 10% 할인 시 약 £24,300~£28,800/년</strong> <span style="color:var(--mid);font-size:12px;">(약 4,530만~5,368만원)</span><br><span style="color:var(--mid);font-size:12px;">전공별 차이 · 2027/28 이후 금액은 추후 공식 발표 기준</span>'
+          )
+          s = s.replace(
+            'SIP 대표 옵션 약 <strong>1,500~3,060 RMB/월</strong><br><span style="color:var(--mid);font-size:12px;">객실 유형에 따라 차이</span>',
+            'SIP 대표 옵션 약 <strong>1,500~3,060 RMB/월</strong> <span style="color:var(--mid);font-size:12px;">(약 31만~63만원/월)</span><br><span style="color:var(--mid);font-size:12px;">객실 유형에 따라 차이</span>'
+          )
+          s = s.replace(
+            '현재 공개 2026/27 39주 계약 기준 약 <strong>£4,290~£10,942</strong><br><span style="color:var(--mid);font-size:12px;">University/제휴 숙소 전체 범위 · XJTLU 학생 39주 계약 안내. 객실별 차이</span>',
+            '현재 공개 2026/27 39주 계약 기준 약 <strong>£4,290~£10,942</strong> <span style="color:var(--mid);font-size:12px;">(약 800만~2,040만원)</span><br><span style="color:var(--mid);font-size:12px;">University/제휴 숙소 전체 범위 · XJTLU 학생 39주 계약 안내. 객실별 차이</span>'
+          )
+          s = s.replace(
+            '<strong>비용 비교 시 주의:</strong> XJTLU 금액은 2027 국제학생 모집자료와 현재 공식 숙소 안내 기준입니다. Liverpool은 현재 공개된 2026/27 국제학비와 숙소비를 비교용으로 표시했으며, University of Liverpool의 2027-entry 페이지도 국제학비는 아직 2026/27 금액이라고 명시하고 있습니다. 실제 2+2 이동 시점에는 전공별 학비·기숙사비가 달라질 수 있으므로 그 해 공식 금액으로 다시 계산해야 합니다.',
+            '<strong>비용 비교 시 주의:</strong> XJTLU 금액은 2027 국제학생 모집자료와 현재 공식 숙소 안내 기준입니다. 원화는 2026년 8월 29일 기준 참고환율(1 RMB≈204.7원, £1≈1,864원)로 단순 환산했습니다. 실제 송금액은 환율과 수수료에 따라 달라집니다. Liverpool은 현재 공개된 2026/27 국제학비와 숙소비를 비교용으로 표시했으며, University of Liverpool의 2027-entry 페이지도 국제학비는 아직 2026/27 금액이라고 명시하고 있습니다. 실제 2+2 이동 시점에는 전공별 학비·기숙사비가 달라질 수 있으므로 그 해 공식 금액으로 다시 계산해야 합니다.'
+          )
+          s = s.replace(
+            '타이창 기숙사 안내 예시는 2인실 <strong>1인당 연 6,000 RMB</strong>, 1인실 <strong>연 14,000 RMB</strong>입니다.',
+            '타이창 기숙사 안내 예시는 2인실 <strong>1인당 연 6,000 RMB</strong> <span style="color:var(--mid);font-size:12px;">(약 123만원)</span>, 1인실 <strong>연 14,000 RMB</strong> <span style="color:var(--mid);font-size:12px;">(약 287만원)</span>입니다.'
+          )
+
+          required = ['약 2,027만원', '89,100 RMB', '약 1,824만원', '약 5,033만~5,965만원', '약 31만~63만원/월', '약 800만~2,040만원', '1 RMB≈204.7원']
+          missing = [x for x in required if x not in s]
+          if missing:
+              raise SystemExit('Missing expected updates: ' + ', '.join(missing))
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit preview changes
+        run: |
+          git config user.name "tnsuhak"
+          git config user.email "tnsuhak@gmail.com"
+          git add xjtlu-dual-degree-liverpool-2plus2.html
+          if git diff --cached --quiet; then
+            echo "No content changes"
+            exit 0
+          fi
+          git commit -m "Add KRW equivalents and early-bird tuition to 2+2 comparison"
+          git push origin HEAD:seo/xjtlu-dual-degree-2plus2

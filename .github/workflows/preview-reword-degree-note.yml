@@ -1,0 +1,37 @@
+name: Reword degree note on 2+2 preview
+
+on:
+  push:
+    branches:
+      - seo/xjtlu-dual-degree-2plus2
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: seo/xjtlu-dual-degree-2plus2
+      - name: Update wording
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('xjtlu-dual-degree-liverpool-2plus2.html')
+          s = p.read_text(encoding='utf-8')
+          old = '<div class="notice"><strong>중요:</strong> ‘리버풀대학교 학위를 받으려면 반드시 영국으로 가야 한다’는 설명은 정확하지 않습니다. 반대로 모든 전공에서 동일한 2+2 조합이 자동 보장되는 것도 아닙니다.</div>'
+          new = '<div class="notice"><strong>중요:</strong> 중국에서 졸업을 해도, 2+2로 영국에서 졸업을 해도 동일한 영국 리버풀대학교 학위를 받습니다.</div>'
+          if old not in s:
+              raise SystemExit('target wording not found')
+          s = s.replace(old, new, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit preview change
+        run: |
+          git config user.name "tnsuhak"
+          git config user.email "tnsuhak@gmail.com"
+          git add xjtlu-dual-degree-liverpool-2plus2.html
+          git commit -m "Reword Liverpool degree equivalence note"
+          git push origin HEAD:seo/xjtlu-dual-degree-2plus2

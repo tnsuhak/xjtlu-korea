@@ -19,20 +19,118 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-          import base64
+          from html import escape
           p=Path('xjtlu-programmes-careers-graduate-destinations.html')
           s=p.read_text(encoding='utf-8')
           s=s.replace('<p class="notice" style="margin-top:18px;">공식 웹페이지는 TOP 10·TOP 100 수치의 산정 대상을 별도로 자세히 설명하지 않습니다. 따라서 세 수치를 전체 졸업생 비율로 단순 합산하기보다, 학교가 공개한 대학원 진학 실적으로 이해하는 것이 안전합니다.</p>','')
           s=s.replace('<p class="notice" style="margin-top:18px;"><strong>국제학생 주의:</strong> 중국 내 취업 기회와 실제 근무 가능 여부는 같은 문제가 아닙니다. 외국인은 채용 조건과 함께 취업비자·근무 자격을 별도로 충족해야 합니다.</p>','')
+          raw='''대학교|국가|2023|2024|2025|전년 대비|2027 QS
+스탠퍼드대학교|미국|—|1|1|0|=2
+임페리얼 칼리지 런던|영국|233|243|244|+1|=2
+옥스퍼드대학교|영국|14|9|15|+6|4
+하버드대학교|미국|6|4|4|0|5
+케임브리지대학교|영국|18|23|30|+7|6
+UCL|영국|609|897|1,018|+121|=8
+취리히연방공과대학교(ETH)|스위스|—|1|—|—|=8
+싱가포르국립대학교(NUS)|싱가포르|42|103|104|+1|10
+홍콩대학교|홍콩|22|20|40|+20|11
+난양공과대학교(NTU)|싱가포르|15|31|42|+11|12
+펜실베니아대학교(유펜)|미국|25|21|20|-1|15
+예일대학교|미국|10|4|5|+1|=16
+코넬대학교|미국|17|22|20|-2|=16
+홍콩중문대학교|홍콩|8|3|10|+7|18
+뉴사우스웨일스대학교(UNSW)|호주|32|43|91|+48|19
+UC 버클리|미국|7|11|10|-1|=20
+존스홉킨스대학교|미국|33|70|67|-3|=20
+멜버른대학교|호주|28|65|61|-4|=22
+시카고대학교|미국|2|2|3|+1|24
+뮌헨공과대학교|독일|—|—|5|—|25
+시드니대학교|호주|311|537|282|-255|28
+호주국립대학교(ANU)|호주|21|6|15|+9|29
+맥길대학교|캐나다|1|—|3|—|30
+모나시대학교|호주|29|50|76|+26|31
+토론토대학교|캐나다|1|2|2|0|32
+홍콩과학기술대학교|홍콩|2|2|3|+1|33
+에든버러대학교|영국|119|105|152|+47|35
+킹스칼리지 런던|영국|27|21|41|+20|37
+맨체스터대학교|영국|168|179|153|-26|=40
+퀸즐랜드대학교|호주|43|33|25|-8|=40
+연세대학교|한국|1|—|—|—|42
+컬럼비아대학교|미국|67|106|127|+21|=43
+파리공과대학교(IP Paris)|프랑스|—|—|1|—|=43
+노스웨스턴대학교|미국|9|8|9|+1|=45
+브리티시컬럼비아대학교(UBC)|캐나다|1|1|—|—|45
+델프트공과대학교|네덜란드|4|1|—|—|48
+UCLA|미국|1|3|4|+1|49
+홍콩이공대학교|홍콩|2|5|5|0|50
+미시건대학교 앤아버|미국|13|18|7|-11|51
+홍콩시티대학교|홍콩|2|10|17|+7|=52
+카네기멜런대학교|미국|6|7|7|0|55
+말라야대학교|말레이시아|1|1|—|—|56
+브리스틀대학교|영국|126|102|119|+17|57
+뉴욕대학교(NYU)|미국|39|29|25|-4|58
+KU루벤대학교|벨기에|—|2|—|—|59
+암스테르담대학교|네덜란드|8|8|14|+6|60
+런던정치경제대학교(LSE)|영국|22|14|8|-6|62
+브라운대학교|미국|—|3|3|0|66
+오클랜드대학교|뉴질랜드|—|3|2|-1|67
+버밍엄대학교|영국|15|23|21|-2|=68
+워릭대학교|영국|175|70|70|0|=68
+듀크대학교|미국|14|12|10|-2|70
+룬드대학교|스웨덴|1|1|1|0|71
+텍사스대학교 오스틴|미국|—|1|—|—|72
+일리노이대학교 어바나-샴페인|미국|6|4|5|+1|74
+트리니티 칼리지 더블린|아일랜드|2|1|—|—|75
+리즈대학교|영국|22|7|9|+2|=77
+서호주대학교|호주|4|1|3|+2|=77
+애들레이드대학교|호주|—|1|2|+1|79
+글래스고대학교|영국|40|41|12|-29|80
+UC 샌디에이고|미국|13|8|11|+3|81
+셰필드대학교|영국|—|6|8|+2|=82
+스웨덴왕립공과대학교(KTH)|스웨덴|4|1|1|0|=82
+더럼대학교|영국|15|2|2|0|85
+시드니공과대학교(UTS)|호주|—|1|5|+4|=87
+코펜하겐대학교|덴마크|1|1|1|0|=90
+워싱턴대학교|미국|22|24|30|+6|=92
+펜실베이니아주립대학교|미국|2|1|—|—|=92
+보스턴대학교|미국|15|16|13|-3|94
+오사카대학교|일본|—|1|1|0|95
+노팅엄대학교|영국|—|—|9|—|97
+베를린자유대학교|독일|1|—|1|—|=98
+취리히대학교|스위스|2|—|—|—|=98
+런던 퀸메리대학교|영국|31|6|1|-5|103
+사우샘프턴대학교|영국|42|9|10|+1|=111
+위트레흐트대학교|네덜란드|—|—|1|—|=113
+세인트앤드루스대학교|영국|3|—|—|—|=115
+레이던대학교|네덜란드|1|4|1|-3|=119
+위스콘신대학교 매디슨|미국|3|1|2|+1|=131
+UC 데이비스|미국|—|2|—|—|137
+조지아공과대학교|미국|6|7|3|-4|=142
+서던캘리포니아대학교(USC)|미국|13|4|8|+4|153
+바헤닝언대학교|네덜란드|1|—|—|—|154
+흐로닝언대학교|네덜란드|—|1|—|—|157
+노스캐롤라이나대학교 채플힐|미국|1|—|—|—|=158
+세인트루이스 워싱턴대학교|미국|15|16|8|-8|=162
+바르셀로나대학교|스페인|1|—|—|—|=165
+UC 산타바바라|미국|—|2|1|-1|173
+에모리대학교|미국|—|1|—|—|183
+오하이오주립대학교|미국|—|1|1|0|=201
+플로리다대학교|미국|2|—|—|—|=228
+UC 어바인|미국|4|2|—|—|252
+피츠버그대학교|미국|1|2|1|-1|=279
+카롤린스카연구소|스웨덴|—|—|1|—|미등재'''
+          rows=[line.split('|') for line in raw.splitlines()[1:]]
+          trs=[]
+          for name,country,y23,y24,y25,delta,rank in rows:
+              cls=' class="up"' if delta.startswith('+') else (' class="down"' if delta.startswith('-') else '')
+              trs.append(f'<tr><td>{escape(name)}</td><td>{escape(country)}</td><td>{escape(y23)}</td><td>{escape(y24)}</td><td><strong>{escape(y25)}</strong></td><td{cls}>{escape(delta)}</td><td>{escape(rank)}</td></tr>')
+          table='<div class="dest-table-wrap"><table class="dest-table"><thead><tr><th>대학교</th><th>국가</th><th>2023</th><th>2024</th><th>2025</th><th>전년 대비</th><th>2027 QS</th></tr></thead><tbody>'+''.join(trs)+'</tbody></table></div><p class="lead" style="margin-top:14px;font-size:12px;">진학자 수는 실제 해당 대학교에 진학한 학생 수입니다. ‘—’는 해당 연도의 공개 표에 학교가 기재되지 않았다는 뜻이며, 진학자가 0명이라는 의미는 아닙니다.</p>'
           marker='</div></section>\n\n<section class="section"><h2>취업을 선택하는 경우</h2>'
-          table=base64.b64decode('PGRpdiBjbGFzcz0iZGVzdC10YWJsZS13cmFwIj48dGFibGUgY2xhc3M9ImRlc3QtdGFibGUiPgo8dGhlYWQ+PHRyPjx0aD7rjIDtlZnqtZA8L3RoPjx0aD7qta3qsIA8L3RoPjx0aD4yMDIzPC90aD48dGg+MjAyNDwvdGg+PHRoPjIwMjU8L3RoPjx0aD7soITrhYQg64yA67mEPC90aD48dGg+MjAyNyBRUzwvdGg+PC90cj48L3RoZWFkPgo8dGJvZHk+PHRyPjx0ZD7siqTthLDtj6Xtj5nrjIDtlZnqtZA8L3RkPjx0ZD7rr7jqta08L3RkPjx0ZD7igJQ8L3RkPjx0ZD4xPC90ZD48dGQ+PHN0cm9uZz4xPC9zdHJvbmc+PC90ZD48dGQ+MDwvdGQ+PHRkPj0yPC90ZD48L3RyPjx0cj48dGQ+7J6E7YWM66as7Ja8IOy5vOumrOyngCDro7TroYc8L3RkPjx0ZD7smIHqta08L3RkPjx0ZD4yMzM8L3RkPjx0ZD4yNDM8L3RkPjx0ZD48c3Ryb25nPjI0NDwvc3Ryb25nPjwvdGQ+PHRkIGNsYXNzPSJ1cCI+KzE8L3RkPjx0ZD49MjwvdGQ+PC90cj48dHI+PHRkPuyYpeyKpO2PrOuTnOuMgO2VmTwvdGQ+PHRkPuyYgeq1rDwvdGQ+PHRkPjE0PC90ZD48dGQ+OTwvdGQ+PHRkPjxzdHJvbmc+MTU8L3N0cm9uZz48L3RkPjx0ZCBjbGFzcz0idXAiPis2PC90ZD48dGQ+NDwvdGQ+PC90cj48dHI+PHRkPuhsgOuyhOuTnOuMgO2VmTwvdGQ+PHRkPuunuOq1rDwvdGQ+PHRkPjY8L3RkPjx0ZD40PC90ZD48dGQ+PHN0cm9uZz40PC9zdHJvbmc+PC90ZD48dGQ+MDwvdGQ+PHRkPjU8L3RkPjwvdHI+PHRyPjx0ZD7svIDsnoTrrIzrpqzsp4Dri6TtlZnqtZA8L3RkPjx0ZD7smIHqta08L3RkPjx0ZD4xODwvdGQ+PHRkPjIzPC90ZD48dGQ+PHN0cm9uZz4zMDwvc3Ryb25nPjwvdGQ+PHRkIGNsYXNzPSJ1cCI+Kzc8L3RkPjx0ZD42PC90ZD48L3RyPjx0cj48dGQ+VUNMPC90ZD48dGQ+7JiB6rWtPC90ZD48dGQ+NjA5PC90ZD48dGQ+ODk3PC90ZD48dGQ+PHN0cm9uZz4xLDAxODwvc3Ryb25nPjwvdGQ+PHRkIGNsYXNzPSJ1cCI+KzEyMTwvdGQ+PHRkPj04PC90ZD48L3RyPjx0cj48dGQ+7Leo66as7Z6I7Jew67Cp6rO166y466Gc64yA7ZWZ6rWQKEVUSCk8L3RkPjx0ZD7siqTsnITsiqQ8L3RkPjx0ZD7igJQ8L3RkPjx0ZD4xPC90ZD48dGQ+PHN0cm9uZz7igJQ8L3N0cm9uZz48L3RkPjx0ZD7igJQ8L3RkPjx0ZD49ODwvdGQ+PC90cj48dHI+PHRkPuyLseqwgO2PrOultOq1reyngO2Vmeq1kShOVVMpPC90ZD48dGQ+7Iut6rCA7Y+s66W0PC90ZD48dGQ+NDI8L3RkPjx0ZD4xMDM8L3RkPjx0ZD48c3Ryb25nPjEwNDwvc3Ryb25nPjwvdGQ+PHRkIGNsYXNzPSJ1cCI+KzE8L3RkPjx0ZD4xMDwvdGQ+PC90cj48dHI+PHRkPuuNiu2ZoOuMgO2VmTwvdGQ+PHRkPtmZjeqzteqzteu2uei4iDwvdGQ+PHRkPjIyPC90ZD48dGQ+MjA8L3RkPjx0ZD48c3Ryb25nPjQwPC9zdHJvbmc+PC90ZD48dGQgY2xhc3M9InVwIj4rMjA8L3RkPjx0ZD4xMTwvdGQ+PC90cj48dHI+PHRkPuuiqOyWkeygjOqzteqzteuMgO2VmShOVFUpPC90ZD48dGQ+7Iut6rCA7Y+s66W0PC90ZD48dGQ+MTU8L3RkPjx0ZD4zMTwvdGQ+PHRkPjxzdHJvbmc+NDI8L3N0cm9uZz48L3RkPjx0ZCBjbGFzcz0idXAiPisxMTwvdGQ+PHRkPjEyPC90ZD48L3RyPjx0cj48dGQ+7Y6c7Iuk67Kg64uI7JWE64yA7ZWZ6rWQKOychO2OuCk8L3RkPjx0ZD7rr7jqta08L3RkPjx0ZD4yNTwvdGQ+PHRkPjIxPC90ZD48dGQ+PHN0cm9uZz4yMDwvc3Ryb25nPjwvdGQ+PHRkIGNsYXNzPSJkb3duIj4tMTwvdGQ+PHRkPjE1PC90ZD48L3RyPjx0cj48dGQ+7JiI7J287JeQ64yA7ZWZ6rWQPC90ZD48dGQ+66+46rWtPC90ZD48dGQ+MTA8L3RkPjx0ZD40PC90ZD48dGQ+PHN0cm9uZz41PC9zdHJvbmc+PC90ZD48dGQgY2xhc3M9InVwIj4rMTwvdGQ+PHRkPj0xNjwvdGQ+PC90cj48dHI+PHRkPsubkOuEpOuMgO2VmTwvdGQ+PHRkPuunuOq1rDwvdGQ+PHRkPjE3PC90ZD48dGQ+MjI8L3RkPjx0ZD48c3Ryb25nPjIwPC9zdHJvbmc+PC90ZD48dGQgY2xhc3M9ImRvd24iPi0yPC90ZD48dGQ+PTE2PC90ZD48L3RyPjx0cj48dGQ+7ZmN7L2p7KSR66y464yA7ZWZ6rWQPC90ZD48dGQ+7ZmN7L2pPC90ZD48dGQ+ODwvdGQ+PHRkPjM8L3RkPjx0ZD48c3Ryb25nPjEwPC9zdHJvbmc+PC90ZD48dGQgY2xhc3M9InVwIj4rNzwvdGQ+PHRkPjE4PC90ZD48L3RyPjx0cj48dGQ+64m07IKs7Jqw7Iqk7JuQ7Iqk64yA7ZWZ6rWQKFVOU1cpPC90ZD48dGQ+7Zi47KO8PC90ZD48dGQ+MzI8L3RkPjx0ZD40MzwvdGQ+PHRkPjxzdHJvbmc+OTE8L3N0cm9uZz48L3RkPjx0ZCBjbGFzcz0idXAiPis0ODwvdGQ+PHRkPjE5PC90ZD48L3RyPjx0cj48dGQ+VUMg67KE7YG066asPC90ZD48dGQ+66+46rWtPC90ZD48dGQ+NzwvdGQ+PHRkPjExPC90ZD48dGQ+PHN0cm9uZz4xMDwvc3Ryb25nPjwvdGQ+PHRkIGNsYXNzPSJkb3duIj4tMTwvdGQ+PHRkPj0yMDwvdGQ+PC90cj48dHI+PHRkPuyhuOyKpO2VuO2CpOyKpOuMgO2VmTwvdGQ+PHRkPuun
-...TRUNCATED_PLACEHOLDER...')
-          table=table.decode('utf-8')
           if 'dest-table-wrap' not in s:
               s=s.replace(marker, table+marker)
           css='.dest-table-wrap{overflow:auto;max-height:720px;background:#fff;border:1px solid var(--rule);margin-top:28px}.dest-table{min-width:860px}.dest-table thead th{position:sticky;top:0;z-index:1}.dest-table td:nth-child(n+3),.dest-table th:nth-child(n+3){text-align:center}.dest-table .up{color:#d12f6a;font-weight:700}.dest-table .down{color:#3478c8;font-weight:700}'
           if '.dest-table-wrap{' not in s:
-              s=s.replace('.table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--rule)}', '.table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--rule)}'+css)
+              s=s.replace('.table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--rule)}','.table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--rule)}'+css)
           p.write_text(s,encoding='utf-8')
           PY
       - name: Commit update and remove workflow

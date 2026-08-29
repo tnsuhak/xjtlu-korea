@@ -1,0 +1,129 @@
+name: Full XJTLU Korea preview audit and route fix
+
+on:
+  push:
+    branches:
+      - seo/xjtlu-dual-degree-2plus2
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: seo/xjtlu-dual-degree-2plus2
+      - name: Correct Taicang Year 1 location
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('xjtlu-dual-degree-liverpool-2plus2.html')
+          s = p.read_text(encoding='utf-8')
+          old = '1·2학년은 XJTLU Entrepreneur College(Taicang), 3학년은 University of Liverpool, 4학년은 다시 타이창에서 공부합니다.'
+          new = '1학년은 XJTLU 쑤저우 SIP 캠퍼스에서 공통 기초과정을 공부하고, 2학년부터 타이창 캠퍼스에서 전공과정을 이어갑니다. 3학년은 University of Liverpool, 4학년은 다시 타이창에서 공부합니다.'
+          if old not in s and new not in s:
+              raise SystemExit('Taicang intro target not found')
+          s = s.replace(old, new)
+          s = s.replace('<div><b>1학년</b><span>XJTLU · 타이창</span></div><i>→</i><div><b>2학년</b><span>XJTLU · 타이창</span></div>', '<div><b>1학년</b><span>XJTLU · 쑤저우 SIP</span></div><i>→</i><div><b>2학년</b><span>XJTLU · 타이창</span></div>')
+          marker = '<p class="lead" style="margin-top:22px;">3학년에는 리버풀대학교에서 전공에 맞춰 구성된 수업을 듣고,'
+          note = '<p class="notice" style="margin-top:18px;"><strong>캠퍼스 이동:</strong> 타이창 소속 전공으로 입학해도 1학년은 쑤저우 SIP 캠퍼스에서 공부하고, 2학년부터 타이창 캠퍼스로 이동합니다.</p>'
+          if note not in s:
+              s = s.replace(marker, note + marker)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Run static site audit
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from html.parser import HTMLParser
+          from urllib.parse import urlparse
+          import json, re, xml.etree.ElementTree as ET
+
+          html_files = [
+              Path('index.html'),
+              Path('xjtlu-admission-requirements-korea-2027.html'),
+              Path('xjtlu-tuition-scholarships-2027.html'),
+              Path('xjtlu-dual-degree-liverpool-2plus2.html'),
+          ]
+          errors=[]
+
+          class P(HTMLParser):
+              def __init__(self):
+                  super().__init__(); self.hrefs=[]; self.srcs=[]; self.ids=[]; self.imgs=[]; self.blank=[]
+              def handle_starttag(self, tag, attrs):
+                  d=dict(attrs)
+                  if 'id' in d: self.ids.append(d['id'])
+                  if tag=='a' and 'href' in d:
+                      self.hrefs.append(d['href'])
+                      if d.get('target')=='_blank': self.blank.append(d)
+                  if tag in ('img','script','source') and 'src' in d: self.srcs.append(d['src'])
+                  if tag=='img': self.imgs.append(d)
+
+          for p in html_files:
+              if not p.exists(): errors.append(f'missing page {p}'); continue
+              s=p.read_text(encoding='utf-8')
+              if len(re.findall(r'<title(?:\s|>)',s,re.I)) != 1: errors.append(f'{p}: title count')
+              if len(re.findall(r'<h1(?:\s|>)',s,re.I)) != 1: errors.append(f'{p}: h1 count')
+              if len(re.findall(r'<link[^>]+rel=["\']canonical["\']',s,re.I)) != 1: errors.append(f'{p}: canonical count')
+              if len(re.findall(r'<meta[^>]+name=["\']description["\']',s,re.I)) != 1: errors.append(f'{p}: meta description count')
+              for term in ('브로셔','모집자료','transfer-to-the-university-of-liverpool'):
+                  if term in s: errors.append(f'{p}: forbidden/stale term {term}')
+              for block in re.findall(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',s,re.I|re.S):
+                  try: json.loads(block)
+                  except Exception as e: errors.append(f'{p}: invalid JSON-LD {e}')
+              parser=P(); parser.feed(s)
+              if len(parser.ids) != len(set(parser.ids)): errors.append(f'{p}: duplicate id')
+              for d in parser.imgs:
+                  if not d.get('alt','').strip(): errors.append(f'{p}: image missing alt {d.get("src","")}')
+              for d in parser.blank:
+                  rel=(d.get('rel') or '').split()
+                  if 'noopener' not in rel: errors.append(f'{p}: target blank missing noopener {d.get("href","")}')
+              for u in parser.hrefs + parser.srcs:
+                  if not u or u.startswith(('#','http://','https://','tel:','mailto:','javascript:','data:')): continue
+                  path=u.split('#',1)[0].split('?',1)[0]
+                  if not path: continue
+                  if path=='/': target=Path('index.html')
+                  else: target=Path(path.lstrip('/'))
+                  if not target.exists(): errors.append(f'{p}: broken local ref {u}')
+              for u in parser.hrefs:
+                  if u.startswith('#') and u[1:] and u[1:] not in set(parser.ids): errors.append(f'{p}: missing anchor {u}')
+
+          try:
+              root=ET.parse('sitemap.xml').getroot()
+              ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9'}
+              locs={e.text for e in root.findall('.//s:loc',ns)}
+              expected={
+                'https://xjtlu-korea.netlify.app/',
+                'https://xjtlu-korea.netlify.app/xjtlu-admission-requirements-korea-2027.html',
+                'https://xjtlu-korea.netlify.app/xjtlu-tuition-scholarships-2027.html',
+                'https://xjtlu-korea.netlify.app/xjtlu-dual-degree-liverpool-2plus2.html',
+              }
+              missing=expected-locs
+              if missing: errors.append('sitemap missing '+','.join(sorted(missing)))
+          except Exception as e: errors.append(f'sitemap invalid {e}')
+          robots=Path('robots.txt').read_text(encoding='utf-8')
+          if 'Sitemap: https://xjtlu-korea.netlify.app/sitemap.xml' not in robots: errors.append('robots sitemap missing')
+
+          page=Path('xjtlu-dual-degree-liverpool-2plus2.html').read_text(encoding='utf-8')
+          for text in ('XJTLU · 쑤저우 SIP','XJTLU · 타이창','University of Liverpool','2+1+1이 가능한 3개 전공'):
+              if text not in page: errors.append('2+1+1 expected content missing: '+text)
+          tuition=Path('xjtlu-tuition-scholarships-2027.html').read_text(encoding='utf-8')
+          if '<strong>자료 출처</strong>' not in tuition: errors.append('tuition compact source label missing')
+          if '<h2>공식 확인 자료</h2>' in tuition: errors.append('tuition large source box remains')
+          if 'transfer-to-university-of-liverpool' not in tuition: errors.append('tuition correct 2+2 source missing')
+
+          if errors:
+              print('\n'.join('ERROR: '+x for x in errors))
+              raise SystemExit(1)
+          print('AUDIT PASS: 4 HTML pages, JSON-LD, local links/assets, anchors, canonical/meta/H1, sitemap/robots, source policy and Taicang route.')
+          PY
+      - name: Commit fix and remove one-off workflow
+        run: |
+          git config user.name "tnsuhak"
+          git config user.email "tnsuhak@gmail.com"
+          git rm .github/workflows/full-site-audit-fix.yml
+          git add xjtlu-dual-degree-liverpool-2plus2.html
+          git commit -m "Fix Taicang Year 1 campus and pass full site audit"
+          git push origin HEAD:seo/xjtlu-dual-degree-2plus2

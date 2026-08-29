@@ -1,0 +1,36 @@
+name: Remove cost disclaimer tail on 2+2 preview
+
+on:
+  push:
+    branches:
+      - seo/xjtlu-dual-degree-2plus2
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: seo/xjtlu-dual-degree-2plus2
+      - name: Remove requested sentence block
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('xjtlu-dual-degree-liverpool-2plus2.html')
+          s = p.read_text(encoding='utf-8')
+          target = ' 실제 송금액은 환율과 수수료에 따라 달라집니다. Liverpool은 현재 공개된 2026 국제학비와 숙소비를 비교용으로 표시했으며, University of Liverpool의 2027-entry 페이지도 국제학비는 아직 2026 금액이라고 명시하고 있습니다. 실제 2+2 이동 시점에는 전공별 학비·기숙사비가 달라질 수 있으므로 그 해 공식 금액으로 다시 계산해야 합니다.'
+          if target not in s:
+              raise SystemExit('target text not found')
+          s = s.replace(target, '')
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit preview changes
+        run: |
+          git config user.name "tnsuhak"
+          git config user.email "tnsuhak@gmail.com"
+          git add xjtlu-dual-degree-liverpool-2plus2.html
+          git commit -m "Remove verbose cost disclaimer from 2+2 page"
+          git push origin HEAD:seo/xjtlu-dual-degree-2plus2

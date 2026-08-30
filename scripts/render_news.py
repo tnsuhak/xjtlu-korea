@@ -85,7 +85,7 @@ def render_card(item: dict, compact: bool = False) -> str:
         summary = summary[:127].rstrip() + "…"
     return (
         '<article class="news-card">'
-        f'<div class="news-meta">{safe_text(item["date"])} · {safe_text(item["category"])}</div>'
+        f'<div class="news-meta">{safe_text(item["source_date"])} · {safe_text(item["category"])}</div>'
         f'<h3><a href="{safe_text(item["url"])}">{safe_text(item["title"])}</a></h3>'
         f'<p>{summary}</p>'
         f'<a class="news-more" href="{safe_text(item["url"])}">기사 자세히 보기 →</a>'
@@ -187,7 +187,7 @@ def update_sitemap(items: list[dict]) -> None:
 def main(check: bool = False) -> int:
     data = load_data()
     items = [validate_item(item) for item in data["items"] if item.get("status") in VISIBLE_STATUSES]
-    items.sort(key=lambda item: (item["date"], int(item.get("priority", 0)), item["id"]), reverse=True)
+    items.sort(key=lambda item: (item["source_date"], int(item.get("priority", 0)), item["id"]), reverse=True)
 
     homepage = HOME_PATH.read_text(encoding="utf-8")
     home_body = "\n".join(render_card(item, compact=True) for item in items[:3]) or render_empty("검토 승인된 새 소식이 준비되면 이곳에 표시됩니다.")

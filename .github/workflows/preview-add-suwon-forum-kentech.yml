@@ -40,7 +40,7 @@ jobs:
               "priority": 18,
               "status": "preview_ready",
               "content_type": "official_update",
-              "personal_story": false,
+              "personal_story": False,
               "reviewed_at": "2026-08-30",
               "sections": [
                 {
@@ -77,7 +77,7 @@ jobs:
               "priority": 8,
               "status": "preview_ready",
               "content_type": "official_update",
-              "personal_story": false,
+              "personal_story": False,
               "reviewed_at": "2026-08-30",
               "sections": [
                 {

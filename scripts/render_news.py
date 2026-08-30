@@ -88,7 +88,7 @@ def render_card(item: dict, compact: bool = False) -> str:
         f'<div class="news-meta">{safe_text(item["date"])} · {safe_text(item["category"])}</div>'
         f'<h3><a href="{safe_text(item["url"])}">{safe_text(item["title"])}</a></h3>'
         f'<p>{summary}</p>'
-        f'<a class="news-more" href="{safe_text(item["url"])}">한국어 요약 보기 →</a>'
+        f'<a class="news-more" href="{safe_text(item["url"])}">기사 자세히 보기 →</a>'
         "</article>"
     )
 
@@ -140,19 +140,19 @@ def render_article(item: dict) -> str:
 <script type="application/ld+json">{json_ld}</script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{{--navy:#14213d;--gold:#c9a84c;--cream:#faf8f4;--ink:#171a21;--mid:#667085;--rule:#e4e7ec}}*{{box-sizing:border-box}}body{{margin:0;font-family:'Noto Sans KR',sans-serif;color:var(--ink);line-height:1.85;word-break:keep-all;background:var(--cream)}}.top{{background:#0e1a2e;color:#d7dce6;padding:9px 5vw;font-size:12px}}nav{{height:68px;background:#fff;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;padding:0 5vw}}nav a{{color:var(--navy);text-decoration:none;font-weight:700}}.brand{{font-size:22px;font-weight:900}}.brand span{{color:var(--gold)}}header{{background:linear-gradient(120deg,#0e1a2e,#243a63);color:#fff;padding:78px 0}}.wrap{{width:min(850px,90vw);margin:auto}}.eyebrow{{font-family:'DM Mono',monospace;color:var(--gold);font-size:11px;letter-spacing:.15em}}h1{{font-size:clamp(34px,5vw,54px);line-height:1.25;margin:15px 0 18px}}header p{{color:rgba(255,255,255,.76);font-size:17px}}main{{padding:65px 0}}section{{margin-bottom:46px}}h2{{color:var(--navy);font-size:27px;line-height:1.4}}p{{font-size:16px;color:#3f4755}}.source{{border-top:1px solid var(--rule);padding-top:20px;font-size:13px;color:var(--mid)}}.source a{{color:#596273}}.notice{{background:#fff;border-left:4px solid var(--gold);padding:20px 22px;font-size:13px;color:#596273}}.links{{background:#fff;border:1px solid var(--rule);padding:24px}}.links a{{display:inline-block;margin:5px 12px 5px 0;color:var(--navy);font-weight:700}}.cta{{background:var(--navy);color:#fff;padding:35px;text-align:center}}.cta h2{{color:#fff}}.btn{{display:inline-block;background:#fee500;color:#151000;text-decoration:none;font-weight:700;padding:12px 22px}}footer{{background:#0a0d18;color:#9ca3af;padding:30px 5vw;font-size:12px}}@media(max-width:620px){{header{{padding:55px 0}}main{{padding:45px 0}}h1{{font-size:34px}}}}
+:root{{--navy:#14213d;--gold:#c9a84c;--cream:#faf8f4;--ink:#171a21;--mid:#667085;--rule:#e4e7ec}}*{{box-sizing:border-box}}body{{margin:0;font-family:'Noto Sans KR',sans-serif;color:var(--ink);line-height:1.85;word-break:keep-all;background:var(--cream)}}.top{{background:#0e1a2e;color:#d7dce6;padding:9px 5vw;font-size:12px}}nav{{height:68px;background:#fff;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;padding:0 5vw}}nav a{{color:var(--navy);text-decoration:none;font-weight:700}}.brand{{font-size:22px;font-weight:900}}.brand span{{color:var(--gold)}}header{{background:linear-gradient(120deg,#0e1a2e,#243a63);color:#fff;padding:78px 0}}.wrap{{width:min(850px,90vw);margin:auto}}.eyebrow{{font-family:'DM Mono',monospace;color:var(--gold);font-size:11px;letter-spacing:.15em}}h1{{font-size:clamp(34px,5vw,54px);line-height:1.25;margin:15px 0 18px}}header p{{color:rgba(255,255,255,.76);font-size:17px}}main{{padding:65px 0}}section{{margin-bottom:46px}}h2{{color:var(--navy);font-size:27px;line-height:1.4}}p{{font-size:16px;color:#3f4755}}.source{{border-top:1px solid var(--rule);padding-top:20px;font-size:13px;color:var(--mid)}}.source a{{color:#596273}}.notice{{background:#fff;border-left:4px solid var(--gold);padding:20px 22px;font-size:13px;color:#596273}}.links{{background:#fff;border:1px solid var(--rule);padding:24px}}.links a{{display:inline-block;margin:5px 12px 5px 0;color:var(--navy);font-weight:700}}.cta{{background:var(--navy);color:#fff;padding:35px;text-align:center}}.cta h2{{color:#fff}}.btn{{display:inline-block;background:#fee500;color:#151000;text-decoration:none;font-weight:700;padding:12px 22px;margin:6px}}.btn.phone{{background:#fff;color:var(--navy)}}footer{{background:#0a0d18;color:#9ca3af;padding:30px 5vw;font-size:12px}}@media(max-width:620px){{header{{padding:55px 0}}main{{padding:45px 0}}h1{{font-size:34px}}}}
 </style>
 </head>
 <body>
 <div class="top">XJTLU 한국어 입학 안내 · TNS유학</div>
 <nav><a class="brand" href="/">XJTLU <span>Korea</span></a><a href="/news/">뉴스 목록</a></nav>
-<header><div class="wrap"><div class="eyebrow">XJTLU OFFICIAL NEWS · KOREAN SUMMARY</div><h1>{safe_text(item['title'])}</h1><p>{safe_text(item['summary'])}</p></div></header>
+<header><div class="wrap"><div class="eyebrow">XJTLU OFFICIAL NEWS · KOREAN EDITORIAL</div><h1>{safe_text(item['title'])}</h1><p>{safe_text(item['summary'])}</p></div></header>
 <main class="wrap">
-<div class="notice">이 글은 XJTLU 공식 발표를 한국 독자를 위해 요약한 TNS유학의 편집 콘텐츠입니다. 원문 전체 번역이 아니며, 최종 내용은 아래 공식 출처에서 확인할 수 있습니다.</div>
+<div class="notice">이 글은 XJTLU 공식 발표를 한국 독자가 이해하기 쉽게 핵심 내용과 배경을 다시 정리한 TNS유학의 편집 콘텐츠입니다. 원문 전체 번역은 아니며, 최종 내용은 아래 공식 출처에서 확인할 수 있습니다.</div>
 {''.join(sections)}
 <section class="source"><strong>자료 출처</strong> · 원문 게시일 {safe_text(item['source_date'])}<br><a href="{safe_text(item['source_url'])}" target="_blank" rel="noopener">XJTLU 공식 뉴스 원문 확인 →</a></section>
 <section class="links"><strong>함께 확인할 안내</strong><br><a href="/xjtlu-admission-requirements-korea-2027.html">입학조건·편입</a><a href="/xjtlu-tuition-scholarships-2027.html">학비·장학금</a><a href="/xjtlu-dual-degree-liverpool-2plus2.html">복수학위·2+2</a><a href="/xjtlu-programmes-careers-graduate-destinations.html">전공·진로</a></section>
-<section class="cta"><h2>XJTLU 지원 가능성 확인</h2><p style="color:rgba(255,255,255,.75)">현재 학교·성적·희망 전공을 알려주시면 지원 절차를 안내해 드립니다.</p><a class="btn" href="https://open.kakao.com/o/slehLvKi" target="_blank" rel="noopener">카카오톡 무료 상담</a></section>
+<section class="cta"><h2>XJTLU 지원 가능성 확인</h2><p style="color:rgba(255,255,255,.75)">현재 학교·성적·희망 전공을 알려주시면 지원 절차를 안내해 드립니다.</p><a class="btn" href="https://open.kakao.com/o/slehLvKi" target="_blank" rel="noopener">카카오톡 무료 상담</a><a class="btn phone" href="tel:01051500105">전화상담 010-5150-0105</a></section>
 </main>
 <footer>© 2026 TNS Worldwide Co., Ltd. · 공식 발표의 변경·정정 여부는 원문에서 최종 확인해 주세요.</footer>
 </body>

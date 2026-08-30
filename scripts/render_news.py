@@ -187,7 +187,7 @@ def update_sitemap(items: list[dict]) -> None:
 def main(check: bool = False) -> int:
     data = load_data()
     items = [validate_item(item) for item in data["items"] if item.get("status") in VISIBLE_STATUSES]
-    items.sort(key=lambda item: (item["date"], item["id"]), reverse=True)
+    items.sort(key=lambda item: (item["date"], int(item.get("priority", 0)), item["id"]), reverse=True)
 
     homepage = HOME_PATH.read_text(encoding="utf-8")
     home_body = "\n".join(render_card(item, compact=True) for item in items[:3]) or render_empty("검토 승인된 새 소식이 준비되면 이곳에 표시됩니다.")

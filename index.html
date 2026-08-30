@@ -344,6 +344,17 @@ h1.hero-title em { font-style:normal; color:var(--gold); }
 .adm-ul li { font-size:13px; color:var(--mid); font-weight:300; padding:3px 0 3px 14px; position:relative; }
 .adm-ul li::before { content:'•'; position:absolute; left:0; color:var(--gold); }
 
+/* ── NEWS ── */
+.news-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:38px; }
+.news-card { background:#fff; border:1px solid var(--rule); padding:26px; display:flex; flex-direction:column; min-height:250px; }
+.news-meta { font-family:'DM Mono',monospace; font-size:10px; color:#9a7b2f; margin-bottom:12px; }
+.news-card h3 { font-size:18px; line-height:1.5; margin:0 0 12px; }
+.news-card h3 a { color:var(--navy); text-decoration:none; }
+.news-card p { font-size:13px; line-height:1.8; color:var(--mid); margin:0 0 18px; }
+.news-more { margin-top:auto; color:var(--navy); font-size:13px; font-weight:700; text-decoration:none; }
+.news-empty { grid-column:1/-1; background:#fff; border:1px dashed #cbd1dc; padding:38px; text-align:center; color:var(--mid); }
+.news-all { display:inline-block; margin-top:24px; color:var(--navy); font-weight:700; text-decoration:none; }
+
 /* ── REVIEWS ── */
 .rev-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:48px; }
 .rev { background:#fff; padding:36px; border-top:3px solid var(--gold); }
@@ -550,6 +561,7 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
     <li><a href="#rooms">숙소</a></li>
     <li><a href="#admission">입학안내</a></li>
     <li><a href="#reviews">재학생후기</a></li>
+    <li><a href="/news/">뉴스</a></li>
     <li><a href="#inquiry" class="btn-inquiry">입학문의</a></li>
   </ul>
   <button class="nav-ham" id="hamBtn" onclick="toggleNav()">
@@ -564,6 +576,7 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
   <a href="#rooms">숙소</a>
   <a href="#admission">입학안내</a>
   <a href="#reviews">재학생후기</a>
+  <a href="/news/">뉴스</a>
   <a href="#inquiry" class="mob-inquiry">입학문의</a>
 </div>
 
@@ -846,6 +859,21 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
   </div>
 </div>
 
+<!-- ====== 뉴스 ====== -->
+<div class="sec-alt" id="news">
+  <div class="sec fi">
+    <p class="label">XJTLU OFFICIAL NEWS</p>
+    <h2 class="sec-h">XJTLU 최신 소식</h2>
+    <p class="sec-p">공식 발표 중 한국 학생과 학부모에게 필요한 입학·장학금·전공·진로 소식만 선별해 한국어로 정리합니다.</p>
+    <div class="news-grid">
+<!-- NEWS_ITEMS_START -->
+<div class="news-empty">검토 승인된 새 소식이 준비되면 이곳에 표시됩니다.</div>
+<!-- NEWS_ITEMS_END -->
+    </div>
+    <a class="news-all" href="/news/">전체 뉴스 보기 →</a>
+  </div>
+</div>
+
 <!-- ====== 재학생후기 ====== -->
 <div id="reviews">
   <div class="sec fi">
@@ -937,6 +965,7 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
         <li><a href="#rooms">숙소</a></li>
         <li><a href="xjtlu-admission-requirements-korea-2027.html">2027 입학조건·편입</a></li>
         <li><a href="#reviews">재학생후기</a></li>
+        <li><a href="/news/">XJTLU 뉴스</a></li>
       </ul></div>
       <div class="f-col"><h4>COMMUNITY</h4><ul>
         <li><a href="https://cafe.naver.com/tnsuhak.cafe" target="_blank" rel="noopener">네이버 카페</a></li>

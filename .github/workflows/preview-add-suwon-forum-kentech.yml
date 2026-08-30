@@ -1,0 +1,127 @@
+name: Add Suwon forum and KENTECH news to preview
+
+on:
+  push:
+    branches:
+      - feature/xjtlu-korea-review-news-20260830
+    paths:
+      - '.github/workflows/preview-add-suwon-forum-kentech.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/xjtlu-korea-review-news-20260830
+
+      - name: Add two reviewed Korea-related articles
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+
+          p = Path('news/news-data.json')
+          data = json.loads(p.read_text(encoding='utf-8'))
+          ids = {item['id'] for item in data['items']}
+
+          additions = [
+            {
+              "id": "xjtlu-suwon-smart-inclusive-transition-forum-2026",
+              "title": "XJTLU, 한국 수원 스마트도시 포럼 참가…서울대와 공동연구 발표",
+              "summary": "XJTLU Design School 대표단이 2026년 4월 한국 수원에서 열린 Smart Inclusive Transition Forum에 참가했습니다. XJTLU·수원시정연구원·서울대학교·UN-Habitat 공동연구 결과가 발표됐고, 2025년 XJTLU와 수원특례시가 체결한 MOU가 실제 연구·교류로 이어진 사례로 소개됐습니다.",
+              "date": "2026-08-30",
+              "source_date": "2026-04-17",
+              "source_url": "https://www.xjtlu.edu.cn/en/news/2026/04/foruminsuwonkorea",
+              "category": "한국협력·도시계획",
+              "priority": 18,
+              "status": "preview_ready",
+              "content_type": "official_update",
+              "personal_story": false,
+              "reviewed_at": "2026-08-30",
+              "sections": [
+                {
+                  "heading": "XJTLU Design School 대표단이 한국 수원을 방문했습니다",
+                  "paragraphs": [
+                    "XJTLU Design School과 산업 파트너 대표단은 2026년 4월 3일 수원특례시의 초청을 받아 한국에서 열린 2026 Suwon Smart Inclusive Transition Forum에 참가했습니다. 이 포럼은 수원시정연구원의 기념 학술행사 시리즈 가운데 하나로 열렸습니다.",
+                    "XJTLU Design School의 Marc Aurel Schnabel 학장은 행사에서 수원시정연구원이 시민과의 대화를 통해 도시의 현재와 미래를 함께 논의하는 방식을 높이 평가했습니다. 그는 이번 포럼이 XJTLU와 수원시가 2025년 체결한 MOU의 가치를 실제 협력 현장에서 보여주는 기회였다고 설명했습니다."
+                  ]
+                },
+                {
+                  "heading": "서울대학교·UN-Habitat와 진행한 공동연구 결과 발표",
+                  "paragraphs": [
+                    "포럼에서는 XJTLU, 수원시정연구원, 서울대학교, UN-Habitat가 공동으로 진행한 ‘Smart Inclusive Transitions for an Equitable Future in Suwon’ 연구 결과가 발표됐습니다. 스마트도시 기술을 단순히 도입하는 데 그치지 않고, 시민의 삶과 도시 운영에 어떤 변화를 만드는지를 평가하는 연구입니다.",
+                    "행사에서는 도시계획과 AI·빅데이터를 포함한 다양한 발표가 이어졌고, 패널 토론에는 XJTLU, 와세다대학교, 서울대학교, 수원시정연구원 관계자가 참여했습니다. XJTLU의 Joon-sik Kim 교수가 패널 토론을 진행했습니다."
+                  ]
+                },
+                {
+                  "heading": "2025년 수원시 MOU가 후속 협력으로 이어진 사례",
+                  "paragraphs": [
+                    "이 기사는 2025년 XJTLU와 수원특례시가 체결한 협약이 이후 실제 공동연구와 한국 현지 행사로 이어졌다는 점에서 의미가 있습니다. 단순한 협약 발표가 아니라 연구 결과 공유와 도시정책 논의까지 이어진 후속 사례입니다.",
+                    "도시계획, 건축, 디자인, 지속가능한 도시 분야를 고려하는 한국 학생이라면 XJTLU Design School이 한국의 대학·지자체·연구기관과 어떤 방식으로 협력하는지 확인할 수 있는 사례입니다."
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "xjtlu-kentech-energy-materials-research-talent-development",
+              "title": "XJTLU·한국에너지공대, 에너지 소재 공동연구·인재양성 협력",
+              "summary": "XJTLU는 한국에너지공과대학교(KENTECH)와 에너지 소재 분야의 국제 공동연구와 전문인력 양성을 위한 협약을 체결했습니다. XJTLU 공식 미디어 정리 페이지는 2023년 7월 체결된 이 협력을 한국 매체 보도 사례로 소개했고, XJTLU School of Science의 현재 글로벌 파트너 목록에도 KENTECH가 포함돼 있습니다.",
+              "date": "2026-08-30",
+              "source_date": "2023-09-08",
+              "source_url": "https://www.xjtlu.edu.cn/en/news/2023/09/xjtlu-in-the-media-in-july-and-august-2023",
+              "category": "한국협력·에너지연구",
+              "priority": 8,
+              "status": "preview_ready",
+              "content_type": "official_update",
+              "personal_story": false,
+              "reviewed_at": "2026-08-30",
+              "sections": [
+                {
+                  "heading": "XJTLU와 KENTECH가 에너지 소재 분야 협약을 체결했습니다",
+                  "paragraphs": [
+                    "XJTLU 공식 미디어 정리 페이지에 따르면 XJTLU는 2023년 7월 6일 한국에너지공과대학교(KENTECH)와 에너지 소재 분야의 국제 공동연구 및 전문인력 양성을 위한 협약을 체결했습니다. 이 소식은 당시 한국 언론에서도 보도됐습니다.",
+                    "협력의 핵심은 에너지 소재 분야에서 양 기관의 연구 역량을 연결하고, 공동연구와 전문 연구인력 양성을 추진하는 것입니다. XJTLU School of Science는 현재 글로벌 파트너 목록에도 KENTECH를 한국 협력기관으로 명시하고 있습니다."
+                  ]
+                },
+                {
+                  "heading": "배터리·에너지 소재 분야의 한국 연결성",
+                  "paragraphs": [
+                    "에너지 소재는 배터리, 에너지 저장, 친환경 에너지 기술과 연결되는 연구 분야입니다. XJTLU School of Science는 한국 대학·연구기관과 재료과학 및 에너지 분야 협력을 이어오고 있으며, KENTECH와의 협약도 그 흐름 가운데 하나입니다.",
+                    "특히 XJTLU는 부산대학교와 연료전지 촉매 공동연구를 진행했고, 한국세라믹기술원과도 차세대 에너지 저장 소재 공동연구 협약을 체결한 바 있습니다. 여러 한국 기관과 유사한 분야의 연구 네트워크를 형성하고 있다는 점을 함께 볼 수 있습니다."
+                  ]
+                },
+                {
+                  "heading": "과학·재료·에너지 전공을 보는 학생에게 의미 있는 사례",
+                  "paragraphs": [
+                    "과학, 재료, 화학, 에너지 분야를 고려하는 한국 학생에게는 XJTLU가 한국의 연구중심 대학과 어떤 분야에서 협력하는지를 확인할 수 있는 자료입니다. 연구 협력 자체가 학생 개인의 교환이나 인턴십 기회를 자동으로 보장하는 것은 아니지만, 대학의 연구 네트워크와 방향을 이해하는 데 도움이 됩니다.",
+                    "향후 구체적인 공동 프로그램이나 학생 참여 기회가 발표되는 경우에는 별도로 확인할 필요가 있습니다. 현재 확인되는 핵심 사실은 에너지 소재 공동연구와 전문인력 양성을 목적으로 양 기관이 협력관계를 맺었다는 점입니다."
+                  ]
+                }
+              ]
+            }
+          ]
+
+          for item in additions:
+              if item['id'] not in ids:
+                  data['items'].append(item)
+
+          data['updated_at'] = '2026-08-30'
+          p.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+
+          python scripts/render_news.py
+          python scripts/render_news.py --check
+          git diff --check
+
+      - name: Commit generated preview and remove one-off workflow
+        run: |
+          git config user.name "TNS News Editorial"
+          git config user.email "actions@users.noreply.github.com"
+          git add news/news-data.json news index.html sitemap.xml
+          git rm .github/workflows/preview-add-suwon-forum-kentech.yml
+          git commit -m "Add Suwon forum and KENTECH Korea news"
+          git push origin HEAD:feature/xjtlu-korea-review-news-20260830

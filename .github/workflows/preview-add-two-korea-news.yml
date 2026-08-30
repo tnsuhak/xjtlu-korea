@@ -1,0 +1,146 @@
+name: Add Korea-related news items and source-date ordering
+
+on:
+  push:
+    branches:
+      - feature/xjtlu-korea-review-news-20260830
+    paths:
+      - '.github/workflows/preview-add-two-korea-news.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/xjtlu-korea-review-news-20260830
+
+      - name: Add articles and enforce source-date order
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+
+          data_path = Path('news/news-data.json')
+          data = json.loads(data_path.read_text(encoding='utf-8'))
+          ids = {item['id'] for item in data['items']}
+
+          additions = [
+            {
+              'id': 'xjtlu-suwon-city-mou-sustainable-urban-collaboration',
+              'title': 'XJTLU·수원특례시 MOU 체결…교육·AI·바이오 협력 확대',
+              'summary': 'XJTLU와 수원특례시가 교육, 산업협력, 도시정책 분야의 장기 협력을 위한 MOU를 체결했습니다. 양측은 지속가능한 도시개발과 인재양성, AI·바이오·IT 공동연구를 추진하고, 향후 수원에서 교육 프로그램을 운영할 가능성도 검토하기로 했습니다.',
+              'date': '2026-08-30',
+              'source_date': '2025-09-25',
+              'source_url': 'https://www.xjtlu.edu.cn/en/news/2025/09/mou-with-suwon-city',
+              'category': '한국협력·교육·도시혁신',
+              'priority': 25,
+              'status': 'preview_ready',
+              'content_type': 'official_update',
+              'personal_story': False,
+              'reviewed_at': '2026-08-30',
+              'sections': [
+                {
+                  'heading': 'XJTLU와 수원특례시가 공식 MOU를 체결했습니다',
+                  'paragraphs': [
+                    'XJTLU는 2025년 9월 22일 이재준 수원특례시장이 이끄는 수원시 대표단과 만나 교육, 산업협력, 도시정책 분야의 협력을 위한 양해각서(MOU)를 체결했습니다. 수원시정연구원과 수원시 관계자들도 함께 참여했습니다.',
+                    '이번 협약은 단순 교류를 넘어 지속가능한 도시개발을 위한 인재양성 프로그램, 공동연구, 수원경제자유구역과 연계한 산학관 협력까지 포함하고 있습니다. XJTLU가 위치한 쑤저우 산업단지의 경험을 수원과 공유하겠다는 방향도 공식 발표에서 언급됐습니다.'
+                  ]
+                },
+                {
+                  'heading': 'AI·바이오·IT까지 공동연구 범위를 넓힐 계획',
+                  'paragraphs': [
+                    'XJTLU와 수원시는 도시계획 분야뿐 아니라 인공지능, 바이오테크놀로지, 정보기술 분야에서도 공동연구를 추진할 계획입니다. XJTLU 측은 AI, 생명·건강과학, 도시혁신을 대학의 주요 전략 분야로 설명하며 수원과의 협력이 이 방향과 잘 맞는다고 밝혔습니다.',
+                    '수원 대표단과 XJTLU 연구진은 자유경제구역 운영, 글로벌 투자유치, 도시·생활 인프라 계획, 산학연 협력 모델도 함께 논의했습니다. 대학과 도시가 연구 결과를 실제 지역 정책과 산업 발전에 연결하려는 협력이라는 점이 특징입니다.'
+                  ]
+                },
+                {
+                  'heading': '수원에서의 교육 프로그램 가능성도 언급됐습니다',
+                  'paragraphs': [
+                    'XJTLU 측은 공동연구와 인재양성뿐 아니라 앞으로 수원에서 학위과정을 제공할 가능성도 있다고 밝혔습니다. 수원 측 역시 전략산업과 연결된 XJTLU 캠퍼스 또는 연구센터의 설립 가능성을 검토하는 방안을 제안했습니다.',
+                    '다만 현재 단계에서 한국 캠퍼스나 학위과정이 확정된 것은 아닙니다. 공식 발표는 어디까지나 향후 가능성과 타당성을 검토하는 수준으로 설명하고 있으므로, 이를 한국 내 XJTLU 캠퍼스 개설 확정으로 해석해서는 안 됩니다.',
+                    '한국 학생 입장에서는 XJTLU가 한국 대학과의 공동연구뿐 아니라 한국 지방자치단체와도 교육·산업 협력을 확대하고 있다는 점을 보여주는 사례입니다. 특히 AI, 바이오, 도시계획, 디자인 분야에 관심 있는 학생이라면 향후 협력의 전개를 지켜볼 만합니다.'
+                  ]
+                }
+              ]
+            },
+            {
+              'id': 'xjtlu-dgist-student-exchange-research-partnership',
+              'title': 'XJTLU·DGIST, 학생교류·AI·과학 공동연구 협력 확대 논의',
+              'summary': 'DGIST 총장단이 XJTLU School of Science를 방문해 학생·교수 교류, 공동연구, 공동논문과 연구비 공동신청을 포함한 협력 확대를 논의했습니다. AI, 생명과학, 재료과학, 환경과학과 신기술 분야가 주요 협력 대상으로 언급됐으며, 양측은 향후 공식 MOU 체결을 추진하기로 했습니다.',
+              'date': '2026-08-30',
+              'source_date': '2024-10-17',
+              'source_url': 'https://www.xjtlu.edu.cn/en/news/2024/10/explore-partnership-with-sci-1',
+              'category': '한국협력·과학연구',
+              'priority': 15,
+              'status': 'preview_ready',
+              'content_type': 'official_update',
+              'personal_story': False,
+              'reviewed_at': '2026-08-30',
+              'sections': [
+                {
+                  'heading': 'DGIST 총장단이 XJTLU School of Science를 방문했습니다',
+                  'paragraphs': [
+                    '2024년 10월 DGIST 대표단이 XJTLU School of Science를 방문해 학술협력 확대 방안을 논의했습니다. 대표단은 이건우 DGIST 총장을 중심으로 구성됐고, XJTLU에서는 School of Science 학장과 주요 교수진이 참석했습니다.',
+                    '양 대학은 이번 방문을 계기로 공식 MOU 체결을 추진하기로 했습니다. 당시 발표는 이미 MOU가 체결됐다고 설명한 것이 아니라, 학생과 교수의 교류와 공동연구를 제도적으로 확대하기 위한 협약 체결을 향후 추진하는 단계라고 밝혔습니다.'
+                  ]
+                },
+                {
+                  'heading': '학생·교수 교류와 공동연구를 함께 확대하는 방향',
+                  'paragraphs': [
+                    '논의된 협력 범위에는 단기 학생교류, 장기 교수 안식년 교류, 공동연구 프로젝트, 공동논문, 연구비 공동신청 등이 포함됐습니다. 공동 세미나와 학술행사를 열어 양 대학 연구자들이 지속적으로 교류할 수 있는 네트워크도 만들겠다는 계획입니다.',
+                    'XJTLU 공식 발표는 양측이 인공지능, 생명과학, 재료과학, 환경과학과 신기술 분야에서 공통 관심사를 확인했다고 설명했습니다. 학생 교류만을 위한 협약이 아니라 연구와 교육을 함께 묶는 협력 구조를 논의했다는 점이 특징입니다.'
+                  ]
+                },
+                {
+                  'heading': '한국 학생에게 의미 있는 과학·AI 협력 사례',
+                  'paragraphs': [
+                    'DGIST는 연구중심 이공계 대학이기 때문에 이번 협력 논의는 XJTLU의 과학·AI 분야 국제연구 네트워크를 보여주는 사례로 볼 수 있습니다. 특히 AI, 생명과학, 재료과학, 환경과학 분야를 고려하는 학생에게는 한국과 중국의 연구기관이 어떤 방식으로 연결될 수 있는지 확인할 수 있는 사례입니다.',
+                    '향후 실제 MOU 체결과 학생교류 프로그램이 구체적으로 운영되는지는 별도로 확인해야 합니다. 현재 기사에서 확인되는 사실은 양측이 협력 방향에 합의하고 공식 협약 체결을 추진하기로 했다는 단계까지입니다.'
+                  ]
+                }
+              ]
+            }
+          ]
+
+          for item in additions:
+            if item['id'] not in ids:
+              data['items'].append(item)
+
+          data['updated_at'] = '2026-08-30'
+          data_path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          renderer = Path('scripts/render_news.py')
+          text = renderer.read_text(encoding='utf-8')
+          text = text.replace("f'<div class=\"news-meta\">{safe_text(item[\"date\"])} · {safe_text(item[\"category\"])}</div>'", "f'<div class=\"news-meta\">{safe_text(item[\"source_date\"])} · {safe_text(item[\"category\"])}</div>'")
+          old_sort = "items.sort(key=lambda item: (item[\"date\"], int(item.get(\"priority\", 0)), item[\"id\"]), reverse=True)"
+          new_sort = "items.sort(key=lambda item: (item[\"source_date\"], int(item.get(\"priority\", 0)), item[\"id\"]), reverse=True)"
+          if old_sort not in text and new_sort not in text:
+              raise SystemExit('news sort rule not found')
+          text = text.replace(old_sort, new_sort)
+          renderer.write_text(text, encoding='utf-8')
+
+          editorial = Path('NEWS_EDITORIAL.md')
+          ed = editorial.read_text(encoding='utf-8')
+          marker = '## 편집 원칙\n'
+          rule = '## 노출 순서 규칙\n\n- 메인 화면의 최신 뉴스와 `/news/` 목록은 TNS 작성일이 아니라 **XJTLU 공식 원문 게시일(`source_date`) 최신순**으로 정렬한다.\n- 새 기사를 뒤늦게 추가해도 오래된 원문이 최신 기사보다 위로 올라오지 않도록 한다.\n- 같은 원문 게시일일 때만 `priority`를 보조 정렬값으로 사용한다.\n- 카드에 표시하는 날짜도 `source_date`를 사용한다.\n\n'
+          if '## 노출 순서 규칙' not in ed:
+              ed = ed.replace(marker, rule + marker)
+          editorial.write_text(ed, encoding='utf-8')
+          PY
+
+          python scripts/render_news.py
+          python scripts/render_news.py --check
+          git diff --check
+
+      - name: Commit preview update and remove workflow
+        run: |
+          git config user.name "TNS News Editorial"
+          git config user.email "actions@users.noreply.github.com"
+          git add NEWS_EDITORIAL.md scripts/render_news.py news/news-data.json index.html sitemap.xml news
+          git rm .github/workflows/preview-add-two-korea-news.yml
+          git commit -m "Add Suwon and DGIST news with source-date ordering"
+          git push origin HEAD:feature/xjtlu-korea-review-news-20260830

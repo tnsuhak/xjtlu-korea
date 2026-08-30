@@ -1,6 +1,94 @@
 {
   "site": "xjtlu-korea",
   "language": "ko",
-  "updated_at": null,
-  "items": []
+  "updated_at": "2026-08-30",
+  "items": [
+    {
+      "id": "class-of-2026-dual-degree-graduation",
+      "title": "2026 졸업생 3,797명, XJTLU·리버풀대학교 학위 동시 취득",
+      "summary": "2026년 여름 졸업식에서 XJTLU 학부 졸업생 3,797명이 XJTLU 학위와 영국 리버풀대학교 학위를 함께 받았습니다. 실제 졸업 결과를 통해 XJTLU 복수학위 구조를 확인할 수 있는 공식 발표입니다.",
+      "date": "2026-08-30",
+      "source_date": "2026-07-27",
+      "source_url": "https://www.xjtlu.edu.cn/en/news/2026/07/class-of-2026-xjtlu",
+      "category": "학위·졸업",
+      "priority": 30,
+      "status": "preview_ready",
+      "content_type": "official_update",
+      "personal_story": false,
+      "reviewed_at": "2026-08-30",
+      "sections": [
+        {
+          "heading": "2026년 졸업 현황",
+          "paragraphs": [
+            "XJTLU는 2026년 7월 27일부터 31일까지 열린 졸업식에서 총 4,816명의 졸업을 기념했습니다. 공식 발표에 따르면 이 가운데 학부 졸업생은 3,797명이었습니다.",
+            "학부 졸업생들은 중국 교육부가 인정하는 XJTLU의 졸업·학위 증서와 함께 영국 리버풀대학교의 학사 학위 증서를 받았습니다. 1,244명은 리버풀대학교 기준 First Class Honours로 졸업했습니다."
+          ]
+        },
+        {
+          "heading": "한국 지원자가 확인할 점",
+          "paragraphs": [
+            "XJTLU의 학부 복수학위는 단순 교환학생 제도가 아니라 졸업 시 두 대학의 학위를 받는 구조입니다. 다만 학위 명칭과 2+2 선택 가능 여부는 전공별로 다를 수 있으므로 지원 전 희망 전공의 공식 과정 정보를 확인해야 합니다."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xjtlu-seoul-suwon-un-habitat-smart-city-report",
+      "title": "XJTLU·서울대·수원시·UN-Habitat, 스마트도시 공동연구 발표",
+      "summary": "XJTLU와 서울대학교가 중심이 되어 수원시의 포용적 스마트도시 전환을 분석한 공동 보고서를 발표했습니다. 한국의 대학·지자체와 이어지는 XJTLU의 도시계획 분야 국제협력 사례입니다.",
+      "date": "2026-08-30",
+      "source_date": "2026-05-26",
+      "source_url": "https://www.xjtlu.edu.cn/en/news/2026/05/xjtlu-un-habitat-and-suwon-launch-pioneering-report-at-wuf13",
+      "category": "한국협력·도시계획",
+      "priority": 20,
+      "status": "preview_ready",
+      "content_type": "official_update",
+      "personal_story": false,
+      "reviewed_at": "2026-08-30",
+      "sections": [
+        {
+          "heading": "수원을 대상으로 진행한 국제 공동연구",
+          "paragraphs": [
+            "XJTLU는 2026년 5월 World Urban Forum 13 행사에서 ‘Smart Inclusive Transitions for an Equitable Urban Future in Suwon’ 보고서를 공개했습니다. 이 연구에는 서울대학교, 수원특례시, 수원시정연구원과 UN-Habitat가 참여했습니다.",
+            "공식 발표에 따르면 보고서는 수원에서 스마트도시 전환이 시민의 삶의 질을 실제로 개선하는지를 평가하고, 그 결과를 도시 정책과 예산·서비스 설계에 활용하는 방법을 다뤘습니다."
+          ]
+        },
+        {
+          "heading": "XJTLU의 한국 협력 사례",
+          "paragraphs": [
+            "이번 발표는 XJTLU가 한국의 대학과 지방자치단체, 국제기구를 연결해 실제 도시를 대상으로 연구한 사례입니다. 도시계획·건축·지속가능한 도시 분야를 고려하는 학생에게 XJTLU Design School의 국제협력 방향을 보여주는 자료로 활용할 수 있습니다."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xjtlu-pusan-national-fuel-cell-research",
+      "title": "XJTLU·부산대학교, 수소연료전지 촉매 공동연구 성과",
+      "summary": "XJTLU와 부산대학교의 협력 이후 연료전지용 코발트·탄소 복합 촉매 연구가 학술지 Small에 채택됐습니다. 한국 대학과의 공동연구가 실제 연구 결과로 이어진 과학·재료 분야 사례입니다.",
+      "date": "2026-08-30",
+      "source_date": "2024-03-14",
+      "source_url": "https://www.xjtlu.edu.cn/en/news/2024/03/international-connections-at-xjtlu-4",
+      "category": "한국협력·과학연구",
+      "priority": 10,
+      "status": "preview_ready",
+      "content_type": "official_update",
+      "personal_story": false,
+      "reviewed_at": "2026-08-30",
+      "sections": [
+        {
+          "heading": "부산대학교와의 공동연구 결과",
+          "paragraphs": [
+            "XJTLU School of Science와 부산대학교의 협력으로 진행된 연구 논문이 재료과학 학술지 Small에 채택됐습니다. XJTLU 공식 발표는 이를 양 대학 협약 이후 나온 첫 연구 성과로 소개했습니다.",
+            "연구에서는 연료전지 촉매에 활용할 수 있는 코발트·탄소 복합체를 다뤘습니다. XJTLU 연구진이 이론 모델을 제시하고 부산대학교 연구진이 실험으로 예측을 검증하는 방식으로 협력했습니다."
+          ]
+        },
+        {
+          "heading": "과학·재료 분야의 한국 연결성",
+          "paragraphs": [
+            "이 사례는 기관 방문이나 협약 발표에 그치지 않고 공동 논문이라는 결과로 이어졌다는 점에서 의미가 있습니다. 재료공학·화학·에너지 연구에 관심 있는 한국 학생에게 XJTLU의 국제 공동연구 환경을 설명할 때 참고할 수 있습니다."
+          ]
+        }
+      ]
+    }
+  ]
 }

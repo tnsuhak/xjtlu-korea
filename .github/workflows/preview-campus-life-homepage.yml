@@ -1,0 +1,109 @@
+name: Build campus life homepage links
+
+on:
+  push:
+    branches:
+      - feature/xjtlu-campus-life-guides-20260902
+    paths:
+      - '.github/workflows/preview-campus-life-homepage.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/xjtlu-campus-life-guides-20260902
+
+      - name: Add accommodation, sports and clubs links to homepage
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path('index.html')
+          html = p.read_text(encoding='utf-8')
+
+          css = '''
+          /* Campus life guide links */
+          .campus-life-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:34px}
+          .campus-life-card{display:block;background:#fff;border:1px solid var(--rule);padding:28px;text-decoration:none;transition:transform .2s,box-shadow .2s}
+          .campus-life-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(20,33,61,.09)}
+          .campus-life-card span{display:block;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--gold);margin-bottom:8px}
+          .campus-life-card strong{display:block;font-size:20px;color:var(--navy);margin-bottom:8px}
+          .campus-life-card p{font-size:13px;line-height:1.75;color:var(--mid);margin:0}
+          .campus-life-card em{display:block;font-style:normal;font-size:12px;font-weight:700;color:var(--navy);margin-top:14px}
+          @media(max-width:700px){.campus-life-grid{grid-template-columns:1fr}}
+          '''
+          if '/* Campus life guide links */' not in html:
+              html = html.replace('</style>', css + '\n</style>', 1)
+
+          accommodation_note = '''<p style="font-size:11px;color:var(--mid);margin-top:10px;font-family:'DM Mono',monospace;">* 요금 변동 가능 · 결제: WeChat / Alipay / 카드(VISA·MC·JCB·Amex)</p>'''
+          accommodation_link = accommodation_note + '''
+          <div class="source-note" style="margin-top:22px;"><a href="xjtlu-accommodation-sip-taicang.html"><strong>XJTLU 숙소 상세 가이드 →</strong></a><br><span style="display:inline-block;margin-top:7px;font-size:12px;color:var(--mid);line-height:1.7;">SIP·Taicang 숙소별 비용, 거리, 주방·욕실, 예약 시 확인할 내용을 자세히 정리했습니다.</span></div>'''
+          if 'href="xjtlu-accommodation-sip-taicang.html"' not in html:
+              if accommodation_note not in html:
+                  raise SystemExit('Accommodation insertion marker not found')
+              html = html.replace(accommodation_note, accommodation_link, 1)
+
+          campus_life = '''
+          <!-- ====== 캠퍼스 생활 ====== -->
+          <div class="sec-alt" id="campus-life">
+            <div class="sec fi">
+              <p class="label">CAMPUS LIFE</p>
+              <h2 class="sec-h">운동하고, 만들고, 사람을 만나는 대학생활</h2>
+              <p class="sec-p">XJTLU는 수업 외에도 스포츠 시설과 학생 동아리 활동이 활발합니다. 실내외 체육시설을 이용하거나 학술·예술·스포츠·봉사 동아리에 참여하면서 캠퍼스 생활을 넓힐 수 있습니다.</p>
+              <div class="campus-life-grid">
+                <a class="campus-life-card" href="xjtlu-sports-facilities.html"><span>SPORTS &amp; FITNESS</span><strong>스포츠 시설</strong><p>헬스·피트니스, 농구·배드민턴, 축구·테니스, 실내 골프, 스쿼시, 양궁, 펜싱, 클라이밍 등 다양한 시설을 이용할 수 있습니다.</p><em>스포츠 시설 자세히 보기 →</em></a>
+                <a class="campus-life-card" href="xjtlu-clubs-student-organisations.html"><span>CLUBS &amp; ACTIVITIES</span><strong>동아리·학생단체</strong><p>학술·전공, 예술·공연, 스포츠, 봉사, 국제교류와 학생자치까지 다양한 학생 조직과 동아리가 운영됩니다.</p><em>동아리 상세 리스트 보기 →</em></a>
+              </div>
+            </div>
+          </div>
+          '''
+          marker = '<!-- ====== 입학안내 ====== -->'
+          if 'id="campus-life"' not in html:
+              if marker not in html:
+                  raise SystemExit('Admission insertion marker not found')
+              html = html.replace(marker, campus_life + '\n' + marker, 1)
+
+          footer_old = '''        <li><a href="#rooms">숙소</a></li>'''
+          footer_new = '''        <li><a href="xjtlu-accommodation-sip-taicang.html">숙소 상세</a></li>
+                <li><a href="xjtlu-sports-facilities.html">스포츠 시설</a></li>
+                <li><a href="xjtlu-clubs-student-organisations.html">동아리·학생단체</a></li>'''
+          if 'xjtlu-sports-facilities.html">스포츠 시설</a></li>' not in html:
+              if footer_old not in html:
+                  raise SystemExit('Footer marker not found')
+              html = html.replace(footer_old, footer_new, 1)
+
+          p.write_text(html, encoding='utf-8')
+
+          required = [
+              'xjtlu-accommodation-sip-taicang.html',
+              'xjtlu-sports-facilities.html',
+              'xjtlu-clubs-student-organisations.html',
+          ]
+          for f in required:
+              if not Path(f).exists():
+                  raise SystemExit(f'Missing page: {f}')
+              t = Path(f).read_text(encoding='utf-8')
+              if t.count('<h1>') != 1 or 'rel="canonical"' not in t or '자료 출처' not in t:
+                  raise SystemExit(f'Page validation failed: {f}')
+          sitemap = Path('sitemap.xml').read_text(encoding='utf-8')
+          if not all(f'https://xjtlu-korea.netlify.app/{f}' in sitemap for f in required):
+              raise SystemExit('Sitemap validation failed')
+          if not all(f in html for f in required):
+              raise SystemExit('Homepage link validation failed')
+          print('Campus life pages and homepage links validated')
+          PY
+          git diff --check
+
+      - name: Commit homepage links and remove one-off workflow
+        run: |
+          git config user.name "TNS Site Manager"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html
+          git rm .github/workflows/preview-campus-life-homepage.yml
+          git commit -m "Link XJTLU campus life guides from homepage"
+          git push origin HEAD:feature/xjtlu-campus-life-guides-20260902

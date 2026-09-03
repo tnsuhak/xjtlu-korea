@@ -1,0 +1,51 @@
+name: Render review-first news
+
+on:
+  workflow_dispatch:
+  push:
+    branches-ignore:
+      - main
+    paths:
+      - 'news/news-data.json'
+      - 'news/index.html'
+      - 'scripts/render_news.py'
+      - 'index.html'
+      - 'sitemap.xml'
+      - '.github/workflows/render-news.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  render-news:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout triggering branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Render and validate static news pages
+        run: |
+          python scripts/render_news.py
+          python scripts/render_news.py --check
+          git diff --check
+
+      - name: Commit generated files to the same branch
+        run: |
+          if [ -z "$(git status --porcelain -- index.html sitemap.xml news)" ]; then
+            echo "Generated news files are already current"
+            exit 0
+          fi
+          git config user.name "TNS News Renderer"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html sitemap.xml news
+          git commit -m "Render reviewed XJTLU Korea news"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

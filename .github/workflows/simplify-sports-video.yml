@@ -6,6 +6,7 @@ on:
       - feature/xjtlu-campus-life-guides-20260902
     paths:
       - '.github/workflows/simplify-sports-video.yml'
+      - '.github/scripts/simplify_sports_video.py'
 
 permissions:
   contents: write

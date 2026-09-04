@@ -523,15 +523,14 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
   }
 }
 
-/* Campus life guide links */
-.campus-life-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:34px}
-.campus-life-card{display:block;background:#fff;border:1px solid var(--rule);padding:28px;text-decoration:none;transition:transform .2s,box-shadow .2s}
-.campus-life-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(20,33,61,.09)}
-.campus-life-card span{display:block;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--gold);margin-bottom:8px}
-.campus-life-card strong{display:block;font-size:20px;color:var(--navy);margin-bottom:8px}
-.campus-life-card p{font-size:13px;line-height:1.75;color:var(--mid);margin:0}
-.campus-life-card em{display:block;font-style:normal;font-size:12px;font-weight:700;color:var(--navy);margin-top:14px}
-@media(max-width:700px){.campus-life-grid{grid-template-columns:1fr}}
+/* Compact contextual detail links — aligned with UNNC Korea */
+.related-links{margin-top:22px;display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap}
+.related-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;color:#98a2b3;margin-right:2px}
+.related-link{display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border:1px solid #d9dee7;border-radius:3px;background:rgba(255,255,255,.72);color:var(--navy);font-size:12px;font-weight:700;line-height:1.4;text-decoration:none;transition:.2s}
+.related-link:hover{border-color:var(--gold);color:#8b6a1f;transform:translateY(-1px)}
+.related-link .arr{color:var(--gold)}
+#campus-life .related-links{justify-content:flex-start;margin-top:24px}
+@media(max-width:560px){.related-links{justify-content:flex-start;margin-top:18px}.related-label{width:100%;margin-bottom:1px}.related-link{font-size:12px;padding:8px 10px}}
 
 </style>
 </head>
@@ -620,7 +619,7 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
       <div class="feat-card"><div class="feat-num">03</div><h3 class="feat-title">세계 TOP10 진학</h3><p class="feat-body">2025년 졸업생의 47.16%가 세계 상위 10위권 대학에 진학.</p></div>
       <div class="feat-card"><div class="feat-num">04</div><h3 class="feat-title">상하이 30분</h3><p class="feat-body">중국 쑤저우 소재. 상하이에서 고속철로 30분 거리.</p></div>
     </div>
-    <div class="source-note"><a href="xjtlu-dual-degree-liverpool-2plus2.html"><strong>복수학위·리버풀대학교 2+2 상세 가이드 →</strong></a><br><span style="display:inline-block;margin-top:7px;font-size:12px;color:var(--mid);line-height:1.7;">XJTLU에서 4년을 공부하는 경로와 영국 리버풀대학교로 이동하는 2+2의 차이, 취득 학위와 비용 구조를 정리했습니다.</span></div>
+    <div class="related-links" aria-label="이 내용과 관련된 상세 가이드"><span class="related-label">관련 글</span><a class="related-link" href="xjtlu-dual-degree-liverpool-2plus2.html">복수학위·2+2<span class="arr">→</span></a></div>
   </div>
 </div>
 
@@ -695,7 +694,7 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
       <div class="mc"><div class="mc-s">FILM &amp; TV ARTS</div><div class="mc-n">TV Production</div><div class="mc-d">BA (Hons)</div></div>
       <div class="mc"><div class="mc-s">CIVIL ENGINEERING</div><div class="mc-n">Urban Planning and Design</div><div class="mc-d">BA (Hons)</div></div>
     </div>
-    <div class="source-note"><a href="xjtlu-programmes-careers-graduate-destinations.html"><strong>전공·대학원 진학·졸업 후 진로 상세 가이드 →</strong></a><br>전공 분야별 학업 방향과 2025년 졸업생 진학 결과, 취업·인턴십 지원을 함께 정리했습니다.</div>
+    <div class="related-links" aria-label="이 내용과 관련된 상세 가이드"><span class="related-label">관련 글</span><a class="related-link" href="xjtlu-programmes-careers-graduate-destinations.html">전공·진로<span class="arr">→</span></a></div>
   </div>
 </div>
 
@@ -731,7 +730,7 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
       </div>
 
     </div>
-    <div class="source-note"><a href="xjtlu-tuition-scholarships-2027.html"><strong>2027 학비·장학금 상세 가이드 →</strong></a><br>학비, 장학금, 지원 일정은 변경될 수 있습니다. 최신 기준과 지원 가능 여부는 상세 가이드와 TNS유학 상담을 통해 확인해 주세요.</div>
+    <div class="related-links" aria-label="이 내용과 관련된 상세 가이드"><span class="related-label">관련 글</span><a class="related-link" href="xjtlu-tuition-scholarships-2027.html">2027 학비·장학금<span class="arr">→</span></a></div>
   </div>
 </div>
 
@@ -772,7 +771,7 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
           </tbody>
         </table>
         <p style="font-size:11px;color:var(--mid);margin-top:10px;font-family:'DM Mono',monospace;">* 요금 변동 가능 · 결제: WeChat / Alipay / 카드(VISA·MC·JCB·Amex)</p>
-<div class="source-note" style="margin-top:22px;"><a href="xjtlu-accommodation-sip-taicang.html"><strong>XJTLU 숙소 상세 가이드 →</strong></a><br><span style="display:inline-block;margin-top:7px;font-size:12px;color:var(--mid);line-height:1.7;">SIP·Taicang 숙소별 비용, 거리, 주방·욕실, 예약 시 확인할 내용을 자세히 정리했습니다.</span></div>
+<div class="related-links" aria-label="이 내용과 관련된 상세 가이드"><span class="related-label">관련 글</span><a class="related-link" href="xjtlu-accommodation-sip-taicang.html">숙소 상세<span class="arr">→</span></a></div>
       </div>
   </div>
 </div>
@@ -784,10 +783,7 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
     <p class="label">CAMPUS LIFE</p>
     <h2 class="sec-h">운동하고, 만들고, 사람을 만나는 대학생활</h2>
     <p class="sec-p">XJTLU는 수업 외에도 스포츠 시설과 학생 동아리 활동이 활발합니다. 실내외 체육시설을 이용하거나 학술·예술·스포츠·봉사 동아리에 참여하면서 캠퍼스 생활을 넓힐 수 있습니다.</p>
-    <div class="campus-life-grid">
-      <a class="campus-life-card" href="xjtlu-sports-facilities.html"><span>SPORTS &amp; FITNESS</span><strong>스포츠 시설</strong><p>헬스·피트니스, 농구·배드민턴, 축구·테니스, 실내 골프, 스쿼시, 양궁, 펜싱, 클라이밍 등 다양한 시설을 이용할 수 있습니다.</p><em>스포츠 시설 자세히 보기 →</em></a>
-      <a class="campus-life-card" href="xjtlu-clubs-student-organisations.html"><span>CLUBS &amp; ACTIVITIES</span><strong>동아리·학생단체</strong><p>학술·전공, 예술·공연, 스포츠, 봉사, 국제교류와 학생자치까지 다양한 학생 조직과 동아리가 운영됩니다.</p><em>동아리 상세 리스트 보기 →</em></a>
-    </div>
+    <div class="related-links" aria-label="캠퍼스 생활 상세 가이드"><span class="related-label">관련 글</span><a class="related-link" href="xjtlu-sports-facilities.html">스포츠 시설<span class="arr">→</span></a><a class="related-link" href="xjtlu-clubs-student-organisations.html">동아리 215개<span class="arr">→</span></a></div>
   </div>
 </div>
 
@@ -868,7 +864,7 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
   </div>
 
 </div>
-    <div class="source-note"><a href="xjtlu-admission-requirements-korea-2027.html"><strong>2027 입학조건·편입 상세 가이드 →</strong></a><br><span style="display:inline-block;margin-top:7px;font-size:12px;color:var(--mid);line-height:1.7;">한국 고교 내신·IELTS·해외고 2학년 진학·한국 대학 편입 기준을 정리했습니다.</span></div>
+    <div class="related-links" aria-label="이 내용과 관련된 상세 가이드"><span class="related-label">관련 글</span><a class="related-link" href="xjtlu-admission-requirements-korea-2027.html">2027 입학조건·편입<span class="arr">→</span></a></div>
   </div>
 </div>
 

@@ -1,0 +1,32 @@
+name: Simplify XJTLU sports page video
+
+on:
+  push:
+    branches:
+      - feature/xjtlu-campus-life-guides-20260902
+    paths:
+      - '.github/workflows/simplify-sports-video.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  simplify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/xjtlu-campus-life-guides-20260902
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Simplify title and video block
+        run: python .github/scripts/simplify_sports_video.py
+      - name: Commit page change and remove one-off helpers
+        run: |
+          git config user.name "tnsuhak"
+          git config user.email "tnsuhak@gmail.com"
+          rm -f .github/scripts/simplify_sports_video.py .github/workflows/simplify-sports-video.yml
+          git add -A
+          git commit -m "Simplify XJTLU sports page title and video" || exit 0
+          git push origin HEAD:feature/xjtlu-campus-life-guides-20260902

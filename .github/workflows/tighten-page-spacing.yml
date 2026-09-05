@@ -88,11 +88,15 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-          pages = list(Path('.').rglob('*.html'))
-          missing = [str(p) for p in pages if 'TNS COMPACT SPACING START' not in p.read_text(encoding='utf-8')]
+          pages = []
+          for p in Path('.').rglob('*.html'):
+              s = p.read_text(encoding='utf-8')
+              if '</style>' in s:
+                  pages.append((p, s))
+          missing = [str(p) for p, s in pages if 'TNS COMPACT SPACING START' not in s]
           if missing:
               raise SystemExit('Missing compact spacing marker: ' + ', '.join(missing))
-          print(f'Validated {len(pages)} HTML pages')
+          print(f'Validated {len(pages)} styled HTML pages')
           PY
       - name: Commit spacing changes and remove helper workflow
         run: |

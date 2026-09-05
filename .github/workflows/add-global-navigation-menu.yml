@@ -1,0 +1,268 @@
+name: Add XJTLU global navigation menu
+
+on:
+  push:
+    branches:
+      - feature/xjtlu-campus-life-guides-20260902
+    paths:
+      - '.github/workflows/add-global-navigation-menu.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/xjtlu-campus-life-guides-20260902
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Add sitemap-style global navigation
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('index.html')
+          s = path.read_text(encoding='utf-8')
+          marker = 'TNS GLOBAL MENU START'
+
+          if marker not in s:
+              css = r'''
+          /* TNS GLOBAL MENU START */
+          html { scroll-padding-top:118px; }
+          body.site-menu-open { overflow:hidden; }
+          .nav-menu-btn {
+            border:1px solid #d9dde6; background:#fff; color:var(--navy);
+            padding:9px 12px; border-radius:4px; font-family:'Noto Sans KR',sans-serif;
+            font-size:13px; font-weight:700; cursor:pointer; white-space:nowrap;
+            display:flex; align-items:center; gap:7px; transition:.2s;
+          }
+          .nav-menu-btn:hover { border-color:var(--gold); background:#faf8f4; color:#8b6a1f; }
+          .nav-menu-icon { font-size:17px; line-height:1; transform:translateY(-1px); }
+          .site-menu-overlay {
+            position:fixed; inset:0; z-index:980; background:rgba(9,17,33,.52);
+            opacity:0; visibility:hidden; transition:opacity .24s,visibility .24s;
+          }
+          .site-menu-overlay.open { opacity:1; visibility:visible; }
+          .site-menu {
+            position:fixed; top:0; right:0; z-index:990; width:min(440px,92vw); height:100dvh;
+            background:#fff; box-shadow:-18px 0 50px rgba(14,26,46,.2);
+            transform:translateX(102%); transition:transform .28s ease;
+            display:flex; flex-direction:column;
+          }
+          .site-menu.open { transform:translateX(0); }
+          .site-menu-head {
+            min-height:84px; padding:20px 24px; background:var(--navy); color:#fff;
+            display:flex; align-items:center; justify-content:space-between; gap:18px;
+          }
+          .site-menu-brand strong { display:block; font-size:18px; letter-spacing:-.01em; }
+          .site-menu-brand span { display:block; margin-top:3px; font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.14em; color:var(--gold-lt); }
+          .site-menu-close {
+            width:38px; height:38px; border:1px solid rgba(255,255,255,.28); border-radius:50%;
+            background:transparent; color:#fff; font-size:22px; line-height:1; cursor:pointer;
+          }
+          .site-menu-scroll { overflow-y:auto; padding:10px 24px 28px; }
+          .site-menu-group { padding:22px 0 18px; border-bottom:1px solid #eceef2; }
+          .site-menu-group:last-of-type { border-bottom:0; }
+          .site-menu-kicker { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a8862f; margin-bottom:9px; }
+          .site-menu-grid { display:grid; grid-template-columns:1fr 1fr; gap:7px 8px; }
+          .site-menu-main {
+            display:block; padding:10px 11px; background:#f7f8fa; border:1px solid #eef0f3;
+            color:var(--navy); text-decoration:none; font-size:13px; font-weight:700; border-radius:4px;
+          }
+          .site-menu-main:hover { border-color:var(--gold); background:#fffaf0; }
+          .site-menu-detail {
+            display:block; padding:13px 2px; text-decoration:none; border-bottom:1px solid #f0f1f3;
+          }
+          .site-menu-detail:last-child { border-bottom:0; }
+          .site-menu-detail strong { display:block; color:var(--navy); font-size:14px; font-weight:700; }
+          .site-menu-detail span { display:block; color:#7a8496; font-size:11.5px; line-height:1.55; margin-top:3px; }
+          .site-menu-detail:hover strong { color:#9a7827; }
+          .site-menu-cta { margin-top:10px; display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+          .site-menu-cta a {
+            display:block; padding:12px 10px; text-align:center; border-radius:4px;
+            text-decoration:none; font-size:13px; font-weight:700;
+          }
+          .site-menu-cta .kakao { background:#fee500; color:#1a1000; }
+          .site-menu-cta .phone { background:var(--navy); color:#fff; }
+          .mob-group-title {
+            padding:18px 32px 8px; font-family:'DM Mono',monospace; font-size:9px;
+            letter-spacing:.14em; color:#a8862f; background:#fafafa; border-bottom:1px solid #f0f0f0;
+          }
+          #mobileNav a.mob-detail { padding:12px 32px 12px 42px; font-size:14px; font-weight:500; color:#596273; }
+          @media(max-width:1080px){
+            .nav-links li a { padding-left:10px; padding-right:10px; font-size:13px; }
+            .nav-menu-btn { padding-left:10px; padding-right:10px; }
+          }
+          @media(max-width:960px){
+            html { scroll-padding-top:68px; }
+            .nav-menu-btn { display:none; }
+          }
+          @media(max-width:520px){
+            .site-menu-grid,.site-menu-cta { grid-template-columns:1fr; }
+          }
+          /* TNS GLOBAL MENU END */
+          '''
+              if '</style>' not in s:
+                  raise SystemExit('style closing tag not found')
+              s = s.replace('</style>', css + '\n</style>', 1)
+
+              old_nav = r'''  <ul class="nav-links">
+            <li><a href="#information">학교소개</a></li>
+            <li><a href="#major">전공안내</a></li>
+            <li><a href="#calendar">학비·장학금</a></li>
+            <li><a href="#rooms">숙소</a></li>
+            <li><a href="#admission">입학안내</a></li>
+            <li><a href="#reviews">재학생후기</a></li>
+            <li><a href="#inquiry" class="btn-inquiry">입학문의</a></li>
+          </ul>'''
+              new_nav = r'''  <ul class="nav-links">
+            <li><a href="#information">학교소개</a></li>
+            <li><a href="#major">전공안내</a></li>
+            <li><a href="#calendar">학비·장학금</a></li>
+            <li><a href="#rooms">숙소</a></li>
+            <li><a href="#admission">입학안내</a></li>
+            <li><a href="#reviews">재학생후기</a></li>
+            <li><button type="button" class="nav-menu-btn" onclick="openSiteMenu()" aria-controls="siteMenu" aria-expanded="false">전체메뉴 <span class="nav-menu-icon">☰</span></button></li>
+            <li><a href="#inquiry" class="btn-inquiry">입학문의</a></li>
+          </ul>'''
+              if old_nav not in s:
+                  raise SystemExit('desktop nav block not found')
+              s = s.replace(old_nav, new_nav, 1)
+
+              old_mobile = r'''<div id="mobileNav">
+            <a href="#information">학교소개</a>
+            <a href="#major">전공안내</a>
+            <a href="#calendar">학비·장학금</a>
+            <a href="#rooms">숙소</a>
+            <a href="#admission">입학안내</a>
+            <a href="#reviews">재학생후기</a>
+            <a href="#inquiry" class="mob-inquiry">입학문의</a>
+          </div>'''
+              new_mobile = r'''<div id="mobileNav">
+            <div class="mob-group-title">MAIN PAGE</div>
+            <a href="#information">학교소개</a>
+            <a href="#major">전공안내</a>
+            <a href="#calendar">학비·장학금</a>
+            <a href="#rooms">숙소</a>
+            <a href="#campus-life">캠퍼스생활</a>
+            <a href="#admission">입학안내</a>
+            <a href="#reviews">재학생후기</a>
+            <div class="mob-group-title">DETAIL GUIDES</div>
+            <a class="mob-detail" href="xjtlu-admission-requirements-korea-2027.html">2027 입학조건·편입</a>
+            <a class="mob-detail" href="xjtlu-tuition-scholarships-2027.html">2027 학비·장학금</a>
+            <a class="mob-detail" href="xjtlu-dual-degree-liverpool-2plus2.html">리버풀대학교 복수학위·2+2</a>
+            <a class="mob-detail" href="xjtlu-programmes-careers-graduate-destinations.html">전공·진로·대학원 진학</a>
+            <a class="mob-detail" href="xjtlu-accommodation-sip-taicang.html">SIP·Taicang 숙소 상세</a>
+            <a class="mob-detail" href="xjtlu-sports-facilities.html">스포츠·헬스장 시설</a>
+            <a class="mob-detail" href="xjtlu-clubs-student-organisations.html">동아리·학생단체</a>
+            <a href="#inquiry" class="mob-inquiry">입학문의</a>
+          </div>
+
+          <div id="siteMenuOverlay" class="site-menu-overlay" onclick="closeSiteMenu()" aria-hidden="true"></div>
+          <aside id="siteMenu" class="site-menu" aria-label="XJTLU Korea 전체 메뉴" aria-hidden="true">
+            <div class="site-menu-head">
+              <div class="site-menu-brand"><strong>XJTLU Korea</strong><span>ALL MENU · SITE MAP</span></div>
+              <button type="button" class="site-menu-close" onclick="closeSiteMenu()" aria-label="전체 메뉴 닫기">×</button>
+            </div>
+            <div class="site-menu-scroll">
+              <section class="site-menu-group">
+                <div class="site-menu-kicker">MAIN PAGE</div>
+                <div class="site-menu-grid">
+                  <a class="site-menu-main" href="#information">학교소개</a>
+                  <a class="site-menu-main" href="#major">전공안내</a>
+                  <a class="site-menu-main" href="#calendar">학비·장학금</a>
+                  <a class="site-menu-main" href="#rooms">숙소</a>
+                  <a class="site-menu-main" href="#campus-life">캠퍼스생활</a>
+                  <a class="site-menu-main" href="#admission">입학안내</a>
+                  <a class="site-menu-main" href="#reviews">재학생후기</a>
+                  <a class="site-menu-main" href="#inquiry">입학문의</a>
+                </div>
+              </section>
+              <section class="site-menu-group">
+                <div class="site-menu-kicker">DETAIL GUIDES</div>
+                <a class="site-menu-detail" href="xjtlu-admission-requirements-korea-2027.html"><strong>2027 입학조건·편입</strong><span>한국 내신, IELTS, 해외고, 2·3학년 편입 기준</span></a>
+                <a class="site-menu-detail" href="xjtlu-tuition-scholarships-2027.html"><strong>2027 학비·장학금</strong><span>연간 학비, 장학금, 얼리버드, 예상 비용</span></a>
+                <a class="site-menu-detail" href="xjtlu-dual-degree-liverpool-2plus2.html"><strong>리버풀대학교 복수학위·2+2</strong><span>XJTLU 4년과 영국 리버풀대학교 이동 경로 비교</span></a>
+                <a class="site-menu-detail" href="xjtlu-programmes-careers-graduate-destinations.html"><strong>전공·진로·대학원 진학</strong><span>전공 선택, 졸업 후 진로, 대학원 진학 결과</span></a>
+                <a class="site-menu-detail" href="xjtlu-accommodation-sip-taicang.html"><strong>SIP·Taicang 숙소</strong><span>기숙사·아파트 종류, 비용, 거리와 생활환경</span></a>
+                <a class="site-menu-detail" href="xjtlu-sports-facilities.html"><strong>스포츠·헬스장 시설</strong><span>SIP·Taicang 체육관, 수영장, 운동시설</span></a>
+                <a class="site-menu-detail" href="xjtlu-clubs-student-organisations.html"><strong>동아리·학생단체</strong><span>공식 디렉토리 기준 215개 학생 조직</span></a>
+              </section>
+              <section class="site-menu-group">
+                <div class="site-menu-kicker">CONSULTATION</div>
+                <div class="site-menu-cta">
+                  <a class="kakao" href="https://open.kakao.com/o/slehLvKi" target="_blank" rel="noopener">카카오톡 상담</a>
+                  <a class="phone" href="tel:01051500105">전화상담</a>
+                </div>
+              </section>
+            </div>
+          </aside>'''
+              if old_mobile not in s:
+                  raise SystemExit('mobile nav block not found')
+              s = s.replace(old_mobile, new_mobile, 1)
+
+              js = r'''
+          <script>
+          function openSiteMenu() {
+            var menu = document.getElementById('siteMenu');
+            var overlay = document.getElementById('siteMenuOverlay');
+            var btn = document.querySelector('.nav-menu-btn');
+            if (!menu || !overlay) return;
+            menu.classList.add('open');
+            overlay.classList.add('open');
+            menu.setAttribute('aria-hidden','false');
+            overlay.setAttribute('aria-hidden','false');
+            if (btn) btn.setAttribute('aria-expanded','true');
+            document.body.classList.add('site-menu-open');
+            var closeBtn = menu.querySelector('.site-menu-close');
+            if (closeBtn) closeBtn.focus();
+          }
+          function closeSiteMenu() {
+            var menu = document.getElementById('siteMenu');
+            var overlay = document.getElementById('siteMenuOverlay');
+            var btn = document.querySelector('.nav-menu-btn');
+            if (!menu || !overlay) return;
+            menu.classList.remove('open');
+            overlay.classList.remove('open');
+            menu.setAttribute('aria-hidden','true');
+            overlay.setAttribute('aria-hidden','true');
+            if (btn) btn.setAttribute('aria-expanded','false');
+            document.body.classList.remove('site-menu-open');
+          }
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeSiteMenu();
+          });
+          document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('#siteMenu a').forEach(function(a) {
+              a.addEventListener('click', closeSiteMenu);
+            });
+            document.querySelectorAll('#mobileNav a').forEach(function(a) {
+              a.addEventListener('click', closeNav);
+            });
+          });
+          </script>
+          '''
+              if '</body>' not in s:
+                  raise SystemExit('body closing tag not found')
+              s = s.replace('</body>', js + '\n</body>', 1)
+
+              path.write_text(s, encoding='utf-8')
+          PY
+      - name: Validate HTML patch
+        run: |
+          grep -q "TNS GLOBAL MENU START" index.html
+          grep -q "xjtlu-clubs-student-organisations.html" index.html
+          grep -q "openSiteMenu" index.html
+          git diff --check
+      - name: Commit page change and remove helper workflow
+        run: |
+          git config user.name "tnsuhak"
+          git config user.email "tnsuhak@gmail.com"
+          rm -f .github/workflows/add-global-navigation-menu.yml
+          git add -A
+          git commit -m "Add XJTLU sitemap-style global navigation" || exit 0
+          git push origin HEAD:feature/xjtlu-campus-life-guides-20260902

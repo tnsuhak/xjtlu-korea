@@ -26,46 +26,44 @@ jobs:
           from pathlib import Path
 
           marker = 'TNS COMPACT SPACING START'
-          css = r'''
-/* TNS COMPACT SPACING START */
-@media (min-width:761px){
-  .sec{padding-top:72px!important;padding-bottom:72px!important}
-  main{padding-top:58px!important;padding-bottom:58px!important}
-  .section{margin-bottom:52px!important}
-}
-@media (max-width:760px){
-  /* Main page */
-  .sec{padding-top:38px!important;padding-bottom:38px!important}
-  .sec-h{margin-bottom:10px!important}
-  .sec-p{margin-bottom:4px!important}
-  .feat-grid,.major-grid,.adm-grid,.adm-resp-grid,.rev-grid,.inq-wrap{margin-top:28px!important}
-  .feat-card{padding:25px 18px!important}
-  .adm{padding:28px 20px!important}
-  .adm-resp-grid>div{padding:28px 20px!important}
-  .rev{padding:26px 20px!important}
-  .inq-form{padding:28px 20px!important}
-  .about-txt{padding:28px 20px!important}
-  .related-links,#campus-life .related-links{margin-top:14px!important}
-  #reviews .sec>div[style*="margin-top:40px"]{margin-top:24px!important;gap:22px!important}
-
-  /* Detail pages */
-  main{padding-top:40px!important;padding-bottom:40px!important}
-  .hero{min-height:350px!important}
-  .quick{margin-top:-40px!important}
-  .quick div{padding:18px!important}
-  .section{margin-bottom:38px!important}
-  .intro{margin-bottom:28px!important}
-  .category-nav{margin-top:20px!important;margin-bottom:38px!important}
-  .club-section{margin-bottom:38px!important}
-  .card,.campus-card,.facility-box{padding:22px!important}
-  .notice{padding:18px 20px!important}
-  .next{margin-top:14px!important}
-  .sources{margin-top:34px!important;margin-bottom:24px!important}
-  .cta{padding-top:32px!important;padding-bottom:32px!important}
-  footer{padding-top:24px!important;padding-bottom:24px!important}
-}
-/* TNS COMPACT SPACING END */
-'''
+          css = '''
+          /* TNS COMPACT SPACING START */
+          @media (min-width:761px){
+            .sec{padding-top:72px!important;padding-bottom:72px!important}
+            main{padding-top:58px!important;padding-bottom:58px!important}
+            .section{margin-bottom:52px!important}
+          }
+          @media (max-width:760px){
+            .sec{padding-top:38px!important;padding-bottom:38px!important}
+            .sec-h{margin-bottom:10px!important}
+            .sec-p{margin-bottom:4px!important}
+            .feat-grid,.major-grid,.adm-grid,.adm-resp-grid,.rev-grid,.inq-wrap{margin-top:28px!important}
+            .feat-card{padding:25px 18px!important}
+            .adm{padding:28px 20px!important}
+            .adm-resp-grid>div{padding:28px 20px!important}
+            .rev{padding:26px 20px!important}
+            .inq-form{padding:28px 20px!important}
+            .about-txt{padding:28px 20px!important}
+            .related-links,#campus-life .related-links{margin-top:14px!important}
+            #reviews .sec>div[style*="margin-top:40px"]{margin-top:24px!important;gap:22px!important}
+            main{padding-top:40px!important;padding-bottom:40px!important}
+            .hero{min-height:350px!important}
+            .quick{margin-top:-40px!important}
+            .quick div{padding:18px!important}
+            .section{margin-bottom:38px!important}
+            .intro{margin-bottom:28px!important}
+            .category-nav{margin-top:20px!important;margin-bottom:38px!important}
+            .club-section{margin-bottom:38px!important}
+            .card,.campus-card,.facility-box{padding:22px!important}
+            .notice{padding:18px 20px!important}
+            .next{margin-top:14px!important}
+            .sources{margin-top:34px!important;margin-bottom:24px!important}
+            .cta{padding-top:32px!important;padding-bottom:32px!important}
+            footer{padding-top:24px!important;padding-bottom:24px!important}
+          }
+          /* TNS COMPACT SPACING END */
+          '''
+          css = '\n'.join(line[10:] if line.startswith('          ') else line for line in css.splitlines())
 
           changed = []
           for path in sorted(Path('.').rglob('*.html')):

@@ -1,0 +1,106 @@
+name: Tighten XJTLU page spacing
+
+on:
+  push:
+    branches:
+      - feature/xjtlu-campus-life-guides-20260902
+    paths:
+      - '.github/workflows/tighten-page-spacing.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/xjtlu-campus-life-guides-20260902
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Reduce vertical whitespace across all HTML pages
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          marker = 'TNS COMPACT SPACING START'
+          css = r'''
+/* TNS COMPACT SPACING START */
+@media (min-width:761px){
+  .sec{padding-top:72px!important;padding-bottom:72px!important}
+  main{padding-top:58px!important;padding-bottom:58px!important}
+  .section{margin-bottom:52px!important}
+}
+@media (max-width:760px){
+  /* Main page */
+  .sec{padding-top:38px!important;padding-bottom:38px!important}
+  .sec-h{margin-bottom:10px!important}
+  .sec-p{margin-bottom:4px!important}
+  .feat-grid,.major-grid,.adm-grid,.adm-resp-grid,.rev-grid,.inq-wrap{margin-top:28px!important}
+  .feat-card{padding:25px 18px!important}
+  .adm{padding:28px 20px!important}
+  .adm-resp-grid>div{padding:28px 20px!important}
+  .rev{padding:26px 20px!important}
+  .inq-form{padding:28px 20px!important}
+  .about-txt{padding:28px 20px!important}
+  .related-links,#campus-life .related-links{margin-top:14px!important}
+  #reviews .sec>div[style*="margin-top:40px"]{margin-top:24px!important;gap:22px!important}
+
+  /* Detail pages */
+  main{padding-top:40px!important;padding-bottom:40px!important}
+  .hero{min-height:350px!important}
+  .quick{margin-top:-40px!important}
+  .quick div{padding:18px!important}
+  .section{margin-bottom:38px!important}
+  .intro{margin-bottom:28px!important}
+  .category-nav{margin-top:20px!important;margin-bottom:38px!important}
+  .club-section{margin-bottom:38px!important}
+  .card,.campus-card,.facility-box{padding:22px!important}
+  .notice{padding:18px 20px!important}
+  .next{margin-top:14px!important}
+  .sources{margin-top:34px!important;margin-bottom:24px!important}
+  .cta{padding-top:32px!important;padding-bottom:32px!important}
+  footer{padding-top:24px!important;padding-bottom:24px!important}
+}
+/* TNS COMPACT SPACING END */
+'''
+
+          changed = []
+          for path in sorted(Path('.').rglob('*.html')):
+              if '.git' in path.parts:
+                  continue
+              s = path.read_text(encoding='utf-8')
+              if marker in s:
+                  continue
+              pos = s.rfind('</style>')
+              if pos == -1:
+                  print(f'skip {path}: no style block')
+                  continue
+              s = s[:pos] + css + '\n' + s[pos:]
+              path.write_text(s, encoding='utf-8')
+              changed.append(str(path))
+
+          if not changed:
+              raise SystemExit('No HTML pages were updated')
+          print('Updated spacing:', ', '.join(changed))
+          PY
+      - name: Validate compact spacing was applied
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          pages = list(Path('.').rglob('*.html'))
+          missing = [str(p) for p in pages if 'TNS COMPACT SPACING START' not in p.read_text(encoding='utf-8')]
+          if missing:
+              raise SystemExit('Missing compact spacing marker: ' + ', '.join(missing))
+          print(f'Validated {len(pages)} HTML pages')
+          PY
+      - name: Commit spacing changes and remove helper workflow
+        run: |
+          git config user.name "tnsuhak"
+          git config user.email "tnsuhak@gmail.com"
+          rm -f .github/workflows/tighten-page-spacing.yml
+          git add -A
+          git commit -m "Tighten vertical spacing across XJTLU pages" || exit 0
+          git push origin HEAD:feature/xjtlu-campus-life-guides-20260902

@@ -20,6 +20,42 @@
 :root{--navy:#14213d;--deep:#0b1630;--gold:#c9a84c;--cream:#faf8f4;--paper:#fff;--ink:#171b26;--muted:#667085;--line:#e3e6ec;--jade:#1f6f78}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:'Noto Sans KR',sans-serif;line-height:1.72;word-break:keep-all}.top{background:var(--deep);color:#cdd4e1;font-size:12px;padding:8px 5vw}.nav{height:68px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 5vw;position:sticky;top:0;z-index:20}.brand{font-size:20px;font-weight:900;color:var(--navy);text-decoration:none}.brand span{color:var(--gold)}.navlinks{display:flex;gap:20px}.navlinks a{color:var(--navy);font-size:13px;text-decoration:none;font-weight:700}.wrap{width:min(1040px,90vw);margin:auto}.hero{background:radial-gradient(900px 500px at 82% 16%,#294d86 0,transparent 62%),linear-gradient(135deg,var(--deep),#172b4d);color:#fff;padding:72px 0 84px}.eyebrow{font-family:'DM Mono',monospace;color:var(--gold);font-size:11px;font-weight:700;letter-spacing:.15em}.hero h1{font-size:clamp(36px,6vw,58px);line-height:1.16;margin:12px 0 16px;max-width:850px}.hero p{margin:0;color:#d8deeb;font-size:16px;max-width:800px}.updated{margin-top:16px;color:#aeb8ca;font-size:12px}.answer{margin-top:-38px;background:#fff;border:1px solid var(--line);box-shadow:0 20px 55px rgba(20,33,61,.12);padding:25px 28px;position:relative}.answer small{display:block;color:var(--jade);font-size:11px;font-weight:800;letter-spacing:.08em}.answer h2{color:var(--navy);font-size:24px;line-height:1.35;margin:7px 0 9px}.answer p{margin:0;color:#4b5565;font-size:14px}.main{padding:60px 0 78px}.section{margin-bottom:56px}.section h2{color:var(--navy);font-size:30px;line-height:1.35;margin:0 0 12px}.lead{color:#4b5565;max-width:860px;margin:0 0 22px}.timeline{display:grid;gap:14px}.event{background:#fff;border:1px solid var(--line);padding:24px}.date{display:inline-block;background:#f3ead0;color:#7b6220;border-radius:999px;padding:5px 9px;font-family:'DM Mono',monospace;font-size:11px;font-weight:700}.event h3{color:var(--navy);font-size:20px;margin:11px 0 4px}.tag{color:#8a6d22;font-size:12px;font-weight:800}.event p{color:#4b5565;font-size:14px;margin:10px 0 0}.src{display:inline-block;margin-top:11px;color:var(--jade);font-size:12px;font-weight:800;text-decoration:none}.src:hover{text-decoration:underline}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:#fff;border:1px solid var(--line);padding:22px}.card h3{color:var(--navy);font-size:17px;margin:0 0 8px}.card p{font-size:13.5px;color:#4b5565;margin:0}.note{background:#fff7df;border-left:4px solid var(--gold);padding:19px 21px;color:#596273;font-size:14px}.related{display:grid;grid-template-columns:1fr 1fr;gap:12px}.related a{background:#fff;border:1px solid var(--line);padding:18px;color:var(--navy);text-decoration:none;font-weight:800}.related span{display:block;color:var(--muted);font-size:12px;font-weight:400;margin-top:5px}.sources{border-top:1px solid var(--line);padding-top:16px;color:#8a92a2;font-size:12px;line-height:1.9}.sources a{color:#667085}.cta{background:var(--navy);color:#fff;padding:34px 28px;text-align:center}.cta h2{color:#fff;margin:0 0 8px}.cta p{margin:0;color:#d7ddea}.btn{display:inline-block;margin-top:14px;background:#fee500;color:#161000;text-decoration:none;padding:12px 20px;font-weight:800}.btn.alt{background:#fff;color:var(--navy);margin-left:6px}footer{padding:34px 5vw;background:#0a0d18;color:#9ca3af;font-size:12px}
 @media(max-width:760px){.navlinks{display:none}.hero{padding:54px 0 70px}.hero p{font-size:15px}.answer{padding:20px}.main{padding:50px 0 64px}.section{margin-bottom:46px}.section h2{font-size:26px}.grid,.related{grid-template-columns:1fr}.event{padding:19px}.event h3{font-size:18px}.btn,.btn.alt{display:block;margin:10px auto 0;max-width:280px}}
+
+/* TNS COMPACT SPACING START */
+@media (min-width:761px){
+  .sec{padding-top:72px!important;padding-bottom:72px!important}
+  main{padding-top:58px!important;padding-bottom:58px!important}
+  .section{margin-bottom:52px!important}
+}
+@media (max-width:760px){
+  .sec{padding-top:38px!important;padding-bottom:38px!important}
+  .sec-h{margin-bottom:10px!important}
+  .sec-p{margin-bottom:4px!important}
+  .feat-grid,.major-grid,.adm-grid,.adm-resp-grid,.rev-grid,.inq-wrap{margin-top:28px!important}
+  .feat-card{padding:25px 18px!important}
+  .adm{padding:28px 20px!important}
+  .adm-resp-grid>div{padding:28px 20px!important}
+  .rev{padding:26px 20px!important}
+  .inq-form{padding:28px 20px!important}
+  .about-txt{padding:28px 20px!important}
+  .related-links,#campus-life .related-links{margin-top:14px!important}
+  #reviews .sec>div[style*="margin-top:40px"]{margin-top:24px!important;gap:22px!important}
+  main{padding-top:40px!important;padding-bottom:40px!important}
+  .hero{min-height:350px!important}
+  .quick{margin-top:-40px!important}
+  .quick div{padding:18px!important}
+  .section{margin-bottom:38px!important}
+  .intro{margin-bottom:28px!important}
+  .category-nav{margin-top:20px!important;margin-bottom:38px!important}
+  .club-section{margin-bottom:38px!important}
+  .card,.campus-card,.facility-box{padding:22px!important}
+  .notice{padding:18px 20px!important}
+  .next{margin-top:14px!important}
+  .sources{margin-top:34px!important;margin-bottom:24px!important}
+  .cta{padding-top:32px!important;padding-bottom:32px!important}
+  footer{padding-top:24px!important;padding-bottom:24px!important}
+}
+/* TNS COMPACT SPACING END */
 </style>
 </head>
 <body>

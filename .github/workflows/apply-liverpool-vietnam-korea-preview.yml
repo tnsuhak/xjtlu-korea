@@ -1,0 +1,65 @@
+name: Apply Korean Liverpool Vietnam Guide
+
+on:
+  push:
+    branches:
+      - feature/xjtlu-campus-life-guides-20260902
+    paths:
+      - "scripts/add_liverpool_vietnam_korea_20260905.py"
+      - ".github/workflows/apply-liverpool-vietnam-korea-preview.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: xjtlu-korea-liverpool-vietnam-preview
+  cancel-in-progress: false
+
+jobs:
+  apply-guide:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout preview branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/xjtlu-campus-life-guides-20260902
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "TNS Preview Bot"
+          git config user.email "preview-bot@users.noreply.github.com"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Apply Korean Liverpool Vietnam guide
+        run: python scripts/add_liverpool_vietnam_korea_20260905.py
+
+      - name: Validate generated content
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          page = Path('university-of-liverpool-vietnam.html').read_text(encoding='utf-8')
+          index = Path('index.html').read_text(encoding='utf-8')
+          dual = Path('xjtlu-dual-degree-liverpool-2plus2.html').read_text(encoding='utf-8')
+          sitemap = Path('sitemap.xml').read_text(encoding='utf-8')
+          assert '주요 협력 사례 5가지' in page
+          assert 'Alder Hey' in page
+          assert 'Liverpool Culture Festival' in page
+          assert 'University of Liverpool × 호치민시 의약대학교' in page
+          assert 'university-of-liverpool-vietnam.html' in index
+          assert '리버풀대학교의 아시아 네트워크' in dual
+          assert 'https://xjtlu-korea.netlify.app/university-of-liverpool-vietnam.html' in sitemap
+          print('Korean Liverpool Vietnam guide validation passed.')
+          PY
+
+      - name: Commit generated site changes
+        run: |
+          git add index.html xjtlu-dual-degree-liverpool-2plus2.html university-of-liverpool-vietnam.html sitemap.xml
+          if ! git diff --cached --quiet; then
+            git commit -m "feat(preview): add Liverpool Vietnam network guide"
+            git push origin HEAD:feature/xjtlu-campus-life-guides-20260902
+          fi

@@ -1,0 +1,135 @@
+name: Convert XJTLU menu to UIS style
+
+on:
+  push:
+    branches:
+      - feature/xjtlu-campus-life-guides-20260902
+    paths:
+      - '.github/workflows/convert-global-menu-to-uis-style.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/xjtlu-campus-life-guides-20260902
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Convert global menu to UIS-style hierarchy
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          path = Path('index.html')
+          s = path.read_text(encoding='utf-8')
+
+          css = r'''/* TNS GLOBAL MENU START */
+          html{scroll-padding-top:118px}
+          .nav-menu-btn{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid #d9dde6;color:var(--navy);padding:9px 13px;border-radius:4px;font-family:'Noto Sans KR',sans-serif;font-size:13.5px;font-weight:700;cursor:pointer;white-space:nowrap;transition:.2s}
+          .nav-menu-btn:hover,.nav-menu-btn[aria-expanded="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+          .nav-menu-icon{font-size:14px;font-weight:400;line-height:1}
+          .site-menu{display:none;position:fixed;top:106px;left:0;right:0;z-index:190;background:#fff;color:#262D40;border-top:1px solid rgba(20,33,61,.1);box-shadow:0 24px 55px rgba(10,18,34,.22);max-height:calc(100vh - 106px);overflow-y:auto}
+          .site-menu.open{display:block}
+          .site-menu-inner{max-width:1200px;margin:0 auto;padding:28px 40px 34px}
+          .site-menu-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding-bottom:18px;border-bottom:1px solid #e4e7ec;background:#fff;color:var(--navy);min-height:0}
+          .site-menu-headcopy>span{display:block;color:#9a7827;font-family:'DM Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.12em;margin-bottom:4px}
+          .site-menu-head h2{font-family:'Noto Sans KR',sans-serif;font-size:25px;line-height:1.3;margin:0;color:var(--navy)}
+          .site-menu-head p{margin:6px 0 0;color:#6a7283;font-size:13px}
+          .site-menu-close{border:1px solid #d9dde6;background:#fff;color:var(--navy);width:38px;height:38px;border-radius:0;cursor:pointer;font-size:16px;line-height:1}
+          .site-menu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 30px;padding-top:24px}
+          .site-menu-group{min-width:0;padding:0;border:0}
+          .site-menu-group h3{font-family:'Noto Sans KR',sans-serif;font-size:16px;color:var(--navy);margin:0 0 7px;border-bottom:2px solid var(--navy)}
+          .site-menu-group h3 a{display:flex;align-items:baseline;justify-content:space-between;gap:10px;text-decoration:none;color:var(--navy);padding:0 2px 10px;font-weight:800}
+          .site-menu-group h3 a:hover{color:#9a7827}
+          .site-menu-group h3 small{font-family:'Noto Sans KR',sans-serif;font-size:10.5px;font-weight:700;color:#9a7827;white-space:nowrap}
+          .site-menu-group>a{display:block;text-decoration:none;color:#4f596e;font-size:14px;padding:8px 2px;border-bottom:1px solid #eeeae1}
+          .site-menu-group>a:hover{color:#9a7827}
+          .site-menu-group>p{font-size:13px;line-height:1.65;color:#747c8c;margin:10px 2px 0}
+          .site-menu-cta{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+          .site-menu-cta a{flex:1 1 120px;text-align:center;border:0;padding:10px 12px;font-weight:800}
+          .site-menu-cta .kakao{background:#fee500;color:#161000}.site-menu-cta .phone{background:var(--navy);color:#fff}
+          @media(max-width:1120px){.nav-links li a{padding-left:9px;padding-right:9px;font-size:12.8px}.nav-menu-btn{padding:9px 10px;font-size:12.8px}.site-menu-inner{padding-left:28px;padding-right:28px}}
+          @media(max-width:960px){html{scroll-padding-top:68px}.site-menu{top:60px;max-height:calc(100vh - 60px)}.site-menu-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.site-menu-inner{padding:22px 20px 30px}.nav-ham[aria-expanded="true"]{background:var(--navy);color:#fff}}
+          @media(max-width:620px){.site-menu-grid{grid-template-columns:1fr;gap:22px}.site-menu-head h2{font-size:22px}.site-menu-head p{font-size:12px}}
+          /* TNS GLOBAL MENU END */'''
+
+          s, n = re.subn(r'/\* TNS GLOBAL MENU START \*/[\s\S]*?/\* TNS GLOBAL MENU END \*/', css, s, count=1)
+          if n != 1:
+              raise SystemExit(f'global menu CSS marker replacement failed: {n}')
+
+          s = s.replace('>전체메뉴 <span class="nav-menu-icon">☰</span></button>', '>전체 메뉴 <span class="nav-menu-icon">☰</span></button>', 1)
+          s = s.replace('<button class="nav-ham" id="hamBtn" onclick="toggleNav()">', '<button class="nav-ham" id="hamBtn" onclick="openSiteMenu()" aria-controls="siteMenu" aria-expanded="false">', 1)
+
+          menu = r'''<div id="siteMenu" class="site-menu" aria-label="XJTLU Korea 전체 메뉴" aria-hidden="true">
+            <div class="site-menu-inner">
+              <div class="site-menu-head">
+                <div class="site-menu-headcopy"><span>XJTLU KOREA</span><h2>전체 메뉴</h2><p>메인 페이지의 주제와 관련 상세페이지를 함께 확인하세요.</p></div>
+                <button type="button" class="site-menu-close" onclick="closeSiteMenu()" aria-label="전체 메뉴 닫기">✕</button>
+              </div>
+              <div class="site-menu-grid">
+                <section class="site-menu-group"><h3><a href="#information">학교소개 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-dual-degree-liverpool-2plus2.html">리버풀대학교 복수학위·2+2</a></section>
+                <section class="site-menu-group"><h3><a href="#major">전공안내 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-programmes-careers-graduate-destinations.html">전공·진로·대학원 진학</a></section>
+                <section class="site-menu-group"><h3><a href="#calendar">학비·장학금 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-tuition-scholarships-2027.html">2027 학비·장학금 상세</a></section>
+                <section class="site-menu-group"><h3><a href="#rooms">숙소 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-accommodation-sip-taicang.html">SIP·Taicang 숙소·기숙사</a></section>
+                <section class="site-menu-group"><h3><a href="#campus-life">캠퍼스생활 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-sports-facilities.html">스포츠·헬스장 시설</a><a href="xjtlu-clubs-student-organisations.html">동아리·학생단체</a></section>
+                <section class="site-menu-group"><h3><a href="#admission">입학안내 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-admission-requirements-korea-2027.html">2027 한국학생 입학조건·편입</a></section>
+                <section class="site-menu-group"><h3><a href="#reviews">재학생후기 <small>메인에서 보기 →</small></a></h3><p>한국 학생 인터뷰와 전공·진로 선택 후기를 메인에서 영상으로 확인합니다.</p></section>
+                <section class="site-menu-group"><h3><a href="#inquiry">입학문의 <small>메인에서 보기 →</small></a></h3><p>입학조건·학비·전공·숙소 상담은 TNS유학에서 안내합니다.</p><div class="site-menu-cta"><a class="kakao" href="https://open.kakao.com/o/slehLvKi" target="_blank" rel="noopener">카카오톡 상담</a><a class="phone" href="tel:01051500105">전화상담</a></div></section>
+              </div>
+            </div>
+          </div>'''
+
+          s, n = re.subn(r'<div id="siteMenuOverlay"[\s\S]*?</aside>', menu, s, count=1)
+          if n != 1:
+              raise SystemExit(f'site menu DOM replacement failed: {n}')
+
+          script = r'''<script>
+          function setSiteMenuOpen(open){
+            var menu=document.getElementById('siteMenu');
+            var btn=document.querySelector('.nav-menu-btn');
+            var ham=document.getElementById('hamBtn');
+            if(!menu)return;
+            menu.classList.toggle('open',open);
+            menu.setAttribute('aria-hidden',open?'false':'true');
+            if(btn){btn.setAttribute('aria-expanded',open?'true':'false');var icon=btn.querySelector('.nav-menu-icon');if(icon)icon.textContent=open?'✕':'☰';}
+            if(ham)ham.setAttribute('aria-expanded',open?'true':'false');
+          }
+          function openSiteMenu(){var menu=document.getElementById('siteMenu');setSiteMenuOpen(!(menu&&menu.classList.contains('open')));}
+          function closeSiteMenu(){setSiteMenuOpen(false);}
+          document.addEventListener('keydown',function(e){if(e.key==='Escape')closeSiteMenu();});
+          document.addEventListener('click',function(e){var menu=document.getElementById('siteMenu');if(menu&&menu.classList.contains('open')&&!e.target.closest('#siteMenu')&&!e.target.closest('#navbar'))closeSiteMenu();});
+          document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('#siteMenu a').forEach(function(a){a.addEventListener('click',closeSiteMenu)});});
+          </script>'''
+
+          s, n = re.subn(r'<script>\s*function openSiteMenu\(\)[\s\S]*?</script>', script, s, count=1)
+          if n != 1:
+              raise SystemExit(f'site menu script replacement failed: {n}')
+
+          path.write_text(s, encoding='utf-8')
+          PY
+      - name: Validate hierarchy patch
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          s=Path('index.html').read_text(encoding='utf-8')
+          required=['메인에서 보기 →','site-menu-grid','2027 학비·장학금 상세','스포츠·헬스장 시설','동아리·학생단체','function setSiteMenuOpen']
+          missing=[x for x in required if x not in s]
+          if missing: raise SystemExit('missing: '+', '.join(missing))
+          if 'siteMenuOverlay' in s: raise SystemExit('old side-drawer overlay still present')
+          if s.count('TNS GLOBAL MENU START') != 1: raise SystemExit('menu CSS marker count invalid')
+          print('UIS-style XJTLU hierarchy menu validation passed')
+          PY
+      - name: Commit menu conversion and remove helper workflow
+        run: |
+          git config user.name "tnsuhak"
+          git config user.email "tnsuhak@gmail.com"
+          rm -f .github/workflows/convert-global-menu-to-uis-style.yml
+          git add -A
+          git commit -m "Match XJTLU full menu to UIS hierarchy" || exit 0
+          git push origin HEAD:feature/xjtlu-campus-life-guides-20260902

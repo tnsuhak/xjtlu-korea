@@ -522,6 +522,108 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
     font-size:9px !important;
   }
 }
+
+/* Compact contextual detail links — aligned with UNNC Korea */
+.related-links{margin-top:22px;display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap}
+.related-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;color:#98a2b3;margin-right:2px}
+.related-link{display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border:1px solid #d9dee7;border-radius:3px;background:rgba(255,255,255,.72);color:var(--navy);font-size:12px;font-weight:700;line-height:1.4;text-decoration:none;transition:.2s}
+.related-link:hover{border-color:var(--gold);color:#8b6a1f;transform:translateY(-1px)}
+.related-link .arr{color:var(--gold)}
+#campus-life .related-links{justify-content:flex-start;margin-top:24px}
+@media(max-width:560px){.related-links{justify-content:flex-start;margin-top:18px}.related-label{width:100%;margin-bottom:1px}.related-link{font-size:12px;padding:8px 10px}}
+
+
+/* TNS GLOBAL MENU START */
+html{scroll-padding-top:118px}
+.nav-menu-btn{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid #d9dde6;color:var(--navy);padding:9px 13px;border-radius:4px;font-family:'Noto Sans KR',sans-serif;font-size:13.5px;font-weight:700;cursor:pointer;white-space:nowrap;transition:.2s}
+.nav-menu-btn:hover,.nav-menu-btn[aria-expanded="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.nav-menu-icon{font-size:14px;font-weight:400;line-height:1}
+.site-menu{display:none;position:fixed;top:106px;left:0;right:0;z-index:190;background:#fff;color:#262D40;border-top:1px solid rgba(20,33,61,.1);box-shadow:0 24px 55px rgba(10,18,34,.22);max-height:calc(100vh - 106px);overflow-y:auto}
+.site-menu.open{display:block}
+.site-menu-inner{max-width:1200px;margin:0 auto;padding:28px 40px 34px}
+.site-menu-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding-bottom:18px;border-bottom:1px solid #e4e7ec;background:#fff;color:var(--navy);min-height:0}
+.site-menu-headcopy>span{display:block;color:#9a7827;font-family:'DM Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.12em;margin-bottom:4px}
+.site-menu-head h2{font-family:'Noto Sans KR',sans-serif;font-size:25px;line-height:1.3;margin:0;color:var(--navy)}
+.site-menu-head p{margin:6px 0 0;color:#6a7283;font-size:13px}
+.site-menu-close{border:1px solid #d9dde6;background:#fff;color:var(--navy);width:38px;height:38px;border-radius:0;cursor:pointer;font-size:16px;line-height:1}
+.site-menu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 30px;padding-top:24px}
+.site-menu-group{min-width:0;padding:0;border:0}
+.site-menu-group h3{font-family:'Noto Sans KR',sans-serif;font-size:16px;color:var(--navy);margin:0 0 7px;border-bottom:2px solid var(--navy)}
+.site-menu-group h3 a{display:flex;align-items:baseline;justify-content:space-between;gap:10px;text-decoration:none;color:var(--navy);padding:0 2px 10px;font-weight:800}
+.site-menu-group h3 a:hover{color:#9a7827}
+.site-menu-group h3 small{font-family:'Noto Sans KR',sans-serif;font-size:10.5px;font-weight:700;color:#9a7827;white-space:nowrap}
+.site-menu-group>a{display:block;text-decoration:none;color:#4f596e;font-size:14px;padding:8px 2px;border-bottom:1px solid #eeeae1}
+.site-menu-group>a:hover{color:#9a7827}
+.site-menu-group>p{font-size:13px;line-height:1.65;color:#747c8c;margin:10px 2px 0}
+.site-menu-cta{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.site-menu-cta a{flex:1 1 120px;text-align:center;border:0;padding:10px 12px;font-weight:800}
+.site-menu-cta .kakao{background:#fee500;color:#161000}.site-menu-cta .phone{background:var(--navy);color:#fff}
+@media(max-width:1120px){.nav-links li a{padding-left:9px;padding-right:9px;font-size:12.8px}.nav-menu-btn{padding:9px 10px;font-size:12.8px}.site-menu-inner{padding-left:28px;padding-right:28px}}
+@media(max-width:960px){html{scroll-padding-top:68px}.site-menu{top:60px;max-height:calc(100vh - 60px)}.site-menu-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.site-menu-inner{padding:22px 20px 30px}.nav-ham[aria-expanded="true"]{background:var(--navy);color:#fff}}
+@media(max-width:620px){.site-menu-grid{grid-template-columns:1fr;gap:22px}.site-menu-head h2{font-size:22px}.site-menu-head p{font-size:12px}}
+/* TNS GLOBAL MENU END */
+
+
+/* TNS COMPACT SPACING START */
+@media (min-width:761px){
+  .sec{padding-top:72px!important;padding-bottom:72px!important}
+  main{padding-top:58px!important;padding-bottom:58px!important}
+  .section{margin-bottom:52px!important}
+}
+@media (max-width:760px){
+  .sec{padding-top:38px!important;padding-bottom:38px!important}
+  .sec-h{margin-bottom:10px!important}
+  .sec-p{margin-bottom:4px!important}
+  .feat-grid,.major-grid,.adm-grid,.adm-resp-grid,.rev-grid,.inq-wrap{margin-top:28px!important}
+  .feat-card{padding:25px 18px!important}
+  .adm{padding:28px 20px!important}
+  .adm-resp-grid>div{padding:28px 20px!important}
+  .rev{padding:26px 20px!important}
+  .inq-form{padding:28px 20px!important}
+  .about-txt{padding:28px 20px!important}
+  .related-links,#campus-life .related-links{margin-top:14px!important}
+  #reviews .sec>div[style*="margin-top:40px"]{margin-top:24px!important;gap:22px!important}
+  main{padding-top:40px!important;padding-bottom:40px!important}
+  .hero{min-height:350px!important}
+  .quick{margin-top:-40px!important}
+  .quick div{padding:18px!important}
+  .section{margin-bottom:38px!important}
+  .intro{margin-bottom:28px!important}
+  .category-nav{margin-top:20px!important;margin-bottom:38px!important}
+  .club-section{margin-bottom:38px!important}
+  .card,.campus-card,.facility-box{padding:22px!important}
+  .notice{padding:18px 20px!important}
+  .next{margin-top:14px!important}
+  .sources{margin-top:34px!important;margin-bottom:24px!important}
+  .cta{padding-top:32px!important;padding-bottom:32px!important}
+  footer{padding-top:24px!important;padding-bottom:24px!important}
+}
+/* TNS COMPACT SPACING END */
+/* TNS DETAIL HIERARCHY START */
+/* Reading-only information should stay quiet and compact. */
+.info-compact .grid3{gap:14px!important}
+.info-compact .card{background:transparent!important;border:0!important;border-top:1px solid var(--rule)!important;padding:17px 4px 2px!important;box-shadow:none!important}
+.info-compact .card h3{margin:0 0 7px!important;font-size:16px!important;color:var(--navy)!important}
+.info-compact .card h3::before{content:'•';color:var(--gold);margin-right:8px}
+.info-compact .card p{margin:0!important;font-size:13px!important;line-height:1.62!important;color:#667085!important}
+
+/* Internal navigation cards must look obviously clickable. */
+.next{gap:14px!important;margin-top:18px!important}
+.next a{position:relative!important;display:block!important;background:linear-gradient(135deg,#fff 0%,#fffaf0 100%)!important;border:1px solid #dfd5b9!important;border-left:4px solid var(--gold)!important;border-radius:7px!important;padding:21px 58px 20px 20px!important;color:var(--navy)!important;font-size:15px!important;font-weight:800!important;line-height:1.35!important;box-shadow:0 5px 16px rgba(20,33,61,.06)!important;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease!important}
+.next a::after{content:'→';position:absolute;right:17px;top:50%;transform:translateY(-50%);width:31px;height:31px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--navy);color:#fff;font-size:17px;font-weight:800;box-shadow:0 4px 10px rgba(20,33,61,.16)}
+.next a:hover,.next a:focus-visible{transform:translateY(-2px)!important;box-shadow:0 10px 24px rgba(20,33,61,.12)!important;border-color:var(--gold)!important;outline:none!important}
+.next span{display:block!important;margin-top:7px!important;color:#6b7280!important;font-size:12.5px!important;font-weight:500!important;line-height:1.55!important}
+@media(max-width:800px){
+  .info-compact .grid3{display:block!important}
+  .info-compact .card{display:grid!important;grid-template-columns:74px 1fr!important;gap:12px!important;align-items:start!important;padding:15px 0!important}
+  .info-compact .card h3{margin:0!important;font-size:15px!important}
+  .info-compact .card h3::before{margin-right:6px!important}
+  .info-compact .card p{font-size:13px!important;line-height:1.55!important}
+  .next{gap:11px!important}
+  .next a{padding:18px 54px 17px 17px!important;font-size:15px!important}
+  .next a::after{right:14px;width:30px;height:30px}
+}
+/* TNS DETAIL HIERARCHY END */
 </style>
 </head>
 <body>
@@ -550,21 +652,46 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
     <li><a href="#rooms">숙소</a></li>
     <li><a href="#admission">입학안내</a></li>
     <li><a href="#reviews">재학생후기</a></li>
+    <li><button type="button" class="nav-menu-btn" onclick="openSiteMenu()" aria-controls="siteMenu" aria-expanded="false">전체 메뉴 <span class="nav-menu-icon">☰</span></button></li>
     <li><a href="#inquiry" class="btn-inquiry">입학문의</a></li>
   </ul>
-  <button class="nav-ham" id="hamBtn" onclick="toggleNav()">
+  <button class="nav-ham" id="hamBtn" onclick="openSiteMenu()" aria-controls="siteMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </header>
 
 <div id="mobileNav">
-  <a href="#information">학교소개</a>
-  <a href="#major">전공안내</a>
-  <a href="#calendar">학비·장학금</a>
-  <a href="#rooms">숙소</a>
-  <a href="#admission">입학안내</a>
-  <a href="#reviews">재학생후기</a>
+  <div class="mob-group-title">MAIN PAGE</div>
+  <a href="#information">학교소개</a><a href="#major">전공안내</a><a href="#calendar">학비·장학금</a><a href="#rooms">숙소</a><a href="#campus-life">캠퍼스생활</a><a href="#admission">입학안내</a><a href="#reviews">재학생후기</a>
+  <div class="mob-group-title">DETAIL GUIDES</div>
+  <a class="mob-detail" href="xjtlu-admission-requirements-korea-2027.html">2027 입학조건·편입</a>
+  <a class="mob-detail" href="xjtlu-tuition-scholarships-2027.html">2027 학비·장학금</a>
+  <a class="mob-detail" href="xjtlu-dual-degree-liverpool-2plus2.html">리버풀대학교 복수학위·2+2</a>
+  <a class="mob-detail" href="university-of-liverpool-vietnam.html">리버풀대학교 베트남·아시아 네트워크</a>
+  <a class="mob-detail" href="xjtlu-programmes-careers-graduate-destinations.html">전공·진로·대학원 진학</a>
+  <a class="mob-detail" href="xjtlu-accommodation-sip-taicang.html">SIP·Taicang 숙소 상세</a>
+  <a class="mob-detail" href="xjtlu-sports-facilities.html">스포츠·헬스장 시설</a>
+  <a class="mob-detail" href="xjtlu-clubs-student-organisations.html">동아리·학생단체</a>
   <a href="#inquiry" class="mob-inquiry">입학문의</a>
+</div>
+
+<div id="siteMenu" class="site-menu" aria-label="XJTLU Korea 전체 메뉴" aria-hidden="true">
+  <div class="site-menu-inner">
+    <div class="site-menu-head">
+      <div class="site-menu-headcopy"><span>XJTLU KOREA</span><h2>전체 메뉴</h2><p>메인 페이지의 주제와 관련 상세페이지를 함께 확인하세요.</p></div>
+      <button type="button" class="site-menu-close" onclick="closeSiteMenu()" aria-label="전체 메뉴 닫기">✕</button>
+    </div>
+    <div class="site-menu-grid">
+      <section class="site-menu-group"><h3><a href="#information">학교소개 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-dual-degree-liverpool-2plus2.html">리버풀대학교 복수학위·2+2</a><a href="university-of-liverpool-vietnam.html">리버풀대학교 베트남·아시아 네트워크</a></section>
+      <section class="site-menu-group"><h3><a href="#major">전공안내 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-programmes-careers-graduate-destinations.html">전공·진로·대학원 진학</a></section>
+      <section class="site-menu-group"><h3><a href="#calendar">학비·장학금 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-tuition-scholarships-2027.html">2027 학비·장학금 상세</a></section>
+      <section class="site-menu-group"><h3><a href="#rooms">숙소 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-accommodation-sip-taicang.html">SIP·Taicang 숙소·기숙사</a></section>
+      <section class="site-menu-group"><h3><a href="#campus-life">캠퍼스생활 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-sports-facilities.html">스포츠·헬스장 시설</a><a href="xjtlu-clubs-student-organisations.html">동아리·학생단체</a></section>
+      <section class="site-menu-group"><h3><a href="#admission">입학안내 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-admission-requirements-korea-2027.html">2027 한국학생 입학조건·편입</a></section>
+      <section class="site-menu-group"><h3><a href="#reviews">재학생후기 <small>메인에서 보기 →</small></a></h3><p>한국 학생 인터뷰와 전공·진로 선택 후기를 메인에서 영상으로 확인합니다.</p></section>
+      <section class="site-menu-group"><h3><a href="#inquiry">입학문의 <small>메인에서 보기 →</small></a></h3><p>입학조건·학비·전공·숙소 상담은 TNS유학에서 안내합니다.</p><div class="site-menu-cta"><a class="kakao" href="https://open.kakao.com/o/slehLvKi" target="_blank" rel="noopener">카카오톡 상담</a><a class="phone" href="tel:01051500105">전화상담</a></div></section>
+    </div>
+  </div>
 </div>
 
 <!-- ====== HERO ====== -->
@@ -609,7 +736,7 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
       <div class="feat-card"><div class="feat-num">03</div><h3 class="feat-title">세계 TOP10 진학</h3><p class="feat-body">2025년 졸업생의 47.16%가 세계 상위 10위권 대학에 진학.</p></div>
       <div class="feat-card"><div class="feat-num">04</div><h3 class="feat-title">상하이 30분</h3><p class="feat-body">중국 쑤저우 소재. 상하이에서 고속철로 30분 거리.</p></div>
     </div>
-    <div class="source-note"><a href="xjtlu-dual-degree-liverpool-2plus2.html"><strong>복수학위·리버풀대학교 2+2 상세 가이드 →</strong></a><br><span style="display:inline-block;margin-top:7px;font-size:12px;color:var(--mid);line-height:1.7;">XJTLU에서 4년을 공부하는 경로와 영국 리버풀대학교로 이동하는 2+2의 차이, 취득 학위와 비용 구조를 정리했습니다.</span></div>
+    <div class="related-links" aria-label="이 내용과 관련된 상세 가이드"><span class="related-label">관련 글</span><a class="related-link" href="xjtlu-dual-degree-liverpool-2plus2.html">복수학위·리버풀대학교 2+2<span class="arr">→</span></a><a class="related-link" href="university-of-liverpool-vietnam.html">리버풀대학교의 베트남·아시아 네트워크<span class="arr">→</span></a></div>
   </div>
 </div>
 
@@ -684,7 +811,7 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
       <div class="mc"><div class="mc-s">FILM &amp; TV ARTS</div><div class="mc-n">TV Production</div><div class="mc-d">BA (Hons)</div></div>
       <div class="mc"><div class="mc-s">CIVIL ENGINEERING</div><div class="mc-n">Urban Planning and Design</div><div class="mc-d">BA (Hons)</div></div>
     </div>
-    <div class="source-note"><a href="xjtlu-programmes-careers-graduate-destinations.html"><strong>전공·대학원 진학·졸업 후 진로 상세 가이드 →</strong></a><br>전공 분야별 학업 방향과 2025년 졸업생 진학 결과, 취업·인턴십 지원을 함께 정리했습니다.</div>
+    <div class="related-links" aria-label="이 내용과 관련된 상세 가이드"><span class="related-label">관련 글</span><a class="related-link" href="xjtlu-programmes-careers-graduate-destinations.html">전공·대학원 진학·졸업 후 진로<span class="arr">→</span></a></div>
   </div>
 </div>
 
@@ -720,7 +847,7 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
       </div>
 
     </div>
-    <div class="source-note"><a href="xjtlu-tuition-scholarships-2027.html"><strong>2027 학비·장학금 상세 가이드 →</strong></a><br>학비, 장학금, 지원 일정은 변경될 수 있습니다. 최신 기준과 지원 가능 여부는 상세 가이드와 TNS유학 상담을 통해 확인해 주세요.</div>
+    <div class="related-links" aria-label="이 내용과 관련된 상세 가이드"><span class="related-label">관련 글</span><a class="related-link" href="xjtlu-tuition-scholarships-2027.html">2027 학비·장학금·연간 비용 자세히<span class="arr">→</span></a></div>
   </div>
 </div>
 
@@ -761,7 +888,19 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
           </tbody>
         </table>
         <p style="font-size:11px;color:var(--mid);margin-top:10px;font-family:'DM Mono',monospace;">* 요금 변동 가능 · 결제: WeChat / Alipay / 카드(VISA·MC·JCB·Amex)</p>
+<div class="related-links" aria-label="이 내용과 관련된 상세 가이드"><span class="related-label">관련 글</span><a class="related-link" href="xjtlu-accommodation-sip-taicang.html">SIP·Taicang 숙소·기숙사 자세히<span class="arr">→</span></a></div>
       </div>
+  </div>
+</div>
+
+
+<!-- ====== 캠퍼스 생활 ====== -->
+<div class="sec-alt" id="campus-life">
+  <div class="sec fi">
+    <p class="label">CAMPUS LIFE</p>
+    <h2 class="sec-h">운동하고, 만들고, 사람을 만나는 대학생활</h2>
+    <p class="sec-p">XJTLU는 수업 외에도 스포츠 시설과 학생 동아리 활동이 활발합니다. 실내외 체육시설을 이용하거나 학술·예술·스포츠·봉사 동아리에 참여하면서 캠퍼스 생활을 넓힐 수 있습니다.</p>
+    <div class="related-links" aria-label="캠퍼스 생활 상세 가이드"><span class="related-label">관련 글</span><a class="related-link" href="xjtlu-sports-facilities.html">스포츠 시설·이용 안내<span class="arr">→</span></a><a class="related-link" href="xjtlu-clubs-student-organisations.html">215개 동아리·학생단체 전체 보기<span class="arr">→</span></a></div>
   </div>
 </div>
 
@@ -842,7 +981,7 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
   </div>
 
 </div>
-    <div class="source-note"><a href="xjtlu-admission-requirements-korea-2027.html"><strong>2027 입학조건·편입 상세 가이드 →</strong></a><br><span style="display:inline-block;margin-top:7px;font-size:12px;color:var(--mid);line-height:1.7;">한국 고교 내신·IELTS·해외고 2학년 진학·한국 대학 편입 기준을 정리했습니다.</span></div>
+    <div class="related-links" aria-label="이 내용과 관련된 상세 가이드"><span class="related-label">관련 글</span><a class="related-link" href="xjtlu-admission-requirements-korea-2027.html">2027 한국학생 입학조건·편입 안내<span class="arr">→</span></a></div>
   </div>
 </div>
 
@@ -934,7 +1073,9 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
         <li><a href="#information">학교소개</a></li>
         <li><a href="#major">전공안내</a></li>
         <li><a href="xjtlu-tuition-scholarships-2027.html">2027 학비·장학금</a></li>
-        <li><a href="#rooms">숙소</a></li>
+        <li><a href="xjtlu-accommodation-sip-taicang.html">숙소 상세</a></li>
+      <li><a href="xjtlu-sports-facilities.html">스포츠 시설</a></li>
+      <li><a href="xjtlu-clubs-student-organisations.html">동아리·학생단체</a></li>
         <li><a href="xjtlu-admission-requirements-korea-2027.html">2027 입학조건·편입</a></li>
         <li><a href="#reviews">재학생후기</a></li>
       </ul></div>
@@ -1010,6 +1151,23 @@ window.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+</script>
+<script>
+function setSiteMenuOpen(open){
+  var menu=document.getElementById('siteMenu');
+  var btn=document.querySelector('.nav-menu-btn');
+  var ham=document.getElementById('hamBtn');
+  if(!menu)return;
+  menu.classList.toggle('open',open);
+  menu.setAttribute('aria-hidden',open?'false':'true');
+  if(btn){btn.setAttribute('aria-expanded',open?'true':'false');var icon=btn.querySelector('.nav-menu-icon');if(icon)icon.textContent=open?'✕':'☰';}
+  if(ham)ham.setAttribute('aria-expanded',open?'true':'false');
+}
+function openSiteMenu(){var menu=document.getElementById('siteMenu');setSiteMenuOpen(!(menu&&menu.classList.contains('open')));}
+function closeSiteMenu(){setSiteMenuOpen(false);}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeSiteMenu();});
+document.addEventListener('click',function(e){var menu=document.getElementById('siteMenu');if(menu&&menu.classList.contains('open')&&!e.target.closest('#siteMenu')&&!e.target.closest('#navbar'))closeSiteMenu();});
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('#siteMenu a').forEach(function(a){a.addEventListener('click',closeSiteMenu)});});
 </script>
 </body>
 </html>

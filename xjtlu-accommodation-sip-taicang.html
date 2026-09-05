@@ -48,6 +48,31 @@
   footer{padding-top:24px!important;padding-bottom:24px!important}
 }
 /* TNS COMPACT SPACING END */
+/* TNS DETAIL HIERARCHY START */
+/* Reading-only information should stay quiet and compact. */
+.info-compact .grid3{gap:14px!important}
+.info-compact .card{background:transparent!important;border:0!important;border-top:1px solid var(--rule)!important;padding:17px 4px 2px!important;box-shadow:none!important}
+.info-compact .card h3{margin:0 0 7px!important;font-size:16px!important;color:var(--navy)!important}
+.info-compact .card h3::before{content:'•';color:var(--gold);margin-right:8px}
+.info-compact .card p{margin:0!important;font-size:13px!important;line-height:1.62!important;color:#667085!important}
+
+/* Internal navigation cards must look obviously clickable. */
+.next{gap:14px!important;margin-top:18px!important}
+.next a{position:relative!important;display:block!important;background:linear-gradient(135deg,#fff 0%,#fffaf0 100%)!important;border:1px solid #dfd5b9!important;border-left:4px solid var(--gold)!important;border-radius:7px!important;padding:21px 58px 20px 20px!important;color:var(--navy)!important;font-size:15px!important;font-weight:800!important;line-height:1.35!important;box-shadow:0 5px 16px rgba(20,33,61,.06)!important;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease!important}
+.next a::after{content:'→';position:absolute;right:17px;top:50%;transform:translateY(-50%);width:31px;height:31px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--navy);color:#fff;font-size:17px;font-weight:800;box-shadow:0 4px 10px rgba(20,33,61,.16)}
+.next a:hover,.next a:focus-visible{transform:translateY(-2px)!important;box-shadow:0 10px 24px rgba(20,33,61,.12)!important;border-color:var(--gold)!important;outline:none!important}
+.next span{display:block!important;margin-top:7px!important;color:#6b7280!important;font-size:12.5px!important;font-weight:500!important;line-height:1.55!important}
+@media(max-width:800px){
+  .info-compact .grid3{display:block!important}
+  .info-compact .card{display:grid!important;grid-template-columns:74px 1fr!important;gap:12px!important;align-items:start!important;padding:15px 0!important}
+  .info-compact .card h3{margin:0!important;font-size:15px!important}
+  .info-compact .card h3::before{margin-right:6px!important}
+  .info-compact .card p{font-size:13px!important;line-height:1.55!important}
+  .next{gap:11px!important}
+  .next a{padding:18px 54px 17px 17px!important;font-size:15px!important}
+  .next a::after{right:14px;width:30px;height:30px}
+}
+/* TNS DETAIL HIERARCHY END */
 </style>
 </head>
 <body>
@@ -58,7 +83,7 @@
 <section class="section"><h2>SIP와 Taicang, 캠퍼스에 따라 숙소가 다릅니다</h2><p class="lead">XJTLU 학생 숙소는 캠퍼스 주변의 독립 숙소 운영사가 관리합니다. SIP 캠퍼스 국제학생은 여러 아파트 옵션을 선택할 수 있고, Taicang 캠퍼스는 캠퍼스 옆 Entrepreneur Apartment를 이용합니다. Taicang 전공으로 입학한 1학년 학생은 첫해를 SIP에서 공부하므로 1학년에는 SIP 숙소를 예약해야 합니다.</p><div class="notice"><strong>예약 시점:</strong> 국제학생은 일반적으로 unconditional offer를 받고 보증금을 낸 뒤 숙소 예약 안내를 받습니다. 객실 종류와 가격, 공실은 바뀔 수 있으므로 실제 예약 단계에서는 최신 안내를 다시 확인해야 합니다.</div></section>
 <section class="section"><h2>SIP 캠퍼스 숙소</h2><p class="lead">Dushu Lake Science and Higher Education Innovation District에 위치한 국제학생 숙소입니다. 학교와 가까운 곳부터 지하철·버스로 이동하는 옵션까지 선택지가 있습니다.</p><div class="table-wrap"><table><thead><tr><th>숙소</th><th>월 비용</th><th>학교까지</th><th>주방</th><th>욕실</th></tr></thead><tbody><tr><td>Parfait International Apartments</td><td>약 1,710 RMB</td><td>약 1km</td><td>공용 주방</td><td>개인 욕실</td></tr><tr><td>Parfait Hotel &amp; Apartments</td><td>2,400-2,700 RMB</td><td>약 1km</td><td>전자레인지·냉장고</td><td>개인 욕실</td></tr><tr><td>Wenhua Apartments</td><td>1인실 1,860 RMB<br>2인 공유 시 1인 부담액 절반</td><td>약 7km</td><td>전자레인지·냉장고 설치 가능</td><td>개인 욕실</td></tr><tr><td>MBA Apartments</td><td>장기 거주 기준 약 1,500-1,620 RMB<br>30-90일은 2,220-2,340 RMB</td><td>500m 미만</td><td>취사시설 없음</td><td>공용 욕실</td></tr><tr><td>Scholar's Apartments</td><td>Studio 약 2,550-2,700 RMB<br>1 Bedroom 약 3,060 RMB</td><td>약 1km</td><td>전기제품 구입·사용 가능</td><td>개인 욕실</td></tr></tbody></table></div></section>
 <section class="section"><h2>Taicang 캠퍼스 숙소</h2><p class="lead">XJTLU Entrepreneur Apartment는 Taicang 캠퍼스에서 도보 약 5-10분 거리에 있습니다. 숙소가 있는 광장 지하에는 편의점·카페·식당·휴대전화 매장 등이 있고, 객실은 2인실과 1인실로 나뉩니다.</p><div class="grid"><article class="card"><span class="tag">TWIN ROOM</span><h3>2인실</h3><p><strong>6,000 RMB / 1인 / 학년</strong></p><ul><li>2명이 한 객실 사용</li><li>개인 욕실</li><li>책상·옷장·발코니</li><li>취사 불가</li></ul></article><article class="card"><span class="tag">SINGLE ROOM</span><h3>1인실</h3><p><strong>14,000 RMB / 객실 / 학년</strong></p><ul><li>1인 단독 사용</li><li>개인 욕실</li><li>책상·옷장·발코니</li><li>취사 불가</li></ul></article></div><div class="notice" style="margin-top:18px"><strong>Taicang 체크인:</strong> 숙소비는 입국 전 한 번에 납부하며, 체크인 시 보증금 300 RMB와 첫 공과금 300 RMB가 별도로 안내됩니다. 숙소 정책은 변경될 수 있습니다.</div></section>
-<section class="section"><h2>생활 편의와 이동</h2><div class="grid3"><article class="card"><h3>SIP</h3><p>숙소 주변에 식당·상점·대중교통·체육시설이 있고, Dushu Lake 대학가 생활권을 함께 이용할 수 있습니다.</p></article><article class="card"><h3>Taicang</h3><p>숙소 바로 주변에 상업시설이 있고 캠퍼스까지 도보 이동이 가능합니다. SIP와 Taicang을 잇는 셔틀도 운영됩니다.</p></article><article class="card"><h3>예약</h3><p>객실은 공실 상황에 따라 달라지며, 국제학생 숙소 예약은 학교가 안내하는 절차를 따라 진행합니다.</p></article></div></section>
+<section class="section info-compact"><h2>생활 편의와 이동</h2><div class="grid3"><article class="card"><h3>SIP</h3><p>숙소 주변에 식당·상점·대중교통·체육시설이 있고, Dushu Lake 대학가 생활권을 함께 이용할 수 있습니다.</p></article><article class="card"><h3>Taicang</h3><p>숙소 바로 주변에 상업시설이 있고 캠퍼스까지 도보 이동이 가능합니다. SIP와 Taicang을 잇는 셔틀도 운영됩니다.</p></article><article class="card"><h3>예약</h3><p>객실은 공실 상황에 따라 달라지며, 국제학생 숙소 예약은 학교가 안내하는 절차를 따라 진행합니다.</p></article></div></section>
 <section class="section"><h2>캠퍼스 생활도 같이 확인하세요</h2><div class="next"><a href="xjtlu-sports-facilities.html">스포츠 시설 →<span>헬스장·구기장·클라이밍·골프 등</span></a><a href="xjtlu-clubs-student-organisations.html">동아리·학생단체 →<span>학술·예술·스포츠·봉사 동아리</span></a><a href="xjtlu-admission-requirements-korea-2027.html">2027 입학조건 →<span>신입학·2학년·3학년 편입</span></a></div></section>
 <section class="sources"><p><strong>자료 출처</strong><br><a href="https://www.xjtlu.edu.cn/en/campus-life/accommodation" target="_blank" rel="noopener">XJTLU Campus Life - Accommodation</a> · <a href="https://www.xjtlu.edu.cn/en/admissions/global/accommodation" target="_blank" rel="noopener">International student accommodation</a><br>객실 종류·비용·공실은 변경될 수 있습니다.</p></section>
 </main>

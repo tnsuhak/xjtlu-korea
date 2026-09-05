@@ -48,6 +48,31 @@
   footer{padding-top:24px!important;padding-bottom:24px!important}
 }
 /* TNS COMPACT SPACING END */
+/* TNS DETAIL HIERARCHY START */
+/* Reading-only information should stay quiet and compact. */
+.info-compact .grid3{gap:14px!important}
+.info-compact .card{background:transparent!important;border:0!important;border-top:1px solid var(--rule)!important;padding:17px 4px 2px!important;box-shadow:none!important}
+.info-compact .card h3{margin:0 0 7px!important;font-size:16px!important;color:var(--navy)!important}
+.info-compact .card h3::before{content:'•';color:var(--gold);margin-right:8px}
+.info-compact .card p{margin:0!important;font-size:13px!important;line-height:1.62!important;color:#667085!important}
+
+/* Internal navigation cards must look obviously clickable. */
+.next{gap:14px!important;margin-top:18px!important}
+.next a{position:relative!important;display:block!important;background:linear-gradient(135deg,#fff 0%,#fffaf0 100%)!important;border:1px solid #dfd5b9!important;border-left:4px solid var(--gold)!important;border-radius:7px!important;padding:21px 58px 20px 20px!important;color:var(--navy)!important;font-size:15px!important;font-weight:800!important;line-height:1.35!important;box-shadow:0 5px 16px rgba(20,33,61,.06)!important;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease!important}
+.next a::after{content:'→';position:absolute;right:17px;top:50%;transform:translateY(-50%);width:31px;height:31px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--navy);color:#fff;font-size:17px;font-weight:800;box-shadow:0 4px 10px rgba(20,33,61,.16)}
+.next a:hover,.next a:focus-visible{transform:translateY(-2px)!important;box-shadow:0 10px 24px rgba(20,33,61,.12)!important;border-color:var(--gold)!important;outline:none!important}
+.next span{display:block!important;margin-top:7px!important;color:#6b7280!important;font-size:12.5px!important;font-weight:500!important;line-height:1.55!important}
+@media(max-width:800px){
+  .info-compact .grid3{display:block!important}
+  .info-compact .card{display:grid!important;grid-template-columns:74px 1fr!important;gap:12px!important;align-items:start!important;padding:15px 0!important}
+  .info-compact .card h3{margin:0!important;font-size:15px!important}
+  .info-compact .card h3::before{margin-right:6px!important}
+  .info-compact .card p{font-size:13px!important;line-height:1.55!important}
+  .next{gap:11px!important}
+  .next a{padding:18px 54px 17px 17px!important;font-size:15px!important}
+  .next a::after{right:14px;width:30px;height:30px}
+}
+/* TNS DETAIL HIERARCHY END */
 </style>
 </head>
 <body>

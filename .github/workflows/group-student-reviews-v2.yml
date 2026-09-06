@@ -1,0 +1,47 @@
+name: Apply grouped XJTLU reviews
+
+on:
+  push:
+    branches:
+      - feature/xjtlu-campus-life-guides-20260902
+    paths:
+      - '.github/workflows/group-student-reviews-v2.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/xjtlu-campus-life-guides-20260902
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Apply review grouping
+        run: python .github/scripts/group_student_reviews.py
+      - name: Validate grouped review page
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          s = Path('xjtlu-student-videos.html').read_text(encoding='utf-8')
+          for heading in ['한국인 재학생 후기','한국인 졸업생 후기','외국인 재학생 후기']:
+              assert heading in s
+          for vid in ['lbgWNru8uPo','XbLR0oa0yEQ','iCgu_N-pjCQ','NuTLpUVReb4','f1M3erLwUTc','41faYzujVao']:
+              assert vid in s
+          assert s.count('youtube-nocookie.com/embed/') == 15
+          assert s.index('한국인 재학생 후기') < s.index('한국인 졸업생 후기') < s.index('외국인 재학생 후기')
+          print('Validation passed: 7 Korean students, 6 Korean alumni, 2 international students')
+          PY
+      - name: Commit grouped reviews and cleanup helpers
+        run: |
+          git config user.name "tnsuhak"
+          git config user.email "tnsuhak@gmail.com"
+          rm -f .github/scripts/group_student_reviews.py
+          rm -f .github/workflows/group-student-reviews.yml
+          rm -f .github/workflows/group-student-reviews-v2.yml
+          git add -A
+          git commit -m "Organize student reviews into three groups" || exit 0
+          git push origin HEAD:feature/xjtlu-campus-life-guides-20260902

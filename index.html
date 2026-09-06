@@ -638,16 +638,6 @@ html{scroll-padding-top:118px}
   .review-feature-caption{padding:13px 14px;min-height:0}
 }
 /* TNS STUDENT REVIEW FEATURE END */
-
-/* TNS HOME-ONLY HEADER START */
-.nav-links{display:flex!important;align-items:center!important;gap:0!important}
-.nav-links .home-only-nav{display:inline-flex!important;align-items:center;justify-content:center;background:var(--navy)!important;color:#fff!important;border:1px solid var(--navy);border-radius:4px;padding:9px 16px!important;font-size:13px!important;font-weight:700!important;text-decoration:none;white-space:nowrap}
-.nav-links .home-only-nav:hover{background:#1e3560!important;color:#fff!important}
-.nav-ham{display:none!important}
-@media(max-width:900px){.nav-links{display:flex!important}.nav-ham{display:none!important}}
-@media(max-width:560px){.nav-links .home-only-nav{padding:8px 11px!important;font-size:12px!important}.nav-logo-text span{display:none!important}}
-/* TNS HOME-ONLY HEADER END */
-
 </style>
 </head>
 <body>
@@ -669,7 +659,19 @@ html{scroll-padding-top:118px}
       <span>SUZHOU · CHINA</span>
     </div>
   </a>
-  <ul class="nav-links"><li><a class="home-only-nav" href="/">메인페이지로 가기</a></li></ul>
+  <ul class="nav-links">
+    <li><a href="#information">학교소개</a></li>
+    <li><a href="#major">전공안내</a></li>
+    <li><a href="#calendar">학비·장학금</a></li>
+    <li><a href="#rooms">숙소</a></li>
+    <li><a href="#admission">입학안내</a></li>
+    <li><a href="xjtlu-student-videos.html">학생 후기 영상</a></li>
+    <li><button type="button" class="nav-menu-btn" onclick="openSiteMenu()" aria-controls="siteMenu" aria-expanded="false">전체 메뉴 <span class="nav-menu-icon">☰</span></button></li>
+    
+  </ul>
+  <button class="nav-ham" id="hamBtn" onclick="openSiteMenu()" aria-controls="siteMenu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </header>
 
 <div id="mobileNav">

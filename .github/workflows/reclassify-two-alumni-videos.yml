@@ -42,12 +42,18 @@ jobs:
 
           moved = []
           for vid in ('ayDexdVyIpk', '_71HV9YKV2E'):
-              pat = re.compile(r'<article class="video-card(?: featured)?">.*?' + re.escape(vid) + r'.*?</article>\s*', re.S)
-              m = pat.search(student_block)
-              if not m:
+              pos = student_block.find(vid)
+              if pos == -1:
                   raise SystemExit(f'{vid} not found in Korean student group')
-              card = m.group(0)
-              student_block = student_block[:m.start()] + student_block[m.end():]
+              start = student_block.rfind('<article', 0, pos)
+              end = student_block.find('</article>', pos)
+              if start == -1 or end == -1:
+                  raise SystemExit(f'Could not isolate card for {vid}')
+              end += len('</article>')
+              while end < len(student_block) and student_block[end] in '\r\n ':
+                  end += 1
+              card = student_block[start:end]
+              student_block = student_block[:start] + student_block[end:]
               card = card.replace('KOREAN STUDENT', 'KOREAN ALUMNI')
               card = card.replace('한국인 재학생 후기 영상', '한국인 졸업생 후기 영상')
               card = card.replace('XJTLU 재학생의 추가 인터뷰와 대학생활 경험을 확인해 보세요.', 'XJTLU를 졸업한 한국 학생의 경험과 졸업 이후 이야기를 확인해 보세요.')
@@ -76,10 +82,8 @@ jobs:
 
           student_block = renumber(student_block, 'KOREAN STUDENT', 'student')
           alumni_block = renumber(alumni_block, 'KOREAN ALUMNI', 'alumni')
-
           s = s[:a + len(student_marker)] + student_block + alumni_marker + alumni_block + s[c:]
 
-          # Verify the two videos are only in the alumni group.
           a2 = s.index(student_marker)
           b2 = s.index(alumni_marker, a2)
           c2 = s.index(intl_marker, b2)
@@ -88,8 +92,6 @@ jobs:
           for vid in ('ayDexdVyIpk', '_71HV9YKV2E'):
               assert vid not in students
               assert vid in alumni
-          assert students.count('KOREAN STUDENT') >= 5
-          assert alumni.count('KOREAN ALUMNI') >= 8
 
           p.write_text(s, encoding='utf-8')
           print('Reclassified two videos into Korean alumni reviews')

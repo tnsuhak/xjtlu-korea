@@ -1,0 +1,37 @@
+name: Remove student video menu note
+on:
+  push:
+    branches:
+      - feature/xjtlu-campus-life-guides-20260902
+    paths:
+      - '.github/workflows/remove-student-video-menu-note-20260906.yml'
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove note from main site menu
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text()
+          target='<p>대표 영상은 메인에서, 재학생 인터뷰 전체는 후기 영상 모음에서 확인합니다.</p>'
+          if target not in s:
+              raise SystemExit('target text not found')
+          p.write_text(s.replace(target,''))
+          PY
+      - name: Validate
+        run: |
+          if grep -q '대표 영상은 메인에서, 재학생 인터뷰 전체는 후기 영상 모음에서 확인합니다.' index.html; then exit 1; fi
+          grep -q 'XJTLU 학생 후기 영상 모음' index.html
+      - name: Commit changes and remove helper workflow
+        run: |
+          rm .github/workflows/remove-student-video-menu-note-20260906.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html .github/workflows/remove-student-video-menu-note-20260906.yml
+          git commit -m 'Remove student video menu note'
+          git push

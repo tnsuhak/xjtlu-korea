@@ -1,0 +1,45 @@
+name: Restore XJTLU main navigation
+on:
+  push:
+    branches:
+      - feature/xjtlu-campus-life-guides-20260902
+    paths:
+      - '.github/workflows/restore-main-navigation-20260906.yml'
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Restore main page navigation only
+        run: |
+          git show 9f3a7ad4d730ef8ced8cfae0cf5f5e41173a9163:index.html > index.html
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text()
+          s=s.replace('2027 학비·장학금 자세히','2027 학비·장학금')
+          s=s.replace('SIP·Taicang 숙소·기숙사 자세히','SIP·Taicang 숙소·기숙사')
+          p.write_text(s)
+          PY
+      - name: Validate main navigation
+        run: |
+          grep -q '학교소개' index.html
+          grep -q '전공안내' index.html
+          grep -q '학비·장학금' index.html
+          grep -q '숙소' index.html
+          grep -q '재학생후기' index.html
+          if grep -q 'home-only-nav' index.html; then exit 1; fi
+          if grep -q '>상담<' index.html; then exit 1; fi
+          if grep -q '자세히' index.html; then exit 1; fi
+      - name: Commit changes and remove helper workflow
+        run: |
+          rm .github/workflows/restore-main-navigation-20260906.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html .github/workflows/restore-main-navigation-20260906.yml
+          git commit -m 'Restore main page navigation menu'
+          git push

@@ -24,29 +24,17 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
+          import base64
           p = Path('xjtlu-accommodation-sip-taicang.html')
           s = p.read_text(encoding='utf-8')
-          video_id = 'r_SJ1rLfXfk'
           marker = 'TNS SIP ACCOMMODATION VIDEO START'
           if marker in s:
               raise SystemExit('Video already present')
-
-          css = '''
-/* TNS SIP ACCOMMODATION VIDEO START */
-.accom-video{margin-top:22px;background:#0e1a2e;border-radius:8px;overflow:hidden;box-shadow:0 14px 32px rgba(20,33,61,.14)}
-.accom-video-copy{padding:19px 22px 15px}
-.accom-video-copy .eyebrow{font-size:10px;letter-spacing:.14em}
-.accom-video-copy h3{margin:5px 0 4px;color:#fff;font-size:20px}
-.accom-video-copy p{margin:0;color:#cbd3df;font-size:13px;line-height:1.6}
-.accom-video-frame{position:relative;padding-top:56.25%;background:#000}
-.accom-video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-@media(max-width:760px){.accom-video{margin-top:16px}.accom-video-copy{padding:16px 16px 12px}.accom-video-copy h3{font-size:18px}.accom-video-copy p{font-size:12.5px}}
-/* TNS SIP ACCOMMODATION VIDEO END */
-'''
+          css = base64.b64decode('LyogVE5TIFNJUCBBQ0NPTU1PREFUSU9OIFZJREVPIFNUQVJUICovCi5hY2NvbS12aWRlb3ttYXJnaW4tdG9wOjIycHg7YmFja2dyb3VuZDojMGUxYTJlO2JvcmRlci1yYWRpdXM6OHB4O292ZXJmbG93OmhpZGRlbjtib3gtc2hhZG93OjAgMTRweCAzMnB4IHJnYmEoMjAsMzMsNjEsLjE0KX0KLmFjY29tLXZpZGVvLWNvcHl7cGFkZGluZzoxOXB4IDIycHggMTVweH0KLmFjY29tLXZpZGVvLWNvcHkgLmV5ZWJyb3d7Zm9udC1zaXplOjEwcHg7bGV0dGVyLXNwYWNpbmc6LjE0ZW19Ci5hY2NvbS12aWRlby1jb3B5IGgze21hcmdpbjo1cHggMCA0cHg7Y29sb3I6I2ZmZjtmb250LXNpemU6MjBweH0KLmFjY29tLXZpZGVvLWNvcHkgcHttYXJnaW46MDtjb2xvcjojY2JkM2RmO2ZvbnQtc2l6ZToxM3B4O2xpbmUtaGVpZ2h0OjEuNn0KLmFjY29tLXZpZGVvLWZyYW1le3Bvc2l0aW9uOnJlbGF0aXZlO3BhZGRpbmctdG9wOjU2LjI1JTtiYWNrZ3JvdW5kOiMwMDB9Ci5hY2NvbS12aWRlby1mcmFtZSBpZnJhbWV7cG9zaXRpb246YWJzb2x1dGU7aW5zZXQ6MDt3aWR0aDoxMDAlO2hlaWdodDoxMDAlO2JvcmRlcjowfQpAbWVkaWEobWF4LXdpZHRoOjc2MHB4KXsuYWNjb20tdmlkZW97bWFyZ2luLXRvcDoxNnB4fS5hY2NvbS12aWRlby1jb3B5e3BhZGRpbmc6MTZweCAxNnB4IDEycHh9LmFjY29tLXZpZGVvLWNvcHkgaDN7Zm9udC1zaXplOjE4cHh9LmFjY29tLXZpZGVvLWNvcHkgcHtmb250LXNpemU6MTIuNXB4fX0KLyogVE5TIFNJUCBBQ0NPTU1PREFUSU9OIFZJREVPIEVORCAqLw==').decode('utf-8')
+          block = base64.b64decode('PHNlY3Rpb24gY2xhc3M9InNlY3Rpb24iIGFyaWEtbGFiZWxsZWRieT0ic2lwLXZpZGVvLXRpdGxlIj4KICA8ZGl2IGNsYXNzPSJhY2NvbS12aWRlbyI+CiAgICA8ZGl2IGNsYXNzPSJhY2NvbS12aWRlby1jb3B5Ij4KICAgICAgPGRpdiBjbGFzcz0iZXllYnJvdyI+U0lQIENBTVBVUyDCtyBBQ0NPTU1PREFUSU9OIFZJREVPPC9kaXY+CiAgICAgIDxoMyBpZD0ic2lwLXZpZGVvLXRpdGxlIj5TSVAg7Lqg7Y287IqkIOyImeyGjCDsmIHsg4E8L2gzPgogICAgICA8cD5TSVAg7Lqg7Y287IqkIOyImeyGjOydmCDsi6TsoJwg67aE7JyE6riw66W8IOyYgeyDgeycvOuhnCDtmZXsnbjtlbQg67O07IS47JqULjwvcD4KICAgIDwvZGl2PgogICAgPGRpdiBjbGFzcz0iYWNjb20tdmlkZW8tZnJhbWUiPgogICAgICA8aWZyYW1lIHNyYz0iaHR0cHM6Ly93d3cueW91dHViZS5jb20vZW1iZWQvcl9TSjFyTGZYZms/cmVsPTAiIHRpdGxlPSJYSlRMVSBTSVAg7Lqg7Y287IqkIOyImeyGjCDsmIHsg4EiIGxvYWRpbmc9ImxhenkiIGFsbG93PSJhY2NlbGVyb21ldGVyOyBhdXRvcGxheTsgY2xpcGJvYXJkLXdyaXRlOyBlbmNyeXB0ZWQtbWVkaWE7IGd5cm9zY29wZTsgcGljdHVyZS1pbi1waWN0dXJlOyB3ZWItc2hhcmUiIHJlZmVycmVycG9saWN5PSJzdHJpY3Qtb3JpZ2luLXdoZW4tY3Jvc3Mtb3JpZ2luIiBhbGxvd2Z1bGxzY3JlZW4+PC9pZnJhbWU+CiAgICA8L2Rpdj4KICA8L2Rpdj4KPC9zZWN0aW9uPg==').decode('utf-8')
           if '</style>' not in s:
               raise SystemExit('No style block')
           s = s.replace('</style>', css + '\n</style>', 1)
-
           start = s.find('<section class="section"><h2>SIP 캠퍼스 숙소</h2>')
           if start == -1:
               raise SystemExit('SIP section not found')
@@ -54,21 +42,7 @@ jobs:
           if end == -1:
               raise SystemExit('SIP section end not found')
           end += len('</section>')
-
-          block = '''
-<section class="section" aria-labelledby="sip-video-title">
-  <div class="accom-video">
-    <div class="accom-video-copy">
-      <div class="eyebrow">SIP CAMPUS · ACCOMMODATION VIDEO</div>
-      <h3 id="sip-video-title">SIP 캠퍼스 숙소 영상</h3>
-      <p>SIP 캠퍼스 숙소의 실제 분위기를 영상으로 확인해 보세요.</p>
-    </div>
-    <div class="accom-video-frame">
-      <iframe src="https://www.youtube.com/embed/r_SJ1rLfXfk?rel=0" title="XJTLU SIP 캠퍼스 숙소 영상" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-  </div>
-</section>'''
-          s = s[:end] + block + s[end:]
+          s = s[:end] + '\n' + block + s[end:]
           p.write_text(s, encoding='utf-8')
           print('Inserted SIP accommodation video')
           PY

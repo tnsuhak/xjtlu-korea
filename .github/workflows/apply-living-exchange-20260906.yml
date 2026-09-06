@@ -17,20 +17,19 @@ jobs:
           ref: feature/xjtlu-campus-life-guides-20260902
           fetch-depth: 0
 
-      - name: Update XJTLU 2027 guides
+      - name: Patch homepage and tuition guide
         run: |
           python - <<'PY'
           from pathlib import Path
           import re
 
-          root = Path('.')
-          index = root / 'index.html'
-          tuition = root / 'xjtlu-tuition-scholarships-2027.html'
-          sitemap = root / 'sitemap.xml'
+          index = Path('index.html')
+          tuition = Path('xjtlu-tuition-scholarships-2027.html')
 
-          # ---------- Homepage: remove detailed living-cost table, keep only a compact internal link ----------
           s = index.read_text(encoding='utf-8')
-          old_pattern = re.compile(
+
+          # Remove the detailed living-cost table from the homepage and keep only a compact link.
+          pattern = re.compile(
               r'  <!-- 오른쪽: 04 -->\n  <div style="padding:40px 36px;">.*?'
               r'<p style="font-size:11px;color:var\(--mid\);margin-top:8px;font-family:\'DM Mono\',monospace;">'
               r'\* 비자·보험·생활 관련 부대비용 별도 · 실제 금액은 학교 및 중국 정부 기준 확인</p>\n  </div>',
@@ -43,50 +42,53 @@ jobs:
             <p class="adm-p">쑤저우 생활비 정보는 별도 가이드에서 확인하세요.</p>
             <div class="related-links" aria-label="생활비 상세 가이드"><span class="related-label">관련 글</span><a class="related-link" href="xjtlu-living-cost-2027.html">XJTLU 생활비 2027<span class="arr">→</span></a></div>
           </div>'''
-          s, n = old_pattern.subn(replacement, s, count=1)
+          s, n = pattern.subn(replacement, s, count=1)
           if n != 1:
-              raise SystemExit(f'homepage living-cost block replacement failed: {n}')
+              raise SystemExit(f'homepage living-cost replacement failed: {n}')
 
-          # Add new detail pages to mobile navigation.
-          needle = '<a class="mob-detail" href="xjtlu-tuition-scholarships-2027.html">2027 학비·장학금</a>'
-          if 'xjtlu-living-cost-2027.html' not in s:
-              s = s.replace(needle, needle + '\n  <a class="mob-detail" href="xjtlu-living-cost-2027.html">XJTLU 생활비 2027</a>', 1)
-          needle = '<a class="mob-detail" href="xjtlu-dual-degree-liverpool-2plus2.html">리버풀대학교 복수학위·2+2</a>'
-          if 'xjtlu-exchange.html' not in s:
-              s = s.replace(needle, needle + '\n  <a class="mob-detail" href="xjtlu-exchange.html">XJTLU 교환학생</a>', 1)
+          mobile_tuition = '<a class="mob-detail" href="xjtlu-tuition-scholarships-2027.html">2027 학비·장학금</a>'
+          if '<a class="mob-detail" href="xjtlu-living-cost-2027.html">' not in s:
+              s = s.replace(mobile_tuition, mobile_tuition + '\n  <a class="mob-detail" href="xjtlu-living-cost-2027.html">XJTLU 생활비 2027</a>', 1)
 
-          # Add new detail pages to the desktop sitemap-style menu.
-          old = '<section class="site-menu-group"><h3><a href="#information">학교소개 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-dual-degree-liverpool-2plus2.html">리버풀대학교 복수학위·2+2</a><a href="university-of-liverpool-vietnam.html">리버풀대학교 베트남·아시아 네트워크</a></section>'
-          new = '<section class="site-menu-group"><h3><a href="#information">학교소개 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-dual-degree-liverpool-2plus2.html">리버풀대학교 복수학위·2+2</a><a href="xjtlu-exchange.html">XJTLU 교환학생</a><a href="university-of-liverpool-vietnam.html">리버풀대학교 베트남·아시아 네트워크</a></section>'
-          if old in s:
-              s = s.replace(old, new, 1)
-          elif 'xjtlu-exchange.html' not in s:
-              raise SystemExit('desktop school menu anchor not found')
+          mobile_dual = '<a class="mob-detail" href="xjtlu-dual-degree-liverpool-2plus2.html">리버풀대학교 복수학위·2+2</a>'
+          if '<a class="mob-detail" href="xjtlu-exchange.html">' not in s:
+              s = s.replace(mobile_dual, mobile_dual + '\n  <a class="mob-detail" href="xjtlu-exchange.html">XJTLU 교환학생</a>', 1)
 
-          old = '<section class="site-menu-group"><h3><a href="#calendar">학비·장학금 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-tuition-scholarships-2027.html">2027 학비·장학금 상세</a></section>'
-          new = '<section class="site-menu-group"><h3><a href="#calendar">학비·장학금 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-tuition-scholarships-2027.html">2027 학비·장학금 상세</a><a href="xjtlu-living-cost-2027.html">XJTLU 생활비 2027</a></section>'
-          if old in s:
-              s = s.replace(old, new, 1)
+          school_group = '<section class="site-menu-group"><h3><a href="#information">학교소개 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-dual-degree-liverpool-2plus2.html">리버풀대학교 복수학위·2+2</a><a href="university-of-liverpool-vietnam.html">리버풀대학교 베트남·아시아 네트워크</a></section>'
+          school_group_new = '<section class="site-menu-group"><h3><a href="#information">학교소개 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-dual-degree-liverpool-2plus2.html">리버풀대학교 복수학위·2+2</a><a href="xjtlu-exchange.html">XJTLU 교환학생</a><a href="university-of-liverpool-vietnam.html">리버풀대학교 베트남·아시아 네트워크</a></section>'
+          if '<a href="xjtlu-exchange.html">XJTLU 교환학생</a>' not in s:
+              if school_group not in s:
+                  raise SystemExit('school menu group not found')
+              s = s.replace(school_group, school_group_new, 1)
 
-          # Add living-cost page to the small related-links row under the cost section.
-          old = '<div class="related-links" aria-label="이 내용과 관련된 상세 가이드"><span class="related-label">관련 글</span><a class="related-link" href="xjtlu-tuition-scholarships-2027.html">2027 학비·장학금·연간 비용 자세히<span class="arr">→</span></a></div>'
-          new = '<div class="related-links" aria-label="이 내용과 관련된 상세 가이드"><span class="related-label">관련 글</span><a class="related-link" href="xjtlu-tuition-scholarships-2027.html">2027 학비·장학금 자세히<span class="arr">→</span></a><a class="related-link" href="xjtlu-living-cost-2027.html">XJTLU 생활비 2027<span class="arr">→</span></a></div>'
-          if old in s:
-              s = s.replace(old, new, 1)
+          cost_group = '<section class="site-menu-group"><h3><a href="#calendar">학비·장학금 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-tuition-scholarships-2027.html">2027 학비·장학금 상세</a></section>'
+          cost_group_new = '<section class="site-menu-group"><h3><a href="#calendar">학비·장학금 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-tuition-scholarships-2027.html">2027 학비·장학금 상세</a><a href="xjtlu-living-cost-2027.html">XJTLU 생활비 2027</a></section>'
+          if '<a href="xjtlu-living-cost-2027.html">XJTLU 생활비 2027</a>' not in s:
+              if cost_group not in s:
+                  raise SystemExit('cost menu group not found')
+              s = s.replace(cost_group, cost_group_new, 1)
 
-          # Footer quick links.
+          related_old = '<div class="related-links" aria-label="이 내용과 관련된 상세 가이드"><span class="related-label">관련 글</span><a class="related-link" href="xjtlu-tuition-scholarships-2027.html">2027 학비·장학금·연간 비용 자세히<span class="arr">→</span></a></div>'
+          related_new = '<div class="related-links" aria-label="이 내용과 관련된 상세 가이드"><span class="related-label">관련 글</span><a class="related-link" href="xjtlu-tuition-scholarships-2027.html">2027 학비·장학금 자세히<span class="arr">→</span></a><a class="related-link" href="xjtlu-living-cost-2027.html">XJTLU 생활비 2027<span class="arr">→</span></a></div>'
+          if related_old in s:
+              s = s.replace(related_old, related_new, 1)
+
           footer_tuition = '<li><a href="xjtlu-tuition-scholarships-2027.html">2027 학비·장학금</a></li>'
           if '<li><a href="xjtlu-living-cost-2027.html">XJTLU 생활비 2027</a></li>' not in s:
               s = s.replace(footer_tuition, footer_tuition + '\n        <li><a href="xjtlu-living-cost-2027.html">XJTLU 생활비 2027</a></li>', 1)
+
           footer_clubs = '<li><a href="xjtlu-clubs-student-organisations.html">동아리·학생단체</a></li>'
           if '<li><a href="xjtlu-exchange.html">XJTLU 교환학생</a></li>' not in s:
               s = s.replace(footer_clubs, footer_clubs + '\n      <li><a href="xjtlu-exchange.html">XJTLU 교환학생</a></li>', 1)
 
           if '생활비 비교 (RMB/월)' in s or '월 합계' in s:
-              raise SystemExit('detailed living-cost table still remains on homepage')
+              raise SystemExit('homepage detailed living-cost table still present')
+          for required in ('xjtlu-living-cost-2027.html', 'xjtlu-exchange.html'):
+              if required not in s:
+                  raise SystemExit(f'homepage missing internal link: {required}')
           index.write_text(s, encoding='utf-8')
 
-          # ---------- Tuition page: use monthly accommodation figures from the 2027 guide ----------
+          # Update SIP accommodation costs in the tuition guide from daily conversion to 2027 monthly figures.
           t = tuition.read_text(encoding='utf-8')
           t = t.replace('"dateModified":"2026-08-29"', '"dateModified":"2026-09-06"', 1)
           t = t.replace(
@@ -94,105 +96,14 @@ jobs:
               'SIP 캠퍼스의 대표적인 숙소는 장기 계약 기준 월 약 1,500~3,060위안 수준이며, 타이창 캠퍼스는 연간 6,000위안의 2인실과 연간 14,000위안의 1인실이 안내돼 있습니다.',
               1,
           )
-          sip_section = '''<section class="section"><h2>SIP 캠퍼스 숙소비</h2><p class="lead">2027 안내에서는 SIP 국제학생 숙소를 월 계약 기준으로 비교할 수 있습니다. 객실 유형과 계약기간에 따라 금액이 달라질 수 있으므로 실제 예약 전 최신 공실과 계약조건을 다시 확인하세요.</p><div class="table-wrap"><table><thead><tr><th>숙소</th><th>월 비용</th><th>학교까지</th><th>주방</th><th>욕실</th></tr></thead><tbody><tr><td>Parfait International Apartments</td><td>약 1,710 RMB</td><td>약 1km</td><td>공용 주방</td><td>개인 욕실</td></tr><tr><td>Parfait Hotel &amp; Apartments</td><td>2,400~2,700 RMB</td><td>약 1km</td><td>전자레인지·냉장고</td><td>개인 욕실</td></tr><tr><td>Wenhua Apartments</td><td>1인실 1,860 RMB<br>2인 공유 시 1인 부담액 절반</td><td>약 7km</td><td>전자레인지·냉장고 설치 가능</td><td>개인 욕실</td></tr><tr><td>MBA Apartments</td><td>장기 거주 약 1,500~1,620 RMB<br>30~90일 2,220~2,340 RMB</td><td>500m 미만</td><td>취사시설 없음</td><td>공용 욕실</td></tr><tr><td>Scholar's Apartments</td><td>Studio 약 2,550~2,700 RMB<br>1 Bedroom 약 3,060 RMB</td><td>약 1km</td><td>전기제품 구입·사용 가능</td><td>개인 욕실</td></tr></tbody></table></div><p class="notice">SIP 숙소는 계약기간과 객실 배정에 따라 금액이 달라질 수 있습니다. 상세 비교는 숙소 가이드에서 확인할 수 있습니다.</p><div class="next"><a href="xjtlu-accommodation-sip-taicang.html">SIP·Taicang 숙소 상세<span>객실 유형·거리·주방·욕실 비교</span></a><a href="xjtlu-living-cost-2027.html">XJTLU 생활비 2027<span>숙소·식비·교통을 포함한 월 생활비 예산</span></a></div></section>'''
-          t, n = re.subn(
-              r'<section class="section"><h2>SIP 캠퍼스 기숙사비</h2>.*?</section>\s*(?=<section class="section"><h2>타이창 캠퍼스 기숙사비</h2>)',
-              sip_section + '\n',
-              t,
-              count=1,
-              flags=re.S,
-          )
+          new_sip = '''<section class="section"><h2>SIP 캠퍼스 숙소비</h2><p class="lead">2027 안내에서는 SIP 국제학생 숙소를 월 계약 기준으로 비교할 수 있습니다. 객실 유형과 계약기간에 따라 금액이 달라질 수 있으므로 실제 예약 전 최신 공실과 계약조건을 다시 확인하세요.</p><div class="table-wrap"><table><thead><tr><th>숙소</th><th>월 비용</th><th>학교까지</th><th>주방</th><th>욕실</th></tr></thead><tbody><tr><td>Parfait International Apartments</td><td>약 1,710 RMB</td><td>약 1km</td><td>공용 주방</td><td>개인 욕실</td></tr><tr><td>Parfait Hotel &amp; Apartments</td><td>2,400~2,700 RMB</td><td>약 1km</td><td>전자레인지·냉장고</td><td>개인 욕실</td></tr><tr><td>Wenhua Apartments</td><td>1인실 1,860 RMB<br>2인 공유 시 1인 부담액 절반</td><td>약 7km</td><td>전자레인지·냉장고 설치 가능</td><td>개인 욕실</td></tr><tr><td>MBA Apartments</td><td>장기 거주 약 1,500~1,620 RMB<br>30~90일 2,220~2,340 RMB</td><td>500m 미만</td><td>취사시설 없음</td><td>공용 욕실</td></tr><tr><td>Scholar's Apartments</td><td>Studio 약 2,550~2,700 RMB<br>1 Bedroom 약 3,060 RMB</td><td>약 1km</td><td>전기제품 구입·사용 가능</td><td>개인 욕실</td></tr></tbody></table></div><p class="notice">SIP 숙소는 계약기간과 객실 배정에 따라 금액이 달라질 수 있습니다. 상세 비교는 숙소 가이드에서 확인할 수 있습니다.</p><div class="next"><a href="xjtlu-accommodation-sip-taicang.html">SIP·Taicang 숙소 상세<span>객실 유형·거리·주방·욕실 비교</span></a><a href="xjtlu-living-cost-2027.html">XJTLU 생활비 2027<span>숙소·식비·교통을 포함한 월 생활비 예산</span></a></div></section>'''
+          t, n = re.subn(r'<section class="section"><h2>SIP 캠퍼스 기숙사비</h2>.*?</section>\s*(?=<section class="section"><h2>타이창 캠퍼스 기숙사비</h2>)', new_sip + '\n', t, count=1, flags=re.S)
           if n != 1:
               raise SystemExit(f'tuition SIP section replacement failed: {n}')
+          for required in ('Parfait International Apartments', '장기 거주 약 1,500~1,620 RMB', 'xjtlu-living-cost-2027.html'):
+              if required not in t:
+                  raise SystemExit(f'tuition validation failed: {required}')
           tuition.write_text(t, encoding='utf-8')
-
-          # ---------- New page: XJTLU 생활비 2027 ----------
-          living = '''<!DOCTYPE html>
-          <html lang="ko">
-          <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>XJTLU 생활비 2027 | 쑤저우 월 생활비·식비·교통비 | TNS유학</title>
-          <meta name="description" content="XJTLU 생활비 2027 안내. 쑤저우에서 생활하는 학생의 월 예산 3가지와 숙소·식비·교통·통신비, 커피·학식·지하철 등 실제 생활비 예시를 정리했습니다.">
-          <meta name="robots" content="index, follow">
-          <link rel="canonical" href="https://xjtlu-korea.netlify.app/xjtlu-living-cost-2027.html">
-          <meta property="og:type" content="article"><meta property="og:site_name" content="XJTLU Korea | TNS유학"><meta property="og:title" content="XJTLU 생활비 2027"><meta property="og:description" content="쑤저우 월 생활비와 식비·교통비를 학생 생활패턴별로 비교합니다."><meta property="og:url" content="https://xjtlu-korea.netlify.app/xjtlu-living-cost-2027.html">
-          <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"XJTLU 생활비 2027","description":"XJTLU 쑤저우 학생의 월 생활비와 일상 물가 안내","dateModified":"2026-09-06","mainEntityOfPage":"https://xjtlu-korea.netlify.app/xjtlu-living-cost-2027.html","publisher":{"@type":"Organization","name":"TNS유학 ㈜티앤에스월드와이드"}}</script>
-          <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"XJTLU 학생의 한 달 생활비는 얼마인가요?","acceptedAnswer":{"@type":"Answer","text":"2027 안내의 생활패턴 예시는 월 3,700 RMB, 6,450 RMB, 9,600 RMB입니다. 숙소와 외식·택시 이용 정도에 따라 실제 금액은 달라집니다."}},{"@type":"Question","name":"XJTLU 학식은 보통 얼마인가요?","acceptedAnswer":{"@type":"Answer","text":"학생식당 점심 예시는 약 20 RMB입니다."}},{"@type":"Question","name":"쑤저우에서 상하이까지 기차비는 얼마인가요?","acceptedAnswer":{"@type":"Answer","text":"2027 안내의 예시는 약 40 RMB입니다."}}]}</script>
-          <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-          <style>
-          :root{--navy:#14213d;--gold:#c9a84c;--cream:#faf8f4;--ink:#151515;--mid:#667085;--rule:#e4e7ec;--white:#fff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:'Noto Sans KR',sans-serif;color:var(--ink);background:var(--cream);line-height:1.72;word-break:keep-all}.top{background:#0e1a2e;color:#d7dce6;font-size:12px;padding:8px 24px}.nav{height:68px;background:#fff;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;padding:0 5vw;position:sticky;top:0;z-index:10}.brand{font-size:22px;font-weight:900;color:var(--navy);text-decoration:none}.brand span{color:var(--gold)}.navlinks{display:flex;gap:22px}.navlinks a{color:var(--navy);font-size:13px;text-decoration:none;font-weight:600}.hero{background:linear-gradient(110deg,rgba(10,18,38,.96),rgba(10,18,38,.76)),url('gallery-student.webp') center 45%/cover;min-height:350px;color:#fff;display:flex;align-items:center}.wrap{width:min(1080px,90vw);margin:auto}.crumb{font-size:12px;color:rgba(255,255,255,.68);margin-bottom:22px}.crumb a{color:inherit}.eyebrow{font-family:'DM Mono',monospace;color:var(--gold);font-size:11px;letter-spacing:.16em}.hero h1{font-size:clamp(34px,5vw,58px);line-height:1.15;margin:10px 0 14px}.hero p{font-size:16px;color:rgba(255,255,255,.78);max-width:760px}.quick{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;border:1px solid var(--rule);margin-top:-42px;position:relative}.quick div{padding:22px;border-right:1px solid var(--rule)}.quick div:last-child{border:0}.quick b{display:block;font-size:26px;color:var(--navy)}.quick span{font-size:12px;color:var(--mid)}main{padding:52px 0}.section{margin-bottom:46px}.section h2{font-size:29px;line-height:1.35;color:var(--navy);margin:0 0 10px}.lead{color:var(--mid);max-width:840px;margin:0 0 22px}.table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--rule)}table{width:100%;border-collapse:collapse;min-width:720px}th,td{padding:13px 15px;border-bottom:1px solid var(--rule);text-align:left;font-size:13px;vertical-align:top}th{background:var(--navy);color:#fff}td:first-child{font-weight:700;color:var(--navy)}.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.price{background:#fff;border:1px solid var(--rule);padding:18px}.price b{display:block;color:var(--navy);font-size:17px}.price span{display:block;color:var(--mid);font-size:12px;margin-top:5px}.notice{background:#fff;border-left:4px solid var(--gold);padding:18px 20px;color:#596273;font-size:13px}.next{display:grid;grid-template-columns:1fr 1fr;gap:12px}.next a{display:block;background:#fff;border:1px solid #dfd5b9;border-left:4px solid var(--gold);padding:18px 52px 18px 18px;text-decoration:none;color:var(--navy);font-weight:800;position:relative}.next a::after{content:'→';position:absolute;right:16px;top:50%;transform:translateY(-50%)}.next span{display:block;color:var(--mid);font-weight:400;font-size:12px;margin-top:5px}.sources{border-top:1px solid var(--rule);padding:14px 0 0;margin-bottom:28px}.sources p{font-size:12px;line-height:1.8;color:#98a2b3;margin:0}.sources strong{color:#667085}.cta{background:var(--navy);color:#fff;padding:38px;text-align:center}.cta h2{margin:0 0 8px}.btn{display:inline-block;margin:8px 5px 0;padding:12px 22px;background:#fee500;color:#161000;text-decoration:none;font-weight:700}.btn.alt{background:#fff;color:var(--navy)}footer{padding:28px 5vw;background:#0a0d18;color:#9ca3af;font-size:12px}.faq details{background:#fff;border-bottom:1px solid var(--rule);padding:16px 20px}.faq summary{font-weight:700;color:var(--navy);cursor:pointer}.faq p{font-size:14px;color:#596273}@media(max-width:760px){.navlinks{display:none}.hero{min-height:330px}.quick{grid-template-columns:1fr}.quick{margin-top:0}.quick div{border-right:0;border-bottom:1px solid var(--rule);padding:16px 18px}.price-grid,.next{grid-template-columns:1fr}.hero h1{font-size:36px}main{padding:38px 0}.section{margin-bottom:34px}.cta{padding:30px 18px}}
-          </style></head>
-          <body><div class="top">XJTLU 한국어 입학 안내 · TNS유학</div><nav class="nav"><a class="brand" href="/">XJTLU <span>Korea</span></a><div class="navlinks"><a href="/">학교소개</a><a href="xjtlu-tuition-scholarships-2027.html">학비·장학금</a><a href="xjtlu-accommodation-sip-taicang.html">숙소</a><a href="#contact">상담</a></div></nav>
-          <header class="hero"><div class="wrap"><div class="crumb"><a href="/">홈</a> › 생활비 2027</div><div class="eyebrow">2027 LIVING COST GUIDE</div><h1>XJTLU 생활비 2027</h1><p>쑤저우에서 지내는 학생의 숙소·식비·교통·통신비를 생활패턴별로 비교합니다.</p></div></header>
-          <div class="wrap quick"><div><b>3,700 RMB</b><span>절약형 월 예산 예시</span></div><div><b>6,450 RMB</b><span>보통형 월 예산 예시</span></div><div><b>9,600 RMB</b><span>여유형 월 예산 예시</span></div></div>
-          <main class="wrap"><section class="section"><h2>한 달 생활비, 생활패턴에 따라 차이가 큽니다</h2><p class="lead">같은 XJTLU 학생이라도 어디에 살고, 외식을 얼마나 하고, 택시와 여가비를 얼마나 쓰는지에 따라 예산이 크게 달라집니다. 아래 금액은 고정 비용이 아니라 생활패턴을 잡기 위한 예시입니다.</p><div class="table-wrap"><table><thead><tr><th>항목</th><th>절약형</th><th>보통형</th><th>여유형</th></tr></thead><tbody><tr><td>숙소</td><td>1,800</td><td>2,700</td><td>&gt;3,500</td></tr><tr><td>공과금</td><td>300</td><td>450</td><td>600</td></tr><tr><td>인터넷</td><td>100</td><td>100</td><td>100</td></tr><tr><td>휴대전화</td><td>100</td><td>100</td><td>100</td></tr><tr><td>식비</td><td>1,300</td><td>1,800</td><td>3,000</td></tr><tr><td>교통</td><td>100</td><td>300</td><td>300</td></tr><tr><td>여가</td><td>0</td><td>1,000</td><td>2,000</td></tr><tr><td>월 합계</td><td><strong>3,700 RMB</strong></td><td><strong>6,450 RMB</strong></td><td><strong>9,600 RMB</strong></td></tr></tbody></table></div></section>
-          <section class="section"><h2>쑤저우 일상 물가 예시</h2><div class="price-grid"><div class="price"><b>학식 20 RMB</b><span>학생식당 점심 예시</span></div><div class="price"><b>커피 15~35 RMB</b><span>카페 한 잔</span></div><div class="price"><b>지하철 2~7 RMB</b><span>구간에 따라 상이</span></div><div class="price"><b>버스 1~2 RMB</b><span>시내버스</span></div><div class="price"><b>상하이 기차 40 RMB</b><span>쑤저우↔상하이 예시</span></div><div class="price"><b>영화 20~80 RMB</b><span>영화관 티켓</span></div><div class="price"><b>패스트푸드 35 RMB</b><span>간단한 외식 예시</span></div><div class="price"><b>수영 15~35 RMB</b><span>시설 이용 예시</span></div><div class="price"><b>미용 25~200 RMB</b><span>서비스 유형에 따라 차이</span></div></div></section>
-          <section class="section"><h2>처음 예산을 잡을 때 빠뜨리기 쉬운 비용</h2><div class="notice">숙소 보증금은 보통 월세 1개월분 수준으로 별도 준비하고, 서비스 비용은 연 2,000 RMB 또는 학기당 1,000 RMB가 예시로 안내됩니다. 여행·항공·택시 비용과 비자 발급비 400 RMB도 생활비와 별도로 잡는 것이 좋습니다.</div></section>
-          <section class="section"><h2>같이 확인하면 좋은 페이지</h2><div class="next"><a href="xjtlu-tuition-scholarships-2027.html">2027 학비·장학금<span>연간 학비와 장학금, 얼리버드 할인</span></a><a href="xjtlu-accommodation-sip-taicang.html">SIP·Taicang 숙소<span>숙소 종류·월 비용·거리·주방·욕실 비교</span></a></div></section>
-          <section class="section faq"><h2>자주 묻는 질문</h2><details><summary>월 3,700 RMB면 모든 학생이 생활할 수 있나요?</summary><p>아닙니다. 기숙사와 학생식당을 중심으로 지출을 낮춘 생활패턴 예시입니다. 개인 숙소, 외식, 택시, 여행이 늘면 예산도 올라갑니다.</p></details><details><summary>학비와 생활비는 별도인가요?</summary><p>네. 연간 학비와 숙소·식비·교통·통신 등 생활비는 별도로 계산해야 합니다.</p></details><details><summary>상하이에 자주 가면 비용이 많이 늘어나나요?</summary><p>기차 자체는 예시로 약 40 RMB이지만, 상하이 현지 교통·식비·쇼핑 비용까지 포함하면 월 지출이 커질 수 있습니다.</p></details></section>
-          <section class="sources"><p><strong>자료 출처</strong> · XJTLU Mini Guide to Undergraduate and Master’s 2027 (Version July 2026), Budget &amp; Living at XJTLU. 생활비와 물가는 실제 계약·소비 시점에 따라 달라질 수 있습니다.</p></section>
-          <section class="cta" id="contact"><h2>내 예산으로 XJTLU 유학비 계산하기</h2><p>희망 숙소와 생활패턴을 알려주시면 학비와 생활비를 함께 정리해 드립니다.</p><a class="btn" href="https://open.kakao.com/o/slehLvKi" target="_blank" rel="noopener">카카오톡 무료 상담</a><a class="btn alt" href="tel:02-3288-1733">전화 02-3288-1733</a></section></main><footer>© 2026 TNS Worldwide Co., Ltd. · 실제 비용은 환율과 계약·소비 시점에 따라 달라질 수 있습니다.</footer></body></html>'''
-          Path('xjtlu-living-cost-2027.html').write_text(textwrap(living), encoding='utf-8')
-
-          # ---------- New page: XJTLU 교환학생 ----------
-          exchange = '''<!DOCTYPE html>
-          <html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>XJTLU 교환학생 | 3학년 해외교환·Summer Abroad | TNS유학</title><meta name="description" content="XJTLU 교환학생 안내. 3학년 한 학기·1년 해외교환, 학점 인정, 주요 파트너 대학과 Summer Abroad를 정리하고 리버풀 2+2와 차이를 설명합니다."><meta name="robots" content="index, follow"><link rel="canonical" href="https://xjtlu-korea.netlify.app/xjtlu-exchange.html"><meta property="og:type" content="article"><meta property="og:site_name" content="XJTLU Korea | TNS유학"><meta property="og:title" content="XJTLU 교환학생"><meta property="og:description" content="3학년 한 학기·1년 해외교환과 Summer Abroad, 주요 파트너 대학을 확인하세요."><meta property="og:url" content="https://xjtlu-korea.netlify.app/xjtlu-exchange.html">
-          <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"XJTLU 교환학생","description":"XJTLU 3학년 해외교환과 Summer Abroad 안내","dateModified":"2026-09-06","mainEntityOfPage":"https://xjtlu-korea.netlify.app/xjtlu-exchange.html","publisher":{"@type":"Organization","name":"TNS유학 ㈜티앤에스월드와이드"}}</script>
-          <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"XJTLU 교환학생은 보통 몇 학년에 가나요?","acceptedAnswer":{"@type":"Answer","text":"학부 3학년에 한 학기 또는 1년 동안 파트너 대학에서 공부하는 Semester or Year Abroad 기회가 안내돼 있습니다."}},{"@type":"Question","name":"XJTLU 교환학생은 학점 인정이 되나요?","acceptedAnswer":{"@type":"Answer","text":"Semester or Year Abroad는 XJTLU와 University of Liverpool 학위에 학점이 반영되는 credit-bearing 옵션으로 안내되며, 학위 기간을 추가로 늘리지 않는 방식입니다."}},{"@type":"Question","name":"교환학생과 리버풀대학교 2+2는 같은가요?","acceptedAnswer":{"@type":"Answer","text":"아닙니다. 교환학생은 한 학기 또는 1년의 해외수학이고, 2+2는 XJTLU에서 2년을 공부한 뒤 University of Liverpool에서 마지막 2년의 정규 학부과정을 이어가는 별도 경로입니다."}}]}</script>
-          <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"><style>
-          :root{--navy:#14213d;--gold:#c9a84c;--cream:#faf8f4;--ink:#151515;--mid:#667085;--rule:#e4e7ec;--white:#fff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:'Noto Sans KR',sans-serif;color:var(--ink);background:var(--cream);line-height:1.72;word-break:keep-all}.top{background:#0e1a2e;color:#d7dce6;font-size:12px;padding:8px 24px}.nav{height:68px;background:#fff;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;padding:0 5vw;position:sticky;top:0;z-index:10}.brand{font-size:22px;font-weight:900;color:var(--navy);text-decoration:none}.brand span{color:var(--gold)}.navlinks{display:flex;gap:22px}.navlinks a{color:var(--navy);font-size:13px;text-decoration:none;font-weight:600}.hero{background:linear-gradient(110deg,rgba(10,18,38,.96),rgba(10,18,38,.74)),url('about-campus.webp') center/cover;min-height:350px;color:#fff;display:flex;align-items:center}.wrap{width:min(1080px,90vw);margin:auto}.crumb{font-size:12px;color:rgba(255,255,255,.68);margin-bottom:22px}.crumb a{color:inherit}.eyebrow{font-family:'DM Mono',monospace;color:var(--gold);font-size:11px;letter-spacing:.16em}.hero h1{font-size:clamp(36px,5vw,60px);line-height:1.15;margin:10px 0 14px}.hero p{font-size:16px;color:rgba(255,255,255,.78);max-width:780px}.quick{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid var(--rule);margin-top:-42px;position:relative}.quick div{padding:20px;border-right:1px solid var(--rule)}.quick div:last-child{border:0}.quick b{display:block;font-size:23px;color:var(--navy)}.quick span{font-size:12px;color:var(--mid)}main{padding:52px 0}.section{margin-bottom:46px}.section h2{font-size:29px;line-height:1.35;color:var(--navy);margin:0 0 10px}.lead{color:var(--mid);max-width:850px;margin:0 0 22px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.card{background:#fff;border:1px solid var(--rule);padding:22px}.card h3{margin:0 0 8px;color:var(--navy);font-size:18px}.card p{font-size:13px;color:#596273;margin:0}.table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--rule)}table{width:100%;border-collapse:collapse;min-width:820px}th,td{padding:12px 14px;border-bottom:1px solid var(--rule);text-align:left;font-size:12.5px;vertical-align:top}th{background:var(--navy);color:#fff}td:first-child{font-weight:700;color:var(--navy)}.notice{background:#fff;border-left:4px solid var(--gold);padding:18px 20px;color:#596273;font-size:13px}.next{display:grid;grid-template-columns:1fr 1fr;gap:12px}.next a{display:block;background:#fff;border:1px solid #dfd5b9;border-left:4px solid var(--gold);padding:18px 52px 18px 18px;text-decoration:none;color:var(--navy);font-weight:800;position:relative}.next a::after{content:'→';position:absolute;right:16px;top:50%;transform:translateY(-50%)}.next span{display:block;color:var(--mid);font-weight:400;font-size:12px;margin-top:5px}.sources{border-top:1px solid var(--rule);padding:14px 0 0;margin-bottom:28px}.sources p{font-size:12px;line-height:1.8;color:#98a2b3;margin:0}.sources strong{color:#667085}.sources a{color:#667085}.cta{background:var(--navy);color:#fff;padding:38px;text-align:center}.cta h2{margin:0 0 8px}.btn{display:inline-block;margin:8px 5px 0;padding:12px 22px;background:#fee500;color:#161000;text-decoration:none;font-weight:700}.btn.alt{background:#fff;color:var(--navy)}footer{padding:28px 5vw;background:#0a0d18;color:#9ca3af;font-size:12px}.faq details{background:#fff;border-bottom:1px solid var(--rule);padding:16px 20px}.faq summary{font-weight:700;color:var(--navy);cursor:pointer}.faq p{font-size:14px;color:#596273}@media(max-width:760px){.navlinks{display:none}.hero{min-height:330px}.quick{grid-template-columns:1fr 1fr;margin-top:0}.quick div{padding:15px}.grid,.next{grid-template-columns:1fr}.hero h1{font-size:38px}main{padding:38px 0}.section{margin-bottom:34px}.cta{padding:30px 18px}}
-          </style></head><body><div class="top">XJTLU 한국어 입학 안내 · TNS유학</div><nav class="nav"><a class="brand" href="/">XJTLU <span>Korea</span></a><div class="navlinks"><a href="/">학교소개</a><a href="xjtlu-dual-degree-liverpool-2plus2.html">2+2</a><a href="xjtlu-programmes-careers-graduate-destinations.html">전공·진로</a><a href="#contact">상담</a></div></nav>
-          <header class="hero"><div class="wrap"><div class="crumb"><a href="/">홈</a> › 교환학생</div><div class="eyebrow">INTERNATIONAL MOBILITY</div><h1>XJTLU 교환학생</h1><p>3학년 한 학기 또는 1년 해외교환과 Summer Abroad를 통해 XJTLU 재학 중 다양한 국가의 대학에서 공부할 수 있습니다.</p></div></header><div class="wrap quick"><div><b>3학년</b><span>Semester / Year Abroad</span></div><div><b>1~2학기</b><span>한 학기 또는 1년</span></div><div><b>학점 인정</b><span>Credit-bearing</span></div><div><b>Summer</b><span>단기 해외수학 선택</span></div></div>
-          <main class="wrap"><section class="section"><h2>교환학생과 2+2는 다른 제도입니다</h2><div class="grid"><article class="card"><h3>교환학생</h3><p>3학년에 한 학기 또는 1년 동안 파트너 대학에서 공부하고 XJTLU 학업으로 돌아오는 해외수학입니다. 학점이 학위과정에 반영되는 방식으로 안내됩니다.</p></article><article class="card"><h3>리버풀대학교 2+2</h3><p>1·2학년은 XJTLU에서, 3·4학년은 영국 University of Liverpool에서 정규 학부과정을 이어가는 별도 학업 경로입니다.</p></article></div></section>
-          <section class="section"><h2>3학년 Semester / Year Abroad 주요 파트너</h2><p class="lead">파트너와 가능한 기간은 전공에 따라 다릅니다. 아래는 2027 안내에 제시된 학부 교환 예시입니다.</p><div class="table-wrap"><table><thead><tr><th>국가</th><th>파트너 대학</th><th>XJTLU 전공</th><th>기간</th></tr></thead><tbody>
-          <tr><td>호주</td><td>University of New South Wales</td><td>Applied Mathematics</td><td>1년</td></tr><tr><td>호주</td><td>University of Wollongong</td><td>Computer Science and Technology</td><td>1년</td></tr><tr><td>캐나다</td><td>University of Calgary</td><td>Economics</td><td>1학기</td></tr><tr><td>캐나다</td><td>University of Calgary</td><td>Economics and Finance</td><td>1학기</td></tr><tr><td>캐나다</td><td>University of Calgary</td><td>Marketing</td><td>1학기</td></tr><tr><td>캐나다</td><td>HEC Montréal</td><td>Business Administration</td><td>1년 또는 1학기</td></tr><tr><td>캐나다</td><td>Toronto Metropolitan University</td><td>Information Management and Information Systems</td><td>1년</td></tr><tr><td>캐나다</td><td>Toronto Metropolitan University</td><td>Urban Planning and Design</td><td>2학기</td></tr><tr><td>프랑스</td><td>EM Strasbourg Business School</td><td>Business Administration</td><td>1학기</td></tr><tr><td>독일</td><td>WHU – Otto Beisheim School of Management</td><td>International Business with a Language (Spanish)</td><td>1학기</td></tr><tr><td>이탈리아</td><td>Ca’ Foscari University of Venice</td><td>Information Management and Information Systems</td><td>2학기</td></tr><tr><td>네덜란드</td><td>University of Groningen</td><td>Economics</td><td>1년</td></tr><tr><td>네덜란드</td><td>University of Groningen</td><td>Economics and Finance</td><td>1년</td></tr><tr><td>노르웨이</td><td>BI Norwegian Business School</td><td>Marketing</td><td>1학기</td></tr><tr><td>스페인</td><td>University of Navarra</td><td>International Business with a Language (Spanish)</td><td>1년 또는 1학기</td></tr><tr><td>스위스</td><td>HEC Lausanne</td><td>Economics</td><td>1년</td></tr><tr><td>스위스</td><td>HEC Lausanne</td><td>Economics and Finance</td><td>2학기</td></tr><tr><td>태국</td><td>Chulalongkorn University</td><td>Marketing</td><td>1년</td></tr><tr><td>태국</td><td>Chulalongkorn University</td><td>Business Administration</td><td>1년 또는 1·2학기</td></tr><tr><td>체코</td><td>Prague University of Economics and Business</td><td>Economics</td><td>1학기</td></tr><tr><td>체코</td><td>Prague University of Economics and Business</td><td>Economics and Finance</td><td>1학기</td></tr><tr><td>체코</td><td>Prague University of Economics and Business</td><td>Business Administration</td><td>1학기</td></tr><tr><td>미국</td><td>Michigan State University</td><td>Applied Mathematics</td><td>1년 또는 1학기</td></tr><tr><td>미국</td><td>University of Texas at Dallas</td><td>Information and Computing Science</td><td>1년</td></tr>
-          </tbody></table></div><p class="notice" style="margin-top:14px;">교환 파트너와 지원 가능한 전공·학기는 변경될 수 있습니다. 실제 지원 시점에는 최신 International Mobility 안내를 다시 확인해야 합니다.</p></section>
-          <section class="section"><h2>Summer Abroad</h2><p class="lead">학기 교환 외에도 여름 단기 해외수학을 선택할 수 있습니다. 학생은 자신의 학업계획에 맞춰 XJTLU 파트너 기관의 여름 프로그램을 찾거나 다른 대학의 프로그램에 개별 지원할 수 있습니다.</p><div class="notice">2027 안내에는 Hong Kong University, Nanyang Technological University, University of Seoul, Mahidol University, University of Oxford, London School of Economics and Political Science, UCL, University of Cambridge 등이 예시로 소개됩니다.</div></section>
-          <section class="section"><h2>같이 확인하면 좋은 페이지</h2><div class="next"><a href="xjtlu-dual-degree-liverpool-2plus2.html">복수학위·리버풀대학교 2+2<span>교환학생과 다른 영국 학위 이동 경로</span></a><a href="xjtlu-programmes-careers-graduate-destinations.html">전공·졸업 후 진로<span>내 전공과 교환 가능성을 함께 확인</span></a></div></section>
-          <section class="section faq"><h2>자주 묻는 질문</h2><details><summary>모든 전공이 모든 대학으로 교환 가능한가요?</summary><p>아닙니다. 파트너 대학마다 연결된 XJTLU 전공과 가능한 학기가 다릅니다.</p></details><details><summary>교환학생을 하면 졸업이 늦어지나요?</summary><p>Semester or Year Abroad는 학위에 학점이 반영되는 옵션으로 안내되며, 별도의 학위기간 추가 없이 운영되는 방식입니다. 실제 과목 매칭은 지원 전에 확인해야 합니다.</p></details><details><summary>2+2와 교환학생 중 무엇이 더 좋은가요?</summary><p>목표가 다릅니다. 영국에서 학부 후반 2년을 보내려면 2+2를, 한 학기나 1년 동안 다른 국가의 대학을 경험하려면 교환학생을 비교하는 것이 좋습니다.</p></details></section>
-          <section class="sources"><p><strong>자료 출처</strong> · XJTLU Mini Guide to Undergraduate and Master’s 2027 (Version July 2026), International Mobility. 최신 파트너와 지원조건은 <a href="https://www.xjtlu.edu.cn/en/study/international-mobility" target="_blank" rel="noopener">XJTLU International Mobility ↗</a>에서 확인할 수 있습니다.</p></section>
-          <section class="cta" id="contact"><h2>내 전공의 교환학생 선택지 확인하기</h2><p>희망 전공과 입학연도를 알려주시면 2+2와 교환학생 경로를 함께 비교해 드립니다.</p><a class="btn" href="https://open.kakao.com/o/slehLvKi" target="_blank" rel="noopener">카카오톡 무료 상담</a><a class="btn alt" href="tel:02-3288-1733">전화 02-3288-1733</a></section></main><footer>© 2026 TNS Worldwide Co., Ltd. · 교환 파트너와 전공별 지원 가능 여부는 해당 연도 안내에 따라 달라질 수 있습니다.</footer></body></html>'''
-          Path('xjtlu-exchange.html').write_text(textwrap(exchange), encoding='utf-8')
-
-          # ---------- Sitemap ----------
-          sm = sitemap.read_text(encoding='utf-8')
-          entries = [
-              ('https://xjtlu-korea.netlify.app/xjtlu-living-cost-2027.html', '2026-09-06'),
-              ('https://xjtlu-korea.netlify.app/xjtlu-exchange.html', '2026-09-06'),
-          ]
-          for loc, lastmod in entries:
-              if loc not in sm:
-                  block = f'  <url>\n    <loc>{loc}</loc>\n    <lastmod>{lastmod}</lastmod>\n  </url>\n'
-                  sm = sm.replace('</urlset>', block + '</urlset>')
-          sm = sm.replace('<loc>https://xjtlu-korea.netlify.app/xjtlu-tuition-scholarships-2027.html</loc>\n    <lastmod>2026-08-29</lastmod>', '<loc>https://xjtlu-korea.netlify.app/xjtlu-tuition-scholarships-2027.html</loc>\n    <lastmod>2026-09-06</lastmod>')
-          sitemap.write_text(sm, encoding='utf-8')
-
-          def textwrap(text):
-              # Strip workflow indentation without touching intentional inner HTML formatting.
-              lines = text.splitlines()
-              if lines and not lines[0].strip(): lines = lines[1:]
-              return '\n'.join(line[10:] if line.startswith('          ') else line for line in lines).strip() + '\n'
-
-          # The helper above is defined late for readability; rewrite pages now with normalized indentation.
-          Path('xjtlu-living-cost-2027.html').write_text(textwrap(living), encoding='utf-8')
-          Path('xjtlu-exchange.html').write_text(textwrap(exchange), encoding='utf-8')
-
-          # Validation
-          checks = {
-              'index.html': ['xjtlu-living-cost-2027.html', 'xjtlu-exchange.html'],
-              'xjtlu-tuition-scholarships-2027.html': ['Parfait International Apartments', '장기 거주 약 1,500~1,620 RMB'],
-              'xjtlu-living-cost-2027.html': ['<h1>XJTLU 생활비 2027</h1>', '3,700 RMB', '9,600 RMB'],
-              'xjtlu-exchange.html': ['<h1>XJTLU 교환학생</h1>', 'University of New South Wales', 'University of Texas at Dallas'],
-              'sitemap.xml': ['xjtlu-living-cost-2027.html', 'xjtlu-exchange.html'],
-          }
-          for file, needles in checks.items():
-              body = Path(file).read_text(encoding='utf-8')
-              for needle in needles:
-                  if needle not in body:
-                      raise SystemExit(f'validation failed: {file}: {needle}')
-          print('XJTLU living-cost and exchange guides updated successfully')
           PY
 
       - name: Commit update and remove helper workflow
@@ -200,6 +111,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git rm .github/workflows/apply-living-exchange-20260906.yml
-          git add index.html xjtlu-tuition-scholarships-2027.html xjtlu-living-cost-2027.html xjtlu-exchange.html sitemap.xml
-          git commit -m "Add XJTLU living cost and exchange guides"
+          git add index.html xjtlu-tuition-scholarships-2027.html
+          git commit -m "Link living cost and exchange guides"
           git push origin HEAD:feature/xjtlu-campus-life-guides-20260902

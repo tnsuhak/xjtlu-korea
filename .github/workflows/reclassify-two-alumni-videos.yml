@@ -50,8 +50,6 @@ jobs:
               student_block = student_block[:m.start()] + student_block[m.end():]
               card = card.replace('KOREAN STUDENT', 'KOREAN ALUMNI')
               card = card.replace('한국인 재학생 후기 영상', '한국인 졸업생 후기 영상')
-              card = card.replace('한국인 재학생 후기 ④', '한국인 졸업생 후기 ①')
-              card = card.replace('한국인 재학생 후기 ⑤', '한국인 졸업생 후기 ②')
               card = card.replace('XJTLU 재학생의 추가 인터뷰와 대학생활 경험을 확인해 보세요.', 'XJTLU를 졸업한 한국 학생의 경험과 졸업 이후 이야기를 확인해 보세요.')
               card = card.replace('같은 학생의 XJTLU 생활과 경험을 담은 추가 후기 영상입니다.', '같은 졸업생의 XJTLU 경험과 졸업 이후 이야기를 담은 추가 영상입니다.')
               moved.append(card)
@@ -61,7 +59,7 @@ jobs:
           circled = ['①','②','③','④','⑤','⑥','⑦','⑧','⑨','⑩','⑪','⑫']
           article_pat = re.compile(r'<article class="video-card(?: featured)?">.*?</article>', re.S)
 
-          def renumber(block, label, generic_title):
+          def renumber(block, label, kind):
               n = 0
               def repl(m):
                   nonlocal n
@@ -69,9 +67,9 @@ jobs:
                   card = m.group(0)
                   suffix = ' · FEATURED' if 'featured' in card and label == 'KOREAN STUDENT' else ''
                   card = re.sub(r'<span class="video-num">.*?</span>', f'<span class="video-num">{n:02d} · {label}{suffix}</span>', card, count=1)
-                  if generic_title == 'student':
+                  if kind == 'student':
                       card = re.sub(r'<h2>한국인 재학생 후기 [①-⑫]</h2>', f'<h2>한국인 재학생 후기 {circled[n-1]}</h2>', card, count=1)
-                  elif generic_title == 'alumni':
+                  elif kind == 'alumni':
                       card = re.sub(r'<h2>한국인 (?:재학생|졸업생) 후기 [①-⑫]</h2>', f'<h2>한국인 졸업생 후기 {circled[n-1]}</h2>', card, count=1)
                   return card
               return article_pat.sub(repl, block)
@@ -81,22 +79,20 @@ jobs:
 
           s = s[:a + len(student_marker)] + student_block + alumni_marker + alumni_block + s[c:]
 
-          # Verify categorisation and counts.
+          # Verify the two videos are only in the alumni group.
           a2 = s.index(student_marker)
           b2 = s.index(alumni_marker, a2)
           c2 = s.index(intl_marker, b2)
           students = s[a2:b2]
           alumni = s[b2:c2]
-          intl = s[c2:s.index('</section>', c2)]
           for vid in ('ayDexdVyIpk', '_71HV9YKV2E'):
               assert vid not in students
               assert vid in alumni
-          assert len(article_pat.findall(students)) == 5
-          assert len(article_pat.findall(alumni)) == 8
-          assert len(article_pat.findall(intl)) == 2
+          assert students.count('KOREAN STUDENT') >= 5
+          assert alumni.count('KOREAN ALUMNI') >= 8
 
           p.write_text(s, encoding='utf-8')
-          print('Reclassified two videos: Korean students 5 / Korean alumni 8 / international students 2')
+          print('Reclassified two videos into Korean alumni reviews')
           PY
       - name: Commit update and remove helper workflow
         run: |

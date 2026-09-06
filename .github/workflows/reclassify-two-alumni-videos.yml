@@ -1,0 +1,108 @@
+name: Reclassify two XJTLU alumni videos
+
+on:
+  push:
+    branches:
+      - feature/xjtlu-campus-life-guides-20260902
+    paths:
+      - '.github/workflows/reclassify-two-alumni-videos.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/xjtlu-campus-life-guides-20260902
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Move two videos from Korean students to Korean alumni
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('xjtlu-student-videos.html')
+          s = p.read_text(encoding='utf-8')
+
+          student_marker = '<div class="video-group-title"><span>KOREAN STUDENTS</span>한국인 재학생 후기</div>'
+          alumni_marker = '<div class="video-group-title"><span>KOREAN ALUMNI</span>한국인 졸업생 후기</div>'
+          intl_marker = '<div class="video-group-title"><span>INTERNATIONAL STUDENTS</span>외국인 재학생 후기</div>'
+
+          a = s.index(student_marker)
+          b = s.index(alumni_marker, a)
+          c = s.index(intl_marker, b)
+
+          student_block = s[a + len(student_marker):b]
+          alumni_block = s[b + len(alumni_marker):c]
+
+          moved = []
+          for vid in ('ayDexdVyIpk', '_71HV9YKV2E'):
+              pat = re.compile(r'<article class="video-card(?: featured)?">.*?' + re.escape(vid) + r'.*?</article>\s*', re.S)
+              m = pat.search(student_block)
+              if not m:
+                  raise SystemExit(f'{vid} not found in Korean student group')
+              card = m.group(0)
+              student_block = student_block[:m.start()] + student_block[m.end():]
+              card = card.replace('KOREAN STUDENT', 'KOREAN ALUMNI')
+              card = card.replace('한국인 재학생 후기 영상', '한국인 졸업생 후기 영상')
+              card = card.replace('한국인 재학생 후기 ④', '한국인 졸업생 후기 ①')
+              card = card.replace('한국인 재학생 후기 ⑤', '한국인 졸업생 후기 ②')
+              card = card.replace('XJTLU 재학생의 추가 인터뷰와 대학생활 경험을 확인해 보세요.', 'XJTLU를 졸업한 한국 학생의 경험과 졸업 이후 이야기를 확인해 보세요.')
+              card = card.replace('같은 학생의 XJTLU 생활과 경험을 담은 추가 후기 영상입니다.', '같은 졸업생의 XJTLU 경험과 졸업 이후 이야기를 담은 추가 영상입니다.')
+              moved.append(card)
+
+          alumni_block = ''.join(moved) + alumni_block
+
+          circled = ['①','②','③','④','⑤','⑥','⑦','⑧','⑨','⑩','⑪','⑫']
+          article_pat = re.compile(r'<article class="video-card(?: featured)?">.*?</article>', re.S)
+
+          def renumber(block, label, generic_title):
+              n = 0
+              def repl(m):
+                  nonlocal n
+                  n += 1
+                  card = m.group(0)
+                  suffix = ' · FEATURED' if 'featured' in card and label == 'KOREAN STUDENT' else ''
+                  card = re.sub(r'<span class="video-num">.*?</span>', f'<span class="video-num">{n:02d} · {label}{suffix}</span>', card, count=1)
+                  if generic_title == 'student':
+                      card = re.sub(r'<h2>한국인 재학생 후기 [①-⑫]</h2>', f'<h2>한국인 재학생 후기 {circled[n-1]}</h2>', card, count=1)
+                  elif generic_title == 'alumni':
+                      card = re.sub(r'<h2>한국인 (?:재학생|졸업생) 후기 [①-⑫]</h2>', f'<h2>한국인 졸업생 후기 {circled[n-1]}</h2>', card, count=1)
+                  return card
+              return article_pat.sub(repl, block)
+
+          student_block = renumber(student_block, 'KOREAN STUDENT', 'student')
+          alumni_block = renumber(alumni_block, 'KOREAN ALUMNI', 'alumni')
+
+          s = s[:a + len(student_marker)] + student_block + alumni_marker + alumni_block + s[c:]
+
+          # Verify categorisation and counts.
+          a2 = s.index(student_marker)
+          b2 = s.index(alumni_marker, a2)
+          c2 = s.index(intl_marker, b2)
+          students = s[a2:b2]
+          alumni = s[b2:c2]
+          intl = s[c2:s.index('</section>', c2)]
+          for vid in ('ayDexdVyIpk', '_71HV9YKV2E'):
+              assert vid not in students
+              assert vid in alumni
+          assert len(article_pat.findall(students)) == 5
+          assert len(article_pat.findall(alumni)) == 8
+          assert len(article_pat.findall(intl)) == 2
+
+          p.write_text(s, encoding='utf-8')
+          print('Reclassified two videos: Korean students 5 / Korean alumni 8 / international students 2')
+          PY
+      - name: Commit update and remove helper workflow
+        run: |
+          git config user.name "tnsuhak"
+          git config user.email "tnsuhak@gmail.com"
+          rm -f .github/workflows/reclassify-two-alumni-videos.yml
+          git add -A
+          git commit -m "Reclassify two videos as Korean alumni reviews" || exit 0
+          git push origin HEAD:feature/xjtlu-campus-life-guides-20260902

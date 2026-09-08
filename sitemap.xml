@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://xjtlu-korea.netlify.app/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://xjtlu-korea.netlify.app/xjtlu-admission-requirements-korea-2027.html</loc>
@@ -43,5 +43,9 @@
   <url>
     <loc>https://xjtlu-korea.netlify.app/xjtlu-exchange.html</loc>
     <lastmod>2026-09-06</lastmod>
+  </url>
+  <url>
+    <loc>https://xjtlu-korea.netlify.app/xjtlu-suzhou-china-life.html</loc>
+    <lastmod>2026-09-09</lastmod>
   </url>
 </urlset>

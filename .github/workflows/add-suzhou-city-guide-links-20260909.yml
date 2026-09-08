@@ -1,0 +1,122 @@
+name: Add Suzhou city guide links 2026-09-09
+
+on:
+  push:
+    paths:
+      - '.github/workflows/add-suzhou-city-guide-links-20260909.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/xjtlu-campus-life-guides-20260902
+          fetch-depth: 0
+
+      - name: Link Suzhou guide from homepage, menus and sitemap
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          date='2026-09-09'
+          city='xjtlu-suzhou-china-life.html'
+
+          # Homepage
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+
+          # Mobile detail navigation: add after exchange only once.
+          mobile_anchor='<a class="mob-detail" href="xjtlu-exchange.html">XJTLU 교환학생</a>'
+          mobile_city='<a class="mob-detail" href="xjtlu-suzhou-china-life.html">XJTLU 쑤저우 소개</a>'
+          if mobile_city not in s:
+              if mobile_anchor not in s:
+                  raise SystemExit('mobile exchange anchor not found')
+              s=s.replace(mobile_anchor, mobile_anchor+'\n  '+mobile_city, 1)
+
+          # Desktop full menu school group: add after exchange only once.
+          menu_anchor='<a href="xjtlu-exchange.html">XJTLU 교환학생</a>'
+          menu_city='<a href="xjtlu-suzhou-china-life.html">XJTLU 쑤저우 소개</a>'
+          # There can be other exchange anchors; target the site-menu school section.
+          sm_start=s.find('<section class="site-menu-group"><h3><a href="#information">학교소개')
+          if sm_start == -1:
+              sm_start=s.find('<section class="site-menu-group">\n  <h3><a href="#information">학교소개')
+          if sm_start == -1:
+              raise SystemExit('homepage school site-menu section not found')
+          sm_end=s.find('</section>', sm_start)
+          block=s[sm_start:sm_end+10]
+          if city not in block:
+              if menu_anchor not in block:
+                  raise SystemExit('homepage site-menu exchange anchor not found')
+              block=block.replace(menu_anchor, menu_anchor+menu_city, 1)
+              s=s[:sm_start]+block+s[sm_end+10:]
+
+          # Related links under school introduction.
+          related_anchor='<a class="related-link" href="xjtlu-exchange.html">XJTLU 교환학생<span class="arr">→</span></a>'
+          related_city='<a class="related-link" href="xjtlu-suzhou-china-life.html">XJTLU 쑤저우 소개<span class="arr">→</span></a>'
+          if related_city not in s:
+              if related_anchor not in s:
+                  raise SystemExit('homepage related exchange anchor not found')
+              s=s.replace(related_anchor, related_anchor+related_city, 1)
+
+          p.write_text(s,encoding='utf-8')
+
+          # All detail-page global menus, except new page if already linked.
+          for p in sorted(Path('.').glob('xjtlu-*.html')):
+              s=p.read_text(encoding='utf-8')
+              # Find detail school group and insert city link after exchange if absent in that block.
+              start=s.find('<section class="detail-site-menu-group"><h3><a href="/#information">학교소개')
+              if start == -1:
+                  continue
+              end=s.find('</section>', start)
+              block=s[start:end+10]
+              if city not in block:
+                  if menu_anchor not in block:
+                      raise SystemExit(f'{p}: exchange link not found in detail school menu')
+                  block=block.replace(menu_anchor, menu_anchor+menu_city, 1)
+                  s=s[:start]+block+s[end+10:]
+                  p.write_text(s,encoding='utf-8')
+
+          # Sitemap
+          p=Path('sitemap.xml')
+          s=p.read_text(encoding='utf-8')
+          # update homepage lastmod
+          s=re.sub(r'(<loc>https://xjtlu-korea\.netlify\.app/</loc>\s*<lastmod>)[^<]+(</lastmod>)', rf'\g<1>{date}\2', s, count=1)
+          city_url='https://xjtlu-korea.netlify.app/xjtlu-suzhou-china-life.html'
+          if city_url not in s:
+              insert=f'''  <url>\n    <loc>{city_url}</loc>\n    <lastmod>{date}</lastmod>\n  </url>\n'''
+              s=s.replace('</urlset>', insert+'</urlset>')
+          p.write_text(s,encoding='utf-8')
+
+          # Validation
+          homepage=Path('index.html').read_text(encoding='utf-8')
+          assert homepage.count(city) >= 3, homepage.count(city)
+          for p in sorted(Path('.').glob('xjtlu-*.html')):
+              text=p.read_text(encoding='utf-8')
+              if '<section class="detail-site-menu-group"><h3><a href="/#information">학교소개' in text:
+                  start=text.find('<section class="detail-site-menu-group"><h3><a href="/#information">학교소개')
+                  end=text.find('</section>', start)
+                  assert city in text[start:end+10], p
+          site=Path('sitemap.xml').read_text(encoding='utf-8')
+          assert site.count(city_url)==1
+          assert site.count('<url>')==12, site.count('<url>')
+          new=Path(city).read_text(encoding='utf-8')
+          assert '<h1>XJTLU가 있는 쑤저우,' in new
+          assert 'rel="canonical" href="https://xjtlu-korea.netlify.app/xjtlu-suzhou-china-life.html"' in new
+          print('Suzhou city guide links validated')
+          PY
+
+      - name: Commit update and remove helper
+        run: |
+          rm -f .github/workflows/add-suzhou-city-guide-links-20260909.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '4189826+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m 'Link XJTLU Suzhou city guide across site'
+            git push
+          fi

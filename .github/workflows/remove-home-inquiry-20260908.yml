@@ -1,0 +1,79 @@
+name: Remove XJTLU homepage duplicate inquiry section
+
+on:
+  push:
+    branches:
+      - feature/xjtlu-campus-life-guides-20260902
+    paths:
+      - '.github/workflows/remove-home-inquiry-20260908.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/xjtlu-campus-life-guides-20260902
+          fetch-depth: 0
+
+      - name: Remove duplicate inquiry and redirect anchors
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          # Redirect any links across the site that targeted the removed homepage inquiry section.
+          for p in Path('.').glob('*.html'):
+              s = p.read_text(encoding='utf-8')
+              s = s.replace('index.html#inquiry', 'index.html#contact')
+              s = s.replace('/#inquiry', '/#contact')
+              if p.name == 'index.html':
+                  s = s.replace('href="#inquiry"', 'href="#contact"')
+                  s = s.replace("document.getElementById('inquiry')", "document.getElementById('contact')")
+              p.write_text(s, encoding='utf-8')
+
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+
+          # Remove the visible duplicate inquiry/Q&A block between reviews and the final consultation panel.
+          s, n = re.subn(
+              r'\n?<!-- ====== 입학문의 ====== -->.*?\n<!-- CTA -->',
+              '\n\n<!-- CTA -->',
+              s,
+              count=1,
+              flags=re.S,
+          )
+          assert n == 1, f'inquiry section replacement count={n}'
+
+          # Remove FAQPage JSON-LD because the matching visible Q&A was removed.
+          blocks = re.findall(r'<script type="application/ld\+json">.*?</script>', s, flags=re.S)
+          faq_blocks = [b for b in blocks if '"@type": "FAQPage"' in b or '"@type":"FAQPage"' in b]
+          assert len(faq_blocks) == 1, f'FAQPage block count={len(faq_blocks)}'
+          s = s.replace(faq_blocks[0], '')
+
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Validate cleanup and link routing
+        run: |
+          ! grep -q 'id="inquiry"' index.html
+          ! grep -q 'Q&amp;A BOARD' index.html
+          ! grep -q '"@type": "FAQPage"' index.html
+          ! grep -q '"@type":"FAQPage"' index.html
+          ! grep -R --include='*.html' -n '#inquiry' .
+          grep -q 'href="#contact" class="mob-inquiry"' index.html
+          grep -q 'href="#contact" class="btn-gold"' index.html
+          grep -q 'document.getElementById('\''contact'\'')' index.html
+          grep -q '<section class="contact-panel" id="contact"' index.html
+
+      - name: Commit cleanup and remove helper
+        run: |
+          rm .github/workflows/remove-home-inquiry-20260908.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '4189826+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Remove duplicate homepage inquiry section'
+          git push

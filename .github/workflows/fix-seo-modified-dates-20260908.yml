@@ -1,0 +1,71 @@
+name: Fix XJTLU SEO modified dates 2026-09-08
+
+on:
+  push:
+    branches:
+      - feature/xjtlu-campus-life-guides-20260902
+    paths:
+      - '.github/workflows/fix-seo-modified-dates-20260908.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/xjtlu-campus-life-guides-20260902
+          fetch-depth: 0
+
+      - name: Update meaningful modified dates
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          # Article structured-data dates for pages whose visible content changed today.
+          for name in ['xjtlu-dual-degree-liverpool-2plus2.html', 'xjtlu-living-cost-2027.html']:
+              p = Path(name)
+              s = p.read_text(encoding='utf-8')
+              import re
+              s2, n = re.subn(r'("dateModified"\s*:\s*")\d{4}-\d{2}-\d{2}("\s*)', r'\g<1>2026-09-08\2', s, count=1)
+              if n != 1:
+                  raise SystemExit(f'{name}: dateModified replacement count={n}')
+              p.write_text(s2, encoding='utf-8')
+
+          # Sitemap lastmod only for pages with meaningful visible-content changes today.
+          p = Path('sitemap.xml')
+          s = p.read_text(encoding='utf-8')
+          targets = [
+              'https://xjtlu-korea.netlify.app/',
+              'https://xjtlu-korea.netlify.app/xjtlu-dual-degree-liverpool-2plus2.html',
+              'https://xjtlu-korea.netlify.app/xjtlu-living-cost-2027.html',
+          ]
+          for url in targets:
+              marker = f'<loc>{url}</loc>'
+              pos = s.find(marker)
+              if pos < 0:
+                  raise SystemExit(f'sitemap URL not found: {url}')
+              start = s.find('<lastmod>', pos)
+              end = s.find('</lastmod>', start)
+              if start < 0 or end < 0:
+                  raise SystemExit(f'lastmod not found after: {url}')
+              s = s[:start] + '<lastmod>2026-09-08</lastmod>' + s[end + len('</lastmod>'):]
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Validate dates
+        run: |
+          grep -q '"dateModified":"2026-09-08"' xjtlu-dual-degree-liverpool-2plus2.html
+          grep -q '"dateModified":"2026-09-08"' xjtlu-living-cost-2027.html
+          test "$(grep -c '<lastmod>2026-09-08</lastmod>' sitemap.xml)" -ge 3
+
+      - name: Commit and remove helper
+        run: |
+          rm .github/workflows/fix-seo-modified-dates-20260908.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '4189826+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Align XJTLU SEO modified dates with current content'
+          git push

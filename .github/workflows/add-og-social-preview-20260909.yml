@@ -1,0 +1,105 @@
+name: Add OG social preview 2026-09-09
+
+on:
+  push:
+    branches:
+      - hotfix/restore-tns-favicon-20260909
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: hotfix/restore-tns-favicon-20260909
+          fetch-depth: 0
+      - name: Add Open Graph preview image to HTML pages
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          OG_IMAGE = 'https://xjtlu-korea.netlify.app/gallery-tower.webp'
+          OG_ALT = '시안교통리버풀대학교 XJTLU 쑤저우 캠퍼스'
+
+          pages = []
+          for p in sorted(Path('.').glob('*.html')):
+              if p.name.startswith('google'):
+                  continue
+              text = p.read_text(encoding='utf-8')
+              if '<head' not in text.lower():
+                  continue
+              original = text
+
+              # OG image
+              if re.search(r'<meta\s+property=["\']og:image["\']', text, flags=re.I):
+                  text = re.sub(r'<meta\s+property=["\']og:image["\'][^>]*>', f'<meta property="og:image" content="{OG_IMAGE}">', text, flags=re.I)
+              else:
+                  m = re.search(r'(<meta\s+property=["\']og:url["\'][^>]*>)', text, flags=re.I)
+                  if m:
+                      text = text[:m.end()] + f'\n<meta property="og:image" content="{OG_IMAGE}">\n<meta property="og:image:alt" content="{OG_ALT}">\n<meta property="og:image:type" content="image/webp">' + text[m.end():]
+                  else:
+                      head = re.search(r'<head[^>]*>', text, flags=re.I)
+                      if head:
+                          text = text[:head.end()] + f'\n<meta property="og:image" content="{OG_IMAGE}">\n<meta property="og:image:alt" content="{OG_ALT}">\n<meta property="og:image:type" content="image/webp">' + text[head.end():]
+
+              if not re.search(r'<meta\s+property=["\']og:image:alt["\']', text, flags=re.I):
+                  text = text.replace(f'<meta property="og:image" content="{OG_IMAGE}">', f'<meta property="og:image" content="{OG_IMAGE}">\n<meta property="og:image:alt" content="{OG_ALT}">', 1)
+              if not re.search(r'<meta\s+property=["\']og:image:type["\']', text, flags=re.I):
+                  text = text.replace(f'<meta property="og:image:alt" content="{OG_ALT}">', f'<meta property="og:image:alt" content="{OG_ALT}">\n<meta property="og:image:type" content="image/webp">', 1)
+
+              # Twitter / generic social preview
+              if re.search(r'<meta\s+name=["\']twitter:card["\']', text, flags=re.I):
+                  text = re.sub(r'<meta\s+name=["\']twitter:card["\'][^>]*>', '<meta name="twitter:card" content="summary_large_image">', text, flags=re.I)
+              else:
+                  text = text.replace('</head>', '<meta name="twitter:card" content="summary_large_image">\n</head>', 1)
+
+              if re.search(r'<meta\s+name=["\']twitter:image["\']', text, flags=re.I):
+                  text = re.sub(r'<meta\s+name=["\']twitter:image["\'][^>]*>', f'<meta name="twitter:image" content="{OG_IMAGE}">', text, flags=re.I)
+              else:
+                  card = re.search(r'(<meta\s+name=["\']twitter:card["\'][^>]*>)', text, flags=re.I)
+                  if card:
+                      text = text[:card.end()] + f'\n<meta name="twitter:image" content="{OG_IMAGE}">' + text[card.end():]
+
+              if text != original:
+                  p.write_text(text, encoding='utf-8')
+                  pages.append(p.name)
+
+          print('updated pages:', len(pages))
+          print('\n'.join(pages))
+          PY
+      - name: Validate OG preview coverage
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          bad=[]
+          count=0
+          for p in sorted(Path('.').glob('*.html')):
+              if p.name.startswith('google'):
+                  continue
+              t=p.read_text(encoding='utf-8')
+              if '<head' not in t.lower():
+                  continue
+              count += 1
+              if 'https://xjtlu-korea.netlify.app/gallery-tower.webp' not in t or not re.search(r'property=["\']og:image["\']', t, re.I) or not re.search(r'name=["\']twitter:image["\']', t, re.I):
+                  bad.append(p.name)
+          print('pages checked:', count)
+          if bad:
+              raise SystemExit('missing social preview metadata: ' + ', '.join(bad))
+          PY
+      - name: Commit update and remove helper
+        run: |
+          rm -f .github/workflows/add-og-social-preview-20260909.yml
+          git config user.name 'tnsuhak'
+          git config user.email 'tnsuhak@gmail.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'No changes'
+          else
+            git commit -m 'Add social link preview image metadata'
+            git push origin HEAD:hotfix/restore-tns-favicon-20260909
+          fi

@@ -1,0 +1,70 @@
+name: Apply TNS favicon hotfix 2026-09-09
+
+on:
+  push:
+    branches:
+      - hotfix/restore-tns-favicon-20260909
+    paths:
+      - '.github/workflows/apply-favicon-hotfix-20260909.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: hotfix/restore-tns-favicon-20260909
+          fetch-depth: 0
+
+      - name: Add favicon link to all HTML pages
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          tag = '<link rel="icon" href="/favicon.svg" type="image/svg+xml">'
+          changed = 0
+          checked = 0
+          for p in sorted(Path('.').glob('*.html')):
+              text = p.read_text(encoding='utf-8')
+              if '<head>' not in text:
+                  continue
+              checked += 1
+              if 'href="/favicon.svg"' not in text:
+                  text = text.replace('<head>', '<head>\n' + tag, 1)
+                  p.write_text(text, encoding='utf-8')
+                  changed += 1
+                  print('updated', p)
+          if checked < 12:
+              raise SystemExit(f'Expected at least 12 HTML pages with <head>, found {checked}')
+          print('checked', checked, 'changed', changed)
+          PY
+
+      - name: Validate favicon coverage
+        run: |
+          test -f favicon.svg
+          python - <<'PY'
+          from pathlib import Path
+          missing=[]
+          checked=0
+          for p in sorted(Path('.').glob('*.html')):
+              text=p.read_text(encoding='utf-8')
+              if '<head>' not in text:
+                  continue
+              checked += 1
+              if 'href="/favicon.svg"' not in text:
+                  missing.append(str(p))
+          if missing:
+              raise SystemExit('Missing favicon link: ' + ', '.join(missing))
+          print('favicon linked on', checked, 'HTML pages')
+          PY
+
+      - name: Commit hotfix and remove helper
+        run: |
+          git config user.name "tnsuhak"
+          git config user.email "tnsuhak@gmail.com"
+          git rm .github/workflows/apply-favicon-hotfix-20260909.yml
+          git add '*.html' favicon.svg
+          git commit -m "Restore TNS favicon across XJTLU Korea"
+          git push origin HEAD:hotfix/restore-tns-favicon-20260909

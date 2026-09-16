@@ -286,9 +286,17 @@ h1.hero-title em { font-style:normal; color:var(--gold); }
 .yt-link { margin-top:12px; text-align:right; font-family:'DM Mono',monospace; font-size:11px; }
 .yt-link a { color:var(--gold); text-decoration:none; }
 
-.room-feat-grid { grid-template-columns:repeat(3,1fr); }
-@media(max-width:960px){ .room-feat-grid { grid-template-columns:1fr 1fr; } .room-feat-grid .feat-card:nth-child(3) { border-right:none; } }
-@media(max-width:560px){ .room-feat-grid { grid-template-columns:1fr; } .room-feat-grid .feat-card { border-right:none!important; } }
+/* ── ROOM GRID (dedicated, always 2×2) ── */
+.room-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  border:1px solid #e8e8e8; background:#fff; margin-top:48px;
+}
+.room-card { padding:30px 26px; border-right:1px solid #e8e8e8; border-bottom:1px solid #e8e8e8; }
+.room-card:nth-child(2n) { border-right:none; }
+.room-card:nth-last-child(-n+2) { border-bottom:none; }
+.room-title { font-size:16px; font-weight:700; color:var(--navy); margin-bottom:8px; }
+.room-body { font-size:13px; line-height:1.8; color:var(--mid); font-weight:300; }
+@media(max-width:560px){ .room-card { padding:22px 18px; } }
 
 /* ── GUIDE CARDS ── */
 .guide-grid {
@@ -311,7 +319,6 @@ h1.hero-title em { font-style:normal; color:var(--gold); }
 .guide-title .arr { color:var(--gold); font-weight:700; transition:transform .2s; }
 .guide-card:hover .guide-title .arr { transform:translateX(3px); }
 .guide-body { font-size:13px; line-height:1.8; color:var(--mid); font-weight:300; }
-.guide-sub { display:block; margin-top:8px; font-family:'DM Mono',monospace; font-size:11px; color:#9a7827; text-decoration:underline; text-underline-offset:2px; }
 @media(max-width:960px){
   .guide-grid { grid-template-columns:1fr 1fr; }
   .guide-card:nth-child(3n) { border-right:1px solid #e8e8e8; }
@@ -342,12 +349,11 @@ h1.hero-title em { font-style:normal; color:var(--gold); }
 
 /* ── GALLERY ── */
 .gallery {
-  display:grid; grid-template-columns:1fr 1fr 1fr;
-  grid-template-rows:240px 240px; gap:6px;
+  display:grid; grid-template-columns:repeat(4,1fr);
+  grid-template-rows:220px; gap:6px;
   padding:0 40px 80px; max-width:1280px; margin:0 auto;
 }
 .gi { position:relative; overflow:hidden; }
-.gi:first-child { grid-column:span 2; }
 .gi img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s; }
 .gi:hover img { transform:scale(1.04); }
 .gi-cap {
@@ -489,8 +495,7 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
   .major-grid { grid-template-columns:1fr 1fr; }
   .mc:nth-child(3n) { border-right:1px solid var(--rule); }
   .mc:nth-child(2n) { border-right:none; }
-  .gallery { grid-template-columns:1fr 1fr; grid-template-rows:160px 160px 160px; padding:0 20px 56px; }
-  .gi:first-child { grid-column:span 2; }
+  .gallery { grid-template-columns:1fr 1fr; grid-template-rows:170px 170px; padding:0 20px 56px; }
   .adm-grid { grid-template-columns:1fr; }
   .adm:nth-child(2n) { border-right:none; }
   .adm:nth-last-child(-n+2) { border-bottom:1px solid var(--rule); }
@@ -500,8 +505,13 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
   .cta { padding:56px 20px; }
   footer { padding:40px 20px 32px; }
   .ft { flex-direction:column; }
-  #floatBtns { bottom:16px; right:12px; }
+  #floatBtns { bottom:calc(12px + env(safe-area-inset-bottom,0px)); right:10px; flex-direction:row; gap:6px; }
+  .fb-btn { width:42px; height:42px; font-size:9px; }
   #mobileNav { display:none; }
+}
+@media(max-width:400px){
+  #floatBtns { right:6px; gap:5px; }
+  .fb-btn { width:38px; height:38px; font-size:8px; }
 }
 
 /* 모바일 입학 그리드 */
@@ -758,7 +768,7 @@ html{scroll-padding-top:118px}
     <div class="fi d2">
       <div class="hero-stats">
         <div class="hs"><div class="hs-n">26,000<sup>+</sup></div><div class="hs-l">재학생 · 93개 국가·지역</div></div>
-        <div class="hs"><div class="hs-n">51</div><div class="hs-l">학부 전공</div></div>
+        <div class="hs"><div class="hs-n">52</div><div class="hs-l">학부 전공</div></div>
         <div class="hs"><div class="hs-n">EN</div><div class="hs-l">영어 중심 전공교육</div></div>
         <div class="hs"><div class="hs-n">47.16<sup>%</sup></div><div class="hs-l">2025 세계 TOP10 대학 진학</div></div>
       </div>
@@ -837,17 +847,16 @@ html{scroll-padding-top:118px}
       </a>
       <a class="guide-card" href="xjtlu-programmes-careers-graduate-destinations.html">
         <div class="guide-title">전공·진로 <span class="arr">→</span></div>
-        <div class="guide-body">51개 학부 전공 전체 목록과 졸업 후 진로·대학원 진학 현황을 확인하세요.</div>
+        <div class="guide-body">52개 학부 전공 전체 목록과 졸업 후 진로·대학원 진학 현황을 확인하세요.</div>
       </a>
       <a class="guide-card" href="xjtlu-dual-degree-liverpool-2plus2.html">
         <div class="guide-title">리버풀대학교 복수학위·2+2 <span class="arr">→</span></div>
         <div class="guide-body">영국 리버풀대학교로 이어지는 2+2 프로그램과 복수학위 취득 방법을 안내합니다.</div>
       </a>
-      <div class="guide-card" style="position:relative;">
-        <a href="xjtlu-accommodation-sip-taicang.html" style="position:absolute;inset:0;z-index:1;" aria-label="숙소·생활비 자세히 보기"></a>
-        <div class="guide-title">숙소·생활비 <span class="arr">→</span></div>
-        <div class="guide-body">SIP·Taicang 캠퍼스 기숙사 요금과 생활비를 한눈에 확인하세요.<br><a href="xjtlu-living-cost-2027.html" class="guide-sub" style="position:relative;z-index:2;">생활비 자세히 보기 →</a></div>
-      </div>
+      <a class="guide-card" href="xjtlu-accommodation-sip-taicang.html">
+        <div class="guide-title">숙소 안내 <span class="arr">→</span></div>
+        <div class="guide-body">SIP·Taicang 캠퍼스 기숙사 요금과 생활 여건을 한눈에 확인하세요.</div>
+      </a>
       <a class="guide-card" href="xjtlu-suzhou-china-life.html">
         <div class="guide-title">쑤저우 생활 <span class="arr">→</span></div>
         <div class="guide-body">상하이에서 30분 거리인 쑤저우의 생활 환경과 캠퍼스 주변 인프라를 소개합니다.</div>
@@ -861,25 +870,26 @@ html{scroll-padding-top:118px}
   <div class="sec fi">
     <p class="label">DEPARTMENTS</p>
     <h2 class="sec-h">전공안내</h2>
-    <p class="sec-p">총 전공 : 학사(Undergraduate) 51개 · 석사(Master's) 약 57개 · 박사(PhD) 17개</p>
-    <p class="sec-p">51개 학부 전공을 6개 분야로 묶어 대표 전공을 소개합니다.</p>
+    <p class="sec-p">총 전공 : 학사(Undergraduate) 52개 · 석사(Master's) 약 57개 · 박사(PhD) 17개</p>
+    <p class="sec-p">52개 학부 전공을 6개 분야로 묶어 대표 전공을 소개합니다.</p>
     <div class="major-grid fi d1">
       <div class="mc"><div class="mc-s">BUSINESS SCHOOL</div><div class="mc-n">경영·경제 (Business Administration, Economics and Finance 등)</div><div class="mc-d">BA/BSc (Hons)</div></div>
       <div class="mc"><div class="mc-s">COMPUTER SCIENCE</div><div class="mc-n">AI·컴퓨터공학 (Artificial Intelligence, Computer Science &amp; Technology 등)</div><div class="mc-d">BEng (Hons)</div></div>
       <div class="mc"><div class="mc-s">ENGINEERING</div><div class="mc-n">공학 (Electrical Engineering, Intelligent Robotics Engineering 등)</div><div class="mc-d">BEng (Hons)</div></div>
-      <div class="mc"><div class="mc-s">SCIENCE</div><div class="mc-n">생명과학·바이오 (Biomedical Sciences, Biopharmaceuticals 등)</div><div class="mc-d">BSc (Hons)</div></div>
+      <div class="mc"><div class="mc-s">LIFE SCIENCE / PSYCHOLOGY</div><div class="mc-n">생명과학·심리학 (Biomedical Sciences, Psychology, Biopharmaceuticals 등)</div><div class="mc-d">BSc (Hons)</div></div>
       <div class="mc"><div class="mc-s">HUMANITIES</div><div class="mc-n">인문·미디어 (International Relations, Media &amp; Communication Studies 등)</div><div class="mc-d">BA (Hons)</div></div>
       <div class="mc"><div class="mc-s">DESIGN / FILM &amp; TV ARTS</div><div class="mc-n">디자인·영상 (Industrial Design, Filmmaking, Digital Media Arts 등)</div><div class="mc-d">BA/BEng (Hons)</div></div>
     </div>
-    <div class="related-links" aria-label="전공 전체 보기"><a class="related-link" href="xjtlu-programmes-careers-graduate-destinations.html">51개 학부 전공 전체 보기<span class="arr">→</span></a></div>
+    <div class="related-links" aria-label="전공 전체 보기"><a class="related-link" href="xjtlu-programmes-careers-graduate-destinations.html">52개 학부 전공 전체 보기<span class="arr">→</span></a></div>
   </div>
 </div>
 
 <!-- 갤러리 -->
-<div class="gallery fi" style="grid-template-rows:240px;">
-  <div class="gi" style="grid-column:auto;"><img src="https://xjtlu-korea.netlify.app/gallery-ibss.webp" loading="lazy" alt="사우스캠퍼스"><div class="gi-cap">INT'L BUSINESS SCHOOL · IBSS</div></div>
+<div class="gallery fi">
+  <div class="gi"><img src="https://xjtlu-korea.netlify.app/gallery-ibss.webp" loading="lazy" alt="사우스캠퍼스"><div class="gi-cap">INT'L BUSINESS SCHOOL · IBSS</div></div>
   <div class="gi"><img src="https://xjtlu-korea.netlify.app/gallery-campus.webp" loading="lazy" alt="캠퍼스"><div class="gi-cap">CAMPUS PROMENADE</div></div>
   <div class="gi"><img src="https://xjtlu-korea.netlify.app/gallery-student.webp" loading="lazy" alt="학생생활" style="object-position:center top;"><div class="gi-cap">STUDENT LIFE</div></div>
+  <div class="gi"><img src="https://xjtlu-korea.netlify.app/gallery-taicang.webp" loading="lazy" alt="타이창 캠퍼스"><div class="gi-cap">TAICANG CAMPUS · AERIAL</div></div>
 </div>
 
 <!-- ====== 학비·장학금 ====== -->
@@ -914,11 +924,13 @@ html{scroll-padding-top:118px}
   <div class="sec fi">
     <p class="label">ACCOMMODATION</p>
     <h2 class="sec-h">숙소안내</h2>
-    <div class="feat-grid room-feat-grid fi d1">
-      <div class="feat-card"><h3 class="feat-title">SIP 캠퍼스 (쑤저우)</h3><p class="feat-body">주요 기숙사 월 약 1,700위안(약 38만원)부터. 1인실·공용형 등 옵션 다양.</p></div>
-      <div class="feat-card"><h3 class="feat-title">Taicang 캠퍼스 (타이창)</h3><p class="feat-body">교내 기숙사 연 6,000위안(2인실)~14,000위안(1인실) 수준.</p></div>
-      <div class="feat-card"><h3 class="feat-title">결제 방법</h3><p class="feat-body">WeChat / Alipay / 카드(VISA·MC·JCB·Amex) 결제 가능.</p></div>
+    <div class="room-grid fi d1">
+      <div class="room-card"><h3 class="room-title">SIP 캠퍼스 숙소</h3><p class="room-body">국제학생 아파트 기준, 주요 객실 유형은 월 약 1,700위안(약 38만원)부터입니다.</p></div>
+      <div class="room-card"><h3 class="room-title">Taicang 교내 기숙사</h3><p class="room-body">2인실 연 6,000위안, 1인실 연 14,000위안 수준입니다.</p></div>
+      <div class="room-card"><h3 class="room-title">객실·생활시설</h3><p class="room-body">개인 화장실, 공용주방, 발코니, 세탁기 등 시설 구성은 숙소 유형별로 다릅니다.</p></div>
+      <div class="room-card"><h3 class="room-title">비용·거리 비교</h3><p class="room-body">캠퍼스까지 거리, 가격, 시설을 상세 가이드에서 한눈에 비교할 수 있습니다.</p></div>
     </div>
+    <p class="sec-p" style="margin-top:14px;font-size:12px;">결제는 WeChat / Alipay / 카드(VISA·MC·JCB·Amex)로 가능합니다.</p>
     <div class="related-links" aria-label="이 내용과 관련된 상세 가이드"><span class="related-label">관련 글</span><a class="related-link" href="xjtlu-accommodation-sip-taicang.html">SIP·Taicang 숙소 자세히 보기<span class="arr">→</span></a></div>
   </div>
 </div>

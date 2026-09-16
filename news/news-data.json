@@ -1,7 +1,7 @@
 {
   "site": "xjtlu-korea",
   "language": "ko",
-  "updated_at": "2026-08-30",
+  "updated_at": "2026-09-17",
   "items": [
     {
       "id": "class-of-2026-dual-degree-graduation",
@@ -262,6 +262,43 @@
           "paragraphs": [
             "과학, 재료, 화학, 에너지 분야를 고려하는 한국 학생에게는 XJTLU가 한국의 연구중심 대학과 어떤 분야에서 협력하는지를 확인할 수 있는 자료입니다. 연구 협력 자체가 학생 개인의 교환이나 인턴십 기회를 자동으로 보장하는 것은 아니지만, 대학의 연구 네트워크와 방향을 이해하는 데 도움이 됩니다.",
             "향후 구체적인 공동 프로그램이나 학생 참여 기회가 발표되는 경우에는 별도로 확인할 필요가 있습니다. 현재 확인되는 핵심 사실은 에너지 소재 공동연구와 전문인력 양성을 목적으로 양 기관이 협력관계를 맺었다는 점입니다."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xjtlu-aiat-aolns-restructured-academies-2026",
+      "title": "XJTLU, AI·첨단기술과 생명·자연과학 분야 학부 체계 개편",
+      "summary": "XJTLU가 2026년 9월 AI·컴퓨터·전자전기·통신 분야를 아우르는 AIAT와 생명과학·약학·바이오·디지털헬스 등을 아우르는 AoLNS를 새롭게 출범했습니다. 2027학년도 관련 전공을 검토하는 학생이라면 달라진 학문 조직과 전공 구성을 확인할 필요가 있습니다.",
+      "date": "2026-09-14",
+      "source_date": "2026-09-01",
+      "source_url": "https://www.xjtlu.edu.cn/en/news/2026/09/two-restructured-academies-to-launch-in-september",
+      "category": "전공·학부 개편",
+      "priority": 40,
+      "status": "preview_ready",
+      "content_type": "official_update",
+      "personal_story": false,
+      "reviewed_at": "2026-09-14",
+      "sections": [
+        {
+          "heading": "AIAT: AI부터 전자전기·통신까지",
+          "paragraphs": [
+            "Academy of AI and Advanced Technology(AIAT)는 기존 School of Advanced Technology와 School of AI and Advanced Computing을 바탕으로 구성됐습니다. 인공지능, 컴퓨터과학, 전기·전자공학, 통신공학 분야를 한 조직 안에서 연결합니다.",
+            "XJTLU 공식 발표 기준 AIAT는 학부 9개, 석사 10개, 박사 3개 프로그램을 운영하며 AI·알고리즘·데이터과학뿐 아니라 컴퓨터 시스템, 소프트웨어공학, 통신, 전기공학, 메카트로닉스 등을 폭넓게 다룹니다."
+          ]
+        },
+        {
+          "heading": "AoLNS: 생명과학·약학·바이오·디지털헬스 통합",
+          "paragraphs": [
+            "Academy of Life and Natural Sciences(AoLNS)는 기존 School of Science와 Wisdom Lake Academy of Pharmacy를 통합해 출범했습니다. 생물·의생명과학, 화학·재료과학, 약학·바이오의약공학, AI·통계·바이오인포매틱스, 디지털헬스, 환경·One Health 등을 연결하는 구조입니다.",
+            "공식 발표 기준 AoLNS는 학부 10개, 석사 9개, 박사 5개 프로그램을 운영합니다. 약학이나 생명과학을 전통적인 단일 전공으로만 보기보다 AI·데이터·바이오의약·헬스 분야와 결합하려는 방향이 뚜렷합니다."
+          ]
+        },
+        {
+          "heading": "2027학년도 전공 선택에서 확인할 점",
+          "paragraphs": [
+            "2027학년도 XJTLU 진학을 검토한다면 이번 변화는 대학 조직도 이상의 의미가 있습니다. AI·컴퓨터·전자전기 계열과 생명·약학 계열 모두 인접 분야를 연결하는 교육·연구 구조가 강화되고 있습니다.",
+            "다만 조직 개편이 개별 전공의 입학조건이나 학위명 변경을 자동으로 의미하는 것은 아닙니다. 실제 지원 시에는 희망 전공의 최신 커리큘럼, 학위명, 2+2 가능 여부와 입학요건을 각각 확인해야 합니다."
           ]
         }
       ]

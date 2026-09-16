@@ -687,6 +687,24 @@ html{scroll-padding-top:118px}
   .review-feature-caption{padding:13px 14px;min-height:0}
 }
 /* TNS STUDENT REVIEW FEATURE END */
+
+/* TNS NEWS SECTION START */
+#news .news-head-row{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:28px}
+#news .news-all{display:inline-flex;align-items:center;gap:8px;color:var(--navy);font-size:13px;font-weight:800;text-decoration:none;white-space:nowrap;border-bottom:1px solid #cfd5df;padding-bottom:4px}
+#news .news-all:hover{color:#8b6a1f;border-color:var(--gold)}
+#news .home-news-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+#news .news-card{background:#fff;border:1px solid #e4e7ec;padding:22px 20px;display:flex;flex-direction:column;min-height:250px;box-shadow:0 5px 16px rgba(20,33,61,.04)}
+#news .news-meta{font-family:'DM Mono',monospace;font-size:9.5px;line-height:1.5;color:#9a7827;margin-bottom:10px}
+#news .news-card h3{font-size:16px;line-height:1.5;margin:0 0 10px}
+#news .news-card h3 a{color:var(--navy);text-decoration:none}
+#news .news-card h3 a:hover{color:#8b6a1f}
+#news .news-card p{font-size:12.5px;line-height:1.65;color:#667085;margin:0 0 16px}
+#news .news-more{margin-top:auto;color:var(--navy);font-size:12px;font-weight:800;text-decoration:none}
+#news .news-empty{grid-column:1/-1;background:#fff;border:1px dashed #cbd5e1;padding:32px;text-align:center;color:#667085;font-size:13px}
+@media(max-width:980px){#news .home-news-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){#news .news-head-row{align-items:flex-start;flex-direction:column;gap:10px;margin-bottom:20px}#news .home-news-grid{grid-template-columns:1fr}#news .news-card{min-height:0;padding:19px 17px}}
+/* TNS NEWS SECTION END */
+
 </style>
 </head>
 <body>
@@ -715,6 +733,7 @@ html{scroll-padding-top:118px}
     <li><a href="#major">전공·진로</a></li>
     <li><a href="#campus-life">학생생활</a></li>
     <li><a href="#reviews">학생후기</a></li>
+    <li><a href="#news">뉴스</a></li>
     <li><button type="button" class="nav-menu-btn" onclick="openSiteMenu()" aria-controls="siteMenu" aria-expanded="false">전체 메뉴 <span class="nav-menu-icon">☰</span></button></li>
 
   </ul>
@@ -725,7 +744,7 @@ html{scroll-padding-top:118px}
 
 <div id="mobileNav">
   <div class="mob-group-title">MAIN PAGE</div>
-  <a href="#information">학교소개</a><a href="#admission">입학·편입</a><a href="#calendar">학비·장학금</a><a href="#major">전공·진로</a><a href="#campus-life">학생생활</a><a href="#reviews">학생후기</a>
+  <a href="#information">학교소개</a><a href="#admission">입학·편입</a><a href="#calendar">학비·장학금</a><a href="#major">전공·진로</a><a href="#campus-life">학생생활</a><a href="#reviews">학생후기</a><a href="#news">뉴스</a>
   <div class="mob-group-title">DETAIL GUIDES</div>
   <a class="mob-detail" href="xjtlu-admission-requirements-korea-2027.html">2027 입학조건·편입</a>
   <a class="mob-detail" href="xjtlu-tuition-scholarships-2027.html">2027 학비·장학금</a>
@@ -755,6 +774,7 @@ html{scroll-padding-top:118px}
       <section class="site-menu-group"><h3><a href="#major">전공·진로 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-undergraduate-programmes.html">전공 전체 보기</a><a href="xjtlu-graduate-destinations-careers.html">졸업 후 진로·대학원 진학</a></section>
       <section class="site-menu-group"><h3><a href="#campus-life">학생생활 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-accommodation-sip-taicang.html">SIP·Taicang 숙소·기숙사</a><a href="xjtlu-suzhou-china-life.html">XJTLU 쑤저우 소개</a><a href="xjtlu-sports-facilities.html">스포츠·헬스장 시설</a><a href="xjtlu-clubs-student-organisations.html">동아리·학생단체</a></section>
       <section class="site-menu-group"><h3><a href="#reviews">학생후기 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-student-videos.html">XJTLU 학생 후기 영상 모음</a></section>
+      <section class="site-menu-group"><h3><a href="#news">뉴스 <small>메인에서 보기 →</small></a></h3><a href="/news/">XJTLU 최신 뉴스 전체 보기</a></section>
       <section class="site-menu-group"><h3><a href="#contact">입학문의 <small>메인에서 보기 →</small></a></h3><p>입학조건·학비·전공·숙소 상담은 TNS유학에서 안내합니다.</p><div class="site-menu-cta"><a class="kakao" href="https://open.kakao.com/o/slehLvKi" target="_blank" rel="noopener">카카오톡 상담</a><a class="phone" href="tel:01051500105">전화상담</a></div></section>
     </div>
   </div>
@@ -1039,6 +1059,28 @@ html{scroll-padding-top:118px}
   </div>
 </div>
 
+
+<!-- ====== 최신 뉴스 ====== -->
+<div class="sec-alt" id="news">
+  <div class="sec fi">
+    <div class="news-head-row">
+      <div>
+        <p class="label">XJTLU NEWS</p>
+        <h2 class="sec-h">XJTLU 최신 소식</h2>
+        <p class="sec-p">XJTLU 공식 발표 중 한국 학생과 학부모에게 필요한 입학·전공·진로·한국 협력 소식을 선별해 정리합니다.</p>
+      </div>
+      <a class="news-all" href="/news/">뉴스 전체 보기 →</a>
+    </div>
+    <div class="home-news-grid">
+<!-- NEWS_ITEMS_START -->
+<article class="news-card"><div class="news-meta">2026-09-01 · 전공·학부 개편</div><h3><a href="/news/xjtlu-aiat-aolns-restructured-academies-2026.html">XJTLU, AI·첨단기술과 생명·자연과학 분야 학부 체계 개편</a></h3><p>XJTLU가 2026년 9월 AI·컴퓨터·전자전기·통신 분야를 아우르는 AIAT와 생명과학·약학·바이오·디지털헬스 등을 아우르는 AoLNS를 새롭게 출범했습니다. 2027학년도 관련 전공을 검토하는 학생이라면 달라진 학문 조직과…</p><a class="news-more" href="/news/xjtlu-aiat-aolns-restructured-academies-2026.html">기사 자세히 보기 →</a></article>
+<article class="news-card"><div class="news-meta">2026-07-27 · 학위·졸업</div><h3><a href="/news/class-of-2026-dual-degree-graduation.html">2026 졸업생 3,797명, XJTLU·리버풀대학교 학위 동시 취득</a></h3><p>XJTLU는 2026년 여름 졸업식에서 총 4,816명의 졸업을 기념했습니다. 이 가운데 학부 졸업생 3,797명은 XJTLU의 졸업·학위 증서와 영국 리버풀대학교 학사 학위 증서를 함께 받았고, 1,244명은 리버풀대학교 기준…</p><a class="news-more" href="/news/class-of-2026-dual-degree-graduation.html">기사 자세히 보기 →</a></article>
+<article class="news-card"><div class="news-meta">2026-05-26 · 한국협력·도시계획</div><h3><a href="/news/xjtlu-seoul-suwon-un-habitat-smart-city-report.html">XJTLU·서울대·수원시·UN-Habitat, 스마트도시 공동연구 발표</a></h3><p>XJTLU와 서울대학교가 중심이 되어 수원특례시의 스마트도시 전환을 분석한 국제 공동 보고서가 2026년 World Urban Forum 13에서 공개됐습니다. UN-Habitat, 수원시정연구원, 수원특례시가 함께 참여했으며,…</p><a class="news-more" href="/news/xjtlu-seoul-suwon-un-habitat-smart-city-report.html">기사 자세히 보기 →</a></article>
+<article class="news-card"><div class="news-meta">2026-04-17 · 한국협력·도시계획</div><h3><a href="/news/xjtlu-suwon-smart-inclusive-transition-forum-2026.html">XJTLU, 한국 수원 스마트도시 포럼 참가…서울대와 공동연구 발표</a></h3><p>XJTLU Design School 대표단이 2026년 4월 한국 수원에서 열린 Smart Inclusive Transition Forum에 참가했습니다. XJTLU·수원시정연구원·서울대학교·UN-Habitat 공동연구 결과가…</p><a class="news-more" href="/news/xjtlu-suwon-smart-inclusive-transition-forum-2026.html">기사 자세히 보기 →</a></article>
+<!-- NEWS_ITEMS_END -->
+    </div>
+  </div>
+</div>
 
 <!-- CTA -->
 <section class="contact-panel" id="contact" style="background:#fff;color:#14213d;text-align:center;padding:38px 20px 42px;border-top:1px solid #e4e7ec">

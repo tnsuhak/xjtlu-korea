@@ -285,6 +285,13 @@ h1.hero-title em { font-style:normal; color:var(--gold); }
 .video-wrap.on .yt-frame { display:block; }
 .yt-link { margin-top:12px; text-align:right; font-family:'DM Mono',monospace; font-size:11px; }
 .yt-link a { color:var(--gold); text-decoration:none; }
+@media(max-width:760px){
+  .campus-tour-section{padding:32px 0 28px!important;}
+  .campus-tour-inner>.label,
+  .campus-tour-inner>.sec-h,
+  .campus-tour-inner>.sec-p{margin-left:20px!important;margin-right:20px!important;}
+  .campus-tour-section .video-wrap{width:100%;margin-top:20px;}
+}
 
 /* ── ROOM GRID (dedicated, always 2×2) ── */
 .room-grid {
@@ -822,8 +829,8 @@ html{scroll-padding-top:118px}
 </div>
 
 <!-- 유튜브 -->
-<div style="background:var(--navy);padding:40px 40px 32px;" class="fi">
-  <div style="max-width:1200px;margin:0 auto;">
+<div style="background:var(--navy);padding:40px 40px 32px;" class="fi campus-tour-section">
+  <div class="campus-tour-inner" style="max-width:1200px;margin:0 auto;">
     <p class="label" style="color:var(--gold-lt);">CAMPUS TOUR</p>
     <h2 class="sec-h" style="color:#fff;">캠퍼스 영상으로 먼저 만나보세요</h2>
     <p class="sec-p" style="color:rgba(255,255,255,.45);">클릭하면 재생됩니다.</p>

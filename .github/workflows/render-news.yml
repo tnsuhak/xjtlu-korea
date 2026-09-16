@@ -12,6 +12,7 @@ on:
       - 'scripts/integrate_news.py'
       - 'scripts/remove_visible_sources.py'
       - 'scripts/update_accommodation_currency.py'
+      - 'scripts/expand_news_summaries.py'
       - 'index.html'
       - 'xjtlu-accommodation-sip-taicang.html'
       - 'sitemap.xml'
@@ -39,6 +40,7 @@ jobs:
       - name: Restore news and enforce detail-page policies
         run: |
           python scripts/remove_visible_sources.py
+          python scripts/expand_news_summaries.py
           python scripts/integrate_news.py --prepare
           python scripts/render_news.py
           python scripts/integrate_news.py --finalize
@@ -56,5 +58,5 @@ jobs:
           git config user.name "TNS News Renderer"
           git config user.email "actions@users.noreply.github.com"
           git add index.html sitemap.xml news xjtlu-*.html
-          git commit -m "Update accommodation KRW conversions"
+          git commit -m "Expand XJTLU Korea news summaries"
           git push origin "HEAD:${GITHUB_REF_NAME}"

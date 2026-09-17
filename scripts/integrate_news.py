@@ -10,6 +10,7 @@ HOME = ROOT / "index.html"
 DATA = ROOT / "news" / "news-data.json"
 NEWS_INDEX = ROOT / "news" / "index.html"
 NEWS_DIR = ROOT / "news"
+SPORTS_PAGE = ROOT / "xjtlu-sports-facilities.html"
 
 HOME_START = "<!-- NEWS_ITEMS_START -->"
 HOME_END = "<!-- NEWS_ITEMS_END -->"
@@ -203,6 +204,19 @@ def modernize_news_pages() -> None:
         text = text.replace(old_programme_link, new_programme_links)
         path.write_text(text, encoding="utf-8")
 
+def ensure_sports_video() -> None:
+    text = SPORTS_PAGE.read_text(encoding="utf-8")
+    if "2lbumXxPx5g" in text:
+        return
+
+    existing = '<section class="section video-section-wide"><div class="video-wrap"><div class="video-copy"><div class="eyebrow">XJTLU SPORT VIDEO</div><h3>영상으로 보는 XJTLU 스포츠 시설 (타이창)</h3><p>Taicang(XEC) 캠퍼스의 스포츠 시설과 실제 공간을 영상으로 확인해 보세요.</p></div><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/nVirGEvdcT8" title="XJTLU 타이창 스포츠 시설 영상" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div></section>'
+    added = '<section class="section video-section-wide"><div class="video-wrap"><div class="video-copy"><div class="eyebrow">XJTLU SPORT VIDEO</div><h3>영상으로 더 보는 XJTLU 스포츠·헬스장 시설</h3><p>XJTLU의 스포츠·피트니스 시설과 학생들이 이용하는 공간을 영상으로 추가 확인해 보세요.</p></div><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/2lbumXxPx5g" title="XJTLU 스포츠 헬스장 시설 영상" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div></section>'
+
+    if existing not in text:
+        raise ValueError("기존 스포츠 영상 블록을 찾지 못했습니다")
+    text = text.replace(existing, existing + "\n\n" + added, 1)
+    SPORTS_PAGE.write_text(text, encoding="utf-8")
+
 def prepare() -> None:
     add_latest_item()
     ensure_home_scaffold()
@@ -210,6 +224,7 @@ def prepare() -> None:
 def finalize() -> None:
     patch_home_latest_four()
     modernize_news_pages()
+    ensure_sports_video()
 
 def check() -> None:
     data = load_data()
@@ -227,6 +242,10 @@ def check() -> None:
         raise SystemExit("홈페이지 최신 뉴스는 4건이어야 합니다")
     if '>쑤저우 생활 자세히 보기<' in home or '>생활비 2027<' in home:
         raise SystemExit("캠퍼스 생활 섹션에 제거 대상 링크가 남아 있습니다")
+
+    sports = SPORTS_PAGE.read_text(encoding="utf-8")
+    if "2lbumXxPx5g" not in sports:
+        raise SystemExit("추가 스포츠 영상이 없습니다")
 
     news_index = NEWS_INDEX.read_text(encoding="utf-8")
     if "XJTLU 한국 공식 대표 · TNS Worldwide" not in news_index:

@@ -58,8 +58,8 @@ replace_once(
 )
 replace_once(
     "xjtlu-accommodation-sip-taicang.html",
-    '</tbody></table></div></section>\n<section class="section" aria-labelledby="sip-video-title">',
-    f'</tbody></table></div><p class="notice" style="margin-top:18px">원화 환산은 {RATE_NOTE} 기준으로 반올림한 참고 금액입니다.</p></section>\n<section class="section" aria-labelledby="sip-video-title">',
+    '</tbody></table></div></section>',
+    f'</tbody></table></div><p class="notice" style="margin-top:18px">원화 환산은 {RATE_NOTE} 기준으로 반올림한 참고 금액입니다.</p></section>',
 )
 replace_once(
     "xjtlu-accommodation-sip-taicang.html",

@@ -150,6 +150,9 @@ def ensure_home_scaffold() -> None:
             raise ValueError("홈페이지 뉴스 섹션 삽입 위치를 찾지 못했습니다")
         text = text.replace(cta_anchor, "\n" + NEWS_SECTION.strip() + "\n" + cta_anchor, 1)
 
+    text = text.replace('<a class="related-link" href="xjtlu-suzhou-china-life.html">쑤저우 생활 자세히 보기<span class="arr">→</span></a>', '')
+    text = text.replace('<a class="related-link" href="xjtlu-living-cost-2027.html">생활비 2027<span class="arr">→</span></a>', '')
+
     HOME.write_text(text, encoding="utf-8")
 
 def safe_text(value: object) -> str:
@@ -222,6 +225,8 @@ def check() -> None:
     between = home.split(HOME_START, 1)[1].split(HOME_END, 1)[0]
     if between.count('<article class="news-card">') != 4:
         raise SystemExit("홈페이지 최신 뉴스는 4건이어야 합니다")
+    if '>쑤저우 생활 자세히 보기<' in home or '>생활비 2027<' in home:
+        raise SystemExit("캠퍼스 생활 섹션에 제거 대상 링크가 남아 있습니다")
 
     news_index = NEWS_INDEX.read_text(encoding="utf-8")
     if "XJTLU 한국 공식 대표 · TNS Worldwide" not in news_index:

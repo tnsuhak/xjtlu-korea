@@ -93,8 +93,8 @@ def render_bars(rows: list[tuple[str, int]]) -> str:
 def render_headline_kpis(data: dict, compact: bool = False) -> str:
     k = data["kpis"]
     cells = [
-        (f'{k["career_outcomes"]}건', "확인된 취업·경력 Outcome"),
-        (f'{k["graduate_study_outcomes"]}건', "확인된 대학원 진학 Outcome"),
+        (f'{k["career_outcomes"]}건', "확인된 취업·경력 사례"),
+        (f'{k["graduate_study_outcomes"]}건', "확인된 대학원 진학"),
         (f'{k["further_study_transfer_exchange_outcomes"]}건', "편입·후속학업·교환"),
     ]
     if not compact:
@@ -131,14 +131,21 @@ def render_summary(data: dict) -> str:
 def render_employers(data: dict) -> str:
     copy = data["copy"]
     emp = data["employers"]
+    logo_wall = emp["logo_wall"]
+    visible_count = int(data["meta"]["display_rules"].get("employer_default_visible_count", len(logo_wall)))
+    visible, folded_logos = logo_wall[:visible_count], logo_wall[visible_count:]
     text_list = "".join(f"<li>{esc(name)}</li>" for name in emp["text_list"])
     group_chips = render_chips(emp["group_only_labels"])
+    fold_body = (
+        (render_chips(folded_logos) if folded_logos else "")
+        + '<p class="co-sub">그 외 확인된 기업·기관</p>'
+        + f'<ul class="co-textlist">{text_list}</ul>'
+        + '<p class="co-sub">이름 대신 분야로만 표시하는 소규모·특수 기관</p>'
+        + group_chips
+    )
     return (
-        f"{render_chips(emp['logo_wall'])}"
-        f'<p class="co-sub">그 외 확인된 기업·기관</p>'
-        f'<ul class="co-textlist">{text_list}</ul>'
-        f'<p class="co-sub">이름 대신 분야로만 표시하는 소규모·특수 기관</p>'
-        f"{group_chips}"
+        f"{render_chips(visible)}"
+        f'<details class="co-fold"><summary>그 외 주요 기업 보기</summary><div class="co-fold-body">{fold_body}</div></details>'
         f'<p class="co-note">{esc(copy["employer_caveat"])}</p>'
     )
 
@@ -183,7 +190,7 @@ def render_method(data: dict) -> str:
     return (
         f'<div class="notice"><p style="margin:0 0 12px">{esc(copy["methodology"])}</p>'
         f'<p style="margin:0">{esc(copy["privacy"])}</p></div>'
-        f'<p class="co-note">인턴십 {data["kpis"]["internship_outcomes_separate"]}건은 위 취업·경력 Outcome과 별도로 확인되었으며 취업 KPI에는 합산하지 않았습니다.</p>'
+        f'<p class="co-note">인턴십 {data["kpis"]["internship_outcomes_separate"]}건은 위 취업·경력 사례와 별도로 확인되었으며 취업 KPI에는 합산하지 않았습니다.</p>'
         f'<p class="co-note">기준일 {esc(data["meta"]["as_of"])} · 집계 주체 {esc(data["meta"]["publisher"])}</p>'
     )
 

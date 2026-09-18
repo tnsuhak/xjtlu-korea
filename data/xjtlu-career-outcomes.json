@@ -24,78 +24,65 @@
     "core_career_academic_outcomes": 141
   },
   "employers": {
-    "logo_wall": [
-      "AMOREPACIFIC / LANEIGE",
+    "tier1": [
+      "AMOREPACIFIC",
       "Alibaba Group Korea",
-      "Align Technology (Invisalign)",
-      "Avison Young",
+      "Invisalign / Align Technology",
       "BNK 부산은행",
       "Bosch",
       "ByteDance / TikTok",
-      "CJ 그룹",
+      "CJ그룹",
       "Cathay Pacific",
       "Cisco",
-      "Cushman & Wakefield",
       "Deloitte",
       "Dyson",
-      "Ericsson",
       "HYBE 엔터테인먼트",
       "Hanwha / 한화",
       "Huawei",
       "IKEA",
       "KIST / 한국과학기술연구원",
-      "KOTRA / 한국무역공사",
-      "Kenvue",
+      "KOTRA / 대한무역투자진흥공사",
       "LG전자",
       "Mastercard",
-      "Medtronic",
-      "Newmark Korea",
-      "NielsenIQ",
-      "Pirelli",
       "Ralph Lauren",
-      "SGS",
-      "Shinsegae",
       "UNIQLO",
-      "UnionPay International",
-      "신세계 그룹",
+      "신세계그룹",
       "코웨이",
-      "현대백화점그룹"
-    ],
-    "featured": [
-      "HYBE 엔터테인먼트",
-      "LG전자",
-      "AMOREPACIFIC / LANEIGE",
-      "Shinsegae",
       "현대백화점그룹",
-      "Deloitte",
-      "Mastercard",
-      "Cisco",
-      "Alibaba Group Korea",
-      "ByteDance / TikTok",
-      "KOTRA / 한국무역공사",
-      "Huawei"
+      "농심",
+      "이랜드그룹",
+      "롯데그룹",
+      "PharmaResearch / 리쥬란",
+      "World Vision Korea / 월드비전"
     ],
-    "text_list": [
+    "tier2": [
+      "Kenvue",
+      "Medtronic",
+      "Pirelli",
+      "NielsenIQ",
+      "Ericsson",
+      "UnionPay International",
+      "SGS",
       "AESC",
+      "Edelman",
+      "FleishmanHillard",
+      "Avison Young",
+      "Cushman & Wakefield",
+      "Newmark Korea",
+      "한솔제지",
+      "제주관광공사"
+    ],
+    "tier3": [
       "BHI Co., Ltd.",
       "BIPO",
-      "Edelman",
-      "FleishmanHillard Korea",
       "Gentrack Ltd (Global)",
       "KIS Pricing",
-      "LOTTE MCC",
       "Neurophet",
-      "PharmaResearch Co. Ltd.",
       "PineStreet Asset Management",
       "STFC",
       "UniUni",
       "WIRobotics",
-      "World Vision Korea",
-      "YunExpress",
-      "농심",
-      "이랜드월드 패션",
-      "제주관광공사",
-      "한솔제지"
+      "YunExpress"
     ],
     "group_only_labels": [
       "AI·Tech",
@@ -144,18 +131,54 @@
     ]
   },
   "industry_stats": [
-    {"sector": "소비재·리테일·미디어·서비스", "outcomes": 19},
-    {"sector": "Tech·AI·데이터", "outcomes": 17},
-    {"sector": "엔지니어링·제조·건축환경", "outcomes": 15},
-    {"sector": "컨설팅·전문서비스", "outcomes": 12},
-    {"sector": "헬스케어·연구", "outcomes": 11},
-    {"sector": "금융·회계", "outcomes": 9},
-    {"sector": "국제·공공·법률", "outcomes": 9},
-    {"sector": "기타 분야", "outcomes": 8},
-    {"sector": "교육", "outcomes": 3},
-    {"sector": "물류", "outcomes": 2},
-    {"sector": "지속가능금융", "outcomes": 2},
-    {"sector": "PR·커뮤니케이션", "outcomes": 2}
+    {
+      "sector": "소비재·리테일·미디어·서비스",
+      "outcomes": 19
+    },
+    {
+      "sector": "Tech·AI·데이터",
+      "outcomes": 17
+    },
+    {
+      "sector": "엔지니어링·제조·건축환경",
+      "outcomes": 15
+    },
+    {
+      "sector": "컨설팅·전문서비스",
+      "outcomes": 12
+    },
+    {
+      "sector": "헬스케어·연구",
+      "outcomes": 11
+    },
+    {
+      "sector": "금융·회계",
+      "outcomes": 9
+    },
+    {
+      "sector": "국제·공공·법률",
+      "outcomes": 9
+    },
+    {
+      "sector": "기타 분야",
+      "outcomes": 8
+    },
+    {
+      "sector": "교육",
+      "outcomes": 3
+    },
+    {
+      "sector": "물류",
+      "outcomes": 2
+    },
+    {
+      "sector": "지속가능금융",
+      "outcomes": 2
+    },
+    {
+      "sector": "PR·커뮤니케이션",
+      "outcomes": 2
+    }
   ],
   "graduate_destinations": [
     "University of Warwick",
@@ -180,15 +203,45 @@
     "연세대학교"
   ],
   "further_academic_pathways": [
-    {"category": "학부 편입·2+2·후속 학부", "institutions": ["University of Edinburgh", "University of Westminster", "University of Liverpool"]},
-    {"category": "후속 학업 (과정 레벨 추가 확인 중)", "institutions": ["NUS", "Macquarie University"]},
-    {"category": "교환·방문학업", "institutions": ["고려대학교"]}
+    {
+      "category": "학부 편입·2+2·후속 학부",
+      "institutions": [
+        "University of Edinburgh",
+        "University of Westminster",
+        "University of Liverpool"
+      ]
+    },
+    {
+      "category": "후속 학업 (과정 레벨 추가 확인 중)",
+      "institutions": [
+        "NUS",
+        "Macquarie University"
+      ]
+    },
+    {
+      "category": "교환·방문학업",
+      "institutions": [
+        "고려대학교"
+      ]
+    }
   ],
   "safe_marketing_highlights": [
-    {"title": "글로벌 기업 진출", "copy": "Tech·AI, 금융, 컨설팅, 소비재, 엔지니어링 등 다양한 산업의 글로벌 기업 경력 사례가 확인됩니다."},
-    {"title": "국제·공공 분야", "copy": "UN 산하기구, 재외공관, KOTRA / 한국무역공사, NGO 등 국제·공공 분야 진출 사례가 확인됩니다."},
-    {"title": "대학원 진학", "copy": "Imperial, UCL, Duke, Warwick, NUS, KAIST, 고려대, 연세대, 서강대, 성균관대 등 다양한 대학원 진학 사례가 확인됩니다."},
-    {"title": "전문직·연구", "copy": "법률·세무, AI·데이터, 로보틱스, 바이오·의료기기, 지속가능금융 등 전문 분야 경력 사례가 확인됩니다."}
+    {
+      "title": "글로벌 기업 진출",
+      "copy": "Tech·AI, 금융, 컨설팅, 소비재, 엔지니어링 등 다양한 산업의 글로벌 기업 경력 사례가 확인됩니다."
+    },
+    {
+      "title": "국제·공공 분야",
+      "copy": "UN 산하기구, 재외공관, KOTRA / 한국무역공사, NGO 등 국제·공공 분야 진출 사례가 확인됩니다."
+    },
+    {
+      "title": "대학원 진학",
+      "copy": "Imperial, UCL, Duke, Warwick, NUS, KAIST, 고려대, 연세대, 서강대, 성균관대 등 다양한 대학원 진학 사례가 확인됩니다."
+    },
+    {
+      "title": "전문직·연구",
+      "copy": "법률·세무, AI·데이터, 로보틱스, 바이오·의료기기, 지속가능금융 등 전문 분야 경력 사례가 확인됩니다."
+    }
   ],
   "copy": {
     "section_title": "XJTLU 한국인 진로 사례",

@@ -116,7 +116,6 @@ def render_summary(data: dict) -> str:
         f'<section class="section alt" id="alumni-careers" aria-labelledby="alumni-careers-title">'
         f'<h2 id="alumni-careers-title">{esc(copy["section_title"])}</h2>'
         f'<p class="lead">{esc(copy["intro"])}</p>'
-        f'<p class="co-scope">{esc(data["meta"]["scope"])}</p>'
         f"{render_headline_kpis(data, compact=True)}"
         f'<p class="co-sub">확인된 주요 취업·경력 기업</p>'
         f"{render_chips(preview)}"
@@ -185,13 +184,18 @@ def render_graduate(data: dict) -> str:
     )
 
 
+def format_month_ko(iso_date: str) -> str:
+    year, month, _ = iso_date.split("-")
+    return f"{year}년 {int(month)}월"
+
+
 def render_method(data: dict) -> str:
     copy = data["copy"]
     return (
         f'<div class="notice"><p style="margin:0 0 12px">{esc(copy["methodology"])}</p>'
         f'<p style="margin:0">{esc(copy["privacy"])}</p></div>'
         f'<p class="co-note">인턴십 {data["kpis"]["internship_outcomes_separate"]}건은 위 취업·경력 사례와 별도로 확인되었으며 취업 KPI에는 합산하지 않았습니다.</p>'
-        f'<p class="co-note">기준일 {esc(data["meta"]["as_of"])} · 집계 주체 {esc(data["meta"]["publisher"])}</p>'
+        f'<p class="co-note">자료 기준일 · {esc(format_month_ko(data["meta"]["as_of"]))}</p>'
     )
 
 

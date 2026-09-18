@@ -38,10 +38,14 @@ def load_data() -> dict:
     for key in ("kpis", "employers", "industry_stats", "graduate_destinations", "copy"):
         if not data.get(key):
             raise SystemExit(f"공개 데이터에 필수 항목이 없습니다: {key}")
-    featured = data["employers"].get("featured") or []
-    unknown = [name for name in featured if name not in data["employers"]["logo_wall"]]
-    if unknown:
-        raise SystemExit("employers.featured는 employers.logo_wall의 부분집합이어야 합니다: " + ", ".join(unknown))
+    employers = data["employers"]
+    for key in ("tier1", "tier2", "tier3", "group_only_labels"):
+        if key not in employers:
+            raise SystemExit(f"employers에 필수 항목이 없습니다: {key}")
+    display_names = employers["tier1"] + employers["tier2"] + employers["tier3"]
+    duplicates = sorted({name for name in display_names if display_names.count(name) > 1})
+    if duplicates:
+        raise SystemExit("기업 display name이 단계 간 중복되었습니다: " + ", ".join(duplicates))
     return data
 
 
@@ -111,7 +115,7 @@ def render_summary(data: dict) -> str:
     copy = data["copy"]
     industries = [(row["sector"], int(row["outcomes"])) for row in data["industry_stats"]]
     industries.sort(key=lambda row: row[1], reverse=True)
-    preview = data["employers"].get("featured") or data["employers"]["logo_wall"][:SUMMARY_EMPLOYER_PREVIEW]
+    preview = data["employers"]["tier1"][:SUMMARY_EMPLOYER_PREVIEW]
     return (
         f'<section class="section alt" id="alumni-careers" aria-labelledby="alumni-careers-title">'
         f'<h2 id="alumni-careers-title">{esc(copy["section_title"])}</h2>'
@@ -130,20 +134,19 @@ def render_summary(data: dict) -> str:
 def render_employers(data: dict) -> str:
     copy = data["copy"]
     emp = data["employers"]
-    logo_wall = emp["logo_wall"]
-    visible_count = int(data["meta"]["display_rules"].get("employer_default_visible_count", len(logo_wall)))
-    visible, folded_logos = logo_wall[:visible_count], logo_wall[visible_count:]
-    text_list = "".join(f"<li>{esc(name)}</li>" for name in emp["text_list"])
+    tier2 = render_chips(emp["tier2"])
+    tier3 = "".join(f"<li>{esc(name)}</li>" for name in emp["tier3"])
     group_chips = render_chips(emp["group_only_labels"])
     fold_body = (
-        (render_chips(folded_logos) if folded_logos else "")
+        '<p class="co-sub">좋은 글로벌·전문기업</p>'
+        + tier2
         + '<p class="co-sub">그 외 확인된 기업·기관</p>'
-        + f'<ul class="co-textlist">{text_list}</ul>'
+        + f'<ul class="co-textlist">{tier3}</ul>'
         + '<p class="co-sub">이름 대신 분야로만 표시하는 소규모·특수 기관</p>'
         + group_chips
     )
     return (
-        f"{render_chips(visible)}"
+        f"{render_chips(emp['tier1'])}"
         f'<details class="co-fold"><summary>그 외 주요 기업 보기</summary><div class="co-fold-body">{fold_body}</div></details>'
         f'<p class="co-note">{esc(copy["employer_caveat"])}</p>'
     )

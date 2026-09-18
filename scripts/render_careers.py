@@ -20,7 +20,6 @@ BLOCKS = (
     "CAREER_KPI",
     "CAREER_EMPLOYERS",
     "CAREER_INDUSTRY",
-    "CAREER_REGION",
     "CAREER_PATTERNS",
     "CAREER_GRADUATE",
     "CAREER_METHOD",
@@ -36,9 +35,13 @@ def esc(value: object) -> str:
 
 def load_data() -> dict:
     data = json.loads(DATA_PATH.read_text(encoding="utf-8"))
-    for key in ("kpis", "employers_primary", "industry_stats", "region_stats", "copy"):
+    for key in ("kpis", "employers", "industry_stats", "graduate_destinations", "copy"):
         if not data.get(key):
             raise SystemExit(f"공개 데이터에 필수 항목이 없습니다: {key}")
+    featured = data["employers"].get("featured") or []
+    unknown = [name for name in featured if name not in data["employers"]["logo_wall"]]
+    if unknown:
+        raise SystemExit("employers.featured는 employers.logo_wall의 부분집합이어야 합니다: " + ", ".join(unknown))
     return data
 
 
@@ -51,43 +54,20 @@ def replace_between(text: str, name: str, body: str) -> str:
     return f"{before}{start}\n{body}\n{end}{after}"
 
 
+def round_down(value: int, step: int) -> int:
+    return (int(value) // step) * step
+
+
 def headline_total(data: dict) -> int:
     """정확한 합계 대신 내림한 라운드 숫자만 노출합니다."""
     step = int(data["meta"]["display_rules"]["headline_round_down_to"])
-    return (int(data["kpis"]["core_outcomes_total"]) // step) * step
+    return round_down(data["kpis"]["core_career_academic_outcomes"], step)
 
 
-def split_industries(data: dict) -> tuple[list[tuple[str, int]], int]:
-    """표시 최소 건수 미만 산업은 하나의 '기타' 묶음으로 합칩니다(재식별 방지)."""
-    rules = data["meta"]["display_rules"]
-    floor = int(rules["industry_min_display_outcomes"])
-    named = [(row["industry"], int(row["outcomes"])) for row in data["industry_stats"] if int(row["outcomes"]) >= floor]
-    other = sum(int(row["outcomes"]) for row in data["industry_stats"] if int(row["outcomes"]) < floor)
-    named.sort(key=lambda row: row[1], reverse=True)
-    if other:
-        named.append((rules["industry_other_label"], other))
-    return named, floor
-
-
-def render_kpis(data: dict, compact: bool = False) -> str:
-    k = data["kpis"]
-    cells = [
-        (f'{k["employment_outcomes"]}건', "확인된 취업·경력 사례"),
-        (f'{k["graduate_study_outcomes"]}건', "확인된 대학원 진학 사례"),
-        (f'{k["undergraduate_progression_outcomes"]}건', "2+2·학부 연계 학업 경로"),
-    ]
-    if not compact:
-        cells.append((f'{k["employment_countries"]}개국', "취업·경력이 확인된 국가"))
-    items = "".join(f"<div class=\"co-kpi\"><b>{esc(v)}</b><span>{esc(label)}</span></div>" for v, label in cells)
-    wide = "" if compact else " co-kpis-4"
-    return f'<div class="co-kpis{wide}">{items}</div>'
-
-
-def render_headline_kpis(data: dict) -> str:
-    return (
-        f'<p class="co-headline">{headline_total(data)}건+의 취업·진학·학업 경로를 확인했습니다.</p>'
-        f"{render_kpis(data)}"
-    )
+def employer_count_display(data: dict) -> str:
+    """정확한 기업 수 대신 내림한 라운드 숫자만 노출합니다."""
+    step = int(data["meta"]["display_rules"]["employer_count_round_down_to"])
+    return f"{round_down(data['kpis']['unique_employer_organizations'], step)}곳+"
 
 
 def render_chips(names: list[str]) -> str:
@@ -110,95 +90,92 @@ def render_bars(rows: list[tuple[str, int]]) -> str:
     return '<div class="co-bars">' + "".join(bars) + "</div>"
 
 
+def render_headline_kpis(data: dict, compact: bool = False) -> str:
+    k = data["kpis"]
+    cells = [
+        (f'{k["career_outcomes"]}건', "확인된 취업·경력 Outcome"),
+        (f'{k["graduate_study_outcomes"]}건', "확인된 대학원 진학 Outcome"),
+        (f'{k["further_study_transfer_exchange_outcomes"]}건', "편입·후속학업·교환"),
+    ]
+    if not compact:
+        cells.append((employer_count_display(data), "확인된 기업·기관"))
+    items = "".join(f"<div class=\"co-kpi\"><b>{esc(v)}</b><span>{esc(label)}</span></div>" for v, label in cells)
+    wide = "" if compact else " co-kpis-4"
+    return (
+        f'<p class="co-headline">{headline_total(data)}건+의 취업·대학원·후속학업 경로를 확인했습니다.</p>'
+        f'<div class="co-kpis{wide}">{items}</div>'
+    )
+
+
 def render_summary(data: dict) -> str:
     copy = data["copy"]
-    industries, _ = split_industries(data)
-    preview = data.get("employers_featured") or data["employers_primary"][:SUMMARY_EMPLOYER_PREVIEW]
-    unknown = [name for name in preview if name not in data["employers_primary"]]
-    if unknown:
-        raise SystemExit("employers_featured는 employers_primary의 부분집합이어야 합니다: " + ", ".join(unknown))
+    industries = [(row["sector"], int(row["outcomes"])) for row in data["industry_stats"]]
+    industries.sort(key=lambda row: row[1], reverse=True)
+    preview = data["employers"].get("featured") or data["employers"]["logo_wall"][:SUMMARY_EMPLOYER_PREVIEW]
     return (
         f'<section class="section alt" id="alumni-careers" aria-labelledby="alumni-careers-title">'
         f'<h2 id="alumni-careers-title">{esc(copy["section_title"])}</h2>'
-        f'<p class="lead">{esc(copy["intro"])} 아래는 XJTLU가 발표하는 공식 통계와는 별개로, TNS가 개별적으로 확인한 동문 사례를 집계한 결과입니다.</p>'
-        f'<p class="co-headline">{headline_total(data)}건+의 취업·진학·학업 경로를 확인했습니다.</p>'
-        f"{render_kpis(data, compact=True)}"
+        f'<p class="lead">{esc(copy["intro"])}</p>'
+        f'<p class="co-scope">{esc(data["meta"]["scope"])}</p>'
+        f"{render_headline_kpis(data, compact=True)}"
         f'<p class="co-sub">확인된 주요 취업·경력 기업</p>'
         f"{render_chips(preview)}"
-        f'<p class="co-note">재직 중인 경력과 과거 경력이 함께 포함되어 있습니다. 그 외 확인된 기업과 기업별 분포는 상세 페이지에서 확인할 수 있습니다.</p>'
-        f'<p class="co-sub">많이 확인된 진출 산업</p>'
+        f'<p class="co-note">{esc(copy["employer_caveat"])}</p>'
+        f'<p class="co-sub">확인된 진출 산업</p>'
         f"{render_bars(industries[:SUMMARY_INDUSTRY_PREVIEW])}"
-        f'<a class="co-more" href="{DETAIL_URL}">XJTLU 동문 취업 현황 자세히 보기 →</a>'
+        f'<a class="co-more" href="{DETAIL_URL}">XJTLU 한국인 진로 사례 자세히 보기 →</a>'
         f"</section>"
     )
 
 
 def render_employers(data: dict) -> str:
     copy = data["copy"]
-    secondary = "".join(f"<li>{esc(name)}</li>" for name in data["employers_secondary"])
+    emp = data["employers"]
+    text_list = "".join(f"<li>{esc(name)}</li>" for name in emp["text_list"])
+    group_chips = render_chips(emp["group_only_labels"])
     return (
-        f"{render_chips(data['employers_primary'])}"
+        f"{render_chips(emp['logo_wall'])}"
         f'<p class="co-sub">그 외 확인된 기업·기관</p>'
-        f'<ul class="co-textlist">{secondary}</ul>'
+        f'<ul class="co-textlist">{text_list}</ul>'
+        f'<p class="co-sub">이름 대신 분야로만 표시하는 소규모·특수 기관</p>'
+        f"{group_chips}"
         f'<p class="co-note">{esc(copy["employer_caveat"])}</p>'
     )
 
 
 def render_industry(data: dict) -> str:
-    industries, floor = split_industries(data)
-    return (
-        f"{render_bars(industries)}"
-        f'<p class="co-note">각 막대는 확인된 취업·경력 사례 건수입니다. 사례가 {floor}건 미만인 분야는 개인 식별 가능성을 줄이기 위해 '
-        f'{esc(data["meta"]["display_rules"]["industry_other_label"])}로 묶어 표시했습니다.</p>'
-    )
-
-
-def render_region(data: dict) -> str:
-    cells = []
-    for row in data["region_stats"]:
-        count = row["display_count"]
-        value = f'{count}건' if count else "소수 사례"
-        note = "확인된 사례" if count else "숫자 비공개"
-        cells.append(
-            f'<div class="co-region"><strong>{esc(row["region"])}</strong>'
-            f"<b>{esc(value)}</b><span>{esc(note)}</span></div>"
-        )
-    countries = "".join(f'<span class="co-chip">{esc(name)}</span>' for name in data["countries_observed"])
-    return (
-        f'<div class="co-regions">{"".join(cells)}</div>'
-        f'<p class="co-sub">취업·경력이 확인된 국가</p>'
-        f'<div class="co-chips">{countries}</div>'
-        f'<p class="co-note">{esc(data["copy"]["region_caveat"])}</p>'
-    )
+    industries = [(row["sector"], int(row["outcomes"])) for row in data["industry_stats"]]
+    industries.sort(key=lambda row: row[1], reverse=True)
+    return f"{render_bars(industries)}"
 
 
 def render_patterns(data: dict) -> str:
     cards = "".join(
         '<article class="co-pattern">'
-        f'<span>PATTERN {index:02d}</span>'
-        f'<strong>{esc(row["major_group"])} → {esc(row["destination_field"])}</strong>'
+        f'<span>{esc(row["title"])}</span>'
+        f'<strong>{esc(row["copy"])}</strong>'
         "</article>"
-        for index, row in enumerate(data["career_patterns"], start=1)
+        for row in data["safe_marketing_highlights"]
     )
-    return (
-        f'<div class="co-patterns">{cards}</div>'
-        f'<p class="co-note">{esc(data["copy"]["pattern_caveat"])}</p>'
-    )
+    return f'<div class="co-patterns">{cards}</div>'
 
 
 def render_graduate(data: dict) -> str:
-    pathways = "".join(
-        f'<div class="co-region"><strong>{esc(row["label"])}</strong>'
-        f'<b>{int(row["outcomes"])}건</b><span>확인된 사례</span></div>'
-        for row in data.get("academic_pathways", [])
+    copy = data["copy"]
+    further = "".join(
+        '<div class="co-region">'
+        f'<strong>{esc(row["category"])}</strong>'
+        f"{render_chips(row['institutions'])}"
+        "</div>"
+        for row in data["further_academic_pathways"]
     )
-    block = (
+    return (
         f"{render_chips(data['graduate_destinations'])}"
-        f'<p class="co-note">대학별 진학 인원수는 공개하지 않으며, 위 대학 목록은 앞의 취업·경력 집계와는 연결되지 않은 별도의 집계입니다.</p>'
+        f'<p class="co-note">{esc(copy["graduate_caveat"])}</p>'
+        f'<p class="co-sub">Further Academic Pathways — 편입·후속학업·교환</p>'
+        f'<div class="co-regions co-regions-further">{further}</div>'
+        f'<p class="co-note">{esc(copy["further_caveat"])}</p>'
     )
-    if pathways:
-        block += f'<p class="co-sub">학부 단계 학업 연계 경로</p><div class="co-regions">{pathways}</div>'
-    return block
 
 
 def render_method(data: dict) -> str:
@@ -206,6 +183,7 @@ def render_method(data: dict) -> str:
     return (
         f'<div class="notice"><p style="margin:0 0 12px">{esc(copy["methodology"])}</p>'
         f'<p style="margin:0">{esc(copy["privacy"])}</p></div>'
+        f'<p class="co-note">인턴십 {data["kpis"]["internship_outcomes_separate"]}건은 위 취업·경력 Outcome과 별도로 확인되었으며 취업 KPI에는 합산하지 않았습니다.</p>'
         f'<p class="co-note">기준일 {esc(data["meta"]["as_of"])} · 집계 주체 {esc(data["meta"]["publisher"])}</p>'
     )
 
@@ -217,7 +195,6 @@ def build(data: dict) -> dict[str, dict[str, str]]:
             "CAREER_KPI": render_headline_kpis(data),
             "CAREER_EMPLOYERS": render_employers(data),
             "CAREER_INDUSTRY": render_industry(data),
-            "CAREER_REGION": render_region(data),
             "CAREER_PATTERNS": render_patterns(data),
             "CAREER_GRADUATE": render_graduate(data),
             "CAREER_METHOD": render_method(data),

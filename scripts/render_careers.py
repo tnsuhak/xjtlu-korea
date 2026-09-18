@@ -138,7 +138,7 @@ def render_employers(data: dict) -> str:
     tier3 = "".join(f"<li>{esc(name)}</li>" for name in emp["tier3"])
     group_chips = render_chips(emp["group_only_labels"])
     fold_body = (
-        '<p class="co-sub">좋은 글로벌·전문기업</p>'
+        '<p class="co-sub">글로벌·전문기업</p>'
         + tier2
         + '<p class="co-sub">그 외 확인된 기업·기관</p>'
         + f'<ul class="co-textlist">{tier3}</ul>'

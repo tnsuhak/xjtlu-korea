@@ -121,7 +121,7 @@ def render_summary(data: dict) -> str:
         f'<p class="co-sub">확인된 주요 취업·경력 기업</p>'
         f"{render_chips(preview)}"
         f'<p class="co-note">{esc(copy["employer_caveat"])}</p>'
-        f'<p class="co-sub">확인된 진출 산업</p>'
+        f'<p class="co-sub">확인된 진출 분야</p>'
         f"{render_bars(industries[:SUMMARY_INDUSTRY_PREVIEW])}"
         f'<a class="co-more" href="{DETAIL_URL}">XJTLU 한국인 진로 사례 자세히 보기 →</a>'
         f"</section>"

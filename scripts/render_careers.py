@@ -141,7 +141,7 @@ def render_employers(data: dict) -> str:
         + tier2
         + '<p class="co-sub">그 외 확인된 기업·기관</p>'
         + f'<ul class="co-textlist">{tier3}</ul>'
-        + '<p class="co-sub">기타 확인된 진출 분야</p>'
+        + '<p class="co-sub">확인된 진출 분야</p>'
         + group_chips
     )
     return (

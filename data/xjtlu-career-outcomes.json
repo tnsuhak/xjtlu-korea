@@ -27,7 +27,6 @@
     "tier1": [
       "AMOREPACIFIC",
       "Alibaba Group Korea",
-      "Align Technology / 인비절라인",
       "BNK 부산은행",
       "Bosch",
       "ByteDance / TikTok",
@@ -53,9 +52,18 @@
       "이랜드그룹",
       "롯데그룹",
       "PharmaResearch / 리쥬란",
-      "World Vision Korea / 월드비전"
+      "World Vision Korea / 월드비전",
+      "UN 훈련기구",
+      "UN 개발기구",
+      "대사관·재외공관",
+      "PwC",
+      "하나은행",
+      "카카오그룹",
+      "법무법인 율촌"
     ],
     "tier2": [
+      "Align Technology / 인비절라인",
+      "Wrtn / 뤼튼",
       "Kenvue",
       "Medtronic",
       "Pirelli",
@@ -95,7 +103,6 @@
       "Tech 기업",
       "Tech·AI 스타트업",
       "Tech·금융서비스",
-      "UN 산하기구",
       "건설업",
       "건축·설계 기업",
       "건축·엔지니어링",
@@ -118,7 +125,6 @@
       "자동차·제조",
       "자동차부품 기업",
       "자동화·제조",
-      "재외공관",
       "전문가 네트워크·컨설팅",
       "제약장비 기업",
       "제조업",
@@ -232,7 +238,7 @@
     },
     {
       "title": "국제·공공 분야",
-      "copy": "UN 산하기구, 재외공관, KOTRA / 대한무역투자진흥공사, NGO 등 국제·공공 분야 진출 사례가 확인됩니다."
+      "copy": "UN 훈련·개발기구, 대사관·재외공관, KOTRA / 대한무역투자진흥공사, NGO 등 국제·공공 분야 진출 사례가 확인됩니다."
     },
     {
       "title": "대학원 진학",

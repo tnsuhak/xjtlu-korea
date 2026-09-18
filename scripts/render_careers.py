@@ -88,7 +88,6 @@ def render_bars(rows: list[tuple[str, int]]) -> str:
             '<div class="co-bar">'
             f'<span class="co-bar-label">{esc(label)}</span>'
             f'<span class="co-bar-track"><span class="co-bar-fill" style="width:{width}%"></span></span>'
-            f'<span class="co-bar-val">{value}건</span>'
             "</div>"
         )
     return '<div class="co-bars">' + "".join(bars) + "</div>"

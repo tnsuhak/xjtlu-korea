@@ -170,18 +170,16 @@ def render_patterns(data: dict) -> str:
 
 def render_graduate(data: dict) -> str:
     copy = data["copy"]
-    further = "".join(
-        '<div class="co-region">'
-        f'<strong>{esc(row["category"])}</strong>'
-        f"{render_chips(row['institutions'])}"
-        "</div>"
-        for row in data["further_academic_pathways"]
-    )
+    further_institutions = []
+    for row in data["further_academic_pathways"]:
+        for institution in row["institutions"]:
+            if institution not in further_institutions:
+                further_institutions.append(institution)
     return (
         f"{render_chips(data['graduate_destinations'])}"
         f'<p class="co-note">{esc(copy["graduate_caveat"])}</p>'
-        f'<p class="co-sub">Further Academic Pathways — 편입·후속학업·교환</p>'
-        f'<div class="co-regions co-regions-further">{further}</div>'
+        f'<p class="co-sub">편입·교환 학업</p>'
+        f"{render_chips(further_institutions)}"
         f'<p class="co-note">{esc(copy["further_caveat"])}</p>'
     )
 

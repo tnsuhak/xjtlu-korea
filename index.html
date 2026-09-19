@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>시안교통리버풀대학교(XJTLU) 한국어 입학 안내 | 입학조건·학비·장학금 | TNS유학</title>
@@ -16,10 +17,14 @@
 <meta property="og:title" content="시안교통리버풀대학교(XJTLU) 한국어 입학 안내 | TNS유학">
 <meta property="og:description" content="영국 리버풀대학교 복수학위 · 영어 중심 전공교육 · 상하이 30분. 2027년 학비 99,000위안, 얼리버드 10% 할인. 한국 내신으로 지원 가능합니다.">
 <meta property="og:url" content="https://xjtlu-korea.netlify.app/">
+<meta property="og:image" content="https://xjtlu-korea.netlify.app/gallery-tower.webp">
+<meta property="og:image:alt" content="시안교통리버풀대학교 XJTLU 쑤저우 캠퍼스">
+<meta property="og:image:type" content="image/webp">
 <meta property="og:locale" content="ko_KR">
 
 <!-- Twitter Card -->
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xjtlu-korea.netlify.app/gallery-tower.webp">
 <meta name="twitter:title" content="시안교통리버풀대학교(XJTLU) 한국어 입학 안내">
 <meta name="twitter:description" content="영국 리버풀대학교 복수학위 · 영어 중심 전공교육 · 2027년 학비 99,000위안">
 
@@ -185,7 +190,7 @@ body { font-family:'Noto Sans KR',sans-serif; color:#111; background:#fff; overf
 }
 .hero-badge::before { content:'●'; color:var(--gold); font-size:7px; }
 h1.hero-title {
-  font-size:clamp(40px,5vw,66px); font-weight:900; line-height:1.18;
+  font-size:clamp(48px,6vw,82px); font-weight:900; line-height:1.12;
   color:#fff; margin-bottom:20px; letter-spacing:-.02em;
 }
 h1.hero-title em { font-style:normal; color:var(--gold); }
@@ -280,6 +285,59 @@ h1.hero-title em { font-style:normal; color:var(--gold); }
 .video-wrap.on .yt-frame { display:block; }
 .yt-link { margin-top:12px; text-align:right; font-family:'DM Mono',monospace; font-size:11px; }
 .yt-link a { color:var(--gold); text-decoration:none; }
+@media(max-width:760px){
+  .campus-tour-section{padding:32px 0 28px!important;}
+  .campus-tour-inner>.label,
+  .campus-tour-inner>.sec-h,
+  .campus-tour-inner>.sec-p{margin-left:20px!important;margin-right:20px!important;}
+  .campus-tour-section .video-wrap{width:100%;margin-top:20px;}
+}
+
+/* ── ROOM GRID (dedicated, always 2×2) ── */
+.room-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  border:1px solid #e8e8e8; background:#fff; margin-top:48px;
+}
+.room-card { padding:30px 26px; border-right:1px solid #e8e8e8; border-bottom:1px solid #e8e8e8; }
+.room-card:nth-child(2n) { border-right:none; }
+.room-card:nth-last-child(-n+2) { border-bottom:none; }
+.room-title { font-size:16px; font-weight:700; color:var(--navy); margin-bottom:8px; }
+.room-body { font-size:13px; line-height:1.8; color:var(--mid); font-weight:300; }
+@media(max-width:560px){ .room-card { padding:22px 18px; } }
+
+/* ── GUIDE CARDS ── */
+.guide-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  border:1px solid #e8e8e8; background:#fff; margin-top:48px;
+}
+.guide-card {
+  display:block; padding:30px 26px; border-right:1px solid #e8e8e8; border-bottom:1px solid #e8e8e8;
+  text-decoration:none; position:relative; overflow:hidden; transition:background .2s;
+}
+.guide-card:nth-child(3n) { border-right:none; }
+.guide-card:nth-last-child(-n+3) { border-bottom:none; }
+.guide-card::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:3px;
+  background:var(--gold); transform:scaleX(0); transform-origin:left; transition:transform .35s;
+}
+.guide-card:hover::after { transform:scaleX(1); }
+.guide-card:hover { background:var(--cream); }
+.guide-title { font-size:16px; font-weight:700; color:var(--navy); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between; gap:8px; }
+.guide-title .arr { color:var(--gold); font-weight:700; transition:transform .2s; }
+.guide-card:hover .guide-title .arr { transform:translateX(3px); }
+.guide-body { font-size:13px; line-height:1.8; color:var(--mid); font-weight:300; }
+@media(max-width:960px){
+  .guide-grid { grid-template-columns:1fr 1fr; }
+  .guide-card:nth-child(3n) { border-right:1px solid #e8e8e8; }
+  .guide-card:nth-child(2n) { border-right:none; }
+  .guide-card:nth-last-child(-n+3) { border-bottom:1px solid #e8e8e8; }
+  .guide-card:nth-last-child(-n+2) { border-bottom:none; }
+}
+@media(max-width:560px){
+  .guide-grid { grid-template-columns:1fr; }
+  .guide-card { border-right:none !important; border-bottom:1px solid #e8e8e8; }
+  .guide-card:last-child { border-bottom:none; }
+}
 
 /* ── MAJORS ── */
 .major-grid {
@@ -303,12 +361,11 @@ h1.hero-title em { font-style:normal; color:var(--gold); }
 
 /* ── GALLERY ── */
 .gallery {
-  display:grid; grid-template-columns:1fr 1fr 1fr;
-  grid-template-rows:240px 240px; gap:6px;
+  display:grid; grid-template-columns:repeat(4,1fr);
+  grid-template-rows:220px; gap:6px;
   padding:0 40px 80px; max-width:1280px; margin:0 auto;
 }
 .gi { position:relative; overflow:hidden; }
-.gi:first-child { grid-column:span 2; }
 .gi img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s; }
 .gi:hover img { transform:scale(1.04); }
 .gi-cap {
@@ -440,7 +497,7 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
   .nav-ham { display:flex; }
   .hero-inner { grid-template-columns:1fr; padding:0 20px; }
   .hero-stats { display:none; }
-  h1.hero-title { font-size:clamp(36px,8vw,52px); }
+  h1.hero-title { font-size:clamp(42px,9vw,60px); }
   .sec { padding:56px 20px; }
   .feat-grid { grid-template-columns:1fr 1fr; }
   .feat-card:nth-child(2) { border-right:none; }
@@ -450,8 +507,7 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
   .major-grid { grid-template-columns:1fr 1fr; }
   .mc:nth-child(3n) { border-right:1px solid var(--rule); }
   .mc:nth-child(2n) { border-right:none; }
-  .gallery { grid-template-columns:1fr 1fr; grid-template-rows:160px 160px 160px; padding:0 20px 56px; }
-  .gi:first-child { grid-column:span 2; }
+  .gallery { grid-template-columns:1fr 1fr; grid-template-rows:170px 170px; padding:0 20px 56px; }
   .adm-grid { grid-template-columns:1fr; }
   .adm:nth-child(2n) { border-right:none; }
   .adm:nth-last-child(-n+2) { border-bottom:1px solid var(--rule); }
@@ -461,8 +517,13 @@ footer { background:#0a0d18; padding:52px 40px 36px; }
   .cta { padding:56px 20px; }
   footer { padding:40px 20px 32px; }
   .ft { flex-direction:column; }
-  #floatBtns { bottom:16px; right:12px; }
+  #floatBtns { bottom:calc(12px + env(safe-area-inset-bottom,0px)); right:10px; flex-direction:row; gap:6px; }
+  .fb-btn { width:42px; height:42px; font-size:9px; }
   #mobileNav { display:none; }
+}
+@media(max-width:400px){
+  #floatBtns { right:6px; gap:5px; }
+  .fb-btn { width:38px; height:38px; font-size:8px; }
 }
 
 /* 모바일 입학 그리드 */
@@ -626,12 +687,30 @@ html{scroll-padding-top:118px}
   .review-feature-caption{padding:13px 14px;min-height:0}
 }
 /* TNS STUDENT REVIEW FEATURE END */
+
+/* TNS NEWS SECTION START */
+#news .news-head-row{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:28px}
+#news .news-all{display:inline-flex;align-items:center;gap:8px;color:var(--navy);font-size:13px;font-weight:800;text-decoration:none;white-space:nowrap;border-bottom:1px solid #cfd5df;padding-bottom:4px}
+#news .news-all:hover{color:#8b6a1f;border-color:var(--gold)}
+#news .home-news-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+#news .news-card{background:#fff;border:1px solid #e4e7ec;padding:22px 20px;display:flex;flex-direction:column;min-height:250px;box-shadow:0 5px 16px rgba(20,33,61,.04)}
+#news .news-meta{font-family:'DM Mono',monospace;font-size:9.5px;line-height:1.5;color:#9a7827;margin-bottom:10px}
+#news .news-card h3{font-size:16px;line-height:1.5;margin:0 0 10px}
+#news .news-card h3 a{color:var(--navy);text-decoration:none}
+#news .news-card h3 a:hover{color:#8b6a1f}
+#news .news-card p{font-size:12.5px;line-height:1.65;color:#667085;margin:0 0 16px}
+#news .news-more{margin-top:auto;color:var(--navy);font-size:12px;font-weight:800;text-decoration:none}
+#news .news-empty{grid-column:1/-1;background:#fff;border:1px dashed #cbd5e1;padding:32px;text-align:center;color:#667085;font-size:13px}
+@media(max-width:980px){#news .home-news-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){#news .news-head-row{align-items:flex-start;flex-direction:column;gap:10px;margin-bottom:20px}#news .home-news-grid{grid-template-columns:1fr}#news .news-card{min-height:0;padding:19px 17px}}
+/* TNS NEWS SECTION END */
+
 </style>
 </head>
 <body>
 
 <div id="topbar">
-  <span>📍 영국·중국 조인트 벤처 대학교 한국어 입학 안내 · TNS월드와이드</span>
+  <span>📍 XJTLU 한국 공식 대표 · TNS Worldwide</span>
   <span>
     <a href="tel:02-3288-1733">☎ 02-3288-1733</a> &nbsp;·&nbsp; <a href="tel:010-5150-0105">📱 010-5150-0105</a>
     &nbsp;·&nbsp;
@@ -649,13 +728,14 @@ html{scroll-padding-top:118px}
   </a>
   <ul class="nav-links">
     <li><a href="#information">학교소개</a></li>
-    <li><a href="#major">전공안내</a></li>
+    <li><a href="#admission">입학·편입</a></li>
     <li><a href="#calendar">학비·장학금</a></li>
-    <li><a href="#rooms">숙소</a></li>
-    <li><a href="#admission">입학안내</a></li>
-    <li><a href="#reviews">학생 후기</a></li>
+    <li><a href="#major">전공·진로</a></li>
+    <li><a href="#campus-life">학생생활</a></li>
+    <li><a href="#reviews">학생후기</a></li>
+    <li><a href="#news">뉴스</a></li>
     <li><button type="button" class="nav-menu-btn" onclick="openSiteMenu()" aria-controls="siteMenu" aria-expanded="false">전체 메뉴 <span class="nav-menu-icon">☰</span></button></li>
-    
+
   </ul>
   <button class="nav-ham" id="hamBtn" onclick="openSiteMenu()" aria-controls="siteMenu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -664,7 +744,7 @@ html{scroll-padding-top:118px}
 
 <div id="mobileNav">
   <div class="mob-group-title">MAIN PAGE</div>
-  <a href="#information">학교소개</a><a href="#major">전공안내</a><a href="#calendar">학비·장학금</a><a href="#rooms">숙소</a><a href="#campus-life">캠퍼스생활</a><a href="#admission">입학안내</a><a href="#reviews">재학생후기</a>
+  <a href="#information">학교소개</a><a href="#admission">입학·편입</a><a href="#calendar">학비·장학금</a><a href="#major">전공·진로</a><a href="#campus-life">학생생활</a><a href="#reviews">학생후기</a><a href="#news">뉴스</a>
   <div class="mob-group-title">DETAIL GUIDES</div>
   <a class="mob-detail" href="xjtlu-admission-requirements-korea-2027.html">2027 입학조건·편입</a>
   <a class="mob-detail" href="xjtlu-tuition-scholarships-2027.html">2027 학비·장학금</a>
@@ -672,7 +752,9 @@ html{scroll-padding-top:118px}
   <a class="mob-detail" href="xjtlu-dual-degree-liverpool-2plus2.html">리버풀대학교 복수학위·2+2</a>
   <a class="mob-detail" href="xjtlu-exchange.html">XJTLU 교환학생</a>
   <a class="mob-detail" href="xjtlu-suzhou-china-life.html">XJTLU 쑤저우 소개</a>
-    <a class="mob-detail" href="xjtlu-programmes-careers-graduate-destinations.html">전공·진로·대학원 진학</a>
+    <a class="mob-detail" href="xjtlu-undergraduate-programmes.html">전공 전체 보기</a>
+  <a class="mob-detail" href="xjtlu-graduate-destinations-careers.html">졸업 후 진로·대학원 진학</a>
+  <a class="mob-detail" href="xjtlu-alumni-careers.html">한국학생 취업·진로 통계</a>
   <a class="mob-detail" href="xjtlu-accommodation-sip-taicang.html">SIP·Taicang 숙소 상세</a>
   <a class="mob-detail" href="xjtlu-sports-facilities.html">스포츠·헬스장 시설</a>
   <a class="mob-detail" href="xjtlu-clubs-student-organisations.html">동아리·학생단체</a>
@@ -688,12 +770,12 @@ html{scroll-padding-top:118px}
     </div>
     <div class="site-menu-grid">
       <section class="site-menu-group"><h3><a href="#information">학교소개 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-dual-degree-liverpool-2plus2.html">리버풀대학교 복수학위·2+2</a><a href="xjtlu-exchange.html">XJTLU 교환학생</a><a href="xjtlu-suzhou-china-life.html">XJTLU 쑤저우 소개</a></section>
-      <section class="site-menu-group"><h3><a href="#major">전공안내 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-programmes-careers-graduate-destinations.html">전공·진로·대학원 진학</a></section>
+      <section class="site-menu-group"><h3><a href="#admission">입학·편입 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-admission-requirements-korea-2027.html">2027 한국학생 입학조건·편입</a></section>
       <section class="site-menu-group"><h3><a href="#calendar">학비·장학금 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-tuition-scholarships-2027.html">2027 학비·장학금 상세</a><a href="xjtlu-living-cost-2027.html">XJTLU 생활비 2027</a></section>
-      <section class="site-menu-group"><h3><a href="#rooms">숙소 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-accommodation-sip-taicang.html">SIP·Taicang 숙소·기숙사</a></section>
-      <section class="site-menu-group"><h3><a href="#campus-life">캠퍼스생활 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-sports-facilities.html">스포츠·헬스장 시설</a><a href="xjtlu-clubs-student-organisations.html">동아리·학생단체</a></section>
-      <section class="site-menu-group"><h3><a href="#admission">입학안내 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-admission-requirements-korea-2027.html">2027 한국학생 입학조건·편입</a></section>
-      <section class="site-menu-group"><h3><a href="#reviews">재학생후기 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-student-videos.html">XJTLU 학생 후기 영상 모음</a></section>
+      <section class="site-menu-group"><h3><a href="#major">전공·진로 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-undergraduate-programmes.html">전공 전체 보기</a><a href="xjtlu-graduate-destinations-careers.html">졸업 후 진로·대학원 진학</a><a href="xjtlu-alumni-careers.html">한국학생 취업·진로 통계</a></section>
+      <section class="site-menu-group"><h3><a href="#campus-life">학생생활 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-accommodation-sip-taicang.html">SIP·Taicang 숙소·기숙사</a><a href="xjtlu-suzhou-china-life.html">XJTLU 쑤저우 소개</a><a href="xjtlu-sports-facilities.html">스포츠·헬스장 시설</a><a href="xjtlu-clubs-student-organisations.html">동아리·학생단체</a></section>
+      <section class="site-menu-group"><h3><a href="#reviews">학생후기 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-student-videos.html">XJTLU 학생 후기 영상 모음</a></section>
+      <section class="site-menu-group"><h3><a href="#news">뉴스 <small>메인에서 보기 →</small></a></h3><a href="/news/">XJTLU 최신 뉴스 전체 보기</a></section>
       <section class="site-menu-group"><h3><a href="#contact">입학문의 <small>메인에서 보기 →</small></a></h3><p>입학조건·학비·전공·숙소 상담은 TNS유학에서 안내합니다.</p><div class="site-menu-cta"><a class="kakao" href="https://open.kakao.com/o/slehLvKi" target="_blank" rel="noopener">카카오톡 상담</a><a class="phone" href="tel:01051500105">전화상담</a></div></section>
     </div>
   </div>
@@ -706,21 +788,21 @@ html{scroll-padding-top:118px}
   <div class="hero-inner">
     <div class="fi">
       <div class="hero-badge">중국·영국 공동 설립 · 영국 리버풀대학교 복수학위</div>
-      <h1 class="hero-title">시안교통<br><em>리버풀</em>대학교<span style="font-size:0.35em;display:block;color:rgba(255,255,255,.55);font-weight:400;letter-spacing:.08em;margin:8px 0 0;">(XJTLU)</span></h1>
+      <h1 class="hero-title">시안교통<br><em>리버풀</em>대학교<span style="font-size:0.42em;display:block;color:rgba(255,255,255,.55);font-weight:400;letter-spacing:.08em;margin:10px 0 0;">(XJTLU)</span></h1>
       <p class="hero-desc">
         영국 리버풀대학교와 중국 시안교통대학교가 설립한 중국 최대 조인트 벤처 대학.
         전공과정 영어 강의, 영국 리버풀대학교 학위, 상하이에서 고속철로 약 30분 거리.
         <em>Xi'an Jiaotong-Liverpool University · Suzhou, China</em>
       </p>
       <div class="hero-btns">
-        <a href="#contact" class="btn-gold" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'});">입학 상담 신청 →</a>
-        <a href="#information" class="btn-ghost">학교 둘러보기</a>
+        <a href="xjtlu-admission-requirements-korea-2027.html" class="btn-gold">2027 입학조건 보기 →</a>
+        <a href="https://open.kakao.com/o/slehLvKi" target="_blank" rel="noopener" class="btn-ghost">카카오톡 상담 →</a>
       </div>
     </div>
     <div class="fi d2">
       <div class="hero-stats">
         <div class="hs"><div class="hs-n">26,000<sup>+</sup></div><div class="hs-l">재학생 · 93개 국가·지역</div></div>
-        <div class="hs"><div class="hs-n">51</div><div class="hs-l">학부 전공</div></div>
+        <div class="hs"><div class="hs-n">52</div><div class="hs-l">학부 전공</div></div>
         <div class="hs"><div class="hs-n">EN</div><div class="hs-l">영어 중심 전공교육</div></div>
         <div class="hs"><div class="hs-n">47.16<sup>%</sup></div><div class="hs-l">2025 세계 TOP10 대학 진학</div></div>
       </div>
@@ -734,7 +816,6 @@ html{scroll-padding-top:118px}
     <p class="label">ABOUT XJTLU</p>
     <h2 class="sec-h">학교소개</h2>
     <p class="sec-p">시안교통리버풀대학교(XJTLU)는 <strong>영국 리버풀대학교</strong>와 <strong>중국 시안교통대학교</strong>가 2006년 공동 설립한 중국 내 최대 규모의 조인트 벤처 대학입니다. 2026년 5월 기준 <strong>26,000명 이상</strong>이 93개 국가·지역에서 재학하고 있으며, 전공과정은 영어로 진행됩니다(일부 일반·기초과목 제외).</p>
-    <p class="sec-p">XJTLU의 2025년 졸업생 진로 통계에 따르면 <strong>86.43%</strong>가 세계 유수 대학에서 학업을 이어갈 계획이었고, <strong>47.16%</strong>가 세계 상위 10위권 대학에 진학했습니다.</p>
     <div class="feat-grid fi d1">
       <div class="feat-card"><div class="feat-num">01</div><h3 class="feat-title">영어 중심 전공교육</h3><p class="feat-body">전공과정은 영어로 진행되며 일부 일반·기초과목은 예외입니다.</p></div>
       <div class="feat-card"><div class="feat-num">02</div><h3 class="feat-title">복수 학위 취득</h3><p class="feat-body">일반적인 학부과정 기준 XJTLU와 영국 리버풀대학교 학위를 함께 취득합니다.</p></div>
@@ -769,8 +850,8 @@ html{scroll-padding-top:118px}
 </div>
 
 <!-- 유튜브 -->
-<div style="background:var(--navy);padding:40px 40px 32px;" class="fi">
-  <div style="max-width:1200px;margin:0 auto;">
+<div style="background:var(--navy);padding:40px 40px 32px;" class="fi campus-tour-section">
+  <div class="campus-tour-inner" style="max-width:1200px;margin:0 auto;">
     <p class="label" style="color:var(--gold-lt);">CAMPUS TOUR</p>
     <h2 class="sec-h" style="color:#fff;">캠퍼스 영상으로 먼저 만나보세요</h2>
     <p class="sec-p" style="color:rgba(255,255,255,.45);">클릭하면 재생됩니다.</p>
@@ -782,50 +863,66 @@ html{scroll-padding-top:118px}
   </div>
 </div>
 
+<!-- ====== 한국학생 핵심 가이드 ====== -->
+<div class="sec-alt" id="guide">
+  <div class="sec fi">
+    <p class="label">KOREAN STUDENT GUIDE</p>
+    <h2 class="sec-h">한국학생 핵심 가이드</h2>
+    <p class="sec-p">궁금한 주제를 바로 클릭하면 자세한 안내 페이지로 이동합니다.</p>
+    <div class="guide-grid fi d1">
+      <a class="guide-card" href="xjtlu-admission-requirements-korea-2027.html">
+        <div class="guide-title">2027 입학조건·편입 <span class="arr">→</span></div>
+        <div class="guide-body">한국 내신·해외고 졸업생 입학 요건과 2/3학년 편입 조건을 확인하세요.</div>
+      </a>
+      <a class="guide-card" href="xjtlu-tuition-scholarships-2027.html">
+        <div class="guide-title">2027 학비·장학금 <span class="arr">→</span></div>
+        <div class="guide-body">연간 학비, 얼리버드·입학·진급 장학금 조건을 자세히 안내합니다.</div>
+      </a>
+      <a class="guide-card" href="xjtlu-undergraduate-programmes.html">
+        <div class="guide-title">학부 전공 안내 <span class="arr">→</span></div>
+        <div class="guide-body">전공별 학위와 소속 단과대학, 대표 전공 분야를 확인하세요.</div>
+      </a>
+      <a class="guide-card" href="xjtlu-dual-degree-liverpool-2plus2.html">
+        <div class="guide-title">리버풀대학교 복수학위·2+2 <span class="arr">→</span></div>
+        <div class="guide-body">영국 리버풀대학교로 이어지는 2+2 프로그램과 복수학위 취득 방법을 안내합니다.</div>
+      </a>
+      <a class="guide-card" href="xjtlu-accommodation-sip-taicang.html">
+        <div class="guide-title">숙소 안내 <span class="arr">→</span></div>
+        <div class="guide-body">SIP·Taicang 캠퍼스 기숙사 요금과 생활 여건을 한눈에 확인하세요.</div>
+      </a>
+      <a class="guide-card" href="xjtlu-suzhou-china-life.html">
+        <div class="guide-title">쑤저우 생활 <span class="arr">→</span></div>
+        <div class="guide-body">상하이에서 30분 거리인 쑤저우의 생활 환경과 캠퍼스 주변 인프라를 소개합니다.</div>
+      </a>
+    </div>
+  </div>
+</div>
+
 <!-- ====== 전공안내 ====== -->
 <div id="major">
   <div class="sec fi">
     <p class="label">DEPARTMENTS</p>
     <h2 class="sec-h">전공안내</h2>
-    <p class="sec-p">총 전공 : 학사(Undergraduate) 51개 · 석사(Master's) 약 57개 · 박사(PhD) 17개</p>
-    <p class="sec-p">아래 전공은 학사 전공들 중 추천드리는 전공 일부 입니다.</p>
+    <p class="sec-p">총 전공 : 학사(Undergraduate) 52개 · 석사(Master's) 약 57개 · 박사(PhD) 17개</p>
+    <p class="sec-p">52개 학부 전공을 6개 분야로 묶어 대표 전공을 소개합니다.</p>
     <div class="major-grid fi d1">
-      <div class="mc"><div class="mc-s">BUSINESS</div><div class="mc-n">Accounting</div><div class="mc-d">BA (Hons)</div></div>
-      <div class="mc"><div class="mc-s">SCIENCE</div><div class="mc-n">Applied Chemistry</div><div class="mc-d">BSc (Hons)</div></div>
-      <div class="mc"><div class="mc-s">CIVIL ENGINEERING</div><div class="mc-n">Architecture</div><div class="mc-d">BEng (Hons)</div></div>
-      <div class="mc"><div class="mc-s">COMPUTER SCIENCE</div><div class="mc-n">Artificial Intelligence</div><div class="mc-d">BEng (Hons)</div></div>
-      <div class="mc"><div class="mc-s">FILM &amp; TV ARTS</div><div class="mc-n">Arts, Technology &amp; Entertainment</div><div class="mc-d">BA (Hons)</div></div>
-      <div class="mc"><div class="mc-s">SCIENCE</div><div class="mc-n">Biomedical Sciences</div><div class="mc-d">BSc (Hons)</div></div>
-      <div class="mc"><div class="mc-s">SCIENCE</div><div class="mc-n">Biopharmaceuticals</div><div class="mc-d">BSc (Hons)</div></div>
-      <div class="mc"><div class="mc-s">BUSINESS SCHOOL</div><div class="mc-n">Business Administration</div><div class="mc-d">BA (Hons)</div></div>
-      <div class="mc"><div class="mc-s">HUMANITIES</div><div class="mc-n">China Studies</div><div class="mc-d">BA (Hons)</div></div>
-      <div class="mc"><div class="mc-s">COMPUTER SCIENCE</div><div class="mc-n">Computer Science &amp; Technology</div><div class="mc-d">BEng (Hons)</div></div>
-      <div class="mc"><div class="mc-s">ENTREPRENEUR COLLEGE</div><div class="mc-n">Data Science &amp; Big Data Technology</div><div class="mc-d">BEng (Hons)</div></div>
-      <div class="mc"><div class="mc-s">BUSINESS SCHOOL</div><div class="mc-n">Digital &amp; Intelligent Marketing</div><div class="mc-d">BA (Hons)</div></div>
-      <div class="mc"><div class="mc-s">FILM &amp; TV ARTS</div><div class="mc-n">Digital Media Arts</div><div class="mc-d">BA (Hons)</div></div>
-      <div class="mc"><div class="mc-s">BUSINESS SCHOOL</div><div class="mc-n">Economics</div><div class="mc-d">BSc (Hons)</div></div>
-      <div class="mc"><div class="mc-s">BUSINESS SCHOOL</div><div class="mc-n">Economics and Finance</div><div class="mc-d">BSc (Hons)</div></div>
-      <div class="mc"><div class="mc-s">ENGINEERING</div><div class="mc-n">Electrical Engineering</div><div class="mc-d">BEng (Hons)</div></div>
-      <div class="mc"><div class="mc-s">FILM &amp; TV ARTS</div><div class="mc-n">Filmmaking</div><div class="mc-d">BA (Hons)</div></div>
-      <div class="mc"><div class="mc-s">DESIGN</div><div class="mc-n">Industrial Design</div><div class="mc-d">BEng (Hons)</div></div>
-      <div class="mc"><div class="mc-s">ENGINEERING</div><div class="mc-n">Intelligent Robotics Engineering</div><div class="mc-d">BEng (Hons)</div></div>
-      <div class="mc"><div class="mc-s">BUSINESS SCHOOL</div><div class="mc-n">International Business with a Language</div><div class="mc-d">BA (Hons)</div></div>
-      <div class="mc"><div class="mc-s">HUMANITIES</div><div class="mc-n">International Relations</div><div class="mc-d">BA (Hons)</div></div>
-      <div class="mc"><div class="mc-s">HUMANITIES</div><div class="mc-n">Media &amp; Communication Studies</div><div class="mc-d">BA (Hons)</div></div>
-      <div class="mc"><div class="mc-s">FILM &amp; TV ARTS</div><div class="mc-n">TV Production</div><div class="mc-d">BA (Hons)</div></div>
-      <div class="mc"><div class="mc-s">CIVIL ENGINEERING</div><div class="mc-n">Urban Planning and Design</div><div class="mc-d">BA (Hons)</div></div>
+      <div class="mc"><div class="mc-s">BUSINESS SCHOOL</div><div class="mc-n">경영·경제 (Business Administration, Economics and Finance 등)</div><div class="mc-d">BA/BSc (Hons)</div></div>
+      <div class="mc"><div class="mc-s">COMPUTER SCIENCE</div><div class="mc-n">AI·컴퓨터공학 (Artificial Intelligence, Computer Science &amp; Technology 등)</div><div class="mc-d">BEng (Hons)</div></div>
+      <div class="mc"><div class="mc-s">ENGINEERING</div><div class="mc-n">공학 (Electrical Engineering, Intelligent Robotics Engineering 등)</div><div class="mc-d">BEng (Hons)</div></div>
+      <div class="mc"><div class="mc-s">LIFE SCIENCE / PSYCHOLOGY</div><div class="mc-n">생명과학·심리학 (Biomedical Sciences, Psychology, Biopharmaceuticals 등)</div><div class="mc-d">BSc (Hons)</div></div>
+      <div class="mc"><div class="mc-s">HUMANITIES</div><div class="mc-n">인문·미디어 (International Relations, Media &amp; Communication Studies 등)</div><div class="mc-d">BA (Hons)</div></div>
+      <div class="mc"><div class="mc-s">DESIGN / FILM &amp; TV ARTS</div><div class="mc-n">디자인·영상 (Industrial Design, Filmmaking, Digital Media Arts 등)</div><div class="mc-d">BA/BEng (Hons)</div></div>
     </div>
-    <div class="related-links" aria-label="이 내용과 관련된 상세 가이드"><span class="related-label">관련 글</span><a class="related-link" href="xjtlu-programmes-careers-graduate-destinations.html">전공·대학원 진학·졸업 후 진로<span class="arr">→</span></a></div>
+    <div class="related-links" aria-label="전공 전체 보기"><a class="related-link" href="xjtlu-undergraduate-programmes.html">전공 전체 보기<span class="arr">→</span></a><a class="related-link" href="xjtlu-graduate-destinations-careers.html">졸업 후 진로·대학원 진학<span class="arr">→</span></a></div>
   </div>
 </div>
 
 <!-- 갤러리 -->
 <div class="gallery fi">
   <div class="gi"><img src="https://xjtlu-korea.netlify.app/gallery-ibss.webp" loading="lazy" alt="사우스캠퍼스"><div class="gi-cap">INT'L BUSINESS SCHOOL · IBSS</div></div>
-  <div class="gi"><img src="https://xjtlu-korea.netlify.app/video-thumb.webp" loading="lazy" alt="타워"><div class="gi-cap">ADMINISTRATION TOWER</div></div>
   <div class="gi"><img src="https://xjtlu-korea.netlify.app/gallery-campus.webp" loading="lazy" alt="캠퍼스"><div class="gi-cap">CAMPUS PROMENADE</div></div>
-  <div class="gi"><img src="https://xjtlu-korea.netlify.app/hero-bg.webp" loading="lazy" alt="타이창캠퍼스"><div class="gi-cap">TAICANG CAMPUS · AERIAL VIEW</div></div>
   <div class="gi"><img src="https://xjtlu-korea.netlify.app/gallery-student.webp" loading="lazy" alt="학생생활" style="object-position:center top;"><div class="gi-cap">STUDENT LIFE</div></div>
+  <div class="gi"><img src="https://xjtlu-korea.netlify.app/gallery-taicang.webp" loading="lazy" alt="타이창 캠퍼스"><div class="gi-cap">TAICANG CAMPUS · AERIAL</div></div>
 </div>
 
 <!-- ====== 학비·장학금 ====== -->
@@ -847,7 +944,7 @@ html{scroll-padding-top:118px}
         <p class="adm-p"><b>입학 장학금:</b> 최대 50% <span style="color:var(--gold);font-size:12px;">(신청 마감 4월 30일)</span></p>
         <p class="adm-p"><b>진급 장학금:</b> 매년 성적 기준 지급</p>
         <p class="adm-p"><b>리버풀 2+2 할인:</b> 영국 학비 10% 할인</p>
-        <p class="adm-p"><b>기숙사비:</b> 월 약 1,700위안 (약 38만원)</p>
+        <p class="adm-p"><b>기숙사비:</b> 월 약 1,700위안 (약 35만원)</p>
       </div>
 
     </div>
@@ -860,40 +957,13 @@ html{scroll-padding-top:118px}
   <div class="sec fi">
     <p class="label">ACCOMMODATION</p>
     <h2 class="sec-h">숙소안내</h2>
-    <p class="sec-p">XJTLU는 다양한 기숙사 옵션을 제공합니다. 월 약 1,700위안(약 38만원)의 합리적인 비용으로 거주할 수 있습니다.</p>
-    <div style="margin-top:40px;overflow-x:auto;">
-        <h3 class="adm-h" style="margin-bottom:16px;">📍 SIP 캠퍼스 (쑤저우)</h3>
-        <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;"><table style="width:100%;min-width:480px;border-collapse:collapse;font-size:13px;">
-          <thead><tr style="background:var(--navy);color:#fff;">
-            <th style="padding:10px 10px;text-align:left;font-weight:600;width:22%;">기숙사명</th>
-            <th style="padding:10px 10px;text-align:center;font-weight:600;width:22%;">요금(일)</th>
-            <th style="padding:10px 10px;text-align:center;font-weight:600;width:26%;">월 환산</th>
-            <th style="padding:10px 10px;text-align:left;font-weight:600;width:30%;">특징</th>
-          </tr></thead>
-          <tbody>
-            <tr style="border-bottom:1px solid var(--rule);"><td style="padding:10px 14px;font-weight:500;">Parfait International</td><td style="padding:10px 14px;text-align:center;color:var(--navy);font-weight:700;">57 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 1만 2,500원</span></td><td style="padding:10px 14px;text-align:center;">1,710 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 37만 6천원</span></td><td style="padding:8px 10px;color:var(--mid);word-break:keep-all;">1인실+공용주방, 개인화장실</td></tr>
-            <tr style="border-bottom:1px solid var(--rule);background:#fafafa;"><td style="padding:10px 14px;font-weight:500;">Parfait Hotel &amp; Apt</td><td style="padding:10px 14px;text-align:center;color:var(--navy);font-weight:700;">80~90 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 1만 8천원</span></td><td style="padding:10px 14px;text-align:center;">2,400~2,700 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 53~60만원</span></td><td style="padding:8px 10px;color:var(--mid);word-break:keep-all;">스튜디오/더블룸, 발코니</td></tr>
-            <tr style="border-bottom:1px solid var(--rule);"><td style="padding:10px 14px;font-weight:500;">MBA Apartments</td><td style="padding:10px 14px;text-align:center;color:var(--navy);font-weight:700;">50~54 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 1만 1천원</span></td><td style="padding:10px 14px;text-align:center;">1,500~1,620 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 33~36만원</span></td><td style="padding:8px 10px;color:var(--mid);word-break:keep-all;">3인 공용, 공용화장실</td></tr>
-            <tr style="border-bottom:1px solid var(--rule);background:#fafafa;"><td style="padding:10px 14px;font-weight:500;">Scholar's Apartments</td><td style="padding:10px 14px;text-align:center;color:var(--navy);font-weight:700;">85~102 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 2만원</span></td><td style="padding:10px 14px;text-align:center;">2,550~3,060 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 56~67만원</span></td><td style="padding:8px 10px;color:var(--mid);word-break:keep-all;">스튜디오/1베드, 세탁기 포함</td></tr>
-            <tr><td style="padding:10px 14px;font-weight:500;">Wenhua Apartments</td><td style="padding:10px 14px;text-align:center;color:var(--navy);font-weight:700;">57~62 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 1만 3천원</span></td><td style="padding:10px 14px;text-align:center;">1,710~1,860 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 37~41만원</span></td><td style="padding:8px 10px;color:var(--mid);word-break:keep-all;">1인실, 개인화장실·발코니</td></tr>
-          </tbody>
-        </table></div>
-        <h3 class="adm-h" style="margin:28px 0 16px;">📍 Taicang 캠퍼스 (타이창)</h3>
-        <table style="width:100%;border-collapse:collapse;font-size:13px;">
-          <thead><tr style="background:var(--navy);color:#fff;">
-            <th style="padding:10px 14px;text-align:left;font-weight:600;">타입</th>
-            <th style="padding:10px 14px;text-align:center;font-weight:600;">연간</th>
-            <th style="padding:10px 14px;text-align:center;font-weight:600;">월 환산</th>
-            <th style="padding:10px 14px;text-align:left;font-weight:600;">특징</th>
-          </tr></thead>
-          <tbody>
-            <tr style="border-bottom:1px solid var(--rule);"><td style="padding:10px 14px;font-weight:500;">2인실 (1인당)</td><td style="padding:10px 14px;text-align:center;color:var(--navy);font-weight:700;">6,000 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 132만원</span></td><td style="padding:10px 14px;text-align:center;">650 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 14만 3천원</span></td><td style="padding:10px 14px;color:var(--mid);">교내 기숙사</td></tr>
-            <tr style="background:#fafafa;"><td style="padding:10px 14px;font-weight:500;">1인실</td><td style="padding:10px 14px;text-align:center;color:var(--navy);font-weight:700;">14,000 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 310만원</span></td><td style="padding:10px 14px;text-align:center;">1,500 RMB<br><span style="font-size:10px;font-weight:400;color:var(--mid);">약 33만원</span></td><td style="padding:10px 14px;color:var(--mid);">교내 기숙사</td></tr>
-          </tbody>
-        </table>
-        <p style="font-size:11px;color:var(--mid);margin-top:10px;font-family:'DM Mono',monospace;">* 요금 변동 가능 · 결제: WeChat / Alipay / 카드(VISA·MC·JCB·Amex)</p>
-<div class="related-links" aria-label="이 내용과 관련된 상세 가이드"><span class="related-label">관련 글</span><a class="related-link" href="xjtlu-accommodation-sip-taicang.html">SIP·Taicang 숙소·기숙사<span class="arr">→</span></a></div>
-      </div>
+    <div class="room-grid fi d1">
+      <div class="room-card"><h3 class="room-title">SIP 캠퍼스 숙소</h3><p class="room-body">국제학생 아파트 기준, 주요 객실 유형은 월 약 1,700위안(약 35만원)부터입니다.</p></div>
+      <div class="room-card"><h3 class="room-title">Taicang 교내 기숙사</h3><p class="room-body">2인실 연 6,000위안(약 122만원), 1인실 연 14,000위안(약 285만원) 수준입니다.</p></div>
+      <div class="room-card"><h3 class="room-title">객실·생활시설</h3><p class="room-body">개인 화장실, 공용주방, 발코니, 세탁기 등 시설 구성은 숙소 유형별로 다릅니다.</p></div>
+      <div class="room-card"><h3 class="room-title">비용·거리 비교</h3><p class="room-body">캠퍼스까지 거리, 가격, 시설을 상세 가이드에서 한눈에 비교할 수 있습니다.</p></div>
+    </div>
+    <div class="related-links" aria-label="이 내용과 관련된 상세 가이드"><span class="related-label">관련 글</span><a class="related-link" href="xjtlu-accommodation-sip-taicang.html">SIP·Taicang 숙소 자세히 보기<span class="arr">→</span></a></div>
   </div>
 </div>
 
@@ -902,8 +972,8 @@ html{scroll-padding-top:118px}
 <div class="sec-alt" id="campus-life">
   <div class="sec fi">
     <p class="label">CAMPUS LIFE</p>
-    <h2 class="sec-h">운동하고, 만들고, 사람을 만나는 대학생활</h2>
-    <p class="sec-p">XJTLU는 수업 외에도 스포츠 시설과 학생 동아리 활동이 활발합니다. 실내외 체육시설을 이용하거나 학술·예술·스포츠·봉사 동아리에 참여하면서 캠퍼스 생활을 넓힐 수 있습니다.</p>
+    <h2 class="sec-h">쑤저우에서 운동하고, 만들고, 사람을 만나는 대학생활</h2>
+    <p class="sec-p">XJTLU 캠퍼스는 상하이에서 고속철로 약 30분 거리인 쑤저우에 위치합니다. 수업 외에도 스포츠 시설과 학생 동아리 활동이 활발해 실내외 체육시설을 이용하거나 학술·예술·스포츠·봉사 동아리에 참여하면서 캠퍼스 생활을 넓힐 수 있습니다.</p>
     <div class="related-links" aria-label="캠퍼스 생활 상세 가이드"><span class="related-label">관련 글</span><a class="related-link" href="xjtlu-sports-facilities.html">스포츠 시설·이용 안내<span class="arr">→</span></a><a class="related-link" href="xjtlu-clubs-student-organisations.html">215개 동아리·학생단체 전체 보기<span class="arr">→</span></a></div>
   </div>
 </div>
@@ -923,15 +993,7 @@ html{scroll-padding-top:118px}
     <p class="adm-p"><b>1학년 입학:</b> 한국 고교 졸업 + 내신 5등급 또는 70% 이상, 관련 과목도 동일 기준</p>
     <p class="adm-p"><b>2학년 편입:</b> 대학교 1학년 이상 이수 후 과목·성적·전공 적합성 개별 심사 (B+ 이상 권장)</p>
     <p class="adm-p"><b>3학년 편입:</b> 대학교 2~3학년 이상 이수 후 학점·동일/유사 전공 여부 개별 심사 (B+ 이상 권장)</p>
-    <br>
-    <h3 class="adm-h">해외고 졸업생</h3>
-    <p class="adm-p">아래 조건 충족 시 2학년 지원 가능 (약간 부족할 시 1학년 입학 가능)</p>
-    <ul class="adm-ul">
-      <li>A-level: BBB</li>
-      <li>IB Diploma: 30 points</li>
-      <li>GPA 3.0/4.0 이상 + AP 3개 (각 4점 이상)</li>
-      <li>GPA 3.0/4.0 이상 + SAT 1280 or ACT 27 + AP 2개 (각 4점 이상)</li>
-    </ul>
+    <p class="adm-p" style="margin-top:10px;">해외고(A-level·IB·AP 등) 졸업생 지원 조건은 상세 페이지에서 확인하세요.</p>
   </div>
 
   <!-- 오른쪽: 02 -->
@@ -949,11 +1011,24 @@ html{scroll-padding-top:118px}
   </div>
 
   <!-- 03 -->
-  <div style="padding:40px 36px;grid-column:1/-1;">
+  <div style="padding:40px 36px;border-right:1px solid var(--rule);">
     <div class="adm-num">03</div>
     <h3 class="adm-h">영어 성적 요건</h3>
     <p class="adm-p"><b>1학년 신입학:</b> IELTS 5.0 (각 영역 4.5 이상)</p>
     <p class="adm-p"><b>2/3학년 편입학:</b> IELTS 6.5 (각 영역 5.5 이상)</p>
+  </div>
+
+  <!-- 04 -->
+  <div style="padding:40px 36px;">
+    <div class="adm-num">04</div>
+    <h3 class="adm-h">2027 주요 변경사항</h3>
+    <ul class="adm-ul" style="margin-top:8px;">
+      <li>1학년 지원: 전 전공 인터뷰·포트폴리오 없음</li>
+      <li>Architecture: 1학년 지원 시 수학 필수 아님</li>
+      <li>SAT·ACT: 입학조건 충족 용도로 인정하지 않음</li>
+      <li>미국 고교 졸업자: 2학년 진입 시 AP 3과목 필요</li>
+    </ul>
+    <p class="adm-p" style="margin-top:14px;">2027학년도부터 적용되는 주요 변경사항입니다.</p>
   </div>
 
 </div>
@@ -986,19 +1061,38 @@ html{scroll-padding-top:118px}
 </div>
 
 
+<!-- ====== 최신 뉴스 ====== -->
+<div class="sec-alt" id="news">
+  <div class="sec fi">
+    <div class="news-head-row">
+      <div>
+        <p class="label">XJTLU NEWS</p>
+        <h2 class="sec-h">XJTLU 최신 소식</h2>
+        <p class="sec-p">XJTLU 공식 발표 중 한국 학생과 학부모에게 필요한 입학·전공·진로·한국 협력 소식을 선별해 정리합니다.</p>
+      </div>
+      <a class="news-all" href="/news/">뉴스 전체 보기 →</a>
+    </div>
+    <div class="home-news-grid">
+<!-- NEWS_ITEMS_START -->
+<article class="news-card"><div class="news-meta">2026-09-01 · 전공·학부 개편</div><h3><a href="/news/xjtlu-aiat-aolns-restructured-academies-2026.html">XJTLU, AI·컴퓨터와 생명·약학 계열 학부 조직 새로 개편</a></h3><p>XJTLU가 AI·컴퓨터·전자전기 계열과 생명과학·약학 계열의 학부 조직을 크게 재편했습니다. 전공이 단순히 없어지거나 이름만 바뀐 것이 아니라, 인접 학문과 연구자원을 한 조직 안에서 더 연결하려는 개편입니다.</p><a class="news-more" href="/news/xjtlu-aiat-aolns-restructured-academies-2026.html">기사 자세히 보기 →</a></article>
+<article class="news-card"><div class="news-meta">2026-07-27 · 학위·졸업</div><h3><a href="/news/class-of-2026-dual-degree-graduation.html">XJTLU 2026 학부 졸업생 3,797명, 리버풀대 학위도 함께 받아</a></h3><p>2026년 XJTLU 학부 졸업생 3,797명은 XJTLU 학위와 영국 리버풀대학교 학사 학위를 함께 받았습니다. 이번 졸업 결과는 XJTLU의 복수학위가 실제로 어떻게 적용되는지 보여주는 대표적인 사례입니다.</p><a class="news-more" href="/news/class-of-2026-dual-degree-graduation.html">기사 자세히 보기 →</a></article>
+<article class="news-card"><div class="news-meta">2026-05-26 · 한국협력·도시계획</div><h3><a href="/news/xjtlu-seoul-suwon-un-habitat-smart-city-report.html">XJTLU·서울대, 수원 스마트도시 공동연구 발표…UN-Habitat도 참여</a></h3><p>XJTLU와 서울대학교가 중심이 되어 수원의 스마트도시 정책을 분석한 국제 공동연구가 공개됐습니다. 핵심은 ‘스마트 기술을 얼마나 많이 썼는가’보다 그 기술이 시민 생활을 실제로 개선했는지를 평가하는 것입니다.</p><a class="news-more" href="/news/xjtlu-seoul-suwon-un-habitat-smart-city-report.html">기사 자세히 보기 →</a></article>
+<article class="news-card"><div class="news-meta">2026-04-17 · 한국협력·도시계획</div><h3><a href="/news/xjtlu-suwon-smart-inclusive-transition-forum-2026.html">XJTLU, 수원 스마트도시 포럼 참가…서울대와 공동연구 발표</a></h3><p>XJTLU Design School은 2026년 4월 수원에서 열린 스마트도시 포럼에 참가해 서울대·수원시정연구원·UN-Habitat와 진행한 공동연구 결과를 발표했습니다. 2025년 수원시와 체결한 MOU가 실제 연구와 현지…</p><a class="news-more" href="/news/xjtlu-suwon-smart-inclusive-transition-forum-2026.html">기사 자세히 보기 →</a></article>
+<!-- NEWS_ITEMS_END -->
+    </div>
+  </div>
+</div>
+
 <!-- CTA -->
 <section class="contact-panel" id="contact" style="background:#fff;color:#14213d;text-align:center;padding:38px 20px 42px;border-top:1px solid #e4e7ec">
   <div style="width:min(1120px,94vw);margin:0 auto">
     <h2 style="font-size:clamp(22px,2.4vw,30px);line-height:1.25;margin:0 0 10px;font-weight:900">입학 상담, 지금 시작하세요</h2>
     <p style="margin:0;color:#667085;font-size:11px">학력·영어 수준·희망 전공·예산에 맞춰 XJTLU 지원 전략을 안내해 드립니다.</p>
-    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;max-width:1080px;margin:20px auto 8px">
+    <div class="hub4" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;max-width:1080px;margin:20px auto 8px">
       <a href="https://open.kakao.com/o/slehLvKi" target="_blank" rel="noopener" style="min-height:88px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:#FEE500;color:#17130a;padding:12px 14px;font-size:15px;font-weight:900;text-decoration:none;border-radius:10px;box-shadow:0 8px 22px rgba(20,33,61,.06)"><span style="font-size:21px;line-height:1">💬</span><span>카톡 상담</span><span style="font-size:11px;font-weight:400;color:#6d6219">1:1 실시간 문의</span></a>
       <a href="tel:01051500105" style="min-height:88px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:#eef3f8;color:#14213d;border:1px solid #cbd5e1;padding:12px 14px;font-size:15px;font-weight:900;text-decoration:none;border-radius:10px;box-shadow:0 8px 22px rgba(20,33,61,.04)"><span style="font-size:21px;line-height:1">📞</span><span>전화 상담</span><span style="font-size:11px;font-weight:400;color:#667085">010-5150-0105</span></a>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;max-width:1080px;margin:0 auto">
-      <a href="https://cafe.naver.com/tnsuhak.cafe" target="_blank" rel="noopener" style="min-height:84px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:#03c75a;color:#fff;padding:11px 12px;font-size:15px;font-weight:900;text-decoration:none;border-radius:10px;box-shadow:0 8px 22px rgba(20,33,61,.06)"><span style="font-size:20px;line-height:1">Ⓝ</span><span>네이버 유학카페</span><span style="font-size:11px;font-weight:400;color:rgba(255,255,255,.86)">회원 44,000명</span></a>
-      <a href="https://open.kakao.com/o/gjEoJxwf" target="_blank" rel="noopener" style="min-height:84px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:#FEE500;color:#17130a;padding:11px 12px;font-size:15px;font-weight:900;text-decoration:none;border-radius:10px;box-shadow:0 8px 22px rgba(20,33,61,.06)"><span style="font-size:20px;line-height:1">💬</span><span>중국 글로벌 대학교 오픈채팅</span><span style="font-size:11px;font-weight:400;color:#6d6219">약 400여 명 참가중</span></a>
-      <a href="https://tnsuhak.com/" target="_blank" rel="noopener" style="min-height:84px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:#14213d;color:#fff;padding:11px 12px;font-size:15px;font-weight:900;text-decoration:none;border-radius:10px;box-shadow:0 8px 22px rgba(20,33,61,.08)"><span style="font-size:20px;line-height:1">🏠</span><span style="color:#e8d4a0">TNS유학 홈페이지</span><span style="font-size:11px;font-weight:400;color:#cbd3df">전체 프로그램 보기</span></a>
+      <a href="https://open.kakao.com/o/gjEoJxwf" target="_blank" rel="noopener" style="min-height:88px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:#FEE500;color:#17130a;padding:12px 14px;font-size:15px;font-weight:900;text-decoration:none;border-radius:10px;box-shadow:0 8px 22px rgba(20,33,61,.06)"><span style="font-size:20px;line-height:1">💬</span><span>오픈채팅</span><span style="font-size:11px;font-weight:400;color:#6d6219">약 400여 명 참가중</span></a>
+      <a href="https://cafe.naver.com/tnsuhak.cafe" target="_blank" rel="noopener" style="min-height:88px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:#03c75a;color:#fff;padding:12px 14px;font-size:15px;font-weight:900;text-decoration:none;border-radius:10px;box-shadow:0 8px 22px rgba(20,33,61,.06)"><span style="font-size:20px;line-height:1">Ⓝ</span><span>네이버 유학카페</span><span style="font-size:11px;font-weight:400;color:rgba(255,255,255,.86)">회원 44,000명</span></a>
     </div>
   </div>
 </section>
@@ -1019,6 +1113,7 @@ html{scroll-padding-top:118px}
     <div style="text-align:right;white-space:nowrap;align-self:end;">
       <div style="color:rgba(255,255,255,.48);font-weight:700;">TNS유학 · ㈜티앤에스월드와이드</div>
       <div>대표: 신윤옥 · 사업자등록번호: 220-87-54964</div>
+      <div style="margin-top:8px;"><a href="https://tnsuhak.com/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.35);text-decoration:underline;text-underline-offset:2px;">TNS유학 홈페이지 전체 프로그램 보기</a></div>
       <div style="margin-top:8px;">© 2026 TNS Worldwide Co., Ltd.</div>
     </div>
   </div>
@@ -1026,6 +1121,9 @@ html{scroll-padding-top:118px}
     @media(max-width:760px){
       footer>div{grid-template-columns:1fr!important;gap:22px!important}
       footer>div>div:last-child{text-align:left!important;white-space:normal!important}
+    }
+    @media(max-width:700px){
+      .hub4{grid-template-columns:repeat(2,minmax(0,1fr))!important}
     }
   </style>
 </footer>

@@ -104,7 +104,7 @@ def render_headline_kpis(data: dict, compact: bool = False) -> str:
     items = "".join(f"<div class=\"co-kpi\"><b>{esc(v)}</b><span>{esc(label)}</span></div>" for v, label in cells)
     wide = "" if compact else " co-kpis-4"
     return (
-        f'<p class="co-headline">{headline_total(data)}건+의 취업·대학원·후속학업 경로를 확인했습니다.</p>'
+        f'<p class="co-headline">{headline_total(data)}건+의 취업·진학 사례를 확인했습니다.</p>'
         f'<div class="co-kpis{wide}">{items}</div>'
     )
 
@@ -113,18 +113,17 @@ def render_summary(data: dict) -> str:
     copy = data["copy"]
     industries = [(row["sector"], int(row["outcomes"])) for row in data["industry_stats"]]
     industries.sort(key=lambda row: row[1], reverse=True)
-    preview = data["employers"]["tier1"][:SUMMARY_EMPLOYER_PREVIEW]
+    preview = data["employers"].get("summary_featured", data["employers"]["tier1"][:SUMMARY_EMPLOYER_PREVIEW])
     return (
         f'<section class="section alt" id="alumni-careers" aria-labelledby="alumni-careers-title">'
         f'<h2 id="alumni-careers-title">{esc(copy["section_title"])}</h2>'
         f'<p class="lead">{esc(copy["intro"])}</p>'
         f"{render_headline_kpis(data, compact=True)}"
-        f'<p class="co-sub">확인된 주요 취업·경력 기업</p>'
+        f'<p class="co-sub">주요 취업·경력 기업·기관</p>'
         f"{render_chips(preview)}"
-        f'<p class="co-note">{esc(copy["employer_caveat"])}</p>'
         f'<p class="co-sub">확인된 진출 분야</p>'
         f"{render_bars(industries[:SUMMARY_INDUSTRY_PREVIEW])}"
-        f'<a class="co-more" href="{DETAIL_URL}">XJTLU 한국인 진로 사례 자세히 보기 →</a>'
+        f'<a class="co-more" href="{DETAIL_URL}">한국인 취업·진로 현황 자세히 보기 →</a>'
         f"</section>"
     )
 

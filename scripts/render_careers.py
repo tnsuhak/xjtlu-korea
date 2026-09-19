@@ -20,7 +20,6 @@ BLOCKS = (
     "CAREER_KPI",
     "CAREER_EMPLOYERS",
     "CAREER_INDUSTRY",
-    "CAREER_PATTERNS",
     "CAREER_GRADUATE",
     "CAREER_METHOD",
 )
@@ -98,7 +97,7 @@ def render_headline_kpis(data: dict, compact: bool = False) -> str:
     cells = [
         (f'{k["career_outcomes"]}건', "확인된 취업·경력 사례"),
         (f'{k["graduate_study_outcomes"]}건', "확인된 대학원 진학"),
-        (f'{k["further_study_transfer_exchange_outcomes"]}건', "편입·후속학업·교환"),
+        (f'{k["further_study_transfer_exchange_outcomes"]}건', "편입·교환·추가 학업"),
     ]
     if not compact:
         cells.append((employer_count_display(data), "확인된 기업·기관"))
@@ -177,7 +176,6 @@ def render_graduate(data: dict) -> str:
                 further_institutions.append(institution)
     return (
         f"{render_chips(data['graduate_destinations'])}"
-        f'<p class="co-note">{esc(copy["graduate_caveat"])}</p>'
         f'<p class="co-sub">편입·교환 학업</p>'
         f"{render_chips(further_institutions)}"
         f'<p class="co-note">{esc(copy["further_caveat"])}</p>'
@@ -194,7 +192,6 @@ def render_method(data: dict) -> str:
     return (
         f'<div class="notice"><p style="margin:0 0 12px">{esc(copy["methodology"])}</p>'
         f'<p style="margin:0">{esc(copy["privacy"])}</p></div>'
-        f'<p class="co-note">인턴십 {data["kpis"]["internship_outcomes_separate"]}건은 위 취업·경력 사례와 별도로 확인되었으며 취업 KPI에는 합산하지 않았습니다.</p>'
         f'<p class="co-note">자료 기준일 · {esc(format_month_ko(data["meta"]["as_of"]))}</p>'
     )
 
@@ -206,7 +203,6 @@ def build(data: dict) -> dict[str, dict[str, str]]:
             "CAREER_KPI": render_headline_kpis(data),
             "CAREER_EMPLOYERS": render_employers(data),
             "CAREER_INDUSTRY": render_industry(data),
-            "CAREER_PATTERNS": render_patterns(data),
             "CAREER_GRADUATE": render_graduate(data),
             "CAREER_METHOD": render_method(data),
         },

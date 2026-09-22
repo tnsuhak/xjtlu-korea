@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "XJTLU Masters 2027 Korea - Full-time Programme Master Data",
-    "version": "2026-09-22-v7",
+    "version": "2026-09-22-v8",
     "as_of": "2026-09-22",
     "audience": "South Korean international applicants who need a Chinese student visa/residence permit for study",
     "scope": {
@@ -465,21 +465,23 @@
       "degree_type": "MSc",
       "school": "Academy of Film and Creative Technology",
       "attendance": "full_time",
-      "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus": "Taicang, Suzhou",
+      "campus_verification": "current_official_search_result_verified",
       "full_time_duration_months": 24,
       "tuition_2026_rmb_total": 200000,
       "tuition_2027_status": "pending_official_update",
-      "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_current_official_search_result",
       "ielts_academic": {
         "overall": 6.5,
         "minimum_each": 5.5
       },
       "undergraduate_background_ko": "미디어·TV·영화·예술·뉴미디어·광고·PR·게임·디지털미디어아트·미술·애니메이션·문화산업·관광·음악·박물관학·제품/시각디자인 등 문화창의산업 관련 전공",
-      "additional_requirements_ko": "관련 산업경력·포트폴리오·전문 추천서로 비표준 지원 예외 심사 가능",
+      "additional_requirements_ko": "관련 산업경력·강한 포트폴리오·전문 추천서로 비표준 지원 예외 심사 가능. 4개 Pathway: Content Producing, Creative Industries, Cultural Industries, Interactive Media",
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/cultural-and-creative-industries"
     },
     {
       "id": "computer-science-mres",
@@ -578,20 +580,22 @@
       "school": "Academy of Future Education",
       "attendance": "full_time",
       "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 24,
       "tuition_2026_rmb_total": 200000,
       "tuition_2027_status": "pending_official_update",
-      "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_current_official_search_result",
       "ielts_academic": {
         "overall": 6.5,
         "minimum_each": 6
       },
-      "undergraduate_background_ko": "전공 제한 없음. 컴퓨터·IT·교육·국제관계·HR·심리 등 다양한 배경 환영",
-      "additional_requirements_ko": null,
+      "undergraduate_background_ko": "전공 제한 없음. 컴퓨터·IT·교육·국제관계·HR·심리 등 다양한 학부 배경 환영",
+      "additional_requirements_ko": "게임기반학습·AI in Education·learning analytics·blended learning 중심",
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/digital-education"
     },
     {
       "id": "economics-and-finance-msc",
@@ -832,20 +836,22 @@
       "school": "School of Humanities and Social Sciences",
       "attendance": "full_time",
       "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 18,
       "tuition_2026_rmb_total": 180000,
       "tuition_2027_status": "pending_official_update",
-      "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_current_official_search_result",
       "ielts_academic": {
         "overall": 6.5,
         "minimum_each": 6
       },
       "undergraduate_background_ko": "국제관계·경제·비즈니스·경영 또는 유사 전공",
-      "additional_requirements_ko": null,
+      "additional_requirements_ko": "국제비즈니스와 글로벌정세·정치경제를 결합. 중국과 Yangtze River Delta 비즈니스환경 강조",
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/international-business-and-global-affairs"
     },
     {
       "id": "international-professional-practice-in-architecture-msc",
@@ -876,20 +882,20 @@
       "school": "School of Humanities and Social Sciences",
       "attendance": "full_time",
       "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 18,
       "tuition_2026_rmb_total": 180000,
       "tuition_2027_status": "pending_official_update",
       "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027_status": "pending_official_programme_page_update",
       "ielts_academic": {
         "overall": 6.5,
         "minimum_each": 6
       },
-      "undergraduate_background_ko": "국제관계·정치학·커뮤니케이션·사회학·법학·경제·역사·철학·경영·국제학·지역학 또는 유사 전공",
-      "additional_requirements_ko": null,
+      "undergraduate_background_ko": "국제관계·정치학·커뮤니케이션·사회학·법학·경제·역사·철학·경영·국제학·지역학·영어/외국어 등 관련 전공",
+      "additional_requirements_ko": "현재 공식 page Start Date가 February/September 2026으로 남아 있어 2027 업데이트 대기",
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/international-relations"
     },
     {
       "id": "investment-management-msc",
@@ -1012,20 +1018,22 @@
       "school": "School of Humanities and Social Sciences",
       "attendance": "full_time",
       "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 18,
       "tuition_2026_rmb_total": 180000,
       "tuition_2027_status": "pending_official_update",
-      "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_current_official_search_result",
       "ielts_academic": {
         "overall": 7,
         "minimum_each": 6
       },
       "undergraduate_background_ko": "커뮤니케이션·미디어·영어·영어+미디어 또는 유사 전공",
-      "additional_requirements_ko": "관련 미디어 실무경력은 필수는 아니나 강점",
+      "additional_requirements_ko": "관련 미디어 실무경력은 필수는 아니나 강점. Professional Communication과 Global Media/China 두 축",
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-media-and-communication"
     },
     {
       "id": "medicinal-chemistry-mres",

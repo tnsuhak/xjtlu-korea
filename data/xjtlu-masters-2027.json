@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "XJTLU Masters 2027 Korea - Full-time Programme Master Data",
-    "version": "2026-09-22-v5",
+    "version": "2026-09-22-v6",
     "as_of": "2026-09-22",
     "audience": "South Korean international applicants who need a Chinese student visa/residence permit for study",
     "scope": {
@@ -280,20 +280,20 @@
       "school": "Academy of Life and Natural Sciences",
       "attendance": "full_time",
       "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 24,
       "tuition_2026_rmb_total": 200000,
       "tuition_2027_status": "pending_official_update",
       "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027_status": "pending_official_programme_page_update",
       "ielts_academic": {
         "overall": 6,
         "minimum_each": 5.5
       },
       "undergraduate_background_ko": "통계·응용수학·경제 등 수학/데이터 분석 분야 또는 역학·임상의학·예방의학·의생명과학 등 보건 분야; 관련 경력도 고려",
-      "additional_requirements_ko": null,
+      "additional_requirements_ko": "Biostatistics 중심. XJTLU-JITRI joint-supervision pathway 제공",
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/applied-statistics"
     },
     {
       "id": "architectural-design-march",
@@ -302,20 +302,22 @@
       "school": "Design School",
       "attendance": "full_time",
       "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 24,
       "tuition_2026_rmb_total": 200000,
       "tuition_2027_status": "pending_official_update",
-      "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_current_official_page",
       "ielts_academic": {
         "overall": 6.5,
         "minimum_each": 5.5
       },
-      "undergraduate_background_ko": "건축(BArch/BEng/BA Hons) 또는 도시디자인·조경 등 밀접 관련 전공",
-      "additional_requirements_ko": "포트폴리오 필수. 건축 실무 인턴십은 권장",
+      "undergraduate_background_ko": "BArch/BEng/BA(Hons) Architecture 또는 도시디자인·조경 등 밀접 관련 전공",
+      "additional_requirements_ko": "포트폴리오 필수. 건축 실무 인턴십(year-out)은 권장. XJTLU Architecture 2+2+2 route는 포트폴리오 면제 가능",
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/master-of-architectural-design"
     },
     {
       "id": "artificial-intelligence-msc",
@@ -596,12 +598,14 @@
       "school": "International Business School Suzhou",
       "attendance": "full_time",
       "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 18,
       "tuition_2026_rmb_total": 180000,
       "tuition_2027_status": "pending_official_update",
-      "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_current_official_page",
       "ielts_academic": {
         "overall": 6.5,
         "minimum_each": 5.5
@@ -609,7 +613,7 @@
       "undergraduate_background_ko": "경제·금융·수학·통계 전공",
       "additional_requirements_ko": null,
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-economics-and-finance"
     },
     {
       "id": "entrepreneurship-and-innovation-msc",
@@ -710,12 +714,14 @@
       "school": "School of Mathematics and Physics",
       "attendance": "full_time",
       "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 18,
       "tuition_2026_rmb_total": 180000,
       "tuition_2027_status": "pending_official_update",
-      "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
       "ielts_academic": {
         "overall": 6.5,
         "minimum_each": 5.5
@@ -723,7 +729,7 @@
       "undergraduate_background_ko": "수학·통계·물리·공학·컴퓨터과학·금융·경제 관련 전공",
       "additional_requirements_ko": null,
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-financial-mathematics"
     },
     {
       "id": "global-education-ma",
@@ -1306,20 +1312,22 @@
       "school": "Design School",
       "attendance": "full_time",
       "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 18,
       "tuition_2026_rmb_total": 150000,
       "tuition_2027_status": "pending_official_update",
-      "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_current_official_page",
       "ielts_academic": {
         "overall": 6.5,
         "minimum_each": 5.5
       },
-      "undergraduate_background_ko": "도시계획·도시설계·건축·조경·환경디자인·인테리어·산업디자인 등 관련 전공",
-      "additional_requirements_ko": "Landscape Design 및 Urban Design pathway 지원자는 대표 프로젝트 4~8개 포트폴리오 필수",
+      "undergraduate_background_ko": "도시계획·도시설계·건축·조경·환경디자인·인테리어·산업디자인 등 관련 전공. 다른 전공도 case-by-case",
+      "additional_requirements_ko": "Urban Design 및 Landscape Design pathway는 대표 프로젝트 4~8개 포트폴리오 필수",
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-urban-planning"
     }
   ]
 }

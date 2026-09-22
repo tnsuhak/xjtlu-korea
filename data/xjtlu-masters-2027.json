@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "XJTLU Masters 2027 Korea - Full-time Programme Master Data",
-    "version": "2026-09-22-v1",
+    "version": "2026-09-22-v2",
     "as_of": "2026-09-22",
     "audience": "South Korean international applicants who need a Chinese student visa/residence permit for study",
     "scope": {
@@ -372,20 +372,22 @@
       "school": "International Business School Suzhou",
       "attendance": "full_time",
       "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 18,
       "tuition_2026_rmb_total": 180000,
       "tuition_2027_status": "pending_official_update",
-      "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
       "ielts_academic": {
         "overall": 6.5,
         "minimum_each": 5.5
       },
-      "undergraduate_background_ko": "금융·회계·경제·경영·마케팅·과학·공학 등. 계량경제·통계·OR·Python/Matlab/R/Stata 배경 선호",
-      "additional_requirements_ko": "기초 계량경제학 지식은 권장이나 필수는 아님",
+      "undergraduate_background_ko": "금융·회계·경제·경영·마케팅·과학·공학 또는 관련 전공. 계량경제학·통계·OR·Python/Matlab/R/Stata 배경 선호",
+      "additional_requirements_ko": "기초 계량경제학 지식은 권장되지만 필수는 아님",
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-business-analytics"
     },
     {
       "id": "child-development-and-family-education-ma",

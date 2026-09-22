@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "XJTLU Masters 2027 Korea - Full-time Programme Master Data",
-    "version": "2026-09-22-v4",
+    "version": "2026-09-22-v5",
     "as_of": "2026-09-22",
     "audience": "South Korean international applicants who need a Chinese student visa/residence permit for study",
     "scope": {
@@ -224,10 +224,10 @@
         "overall": 6,
         "minimum_each": 5.5
       },
-      "undergraduate_background_ko": "컴퓨터과학·컴퓨터공학·자동화·전자상거래·금융수학 등 관련 전공 또는 동등 경력",
-      "additional_requirements_ko": "관련 실무경력이 충분하면 비표준 지원도 개별 심사",
+      "undergraduate_background_ko": "Computer Science, Computer Engineering, Automation, E-commerce, Financial Mathematics 등 관련 전공 또는 동등 경험",
+      "additional_requirements_ko": "관련 실무경력이 충분한 비표준 지원자는 개별 심사 가능",
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-applied-informatics"
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/find-a-programme/masters/msc-applied-informatics"
     },
     {
       "id": "applied-linguistics-ma",
@@ -491,13 +491,13 @@
       "intake_2027": [
         "September 2027"
       ],
-      "intake_2027_status": "confirmed_on_programme_page",
+      "intake_2027_status": "confirmed_on_current_programme_page",
       "ielts_academic": {
         "overall": 6.5,
         "minimum_each": 5.5
       },
-      "undergraduate_background_ko": "컴퓨터과학 또는 관련 전공/동등 학력·경험",
-      "additional_requirements_ko": "관련 실무경력이 충분하면 개별 심사",
+      "undergraduate_background_ko": "Computer Science 또는 관련 전공. 프로그래밍·프로그램 설계 경험과 관련 실무경력은 강점",
+      "additional_requirements_ko": "BCS-accredited MRes. XJTLU-JITRI joint-supervision pathway 제공",
       "mres_full_tuition_scholarship_eligible": true,
       "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/mres-computer-science"
     },
@@ -1024,20 +1024,22 @@
       "school": "Academy of Life and Natural Sciences",
       "attendance": "full_time",
       "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 24,
       "tuition_2026_rmb_total": 200000,
       "tuition_2027_status": "pending_official_update",
-      "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
       "ielts_academic": {
         "overall": 6,
         "minimum_each": 5.5
       },
-      "undergraduate_background_ko": "제약과학·화학·화학공학·생명과학·의학·재료·제약·식품과학 등 관련 전공/경력",
-      "additional_requirements_ko": null,
+      "undergraduate_background_ko": "Pharmaceutical Sciences, Chemistry, Chemical Engineering, Biological Science, Medicine, Materials Science, Pharmaceuticals, Food Science 등 관련 전공 또는 관련 경력",
+      "additional_requirements_ko": "연구형 MRes. 3·4학기 Thesis Research Project 중심",
       "mres_full_tuition_scholarship_eligible": true,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/medicinal-chemistry"
     },
     {
       "id": "molecular-bioscience-mres",
@@ -1094,20 +1096,22 @@
       "school": "International Business School Suzhou",
       "attendance": "full_time",
       "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 18,
       "tuition_2026_rmb_total": 180000,
       "tuition_2027_status": "pending_official_update",
-      "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
       "ielts_academic": {
         "overall": 6.5,
         "minimum_each": 5.5
       },
-      "undergraduate_background_ko": "전공 제한 없음. 경영·공학·수학·과학 및 유사 전공/경력 선호",
-      "additional_requirements_ko": "기준 미달 시 관련 실무경력을 포함해 개별 심사",
+      "undergraduate_background_ko": "학부 전공 제한 없음. Management, Engineering, Mathematics, Science 또는 관련 배경/경력 선호",
+      "additional_requirements_ko": "표준 입학요건 미충족 시 충분한 관련 실무경력을 바탕으로 개별 심사 가능",
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-operations-and-supply-chain-management"
     },
     {
       "id": "pattern-recognition-and-intelligent-systems-mres",
@@ -1184,20 +1188,22 @@
       "school": "International Business School Suzhou",
       "attendance": "full_time",
       "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 18,
       "tuition_2026_rmb_total": 180000,
       "tuition_2027_status": "pending_official_update",
-      "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
       "ielts_academic": {
         "overall": 6.5,
         "minimum_each": 5.5
       },
-      "undergraduate_background_ko": "전공 제한 없음",
-      "additional_requirements_ko": null,
+      "undergraduate_background_ko": "학부 전공 제한 없음. Science/Engineering 배경은 선호될 수 있음",
+      "additional_requirements_ko": "IPMA ICB4 표준에 맞춘 Project Management 과정. 관련 경력은 필수 아님",
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-project-management"
     },
     {
       "id": "social-computing-msc",

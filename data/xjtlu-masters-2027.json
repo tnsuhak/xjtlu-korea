@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "XJTLU Masters 2027 Korea - Full-time Programme Master Data",
-    "version": "2026-09-22-v9",
+    "version": "2026-09-22-v10",
     "as_of": "2026-09-22",
     "audience": "South Korean international applicants who need a Chinese student visa/residence permit for study",
     "scope": {
@@ -98,20 +98,22 @@
       "school": "School of Mathematics and Physics",
       "attendance": "full_time",
       "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 18,
       "tuition_2026_rmb_total": 150000,
       "tuition_2027_status": "pending_official_update",
-      "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
       "ielts_academic": {
         "overall": 6.5,
         "minimum_each": 5.5
       },
       "undergraduate_background_ko": "수학·응용수학·통계·데이터사이언스·금융·보험 등 수학 관련 전공",
-      "additional_requirements_ko": "관련 경력·포트폴리오·추천서 등 추가 강점이 있으면 예외 심사 가능",
+      "additional_requirements_ko": "SOA UCAP-AC accredited. 관련 경력·포트폴리오·추천서 등 추가 강점이 있으면 예외 심사 가능",
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/actuarial-science"
     },
     {
       "id": "advanced-chemical-sciences-mres",
@@ -133,7 +135,7 @@
         "minimum_each": 5.5
       },
       "undergraduate_background_ko": "화학·화학공학·재료과학·의약화학 또는 관련 전공",
-      "additional_requirements_ko": null,
+      "additional_requirements_ko": "Advanced Chemical Sciences 또는 Computational Chemistry pathway. XJTLU-JITRI joint-supervision pathway 제공. MRes 전액학비 장학 심사 가능",
       "mres_full_tuition_scholarship_eligible": true,
       "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/mres-advanced-chemical-sciences"
     },
@@ -157,7 +159,7 @@
         "minimum_each": 5.5
       },
       "undergraduate_background_ko": "전기·기계·제조·로봇·산업공학 또는 관련 전공",
-      "additional_requirements_ko": null,
+      "additional_requirements_ko": "2학년 전체를 산업 연구 dissertation에 집중. MRes 전액학비 장학 심사 가능",
       "mres_full_tuition_scholarship_eligible": true,
       "official_programme_url": "https://www.xjtlu.edu.cn/en/study-category/masters"
     },
@@ -934,20 +936,22 @@
       "school": "Academy of Artificial Intelligence and Advanced Technology",
       "attendance": "full_time",
       "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 24,
       "tuition_2026_rmb_total": 200000,
       "tuition_2027_status": "pending_official_update",
-      "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
       "ielts_academic": {
         "overall": 6,
         "minimum_each": 5.5
       },
       "undergraduate_background_ko": "전기공학·전자과학/기술·통신·컴퓨터·수학·반도체물리·자동화/제어·임베디드·열공학 등 관련 전공",
-      "additional_requirements_ko": null,
+      "additional_requirements_ko": "Power Systems 또는 Semiconductor pathway. 12개월 연구프로젝트. MRes 전액학비 장학 심사 가능",
       "mres_full_tuition_scholarship_eligible": true,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/low-carbon-electrical-power-and-energy-technology"
     },
     {
       "id": "materials-science-and-engineering-mres",
@@ -1297,7 +1301,7 @@
         "minimum_each": 5.5
       },
       "undergraduate_background_ko": "전기공학·전자과학/기술·통신·컴퓨터·수학·반도체물리·자동화/제어·임베디드·열공학 등 관련 전공",
-      "additional_requirements_ko": null,
+      "additional_requirements_ko": "XJTLU-JITRI joint-supervision pathway 제공. Renewable energy·smart grid·power electronics 중심",
       "mres_full_tuition_scholarship_eligible": false,
       "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-sustainable-energy-technology"
     },

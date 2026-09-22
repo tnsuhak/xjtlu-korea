@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "XJTLU Masters 2027 Korea - Full-time Programme Master Data",
-    "version": "2026-09-22-v10",
+    "version": "2026-09-22-v11",
     "as_of": "2026-09-22",
     "audience": "South Korean international applicants who need a Chinese student visa/residence permit for study",
     "scope": {
@@ -170,20 +170,20 @@
       "school": "School of CHIPS",
       "attendance": "full_time",
       "campus": "Taicang, Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 24,
       "tuition_2026_rmb_total": 200000,
       "tuition_2027_status": "pending_official_update",
       "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027_status": "pending_official_programme_page_update",
       "ielts_academic": {
         "overall": 6,
         "minimum_each": 5.5
       },
       "undergraduate_background_ko": "전기전자·재료과학·공학 또는 관련 전공",
-      "additional_requirements_ko": null,
+      "additional_requirements_ko": "현재 공식 Start Date는 February/September 2026. Semiconductor Materials and Devices, Advanced Microfabrication Technology, 2개 학기 Industrial Research Dissertation 중심. MRes 전액학비 장학 심사 가능",
       "mres_full_tuition_scholarship_eligible": true,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/mres-advanced-microelectronic-technology-and-materials"
     },
     {
       "id": "advanced-robotics-systems-msc",
@@ -192,20 +192,20 @@
       "school": "School of Robotics",
       "attendance": "full_time",
       "campus": "Taicang, Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 24,
       "tuition_2026_rmb_total": 200000,
       "tuition_2027_status": "pending_official_update",
       "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027_status": "pending_official_programme_page_update",
       "ielts_academic": {
         "overall": 6,
         "minimum_each": 5.5
       },
       "undergraduate_background_ko": "전기·기계·제조·로봇·산업공학·컴퓨터과학 또는 관련 전공",
-      "additional_requirements_ko": null,
+      "additional_requirements_ko": "현재 공식 Start Date는 February/September 2026. Advanced Robotics Technologies, Applied Robotics Technologies, Leadership, Technopreneurship 4개 Pathway 및 industrial immersion 구조",
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-in-advanced-robotics-systems"
     },
     {
       "id": "applied-informatics-msc",
@@ -262,20 +262,22 @@
       "school": "School of Mathematics and Physics",
       "attendance": "full_time",
       "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 18,
       "tuition_2026_rmb_total": 180000,
       "tuition_2027_status": "pending_official_update",
-      "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
       "ielts_academic": {
         "overall": 6.5,
         "minimum_each": 5.5
       },
-      "undergraduate_background_ko": "수학 또는 관련 전공",
-      "additional_requirements_ko": null,
+      "undergraduate_background_ko": "수학 또는 수학 비중이 높은 관련 전공",
+      "additional_requirements_ko": "PDE·numerical optimisation·scientific computing 중심, 20-credit dissertation research 포함",
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-applied-mathematics"
     },
     {
       "id": "applied-statistics-msc",
@@ -1113,7 +1115,7 @@
         "minimum_each": 5.5
       },
       "undergraduate_background_ko": "통신공학·전자과학/기술·전기공학·컴퓨터과학/기술 등 관련 전공",
-      "additional_requirements_ko": null,
+      "additional_requirements_ko": "4G/5G/6G·multimedia coding/transmission과 deep learning·computer vision을 결합",
       "mres_full_tuition_scholarship_eligible": false,
       "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/multimedia-telecommunications"
     },
@@ -1161,7 +1163,7 @@
         "minimum_each": 5.5
       },
       "undergraduate_background_ko": "디지털미디어기술·전기공학·컴퓨터과학/기술·소프트웨어공학·로봇시스템 등 관련 전공",
-      "additional_requirements_ko": "관련 과목 성적 또는 산업경력이 강한 경우 일부 2:2 상당도 고려 가능",
+      "additional_requirements_ko": "Pattern Recognition·Computer Vision·Machine Intelligence·Intelligent Systems 중심. 1년 research project 및 XJTLU-JITRI joint-supervision pathway",
       "mres_full_tuition_scholarship_eligible": true,
       "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/pattern-recognition-and-intelligent-systems"
     },

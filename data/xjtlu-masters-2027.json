@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "XJTLU Masters 2027 Korea - Full-time Programme Master Data",
-    "version": "2026-09-22-v3",
+    "version": "2026-09-22-v4",
     "as_of": "2026-09-22",
     "audience": "South Korean international applicants who need a Chinese student visa/residence permit for study",
     "scope": {
@@ -360,8 +360,8 @@
         "overall": 6,
         "minimum_each": 5.5
       },
-      "undergraduate_background_ko": "생물정보학·생명과학·의학·의공학·물리·컴퓨팅·수학·생물통계·데이터사이언스·AI 등 관련 전공",
-      "additional_requirements_ko": null,
+      "undergraduate_background_ko": "Bioinformatics, Biological Sciences, Medical Sciences, Biomedical Engineering, Physics, Computing Sciences, Mathematics, Biostatistics, Data Sciences, Artificial Intelligence 등 관련 전공",
+      "additional_requirements_ko": "연구형 MRes로 genomics·proteomics·statistics·machine learning을 결합한 연구역량이 중요",
       "mres_full_tuition_scholarship_eligible": true,
       "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/mres-bioinformatics"
     },
@@ -766,8 +766,8 @@
         "overall": 6,
         "minimum_each": 5.5
       },
-      "undergraduate_background_ko": "컴퓨터과학·AI·소프트웨어공학·통신공학·기계/자동화·사이버보안 등 관련 전공/경험",
-      "additional_requirements_ko": "관련 실무경력이 충분하면 개별 심사",
+      "undergraduate_background_ko": "Computer Science, Artificial Intelligence, Software Engineering, Communication Engineering, Mechanical and Automation Engineering, Cybersecurity 등 관련 전공/경험",
+      "additional_requirements_ko": "관련 실무경력이 충분한 비표준 지원자는 개별 심사 가능",
       "mres_full_tuition_scholarship_eligible": false,
       "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/human-computer-interaction"
     },
@@ -900,8 +900,8 @@
         "overall": 6.5,
         "minimum_each": 5.5
       },
-      "undergraduate_background_ko": "경제·금융·수학 또는 관련 전공; 또는 관련 경력 + 정량방법/통계/금융수학 지식",
-      "additional_requirements_ko": null,
+      "undergraduate_background_ko": "Financial Management, Accounting, Finance, Financial Mathematics, Financial Engineering, Investment, Assets Appraisal, Economics, Management 관련 전공",
+      "additional_requirements_ko": "Quantitative Methods 또는 Statistics에 대한 좋은 배경 요구",
       "mres_full_tuition_scholarship_eligible": false,
       "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-investment-management"
     },
@@ -968,8 +968,8 @@
         "overall": 6.5,
         "minimum_each": 5.5
       },
-      "undergraduate_background_ko": "비즈니스 관련 전공 선호",
-      "additional_requirements_ko": "관련 경력이 충분하면 비표준 지원 개별 심사",
+      "undergraduate_background_ko": "모든 학부 전공 지원 검토 가능. 비즈니스 관련 전공은 선호될 수 있음",
+      "additional_requirements_ko": "표준 학력요건을 충족하지 못해도 관련 경력이 충분한 경우 개별 심사 가능",
       "mres_full_tuition_scholarship_eligible": false,
       "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-management"
     },
@@ -1288,8 +1288,8 @@
         "overall": 7,
         "minimum_each": 6
       },
-      "undergraduate_background_ko": "영어·언어학·교육·문학 전공",
-      "additional_requirements_ko": "교직경력은 필수 아님. 관련 교육경력은 강점",
+      "undergraduate_background_ko": "English, Linguistics, Education, Literature 전공. Interdisciplinary background도 지원 가능",
+      "additional_requirements_ko": "교직경력은 필수가 아니지만 관련 teaching experience는 강점",
       "mres_full_tuition_scholarship_eligible": false,
       "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/ma-tesol"
     },

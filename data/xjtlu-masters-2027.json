@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "XJTLU Masters 2027 Korea - Full-time Programme Master Data",
-    "version": "2026-09-22-v12",
+    "version": "2026-09-22-v13",
     "as_of": "2026-09-22",
     "audience": "South Korean international applicants who need a Chinese student visa/residence permit for study",
     "scope": {
@@ -658,20 +658,22 @@
       "school": "Academy of Life and Natural Sciences",
       "attendance": "full_time",
       "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 24,
       "tuition_2026_rmb_total": 200000,
       "tuition_2027_status": "pending_official_update",
-      "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
       "ielts_academic": {
         "overall": 6,
         "minimum_each": 5.5
       },
       "undergraduate_background_ko": "환경·생태·농림·화학·재료·생물·대기·지리/GIS·도시계획/조경·수자원·지질·원격탐사·컴퓨터·통계·데이터사이언스 등 관련 전공",
-      "additional_requirements_ko": null,
+      "additional_requirements_ko": "Ecology·environmental chemistry·ESG·sustainable development·environmental big data·AI·modelling 등 연구. Semester 3–4 장기 Research Project. MRes 전액학비 장학 심사 가능",
       "mres_full_tuition_scholarship_eligible": true,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/environmental-sciences"
     },
     {
       "id": "finance-msc",
@@ -824,20 +826,20 @@
       "school": "School of Intelligent Manufacturing Ecosystem",
       "attendance": "full_time",
       "campus": "Taicang, Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 24,
       "tuition_2026_rmb_total": 200000,
       "tuition_2027_status": "pending_official_update",
       "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027_status": "pending_official_programme_page_update",
       "ielts_academic": {
         "overall": 6,
         "minimum_each": 5.5
       },
       "undergraduate_background_ko": "STEM 전공 또는 관련 경력을 갖춘 비STEM 전공",
-      "additional_requirements_ko": null,
+      "additional_requirements_ko": "Smart manufacturing·AI·IoT·big data·systems thinking·industrial operations 융합. Semester 3–4에서 internship 또는 research pathway 선택. 현재 공식 Start Date는 February/September 2026",
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-intelligent-engineering-science-and-industrial-operations"
     },
     {
       "id": "international-business-and-global-affairs-ma",
@@ -870,20 +872,20 @@
       "school": "Design School",
       "attendance": "full_time",
       "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 18,
       "tuition_2026_rmb_total": 150000,
       "tuition_2027_status": "pending_official_update",
       "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027_status": "pending_official_programme_page_update",
       "ielts_academic": {
         "overall": 6.5,
         "minimum_each": 5.5
       },
-      "undergraduate_background_ko": "건축·건조환경(built environment) 관련 전공",
-      "additional_requirements_ko": null,
+      "undergraduate_background_ko": "건축·건조환경(built environment) 또는 관련 전공",
+      "additional_requirements_ko": "건축 전문실무·리더십·business development·digital construction·sustainability 중심. 현재 공식 Start Date는 February/September 2026",
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/international-professional-practice-in-architecture"
     },
     {
       "id": "global-public-policy-and-international-relations-ma",
@@ -1010,20 +1012,20 @@
       "school": "International Business School Suzhou",
       "attendance": "full_time",
       "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 24,
       "tuition_2026_rmb_total": 200000,
       "tuition_2027_status": "pending_official_update",
       "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027_status": "pending_official_start_date",
       "ielts_academic": {
         "overall": 6.5,
         "minimum_each": 6
       },
       "undergraduate_background_ko": "비즈니스·경제·경영·회계·금융·과학·공학 또는 관련 전공",
-      "additional_requirements_ko": null,
+      "additional_requirements_ko": "Business and Management as a Social Science, Qualitative/Quantitative Methods, Advanced Research Methods, 2개 Semester Dissertation 중심. PhD·research career 준비에 적합. 현재 공식 페이지에 2027 Start Date 미표시",
       "mres_full_tuition_scholarship_eligible": true,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/mres-in-management"
     },
     {
       "id": "digital-media-and-global-communication-msc",

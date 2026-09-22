@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "XJTLU Masters 2027 Korea - Full-time Programme Master Data",
-    "version": "2026-09-22-v6",
+    "version": "2026-09-22-v7",
     "as_of": "2026-09-22",
     "audience": "South Korean international applicants who need a Chinese student visa/residence permit for study",
     "scope": {
@@ -236,20 +236,22 @@
       "school": "School of Humanities and Social Sciences",
       "attendance": "full_time",
       "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 18,
       "tuition_2026_rmb_total": 180000,
       "tuition_2027_status": "pending_official_update",
-      "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
       "ielts_academic": {
         "overall": 6.5,
         "minimum_each": 6
       },
       "undergraduate_background_ko": "언어·응용언어학. 사회언어학·커뮤니케이션·민족지학·정치학·인류학 등 인문사회 전공도 개별 심사",
-      "additional_requirements_ko": null,
+      "additional_requirements_ko": "Multilingualism 특화 MA. AI and Applied Linguistics, Discourse Analysis, Psycholinguistics of Multilingualism 등 선택 가능",
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/applied-linguistics"
     },
     {
       "id": "applied-mathematics-msc",
@@ -554,20 +556,20 @@
       "school": "School of Intelligent Finance and Business",
       "attendance": "full_time",
       "campus": "Taicang, Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 24,
       "tuition_2026_rmb_total": 200000,
       "tuition_2027_status": "pending_official_update",
       "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027_status": "pending_official_programme_page_update",
       "ielts_academic": {
         "overall": 6.5,
         "minimum_each": 5.5
       },
       "undergraduate_background_ko": "금융·회계·비즈니스·경제·경영·공급망·마케팅·과학·공학 또는 관련 전공",
-      "additional_requirements_ko": null,
+      "additional_requirements_ko": "4개 Pathway: Digital Supply Chain, Digital Finance, Digital Marketing, Intelligent ESG. 현재 공식 Start Date는 February/September 2026으로 2027 업데이트 대기",
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-digital-business"
     },
     {
       "id": "digital-education-msc",
@@ -622,20 +624,20 @@
       "school": "Entrepreneurship and Enterprise Hub",
       "attendance": "full_time",
       "campus": "Taicang, Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 24,
       "tuition_2026_rmb_total": 200000,
       "tuition_2027_status": "pending_official_update",
       "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027_status": "pending_official_programme_page_update",
       "ielts_academic": {
         "overall": 6.5,
         "minimum_each": 5.5
       },
-      "undergraduate_background_ko": "전공 제한 없음. STEM·의학·예술·인문·비즈니스 등 가능",
-      "additional_requirements_ko": "창업경험 또는 공학·경영·투자 분야 1년 이상 경력자 우대. CV와 지정 내용의 Personal Statement 요구",
+      "undergraduate_background_ko": "전공 제한 없음. STEM·의학·예술·인문·비즈니스 등 다양한 학부 배경 가능",
+      "additional_requirements_ko": "창업경험 또는 공학·경영·투자 분야 1년 이상 경력자 우대. CV와 1페이지 Personal Statement 필수. Entrepreneur 또는 Intrapreneur track 선택",
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/entrepreneurship-and-innovation"
     },
     {
       "id": "environmental-sciences-mres",
@@ -738,20 +740,22 @@
       "school": "Academy of Future Education",
       "attendance": "full_time",
       "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 18,
       "tuition_2026_rmb_total": 180000,
       "tuition_2027_status": "pending_official_update",
-      "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
       "ielts_academic": {
         "overall": 6.5,
         "minimum_each": 6
       },
-      "undergraduate_background_ko": "전공 제한 없음",
-      "additional_requirements_ko": "교육 관련 경력은 강점",
+      "undergraduate_background_ko": "학부 전공 제한 없음",
+      "additional_requirements_ko": "교육 관련 경력은 강점. 3개 Pathway: Curriculum and Instruction, Educational Administration and Management, Innovations in Global Education",
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/global-education"
     },
     {
       "id": "human-computer-interaction-msc",
@@ -1172,20 +1176,22 @@
       "school": "International Business School Suzhou",
       "attendance": "full_time",
       "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 18,
       "tuition_2026_rmb_total": 180000,
       "tuition_2027_status": "pending_official_update",
-      "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
       "ielts_academic": {
         "overall": 6.5,
         "minimum_each": 5.5
       },
       "undergraduate_background_ko": "회계 전공",
-      "additional_requirements_ko": "입학 시 ICAEW Certificate Level(CFAB) 최소 4과목 합격이 핵심. 동등 CPE/ACCA 인정 가능, 비정규 경력 지원은 개별 심사",
+      "additional_requirements_ko": "입학 시 ICAEW Certificate Level(CFAB) 최소 4과목 합격 필수. ICAEW/ACCA Credit for Prior Learning 등 동등 인정 가능. 회계 비전공자는 6개 CFAB 또는 동등요건으로 검토 가능",
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/professional-accounting"
     },
     {
       "id": "project-management-msc",

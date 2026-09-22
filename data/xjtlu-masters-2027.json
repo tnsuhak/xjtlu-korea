@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "XJTLU Masters 2027 Korea - Full-time Programme Master Data",
-    "version": "2026-09-22-v8",
+    "version": "2026-09-22-v9",
     "as_of": "2026-09-22",
     "audience": "South Korean international applicants who need a Chinese student visa/residence permit for study",
     "scope": {
@@ -400,20 +400,22 @@
       "school": "Academy of Future Education",
       "attendance": "full_time",
       "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 18,
       "tuition_2026_rmb_total": 180000,
       "tuition_2027_status": "pending_official_update",
-      "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
       "ielts_academic": {
         "overall": 6.5,
         "minimum_each": 6
       },
       "undergraduate_background_ko": "심리·교육심리·교육·교직·사회복지·아동가족·영어 또는 관련 전공",
-      "additional_requirements_ko": "교육·상담·교육행정 경력 선호",
+      "additional_requirements_ko": "교육·상담·교육행정 경력 선호. 3개 Pathway: Teaching and Learning, Family and Social Work, Educational Psychology and Counselling",
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/child-development-family-education"
     },
     {
       "id": "china-studies-ma",
@@ -422,20 +424,22 @@
       "school": "School of Humanities and Social Sciences",
       "attendance": "full_time",
       "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 18,
       "tuition_2026_rmb_total": 180000,
       "tuition_2027_status": "pending_official_update",
-      "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
       "ielts_academic": {
         "overall": 7,
         "minimum_each": 6
       },
-      "undergraduate_background_ko": "전공 제한 없음",
-      "additional_requirements_ko": null,
+      "undergraduate_background_ko": "학부 전공 제한 없음",
+      "additional_requirements_ko": "현대 중국의 거버넌스·사회·경제·정책을 현지 현장연구와 함께 학습",
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/china-studies"
     },
     {
       "id": "civil-engineering-msc",
@@ -709,7 +713,7 @@
         "minimum_each": 5.5
       },
       "undergraduate_background_ko": "컴퓨터과학·정보시스템 등 관련 전공, 프로그래밍 및 프로그램 설계 경험",
-      "additional_requirements_ko": "관련 실무경력이 충분하면 개별 심사",
+      "additional_requirements_ko": "관련 실무경력이 충분하면 개별 심사. computing + finance 융합",
       "mres_full_tuition_scholarship_eligible": false,
       "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-financial-computing"
     },
@@ -792,20 +796,22 @@
       "school": "Design School",
       "attendance": "full_time",
       "campus": "Suzhou",
-      "campus_verification": "school_structure_based_pending_programme_page_check",
+      "campus_verification": "programme_page_verified",
       "full_time_duration_months": 24,
       "tuition_2026_rmb_total": 200000,
       "tuition_2027_status": "pending_official_update",
-      "intake_2027": [],
-      "intake_2027_status": "pending_programme_page_update_or_verification",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
       "ielts_academic": {
         "overall": 6.5,
         "minimum_each": 5.5
       },
       "undergraduate_background_ko": "산업디자인·공학·건축·도시계획/디자인 또는 기타 디자인 관련 전공",
-      "additional_requirements_ko": "디자인 실무 또는 제품/서비스 개발 경험은 권장",
+      "additional_requirements_ko": "디자인 실무 또는 제품/서비스 개발 경험은 권장. CSD accredited",
       "mres_full_tuition_scholarship_eligible": false,
-      "official_programme_url": null
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/mdes-industrial-design"
     },
     {
       "id": "intelligent-engineering-science-and-industrial-operations-msc",
@@ -1245,7 +1251,7 @@
         "minimum_each": 5.5
       },
       "undergraduate_background_ko": "컴퓨터과학·공학·정보시스템·전자상거래·수학 등 관련 전공, 프로그래밍/프로그램 설계 경험",
-      "additional_requirements_ko": "관련 실무경력이 충분하면 개별 심사",
+      "additional_requirements_ko": "관련 실무경력이 충분하면 개별 심사. BCS accredited, XJTLU-JITRI joint-supervision pathway 제공",
       "mres_full_tuition_scholarship_eligible": false,
       "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-social-computing"
     },

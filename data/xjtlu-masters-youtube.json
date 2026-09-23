@@ -3,7 +3,7 @@
     "title": "XJTLU Masters Korea - Official YouTube Mapping",
     "as_of": "2026-09-23",
     "programme_count": 54,
-    "status": "mapping_ready_not_embedded",
+    "status": "embedded_all_54_preview",
     "official_only": true,
     "selection_policy": [
       "A: exact programme video",
@@ -140,7 +140,19 @@
       "Official XJTLU current school/academy pages were checked for IBSS, HSS, Academy of Future Education, School of Mathematics and Physics, Academy of Life and Natural Sciences, AIAT-related programmes, School of Intelligent Manufacturing Ecosystem and School of Intelligent Finance and Business.",
       "Search was restricted to official XJTLU/XEC YouTube by default; LinkedIn/Douyin/Bilibili-only video URLs were not promoted into the YouTube mapping.",
       "Campus fallback remains acceptable under the user-approved priority order when no direct official programme/school YouTube watch URL can be verified."
-    ]
+    ],
+    "embedded_at": "2026-09-23",
+    "embedding_summary": {
+      "pages_embedded": 54,
+      "A_exact_programme": 4,
+      "B_school_or_related_school": 9,
+      "C_campus": 41,
+      "D_other_related": 0,
+      "component": "masters/youtube-embed.js",
+      "placement": "before careers section",
+      "privacy_mode": "youtube-nocookie.com",
+      "loading": "thumbnail click-to-load + lazy iframe"
+    }
   },
   "programmes": [
     {
@@ -161,7 +173,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "advanced-chemical-sciences-mres",
@@ -181,7 +194,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "advanced-intelligent-manufacturing-technology-mres",
@@ -201,7 +215,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "advanced-microelectronic-technology-and-materials-mres",
@@ -216,7 +231,8 @@
       "match_level": "A",
       "match_type": "programme",
       "reason_ko": "해당 석사과정을 직접 소개하는 XJTLU 계열 공식 영상으로 최우선 배치.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "advanced-robotics-systems-msc",
@@ -231,7 +247,8 @@
       "match_level": "A",
       "match_type": "programme",
       "reason_ko": "해당 석사과정을 직접 소개하는 XJTLU 계열 공식 영상으로 최우선 배치.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "applied-informatics-msc",
@@ -251,7 +268,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "applied-linguistics-ma",
@@ -271,7 +289,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "applied-mathematics-msc",
@@ -291,7 +310,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "applied-statistics-msc",
@@ -311,7 +331,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "architectural-design-march",
@@ -326,7 +347,8 @@
       "match_level": "B",
       "match_type": "school",
       "reason_ko": "전공 자체 영상 대신 현재 소속 Design School의 실험실·학습환경을 보여주는 공식 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "artificial-intelligence-msc",
@@ -341,7 +363,8 @@
       "match_level": "B",
       "match_type": "related_school",
       "reason_ko": "전공 자체 영상 대신 AI 분야와 직접 관련된 XJTLU 공식 AI 학습·연구환경 영상. 현재 사이트의 AIAT 체계와 조직명은 다를 수 있어 '관련 AI 학습환경'으로 표시.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "bioinformatics-mres",
@@ -361,7 +384,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "business-analytics-msc",
@@ -381,7 +405,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "child-development-and-family-education-ma",
@@ -401,7 +426,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "china-studies-ma",
@@ -421,7 +447,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "civil-engineering-msc",
@@ -436,7 +463,8 @@
       "match_level": "B",
       "match_type": "school",
       "reason_ko": "전공 자체 영상 대신 현재 소속 Design School의 실험실·학습환경을 보여주는 공식 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "cultural-and-creative-industries-msc",
@@ -451,7 +479,8 @@
       "match_level": "B",
       "match_type": "school",
       "reason_ko": "전공 자체 영상 대신 현재 소속 Academy of Film and Creative Technology의 시설·학습환경 공식 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "computer-science-mres",
@@ -471,7 +500,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "construction-management-msc",
@@ -486,7 +516,8 @@
       "match_level": "B",
       "match_type": "school",
       "reason_ko": "전공 자체 영상 대신 현재 소속 Design School의 실험실·학습환경을 보여주는 공식 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "data-science-msc",
@@ -506,7 +537,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "digital-business-msc",
@@ -531,7 +563,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "digital-education-msc",
@@ -551,7 +584,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "economics-and-finance-msc",
@@ -571,7 +605,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "entrepreneurship-and-innovation-msc",
@@ -586,7 +621,8 @@
       "match_level": "A",
       "match_type": "programme",
       "reason_ko": "해당 석사과정을 직접 소개하는 XJTLU 계열 공식 영상으로 최우선 배치.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "environmental-sciences-mres",
@@ -606,7 +642,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "finance-msc",
@@ -626,7 +663,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "financial-computing-msc",
@@ -646,7 +684,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "financial-mathematics-msc",
@@ -666,7 +705,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "global-education-ma",
@@ -686,7 +726,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "human-computer-interaction-msc",
@@ -706,7 +747,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "industrial-design-mdes",
@@ -721,7 +763,8 @@
       "match_level": "B",
       "match_type": "school",
       "reason_ko": "전공 자체 영상 대신 현재 소속 Design School의 실험실·학습환경을 보여주는 공식 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "intelligent-engineering-science-and-industrial-operations-msc",
@@ -736,7 +779,8 @@
       "match_level": "A",
       "match_type": "programme",
       "reason_ko": "해당 석사과정을 직접 소개하는 XJTLU 계열 공식 영상으로 최우선 배치.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "international-business-and-global-affairs-ma",
@@ -756,7 +800,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "international-professional-practice-in-architecture-msc",
@@ -771,7 +816,8 @@
       "match_level": "B",
       "match_type": "school",
       "reason_ko": "전공 자체 영상 대신 현재 소속 Design School의 실험실·학습환경을 보여주는 공식 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "global-public-policy-and-international-relations-ma",
@@ -791,7 +837,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "investment-management-msc",
@@ -811,7 +858,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "low-carbon-electrical-power-and-energy-technology-mres",
@@ -831,7 +879,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "materials-science-and-engineering-mres",
@@ -851,7 +900,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "management-msc",
@@ -871,7 +921,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "management-mres",
@@ -891,7 +942,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "digital-media-and-global-communication-msc",
@@ -911,7 +963,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "medicinal-chemistry-mres",
@@ -931,7 +984,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "molecular-bioscience-mres",
@@ -951,7 +1005,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "multimedia-telecommunications-msc",
@@ -971,7 +1026,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "operations-and-supply-chain-management-msc",
@@ -991,7 +1047,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "pattern-recognition-and-intelligent-systems-mres",
@@ -1011,7 +1068,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "pharmaceutical-sciences-mres",
@@ -1031,7 +1089,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "professional-accounting-msc",
@@ -1051,7 +1110,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "project-management-msc",
@@ -1071,7 +1131,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "social-computing-msc",
@@ -1091,7 +1152,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "sustainable-building-design-and-engineering-msc",
@@ -1106,7 +1168,8 @@
       "match_level": "B",
       "match_type": "school",
       "reason_ko": "전공 자체 영상 대신 현재 소속 Design School의 실험실·학습환경을 보여주는 공식 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "sustainable-energy-technology-msc",
@@ -1126,7 +1189,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "tesol-ma",
@@ -1146,7 +1210,8 @@
         "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
         "fallback_retained": true,
         "reviewed_at": "2026-09-23"
-      }
+      },
+      "embed_status": "embedded_in_preview"
     },
     {
       "id": "urban-planning-msc",
@@ -1161,7 +1226,8 @@
       "match_level": "B",
       "match_type": "school",
       "reason_ko": "전공 자체 영상 대신 현재 소속 Design School의 실험실·학습환경을 보여주는 공식 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "embed_status": "embedded_in_preview"
     }
   ]
 }

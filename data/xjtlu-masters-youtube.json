@@ -105,7 +105,42 @@
         "match_level": "A",
         "match_type": "programme"
       }
-    }
+    },
+    "research_round": 2,
+    "researched_at": "2026-09-23",
+    "research_round_2_status": "completed",
+    "research_round_2_summary": {
+      "c_fallbacks_reviewed": 41,
+      "additional_direct_official_youtube_urls_resolved": 0,
+      "retained_c_fallbacks": 41,
+      "unresolved_exact_candidates": [
+        {
+          "programme_id": "digital-business-msc",
+          "title": "Discover MSc Digital Business",
+          "evidence": "Official XJTLU Entrepreneur College (Taicang) social post confirms the programme video exists, but the direct YouTube watch URL could not be reliably resolved.",
+          "action": "Retain Taicang official campus fallback until direct watch URL is verified."
+        }
+      ],
+      "unresolved_related_candidates": [
+        {
+          "group": "International Business School Suzhou",
+          "title": "VIDEO: The advantages of studying at International Business School Suzhou",
+          "evidence": "Official XJTLU page contains an embedded IBSS video, but a direct YouTube watch URL was not reliably resolved.",
+          "action": "Retain SIP campus fallback for IBSS programmes."
+        },
+        {
+          "group": "Academy of Life and Natural Sciences / science research",
+          "title": "Labs at XJTLU | Episode 4 - AI-Robotic Scientist Lab",
+          "evidence": "Official XJTLU social/news sources confirm the recent lab video and its relevance to Master's research, but a direct YouTube watch URL was not reliably resolved.",
+          "action": "Do not substitute non-YouTube social-video URLs; retain SIP campus fallback."
+        }
+      ]
+    },
+    "research_notes": [
+      "Official XJTLU current school/academy pages were checked for IBSS, HSS, Academy of Future Education, School of Mathematics and Physics, Academy of Life and Natural Sciences, AIAT-related programmes, School of Intelligent Manufacturing Ecosystem and School of Intelligent Finance and Business.",
+      "Search was restricted to official XJTLU/XEC YouTube by default; LinkedIn/Douyin/Bilibili-only video URLs were not promoted into the YouTube mapping.",
+      "Campus fallback remains acceptable under the user-approved priority order when no direct official programme/school YouTube watch URL can be verified."
+    ]
   },
   "programmes": [
     {
@@ -121,7 +156,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "advanced-chemical-sciences-mres",
@@ -136,7 +176,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "advanced-intelligent-manufacturing-technology-mres",
@@ -151,7 +196,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정의 Taicang 학습환경을 보여주는 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "advanced-microelectronic-technology-and-materials-mres",
@@ -196,7 +246,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "applied-linguistics-ma",
@@ -211,7 +266,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "applied-mathematics-msc",
@@ -226,7 +286,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "applied-statistics-msc",
@@ -241,7 +306,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "architectural-design-march",
@@ -286,7 +356,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "business-analytics-msc",
@@ -301,7 +376,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "child-development-and-family-education-ma",
@@ -316,7 +396,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "china-studies-ma",
@@ -331,7 +416,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "civil-engineering-msc",
@@ -376,7 +466,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "construction-management-msc",
@@ -406,7 +501,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "digital-business-msc",
@@ -426,6 +526,11 @@
         "title": "Discover MSc Digital Business",
         "status": "official_candidate_found_but_direct_youtube_url_not_resolved",
         "action": "keep Taicang campus fallback until exact YouTube URL is verified"
+      },
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
       }
     },
     {
@@ -441,7 +546,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "economics-and-finance-msc",
@@ -456,7 +566,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "entrepreneurship-and-innovation-msc",
@@ -486,7 +601,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "finance-msc",
@@ -501,7 +621,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "financial-computing-msc",
@@ -516,7 +641,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "financial-mathematics-msc",
@@ -531,7 +661,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "global-education-ma",
@@ -546,7 +681,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "human-computer-interaction-msc",
@@ -561,7 +701,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "industrial-design-mdes",
@@ -606,7 +751,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "international-professional-practice-in-architecture-msc",
@@ -636,7 +786,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "investment-management-msc",
@@ -651,7 +806,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "low-carbon-electrical-power-and-energy-technology-mres",
@@ -666,7 +826,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "materials-science-and-engineering-mres",
@@ -681,7 +846,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "management-msc",
@@ -696,7 +866,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "management-mres",
@@ -711,7 +886,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "digital-media-and-global-communication-msc",
@@ -726,7 +906,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "medicinal-chemistry-mres",
@@ -741,7 +926,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "molecular-bioscience-mres",
@@ -756,7 +946,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "multimedia-telecommunications-msc",
@@ -771,7 +966,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "operations-and-supply-chain-management-msc",
@@ -786,7 +986,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "pattern-recognition-and-intelligent-systems-mres",
@@ -801,7 +1006,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "pharmaceutical-sciences-mres",
@@ -816,7 +1026,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "professional-accounting-msc",
@@ -831,7 +1046,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "project-management-msc",
@@ -846,7 +1066,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "social-computing-msc",
@@ -861,7 +1086,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "sustainable-building-design-and-engineering-msc",
@@ -891,7 +1121,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "tesol-ma",
@@ -906,7 +1141,12 @@
       "match_level": "C",
       "match_type": "campus",
       "reason_ko": "전공·School 단독 영상의 직접 URL이 확인되지 않아, 해당 과정이 운영되는 Suzhou SIP의 최신 XJTLU 공식 캠퍼스 영상.",
-      "review_status": "recommended"
+      "review_status": "recommended",
+      "research_round_2": {
+        "status": "reviewed_no_better_direct_official_youtube_watch_url_resolved",
+        "fallback_retained": true,
+        "reviewed_at": "2026-09-23"
+      }
     },
     {
       "id": "urban-planning-msc",

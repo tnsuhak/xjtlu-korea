@@ -149,9 +149,20 @@
       "C_campus": 41,
       "D_other_related": 0,
       "component": "masters/youtube-embed.js",
-      "placement": "before careers section",
+      "placement": "before curriculum section",
       "privacy_mode": "youtube-nocookie.com",
       "loading": "thumbnail click-to-load + lazy iframe"
+    },
+    "final_ux_qa": {
+      "status": "completed",
+      "checked_at": "2026-09-23",
+      "pages_checked": 54,
+      "video_before_curriculum": 54,
+      "careers_before_tuition": 54,
+      "bottom_consultation_cta": 54,
+      "tuition_2026_reference_present": 54,
+      "direct_apply_links": 0,
+      "routine_source_narration_violations": 0
     }
   },
   "programmes": [

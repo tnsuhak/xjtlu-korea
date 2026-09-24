@@ -62,6 +62,15 @@ main{padding:72px 0 82px}.section{margin-bottom:72px}.section:last-child{margin-
 footer{background:#090f1d;color:#98a2b3;padding:28px 5vw;font-size:11px;display:flex;justify-content:space-between;gap:20px}footer a{color:#c4cad4;text-decoration:none}
 @media(max-width:900px){.navlinks{display:none}.menu-btn{display:block}.quick{grid-template-columns:1fr 1fr}.quick div:nth-child(2){border-right:0}.quick div:nth-child(-n+2){border-bottom:1px solid var(--rule)}.fee-grid,.checks{grid-template-columns:1fr}.timeline{grid-template-columns:1fr 1fr}.timeline div:nth-child(2){border-right:0}.timeline div:nth-child(-n+2){border-bottom:1px solid var(--rule)}}
 @media(max-width:650px){.topbar{height:34px;padding:0 18px;font-size:9px}.topbar span:last-child{display:none}.nav{height:62px;padding:0 18px}.brand-mark{width:36px;height:36px}.brand-copy strong{font-size:14px}.brand-copy span{font-size:9px}.mobile-nav{top:96px}.wrap{width:min(100% - 32px,1080px)}.hero{min-height:350px}.hero h1{font-size:40px}.hero p{font-size:13px}.quick{margin-top:-25px}.quick div{padding:16px}.quick b{font-size:15px}.quick span{font-size:9.5px}main{padding-top:54px}.scholarship-grid,.mres-list,.deposit,.next-grid{grid-template-columns:1fr}.discount-table{display:block;overflow-x:auto;white-space:nowrap}.timeline{grid-template-columns:1fr}.timeline div{border-right:0;border-bottom:1px solid var(--rule)}.timeline div:last-child{border-bottom:0}.cta{padding:48px 18px}footer{flex-direction:column;padding:24px 18px}}
+
+/* Masters navigation consistency */
+.navlinks a:visited{color:#344054}
+.navlinks .consult:visited{color:#fff}
+.mobile-nav a,.mobile-nav a:visited{color:#344054}
+.mobile-nav .main-site,.mobile-nav .main-site:visited{margin-top:16px;padding:13px 12px;background:#f7efd8;border:1px solid #dfc775;color:var(--navy);text-align:center;font-weight:800}
+.mobile-nav .main-site:hover{background:#f2e5bf;color:var(--navy)}
+.mobile-nav .consult,.mobile-nav .consult:visited{color:#fff}
+.mobile-nav .main-site + .consult{margin-top:10px}
 </style>
 </head>
 <body>
@@ -69,22 +78,22 @@ footer{background:#090f1d;color:#98a2b3;padding:28px 5vw;font-size:11px;display:
 <nav class="nav">
   <a class="brand" href="/masters/"><span class="brand-mark">XJTLU</span><span class="brand-copy"><strong>XJTLU Masters Korea</strong><span>POSTGRADUATE GUIDE</span></span></a>
   <div class="navlinks">
-    <a href="/masters/">석사과정</a>
-    <a href="/masters/programmes.html">전공 전체보기</a>
-    <a href="/masters/admission-requirements-2027.html">입학조건</a>
-    <a class="active" href="/masters/tuition-scholarships-2027.html">학비·장학금</a>
-    <a href="/masters/#mres">MRes</a>
+    <a href="/masters/">석사 홈</a>
+    <a href="/masters/programmes.html">54개 석사 전공</a>
+    <a href="/masters/admission-requirements-2027.html">2027 입학조건</a>
+    <a class="active" href="/masters/tuition-scholarships-2027.html">2027 학비·장학금</a>
+    <a href="/masters/#mres">MRes 연구석사</a>
     <a class="consult" href="https://open.kakao.com/o/slehLvKi" target="_blank" rel="noopener">상담하기</a>
   </div>
   <button class="menu-btn" type="button" aria-label="메뉴 열기" aria-controls="mobileNav" aria-expanded="false" onclick="toggleMenu()">☰</button>
 </nav>
 <div class="mobile-nav" id="mobileNav">
-  <a href="/masters/">석사과정</a>
-  <a href="/masters/programmes.html">전공 전체보기</a>
+  <a href="/masters/">석사 홈</a>
+  <a href="/masters/programmes.html">54개 석사 전공</a>
   <a href="/masters/admission-requirements-2027.html">2027 입학조건</a>
-  <a href="/masters/tuition-scholarships-2027.html">학비·장학금</a>
-  <a href="/masters/#mres">MRes</a>
-  <a href="/">XJTLU 학부 안내</a>
+  <a href="/masters/tuition-scholarships-2027.html">2027 학비·장학금</a>
+  <a href="/masters/#mres">MRes 연구석사</a>
+  <a class="main-site" href="/" aria-label="XJTLU Korea 전체 사이트 메인으로 이동">XJTLU Korea 메인으로 →</a>
   <a class="consult" href="https://open.kakao.com/o/slehLvKi" target="_blank" rel="noopener">카카오톡 상담</a>
 </div>
 

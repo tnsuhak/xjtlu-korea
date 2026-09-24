@@ -36,16 +36,25 @@ main{padding:64px 0 80px}.intro{display:flex;align-items:end;justify-content:spa
 @media(max-width:1050px){.filters{grid-template-columns:repeat(3,1fr)}.summary{grid-template-columns:repeat(3,1fr)}.summary div:nth-child(3){border-right:0}.summary div:nth-child(-n+3){border-bottom:1px solid var(--rule)}} 
 @media(max-width:800px){.navlinks{display:none}.menu-btn{display:block}.programme-grid{grid-template-columns:1fr}.filter-panel{position:relative;top:auto}.intro{align-items:flex-start;flex-direction:column;gap:8px}.summary{grid-template-columns:1fr 1fr}.summary div{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}.summary div:nth-child(2n){border-right:0}.summary div:nth-child(3){border-right:1px solid var(--rule)}.summary div:nth-last-child(2){border-bottom:1px solid var(--rule)}.summary div:last-child{grid-column:1/-1;border-right:0;border-bottom:0}}
 @media(max-width:620px){.degree-help{align-items:flex-start;flex-direction:column;gap:8px;margin-top:-10px}.degree-help a{white-space:normal}.topbar{height:34px;padding:0 18px;font-size:9px}.topbar span:last-child{display:none}.nav{height:62px;padding:0 18px}.brand-mark{width:36px;height:36px}.brand-copy strong{font-size:14px}.brand-copy span{font-size:9px}.mobile-nav{top:96px}.hero{min-height:330px}.wrap{width:min(100% - 32px,1180px)}.hero h1{font-size:40px}.hero p{font-size:13px}.summary{margin-top:-25px}.summary div{padding:15px}.summary b{font-size:16px}.summary span{font-size:9.5px}main{padding-top:48px}.filter-panel{padding:14px}.filter-top{grid-template-columns:1fr}.reset{height:40px}.filters{grid-template-columns:1fr;gap:8px}.programme-card{padding:19px;min-height:0}.programme-card h2{font-size:18px}.facts{grid-template-columns:1fr 1fr}.facts div{border-bottom:1px solid #edf0f3}.facts div:nth-child(2){border-right:0}.facts div:last-child{grid-column:1/-1;border-bottom:0}.detail-line{grid-template-columns:1fr;gap:3px}.cta{padding:32px 18px}footer{flex-direction:column;padding:24px 18px}}
+
+/* Masters navigation consistency */
+.navlinks a:visited{color:#344054}
+.navlinks .consult:visited{color:#fff}
+.mobile-nav a,.mobile-nav a:visited{color:#344054}
+.mobile-nav .main-site,.mobile-nav .main-site:visited{margin-top:16px;padding:13px 12px;background:#f7efd8;border:1px solid #dfc775;color:var(--navy);text-align:center;font-weight:800}
+.mobile-nav .main-site:hover{background:#f2e5bf;color:var(--navy)}
+.mobile-nav .consult,.mobile-nav .consult:visited{color:#fff}
+.mobile-nav .main-site + .consult{margin-top:10px}
 </style>
 </head>
 <body>
 <div class="topbar"><span>XJTLU 한국 공식 대표 · TNS Worldwide</span><a href="/masters/">석사 메인으로 돌아가기 →</a></div>
 <nav class="nav">
 <a class="brand" href="/masters/"><span class="brand-mark">XJTLU</span><span class="brand-copy"><strong>XJTLU Masters Korea</strong><span>POSTGRADUATE GUIDE</span></span></a>
-<div class="navlinks"><a href="/masters/">석사과정</a><a class="active" href="/masters/programmes.html">전공 전체보기</a><a href="/masters/admission-requirements-2027.html">입학조건</a><a href="/masters/tuition-scholarships-2027.html">학비·장학금</a><a href="/masters/#mres">MRes</a><a class="consult" href="https://open.kakao.com/o/slehLvKi" target="_blank" rel="noopener">상담하기</a></div>
+<div class="navlinks"><a href="/masters/">석사 홈</a><a class="active" href="/masters/programmes.html">54개 석사 전공</a><a href="/masters/admission-requirements-2027.html">2027 입학조건</a><a href="/masters/tuition-scholarships-2027.html">2027 학비·장학금</a><a href="/masters/#mres">MRes 연구석사</a><a class="consult" href="https://open.kakao.com/o/slehLvKi" target="_blank" rel="noopener">상담하기</a></div>
 <button class="menu-btn" type="button" aria-label="메뉴 열기" aria-controls="mobileNav" aria-expanded="false" onclick="toggleMenu()">☰</button>
 </nav>
-<div class="mobile-nav" id="mobileNav"><a href="/masters/">석사과정</a><a href="/masters/programmes.html">전공 전체보기</a><a href="/masters/admission-requirements-2027.html">입학조건</a><a href="/masters/tuition-scholarships-2027.html">학비·장학금</a><a href="/masters/#mres">MRes</a><a href="/">XJTLU 학부 안내</a><a class="consult" href="https://open.kakao.com/o/slehLvKi" target="_blank" rel="noopener">카카오톡 상담</a></div>
+<div class="mobile-nav" id="mobileNav"><a href="/masters/">석사 홈</a><a href="/masters/programmes.html">54개 석사 전공</a><a href="/masters/admission-requirements-2027.html">2027 입학조건</a><a href="/masters/tuition-scholarships-2027.html">2027 학비·장학금</a><a href="/masters/#mres">MRes 연구석사</a><a class="main-site" href="/" aria-label="XJTLU Korea 전체 사이트 메인으로 이동">XJTLU Korea 메인으로 →</a><a class="consult" href="https://open.kakao.com/o/slehLvKi" target="_blank" rel="noopener">카카오톡 상담</a></div>
 <header class="hero"><div class="wrap"><div class="crumb"><a href="/masters/">XJTLU 석사</a> / 전공 전체보기</div><div class="eyebrow">54 FULL-TIME PROGRAMMES</div><h1>XJTLU 석사 전공 찾기</h1><p>관심 분야, 학부 전공 조건, IELTS만 선택하면 나에게 맞는 Full-time 석사과정을 빠르게 좁혀볼 수 있습니다.</p></div></header>
 <div class="wrap summary">
 <div><b>54개</b><span>Full-time 석사과정</span></div>

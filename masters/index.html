@@ -191,12 +191,21 @@ footer a{color:#c4cad4;text-decoration:none}
   .cta{padding:58px 18px}
   footer{flex-direction:column;padding:26px 18px}
 }
+
+/* Masters navigation consistency */
+.navlinks a:visited{color:#344054}
+.navlinks .consult:visited{color:#fff}
+.mobile-nav a,.mobile-nav a:visited{color:#344054}
+.mobile-nav .main-site,.mobile-nav .main-site:visited{margin-top:16px;padding:13px 12px;background:#f7efd8;border:1px solid #dfc775;color:var(--navy);text-align:center;font-weight:800}
+.mobile-nav .main-site:hover{background:#f2e5bf;color:var(--navy)}
+.mobile-nav .consult,.mobile-nav .consult:visited{color:#fff}
+.mobile-nav .main-site + .consult{margin-top:10px}
 </style>
 </head>
 <body>
 <div class="topbar">
   <span>XJTLU 한국 공식 대표 · TNS Worldwide</span>
-  <a href="/">학부 안내로 돌아가기 →</a>
+  <a href="/">XJTLU Korea 메인으로 →</a>
 </div>
 <nav class="nav">
   <a class="brand" href="/masters/">
@@ -205,22 +214,22 @@ footer a{color:#c4cad4;text-decoration:none}
   </a>
   <div class="navlinks">
     <a href="#overview">석사과정</a>
-    <a href="/masters/programmes.html">전공 전체보기</a>
-    <a href="/masters/admission-requirements-2027.html">입학조건</a>
-    <a href="/masters/tuition-scholarships-2027.html">학비·장학금</a>
-    <a href="#mres">MRes</a>
-    <a href="/" title="XJTLU 학부 안내">학부 안내</a>
+    <a href="/masters/programmes.html">54개 석사 전공</a>
+    <a href="/masters/admission-requirements-2027.html">2027 입학조건</a>
+    <a href="/masters/tuition-scholarships-2027.html">2027 학비·장학금</a>
+    <a href="#mres">MRes 연구석사</a>
+    <a href="/" title="XJTLU Korea 전체 사이트 메인">XJTLU Korea 메인</a>
     <a class="consult" href="https://open.kakao.com/o/slehLvKi" target="_blank" rel="noopener">상담하기</a>
   </div>
   <button class="menu-btn" type="button" aria-label="메뉴 열기" aria-controls="mobileNav" aria-expanded="false" onclick="toggleMenu()">☰</button>
 </nav>
 <div class="mobile-nav" id="mobileNav">
   <a href="#overview">석사과정</a>
-  <a href="/masters/programmes.html">전공 전체보기</a>
-  <a href="/masters/admission-requirements-2027.html">입학조건</a>
-  <a href="/masters/tuition-scholarships-2027.html">학비·장학금</a>
-  <a href="#mres">MRes</a>
-  <a href="/">XJTLU 학부 안내</a>
+  <a href="/masters/programmes.html">54개 석사 전공</a>
+  <a href="/masters/admission-requirements-2027.html">2027 입학조건</a>
+  <a href="/masters/tuition-scholarships-2027.html">2027 학비·장학금</a>
+  <a href="#mres">MRes 연구석사</a>
+  <a class="main-site" href="/" aria-label="XJTLU Korea 전체 사이트 메인으로 이동">XJTLU Korea 메인으로 →</a>
   <a class="consult" href="https://open.kakao.com/o/slehLvKi" target="_blank" rel="noopener">카카오톡 상담</a>
 </div>
 

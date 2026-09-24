@@ -16,26 +16,24 @@ DETAIL_MENU = """<div id="detailSiteMenu" class="detail-site-menu" aria-label="X
     </div>
     <div class="detail-site-menu-grid">
       <section class="detail-site-menu-group"><h3><a href="/#information">학교소개 <small>메인에서 보기 →</small></a></h3><a href="/xjtlu-dual-degree-liverpool-2plus2.html">리버풀대학교 복수학위·2+2</a><a href="/xjtlu-exchange.html">XJTLU 교환학생</a><a href="/xjtlu-suzhou-china-life.html">XJTLU 쑤저우 소개</a></section>
-      <section class="detail-site-menu-group"><h3><a href="/#admission">입학·편입 <small>메인에서 보기 →</small></a></h3><a href="/xjtlu-admission-requirements-korea-2027.html">2027 한국학생 입학조건·편입</a></section>
-      <section class="detail-site-menu-group"><h3><a href="/#calendar">학비·장학금 <small>메인에서 보기 →</small></a></h3><a href="/xjtlu-tuition-scholarships-2027.html">2027 학비·장학금 상세</a><a href="/xjtlu-living-cost-2027.html">XJTLU 생활비 2027</a></section>
-      <section class="detail-site-menu-group"><h3><a href="/#major">전공·진로 <small>메인에서 보기 →</small></a></h3><a href="/xjtlu-undergraduate-programmes.html">전공 전체 보기</a><a href="/xjtlu-graduate-destinations-careers.html">졸업 후 진로·대학원 진학</a><a href="/xjtlu-alumni-careers.html">한국학생 취업·진로 통계</a></section>
-      <section class="detail-site-menu-group"><h3><a href="/#campus-life">학생생활 <small>메인에서 보기 →</small></a></h3><a href="/xjtlu-accommodation-sip-taicang.html">SIP·Taicang 숙소·기숙사</a><a href="/xjtlu-suzhou-china-life.html">XJTLU 쑤저우 소개</a><a href="/xjtlu-sports-facilities.html">스포츠·헬스장 시설</a><a href="/xjtlu-clubs-student-organisations.html">동아리·학생단체</a></section>
-      <section class="detail-site-menu-group"><h3><a href="/#reviews">학생후기 <small>메인에서 보기 →</small></a></h3><a href="/xjtlu-student-videos.html">XJTLU 학생 후기 영상 모음</a></section>
+      <section class="detail-site-menu-group"><h3><a href="/#admission">학부 입학 <small>메인에서 보기 →</small></a></h3><a href="/xjtlu-admission-requirements-korea-2027.html">2027 학부 입학조건·편입</a><a href="/xjtlu-tuition-scholarships-2027.html">2027 학부 학비·장학금</a><a href="/xjtlu-living-cost-2027.html">XJTLU 생활비 2027</a></section>
+      <section class="detail-site-menu-group"><h3><a href="/xjtlu-undergraduate-programmes.html">학부 전공·진로 <small>전체 보기 →</small></a></h3><a href="/xjtlu-undergraduate-programmes.html">학부 전공 52개 보기</a><a href="/xjtlu-graduate-destinations-careers.html">졸업 후 진로·대학원 진학</a><a href="/xjtlu-alumni-careers.html">한국학생 취업·진로 통계</a></section>
+      <section class="detail-site-menu-group"><h3><a href="/masters/">석사 <small>석사 홈 →</small></a></h3><a href="/masters/programmes.html">Full-time 석사 54개 전공</a><a href="/masters/admission-requirements-2027.html">2027 석사 입학조건</a><a href="/masters/tuition-scholarships-2027.html">2027 석사 학비·장학금</a></section>
+      <section class="detail-site-menu-group"><h3><a href="/#campus-life">학생생활 <small>메인에서 보기 →</small></a></h3><a href="/xjtlu-accommodation-sip-taicang.html">SIP·Taicang 숙소·기숙사</a><a href="/xjtlu-suzhou-china-life.html">XJTLU 쑤저우 소개</a><a href="/xjtlu-sports-facilities.html">스포츠·헬스장 시설</a><a href="/xjtlu-clubs-student-organisations.html">동아리·학생단체</a><a href="/xjtlu-student-videos.html">XJTLU 학생 후기 영상</a></section>
       <section class="detail-site-menu-group"><h3><a href="/#news">뉴스 <small>메인에서 보기 →</small></a></h3><a href="/news/">XJTLU 최신 뉴스 전체 보기</a></section>
-      <section class="detail-site-menu-group"><h3><a href="/#contact">입학문의 <small>메인에서 보기 →</small></a></h3><p>입학조건·학비·전공·숙소 상담은 TNS유학에서 안내합니다.</p><div class="detail-site-menu-cta"><a class="kakao" href="https://open.kakao.com/o/slehLvKi" target="_blank" rel="noopener">카카오톡 상담</a><a class="phone" href="tel:01051500105">전화상담</a></div></section>
+      <section class="detail-site-menu-group"><h3><a href="/#contact">상담 <small>메인에서 보기 →</small></a></h3><p>입학조건·학비·전공·숙소 상담은 TNS유학에서 안내합니다.</p><div class="detail-site-menu-cta"><a class="kakao" href="https://open.kakao.com/o/slehLvKi" target="_blank" rel="noopener">카카오톡 상담</a><a class="phone" href="tel:01051500105">전화상담</a></div></section>
     </div>
   </div>
 </div>"""
 
 EXPECTED_GROUPS = (
     "학교소개",
-    "입학·편입",
-    "학비·장학금",
-    "전공·진로",
+    "학부 입학",
+    "학부 전공·진로",
+    "석사",
     "학생생활",
-    "학생후기",
     "뉴스",
-    "입학문의",
+    "상담",
 )
 
 

@@ -1,0 +1,1363 @@
+{
+  "meta": {
+    "title": "XJTLU Masters 2027 Korea - Full-time Programme Master Data",
+    "version": "2026-09-22-v13",
+    "as_of": "2026-09-22",
+    "audience": "South Korean international applicants who need a Chinese student visa/residence permit for study",
+    "scope": {
+      "public_catalogue_mode": "full_time_only",
+      "full_time_programme_count": 54,
+      "part_time_programmes_excluded": true,
+      "excluded_programmes": [
+        {
+          "name": "International MBA",
+          "reason": "Current official directory lists it as part-time only. XJTLU states international students should generally apply to full-time study because of visa requirements."
+        }
+      ]
+    },
+    "degree_counts": {
+      "MSc": 32,
+      "MRes": 13,
+      "MA": 7,
+      "MArch": 1,
+      "MDes": 1
+    },
+    "degree_award": {
+      "awarding_institution": "University of Liverpool",
+      "note": "Successful completion leads to a University of Liverpool master's degree recognised by China's Ministry of Education. Do not describe XJTLU master's study as an XJTLU + Liverpool dual degree."
+    },
+    "general_entry_requirement": {
+      "official_xjtlu_minimum": "UK upper second class honours (2:1) or equivalent",
+      "korea_gpa_guidance": {
+        "status": "TNS editorial guidance, not an XJTLU-published Korea GPA cutoff",
+        "practical_reference_floor_4_5": 3,
+        "public_short_copy": "한국 대학 GPA 3.0/4.5 이상이면 우선 지원 가능성을 확인해 보세요.",
+        "basis": "XJTLU does not publish a Korea-specific GPA conversion table. University of Liverpool's South Korea guidance lists GPA 3.0/4.5 (or 2.8/4.3) as its general master's academic requirement; XJTLU still assesses programme fit and the individual application.",
+        "bands": [
+          {
+            "range": "3.5/4.5 이상",
+            "guidance": "학업성적 측면에서는 비교적 여유 있게 검토할 수 있는 구간. 합격 보장은 아님."
+          },
+          {
+            "range": "3.0–3.49/4.5",
+            "guidance": "지원 검토 가능 구간. 출신대학, 전공 적합성, 관련 과목 성적과 지원 과정에 따라 판단."
+          },
+          {
+            "range": "3.0/4.5 미만",
+            "guidance": "일반 참고선보다 낮은 구간. 관련 경력·전공 적합성·추가 강점이 있는 경우 개별 검토."
+          }
+        ]
+      }
+    },
+    "english_2027": {
+      "accepted_tests": [
+        "IELTS Academic",
+        "TOEFL iBT",
+        "PTE Academic"
+      ],
+      "test_date_rule": "For 2027 entry, accepted English tests should be taken no earlier than 1 January 2025.",
+      "note": "Programme-level IELTS requirements are stored per programme."
+    },
+    "application_deadlines_2027": {
+      "february_intake_application": "2026-11-15 17:00 Beijing time (only programmes offering February entry)",
+      "september_intake_application": "2027-06-15 17:00 Beijing time",
+      "february_intake_scholarship": "2026-11-01",
+      "september_intake_scholarship": "2027-06-01"
+    },
+    "scholarships": {
+      "entry_scholarship_full_time": "20%, 30% or 50% of total programme tuition fee based on academic merit",
+      "mres_full_scholarship": "A small number of outstanding MRes applicants may be considered for a full tuition waiver",
+      "part_time": "No entry scholarship",
+      "alumni_discount": "20% for XJTLU, University of Liverpool or Xi'an Jiaotong University graduates; not cumulative with XJTLU entry scholarship"
+    },
+    "tuition": {
+      "published_year": 2026,
+      "2027_status": "not_yet_fully_published",
+      "rule": "Do not present 2026 programme fees as confirmed 2027 fees. Keep 2026 as reference until XJTLU publishes 2027 figures."
+    },
+    "source_policy": {
+      "verification": "official_primary_sources_first",
+      "user_visible_source_sections": false,
+      "news_source_exception": true
+    },
+    "sources": {
+      "masters_directory": "https://www.xjtlu.edu.cn/en/study/masters/",
+      "masters_admissions": "https://www.xjtlu.edu.cn/en/admissions/master",
+      "entry_requirements": "https://www.xjtlu.edu.cn/en/admissions/master/entry-requirements-2",
+      "fees_scholarships": "https://www.xjtlu.edu.cn/en/admissions/master/fees-and-scholarships",
+      "how_to_apply": "https://www.xjtlu.edu.cn/en/admissions/master/how-to-apply",
+      "visa_policy_pdf": "https://www.xjtlu.edu.cn/wp-content/uploads/2025/11/95.-International-Student-Visa-and-Management-Policy.pdf",
+      "liverpool_korea_entry_guidance": "https://www.liverpool.ac.uk/international/countries/southkorea.php"
+    }
+  },
+  "programmes": [
+    {
+      "id": "actuarial-science-msc",
+      "name_en": "Actuarial Science MSc",
+      "degree_type": "MSc",
+      "school": "School of Mathematics and Physics",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 150000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "수학·응용수학·통계·데이터사이언스·금융·보험 등 수학 관련 전공",
+      "additional_requirements_ko": "SOA UCAP-AC accredited. 관련 경력·포트폴리오·추천서 등 추가 강점이 있으면 예외 심사 가능",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/actuarial-science"
+    },
+    {
+      "id": "advanced-chemical-sciences-mres",
+      "name_en": "Advanced Chemical Sciences MRes",
+      "degree_type": "MRes",
+      "school": "Academy of Life and Natural Sciences",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 24,
+      "tuition_2026_rmb_total": 200000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "화학·화학공학·재료과학·의약화학 또는 관련 전공",
+      "additional_requirements_ko": "Advanced Chemical Sciences 또는 Computational Chemistry pathway. XJTLU-JITRI joint-supervision pathway 제공. MRes 전액학비 장학 심사 가능",
+      "mres_full_tuition_scholarship_eligible": true,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/mres-advanced-chemical-sciences"
+    },
+    {
+      "id": "advanced-intelligent-manufacturing-technology-mres",
+      "name_en": "Advanced Intelligent Manufacturing Technology MRes",
+      "degree_type": "MRes",
+      "school": "School of Intelligent Manufacturing Ecosystem",
+      "attendance": "full_time",
+      "campus": "Taicang, Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 24,
+      "tuition_2026_rmb_total": 200000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "전기·기계·제조·로봇·산업공학 또는 관련 전공",
+      "additional_requirements_ko": "2학년 전체를 산업 연구 dissertation에 집중. MRes 전액학비 장학 심사 가능",
+      "mres_full_tuition_scholarship_eligible": true,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study-category/masters"
+    },
+    {
+      "id": "advanced-microelectronic-technology-and-materials-mres",
+      "name_en": "Advanced Microelectronic Technology and Materials MRes",
+      "degree_type": "MRes",
+      "school": "School of CHIPS",
+      "attendance": "full_time",
+      "campus": "Taicang, Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 24,
+      "tuition_2026_rmb_total": 200000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [],
+      "intake_2027_status": "pending_official_programme_page_update",
+      "ielts_academic": {
+        "overall": 6,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "전기전자·재료과학·공학 또는 관련 전공",
+      "additional_requirements_ko": "현재 공식 Start Date는 February/September 2026. Semiconductor Materials and Devices, Advanced Microfabrication Technology, 2개 학기 Industrial Research Dissertation 중심. MRes 전액학비 장학 심사 가능",
+      "mres_full_tuition_scholarship_eligible": true,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/mres-advanced-microelectronic-technology-and-materials"
+    },
+    {
+      "id": "advanced-robotics-systems-msc",
+      "name_en": "Advanced Robotics Systems MSc",
+      "degree_type": "MSc",
+      "school": "School of Robotics",
+      "attendance": "full_time",
+      "campus": "Taicang, Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 24,
+      "tuition_2026_rmb_total": 200000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [],
+      "intake_2027_status": "pending_official_programme_page_update",
+      "ielts_academic": {
+        "overall": 6,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "전기·기계·제조·로봇·산업공학·컴퓨터과학 또는 관련 전공",
+      "additional_requirements_ko": "현재 공식 Start Date는 February/September 2026. Advanced Robotics Technologies, Applied Robotics Technologies, Leadership, Technopreneurship 4개 Pathway 및 industrial immersion 구조",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-in-advanced-robotics-systems"
+    },
+    {
+      "id": "applied-informatics-msc",
+      "name_en": "Applied Informatics MSc",
+      "degree_type": "MSc",
+      "school": "Academy of Artificial Intelligence and Advanced Technology",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 180000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "Computer Science, Computer Engineering, Automation, E-commerce, Financial Mathematics 등 관련 전공 또는 동등 경험",
+      "additional_requirements_ko": "관련 실무경력이 충분한 비표준 지원자는 개별 심사 가능",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/find-a-programme/masters/msc-applied-informatics"
+    },
+    {
+      "id": "applied-linguistics-ma",
+      "name_en": "Applied Linguistics (Specialisation in Multilingualism) MA",
+      "degree_type": "MA",
+      "school": "School of Humanities and Social Sciences",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 180000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 6
+      },
+      "undergraduate_background_ko": "언어·응용언어학. 사회언어학·커뮤니케이션·민족지학·정치학·인류학 등 인문사회 전공도 개별 심사",
+      "additional_requirements_ko": "Multilingualism 특화 MA. AI and Applied Linguistics, Discourse Analysis, Psycholinguistics of Multilingualism 등 선택 가능",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/applied-linguistics"
+    },
+    {
+      "id": "applied-mathematics-msc",
+      "name_en": "Applied Mathematics MSc",
+      "degree_type": "MSc",
+      "school": "School of Mathematics and Physics",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 180000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "수학 또는 수학 비중이 높은 관련 전공",
+      "additional_requirements_ko": "PDE·numerical optimisation·scientific computing 중심, 20-credit dissertation research 포함",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-applied-mathematics"
+    },
+    {
+      "id": "applied-statistics-msc",
+      "name_en": "Applied Statistics MSc",
+      "degree_type": "MSc",
+      "school": "Academy of Life and Natural Sciences",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 24,
+      "tuition_2026_rmb_total": 200000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [],
+      "intake_2027_status": "pending_official_programme_page_update",
+      "ielts_academic": {
+        "overall": 6,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "통계·응용수학·경제 등 수학/데이터 분석 분야 또는 역학·임상의학·예방의학·의생명과학 등 보건 분야; 관련 경력도 고려",
+      "additional_requirements_ko": "Biostatistics 중심. XJTLU-JITRI joint-supervision pathway 제공",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/applied-statistics"
+    },
+    {
+      "id": "architectural-design-march",
+      "name_en": "Architectural Design MArch",
+      "degree_type": "MArch",
+      "school": "Design School",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 24,
+      "tuition_2026_rmb_total": 200000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_current_official_page",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "BArch/BEng/BA(Hons) Architecture 또는 도시디자인·조경 등 밀접 관련 전공",
+      "additional_requirements_ko": "포트폴리오 필수. 건축 실무 인턴십(year-out)은 권장. XJTLU Architecture 2+2+2 route는 포트폴리오 면제 가능",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/master-of-architectural-design"
+    },
+    {
+      "id": "artificial-intelligence-msc",
+      "name_en": "Artificial Intelligence MSc",
+      "degree_type": "MSc",
+      "school": "Academy of Artificial Intelligence and Advanced Technology",
+      "attendance": "full_time",
+      "campus": "Taicang, Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 24,
+      "tuition_2026_rmb_total": 200000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "컴퓨터과학·전자공학·IoT·디지털미디어기술 또는 STEM 비중이 높은 전공",
+      "additional_requirements_ko": null,
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-artificial-intelligence"
+    },
+    {
+      "id": "bioinformatics-mres",
+      "name_en": "Bioinformatics MRes",
+      "degree_type": "MRes",
+      "school": "Academy of Life and Natural Sciences",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 24,
+      "tuition_2026_rmb_total": 200000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "Bioinformatics, Biological Sciences, Medical Sciences, Biomedical Engineering, Physics, Computing Sciences, Mathematics, Biostatistics, Data Sciences, Artificial Intelligence 등 관련 전공",
+      "additional_requirements_ko": "연구형 MRes로 genomics·proteomics·statistics·machine learning을 결합한 연구역량이 중요",
+      "mres_full_tuition_scholarship_eligible": true,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/mres-bioinformatics"
+    },
+    {
+      "id": "business-analytics-msc",
+      "name_en": "Business Analytics MSc",
+      "degree_type": "MSc",
+      "school": "International Business School Suzhou",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 180000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "금융·회계·경제·경영·마케팅·과학·공학 또는 관련 전공. 계량경제학·통계·OR·Python/Matlab/R/Stata 배경 선호",
+      "additional_requirements_ko": "기초 계량경제학 지식은 권장되지만 필수는 아님",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-business-analytics"
+    },
+    {
+      "id": "child-development-and-family-education-ma",
+      "name_en": "Child Development and Family Education MA",
+      "degree_type": "MA",
+      "school": "Academy of Future Education",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 180000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 6
+      },
+      "undergraduate_background_ko": "심리·교육심리·교육·교직·사회복지·아동가족·영어 또는 관련 전공",
+      "additional_requirements_ko": "교육·상담·교육행정 경력 선호. 3개 Pathway: Teaching and Learning, Family and Social Work, Educational Psychology and Counselling",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/child-development-family-education"
+    },
+    {
+      "id": "china-studies-ma",
+      "name_en": "China Studies MA",
+      "degree_type": "MA",
+      "school": "School of Humanities and Social Sciences",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 180000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 7,
+        "minimum_each": 6
+      },
+      "undergraduate_background_ko": "학부 전공 제한 없음",
+      "additional_requirements_ko": "현대 중국의 거버넌스·사회·경제·정책을 현지 현장연구와 함께 학습",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/china-studies"
+    },
+    {
+      "id": "civil-engineering-msc",
+      "name_en": "Civil Engineering MSc",
+      "degree_type": "MSc",
+      "school": "Design School",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 150000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [],
+      "intake_2027_status": "pending_official_programme_page_update",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "토목공학 또는 관련 전공",
+      "additional_requirements_ko": "JBM accredited Further Learning for CEng(해당 조건 충족자). XJTLU-JITRI joint-supervision pathway 제공. 현재 공식 Start Date는 February/September 2026",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-civil-engineering"
+    },
+    {
+      "id": "cultural-and-creative-industries-msc",
+      "name_en": "Cultural and Creative Industries MSc",
+      "degree_type": "MSc",
+      "school": "Academy of Film and Creative Technology",
+      "attendance": "full_time",
+      "campus": "Taicang, Suzhou",
+      "campus_verification": "current_official_search_result_verified",
+      "full_time_duration_months": 24,
+      "tuition_2026_rmb_total": 200000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_current_official_search_result",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "미디어·TV·영화·예술·뉴미디어·광고·PR·게임·디지털미디어아트·미술·애니메이션·문화산업·관광·음악·박물관학·제품/시각디자인 등 문화창의산업 관련 전공",
+      "additional_requirements_ko": "관련 산업경력·강한 포트폴리오·전문 추천서로 비표준 지원 예외 심사 가능. 4개 Pathway: Content Producing, Creative Industries, Cultural Industries, Interactive Media",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/cultural-and-creative-industries"
+    },
+    {
+      "id": "computer-science-mres",
+      "name_en": "Computer Science MRes",
+      "degree_type": "MRes",
+      "school": "Academy of Artificial Intelligence and Advanced Technology",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 24,
+      "tuition_2026_rmb_total": 200000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_current_programme_page",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "Computer Science 또는 관련 전공. 프로그래밍·프로그램 설계 경험과 관련 실무경력은 강점",
+      "additional_requirements_ko": "BCS-accredited MRes. XJTLU-JITRI joint-supervision pathway 제공",
+      "mres_full_tuition_scholarship_eligible": true,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/mres-computer-science"
+    },
+    {
+      "id": "construction-management-msc",
+      "name_en": "Construction Management MSc",
+      "degree_type": "MSc",
+      "school": "Design School",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 150000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [],
+      "intake_2027_status": "pending_official_programme_page_update",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "토목공학·건축·측량·건설관리·시설관리 등 건설 관련 전공",
+      "additional_requirements_ko": "Construction engineering project의 planning·design·construction 전 생애주기 관리. 현재 공식 Start Date는 February/September 2026",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/construction-management"
+    },
+    {
+      "id": "data-science-msc",
+      "name_en": "Data Science MSc",
+      "degree_type": "MSc",
+      "school": "School of Mathematics and Physics",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 24,
+      "tuition_2026_rmb_total": 200000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [],
+      "intake_2027_status": "pending_official_programme_page_update",
+      "ielts_academic": {
+        "overall": 6,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "수학·통계·컴퓨터과학·데이터사이언스·금융 관련 전공",
+      "additional_requirements_ko": "관련 산업경력은 강점",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/data-science"
+    },
+    {
+      "id": "digital-business-msc",
+      "name_en": "Digital Business MSc",
+      "degree_type": "MSc",
+      "school": "School of Intelligent Finance and Business",
+      "attendance": "full_time",
+      "campus": "Taicang, Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 24,
+      "tuition_2026_rmb_total": 200000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [],
+      "intake_2027_status": "pending_official_programme_page_update",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "금융·회계·비즈니스·경제·경영·공급망·마케팅·과학·공학 또는 관련 전공",
+      "additional_requirements_ko": "4개 Pathway: Digital Supply Chain, Digital Finance, Digital Marketing, Intelligent ESG. 현재 공식 Start Date는 February/September 2026으로 2027 업데이트 대기",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-digital-business"
+    },
+    {
+      "id": "digital-education-msc",
+      "name_en": "Digital Education MSc",
+      "degree_type": "MSc",
+      "school": "Academy of Future Education",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 24,
+      "tuition_2026_rmb_total": 200000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_current_official_search_result",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 6
+      },
+      "undergraduate_background_ko": "전공 제한 없음. 컴퓨터·IT·교육·국제관계·HR·심리 등 다양한 학부 배경 환영",
+      "additional_requirements_ko": "게임기반학습·AI in Education·learning analytics·blended learning 중심",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/digital-education"
+    },
+    {
+      "id": "economics-and-finance-msc",
+      "name_en": "Economics and Finance MSc",
+      "degree_type": "MSc",
+      "school": "International Business School Suzhou",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 180000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_current_official_page",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "경제·금융·수학·통계 전공",
+      "additional_requirements_ko": null,
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-economics-and-finance"
+    },
+    {
+      "id": "entrepreneurship-and-innovation-msc",
+      "name_en": "Entrepreneurship and Innovation MSc",
+      "degree_type": "MSc",
+      "school": "Entrepreneurship and Enterprise Hub",
+      "attendance": "full_time",
+      "campus": "Taicang, Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 24,
+      "tuition_2026_rmb_total": 200000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [],
+      "intake_2027_status": "pending_official_programme_page_update",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "전공 제한 없음. STEM·의학·예술·인문·비즈니스 등 다양한 학부 배경 가능",
+      "additional_requirements_ko": "창업경험 또는 공학·경영·투자 분야 1년 이상 경력자 우대. CV와 1페이지 Personal Statement 필수. Entrepreneur 또는 Intrapreneur track 선택",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/entrepreneurship-and-innovation"
+    },
+    {
+      "id": "environmental-sciences-mres",
+      "name_en": "Environmental Sciences MRes",
+      "degree_type": "MRes",
+      "school": "Academy of Life and Natural Sciences",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 24,
+      "tuition_2026_rmb_total": 200000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "환경·생태·농림·화학·재료·생물·대기·지리/GIS·도시계획/조경·수자원·지질·원격탐사·컴퓨터·통계·데이터사이언스 등 관련 전공",
+      "additional_requirements_ko": "Ecology·environmental chemistry·ESG·sustainable development·environmental big data·AI·modelling 등 연구. Semester 3–4 장기 Research Project. MRes 전액학비 장학 심사 가능",
+      "mres_full_tuition_scholarship_eligible": true,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/environmental-sciences"
+    },
+    {
+      "id": "finance-msc",
+      "name_en": "Finance MSc",
+      "degree_type": "MSc",
+      "school": "International Business School Suzhou",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 180000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "금융·회계·경제·경영·과학·공학 전공",
+      "additional_requirements_ko": "경제·금융 비전공자는 정량방법·통계·계량경제학 배경 권장",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-finance"
+    },
+    {
+      "id": "financial-computing-msc",
+      "name_en": "Financial Computing MSc",
+      "degree_type": "MSc",
+      "school": "Academy of Artificial Intelligence and Advanced Technology",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 180000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "컴퓨터과학·정보시스템 등 관련 전공, 프로그래밍 및 프로그램 설계 경험",
+      "additional_requirements_ko": "관련 실무경력이 충분하면 개별 심사. computing + finance 융합",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-financial-computing"
+    },
+    {
+      "id": "financial-mathematics-msc",
+      "name_en": "Financial Mathematics MSc",
+      "degree_type": "MSc",
+      "school": "School of Mathematics and Physics",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 180000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "수학·통계·물리·공학·컴퓨터과학·금융·경제 관련 전공",
+      "additional_requirements_ko": null,
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-financial-mathematics"
+    },
+    {
+      "id": "global-education-ma",
+      "name_en": "Global Education MA",
+      "degree_type": "MA",
+      "school": "Academy of Future Education",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 180000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 6
+      },
+      "undergraduate_background_ko": "학부 전공 제한 없음",
+      "additional_requirements_ko": "교육 관련 경력은 강점. 3개 Pathway: Curriculum and Instruction, Educational Administration and Management, Innovations in Global Education",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/global-education"
+    },
+    {
+      "id": "human-computer-interaction-msc",
+      "name_en": "Human-Computer Interaction MSc",
+      "degree_type": "MSc",
+      "school": "Academy of Artificial Intelligence and Advanced Technology",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 180000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "Computer Science, Artificial Intelligence, Software Engineering, Communication Engineering, Mechanical and Automation Engineering, Cybersecurity 등 관련 전공/경험",
+      "additional_requirements_ko": "관련 실무경력이 충분한 비표준 지원자는 개별 심사 가능",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/human-computer-interaction"
+    },
+    {
+      "id": "industrial-design-mdes",
+      "name_en": "Industrial Design MDes",
+      "degree_type": "MDes",
+      "school": "Design School",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 24,
+      "tuition_2026_rmb_total": 200000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "산업디자인·공학·건축·도시계획/디자인 또는 기타 디자인 관련 전공",
+      "additional_requirements_ko": "디자인 실무 또는 제품/서비스 개발 경험은 권장. CSD accredited",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/mdes-industrial-design"
+    },
+    {
+      "id": "intelligent-engineering-science-and-industrial-operations-msc",
+      "name_en": "Intelligent Engineering Science and Industrial Operations MSc",
+      "degree_type": "MSc",
+      "school": "School of Intelligent Manufacturing Ecosystem",
+      "attendance": "full_time",
+      "campus": "Taicang, Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 24,
+      "tuition_2026_rmb_total": 200000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [],
+      "intake_2027_status": "pending_official_programme_page_update",
+      "ielts_academic": {
+        "overall": 6,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "STEM 전공 또는 관련 경력을 갖춘 비STEM 전공",
+      "additional_requirements_ko": "Smart manufacturing·AI·IoT·big data·systems thinking·industrial operations 융합. Semester 3–4에서 internship 또는 research pathway 선택. 현재 공식 Start Date는 February/September 2026",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-intelligent-engineering-science-and-industrial-operations"
+    },
+    {
+      "id": "international-business-and-global-affairs-ma",
+      "name_en": "International Business and Global Affairs MA",
+      "degree_type": "MA",
+      "school": "School of Humanities and Social Sciences",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 180000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_current_official_search_result",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 6
+      },
+      "undergraduate_background_ko": "국제관계·경제·비즈니스·경영 또는 유사 전공",
+      "additional_requirements_ko": "국제비즈니스와 글로벌정세·정치경제를 결합. 중국과 Yangtze River Delta 비즈니스환경 강조",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/international-business-and-global-affairs"
+    },
+    {
+      "id": "international-professional-practice-in-architecture-msc",
+      "name_en": "International Professional Practice in Architecture MSc",
+      "degree_type": "MSc",
+      "school": "Design School",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 150000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [],
+      "intake_2027_status": "pending_official_programme_page_update",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "건축·건조환경(built environment) 또는 관련 전공",
+      "additional_requirements_ko": "건축 전문실무·리더십·business development·digital construction·sustainability 중심. 현재 공식 Start Date는 February/September 2026",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/international-professional-practice-in-architecture"
+    },
+    {
+      "id": "global-public-policy-and-international-relations-ma",
+      "name_en": "Global Public Policy and International Relations MA",
+      "degree_type": "MA",
+      "school": "School of Humanities and Social Sciences",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 180000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [],
+      "intake_2027_status": "pending_official_programme_page_update",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 6
+      },
+      "undergraduate_background_ko": "국제관계·정치학·커뮤니케이션·사회학·법학·경제·역사·철학·경영·국제학·지역학·영어/외국어 등 관련 전공",
+      "additional_requirements_ko": "현재 공식 page Start Date가 February/September 2026으로 남아 있어 2027 업데이트 대기",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/international-relations"
+    },
+    {
+      "id": "investment-management-msc",
+      "name_en": "Investment Management MSc",
+      "degree_type": "MSc",
+      "school": "International Business School Suzhou",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 180000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "Financial Management, Accounting, Finance, Financial Mathematics, Financial Engineering, Investment, Assets Appraisal, Economics, Management 관련 전공",
+      "additional_requirements_ko": "Quantitative Methods 또는 Statistics에 대한 좋은 배경 요구",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-investment-management"
+    },
+    {
+      "id": "low-carbon-electrical-power-and-energy-technology-mres",
+      "name_en": "Low Carbon Electrical Power and Energy Technology MRes",
+      "degree_type": "MRes",
+      "school": "Academy of Artificial Intelligence and Advanced Technology",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 24,
+      "tuition_2026_rmb_total": 200000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "전기공학·전자과학/기술·통신·컴퓨터·수학·반도체물리·자동화/제어·임베디드·열공학 등 관련 전공",
+      "additional_requirements_ko": "Power Systems 또는 Semiconductor pathway. 12개월 연구프로젝트. MRes 전액학비 장학 심사 가능",
+      "mres_full_tuition_scholarship_eligible": true,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/low-carbon-electrical-power-and-energy-technology"
+    },
+    {
+      "id": "materials-science-and-engineering-mres",
+      "name_en": "Materials Science and Engineering MRes",
+      "degree_type": "MRes",
+      "school": "Academy of Life and Natural Sciences",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 24,
+      "tuition_2026_rmb_total": 200000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "공학 또는 관련 자연과학 전공",
+      "additional_requirements_ko": "materials synthesis·processing·structure·properties·performance를 실험·계산으로 연구. JITRI collaborative projects 가능. MRes 전액학비 장학 심사 가능",
+      "mres_full_tuition_scholarship_eligible": true,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/materials-science-and-engineering"
+    },
+    {
+      "id": "management-msc",
+      "name_en": "Management MSc",
+      "degree_type": "MSc",
+      "school": "International Business School Suzhou",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 180000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "모든 학부 전공 지원 검토 가능. 비즈니스 관련 전공은 선호될 수 있음",
+      "additional_requirements_ko": "표준 학력요건을 충족하지 못해도 관련 경력이 충분한 경우 개별 심사 가능",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-management"
+    },
+    {
+      "id": "management-mres",
+      "name_en": "Management MRes",
+      "degree_type": "MRes",
+      "school": "International Business School Suzhou",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 24,
+      "tuition_2026_rmb_total": 200000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [],
+      "intake_2027_status": "pending_official_start_date",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 6
+      },
+      "undergraduate_background_ko": "비즈니스·경제·경영·회계·금융·과학·공학 또는 관련 전공",
+      "additional_requirements_ko": "Business and Management as a Social Science, Qualitative/Quantitative Methods, Advanced Research Methods, 2개 Semester Dissertation 중심. PhD·research career 준비에 적합. 현재 공식 페이지에 2027 Start Date 미표시",
+      "mres_full_tuition_scholarship_eligible": true,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/mres-in-management"
+    },
+    {
+      "id": "digital-media-and-global-communication-msc",
+      "name_en": "Digital Media and Global Communication MSc",
+      "degree_type": "MSc",
+      "school": "School of Humanities and Social Sciences",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 180000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_current_official_search_result",
+      "ielts_academic": {
+        "overall": 7,
+        "minimum_each": 6
+      },
+      "undergraduate_background_ko": "커뮤니케이션·미디어·영어·영어+미디어 또는 유사 전공",
+      "additional_requirements_ko": "관련 미디어 실무경력은 필수는 아니나 강점. Professional Communication과 Global Media/China 두 축",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-media-and-communication"
+    },
+    {
+      "id": "medicinal-chemistry-mres",
+      "name_en": "Medicinal Chemistry MRes",
+      "degree_type": "MRes",
+      "school": "Academy of Life and Natural Sciences",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 24,
+      "tuition_2026_rmb_total": 200000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "Pharmaceutical Sciences, Chemistry, Chemical Engineering, Biological Science, Medicine, Materials Science, Pharmaceuticals, Food Science 등 관련 전공 또는 관련 경력",
+      "additional_requirements_ko": "연구형 MRes. 3·4학기 Thesis Research Project 중심",
+      "mres_full_tuition_scholarship_eligible": true,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/medicinal-chemistry"
+    },
+    {
+      "id": "molecular-bioscience-mres",
+      "name_en": "Molecular Bioscience MRes",
+      "degree_type": "MRes",
+      "school": "Academy of Life and Natural Sciences",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 24,
+      "tuition_2026_rmb_total": 200000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "생명과학 또는 관련 전공",
+      "additional_requirements_ko": "molecular biology·protein biochemistry·drug discovery·post-genomic biology·bioinformatics 연구. JITRI joint-supervision pathway 제공. MRes 전액학비 장학 심사 가능",
+      "mres_full_tuition_scholarship_eligible": true,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/mres-molecular-bioscience"
+    },
+    {
+      "id": "multimedia-telecommunications-msc",
+      "name_en": "Multimedia Telecommunications MSc",
+      "degree_type": "MSc",
+      "school": "Academy of Artificial Intelligence and Advanced Technology",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 180000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "통신공학·전자과학/기술·전기공학·컴퓨터과학/기술 등 관련 전공",
+      "additional_requirements_ko": "4G/5G/6G·multimedia coding/transmission과 deep learning·computer vision을 결합",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/multimedia-telecommunications"
+    },
+    {
+      "id": "operations-and-supply-chain-management-msc",
+      "name_en": "Operations and Supply Chain Management MSc",
+      "degree_type": "MSc",
+      "school": "International Business School Suzhou",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 180000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "학부 전공 제한 없음. Management, Engineering, Mathematics, Science 또는 관련 배경/경력 선호",
+      "additional_requirements_ko": "표준 입학요건 미충족 시 충분한 관련 실무경력을 바탕으로 개별 심사 가능",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-operations-and-supply-chain-management"
+    },
+    {
+      "id": "pattern-recognition-and-intelligent-systems-mres",
+      "name_en": "Pattern Recognition and Intelligent Systems MRes",
+      "degree_type": "MRes",
+      "school": "Academy of Artificial Intelligence and Advanced Technology",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 24,
+      "tuition_2026_rmb_total": 200000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "디지털미디어기술·전기공학·컴퓨터과학/기술·소프트웨어공학·로봇시스템 등 관련 전공",
+      "additional_requirements_ko": "Pattern Recognition·Computer Vision·Machine Intelligence·Intelligent Systems 중심. 1년 research project 및 XJTLU-JITRI joint-supervision pathway",
+      "mres_full_tuition_scholarship_eligible": true,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/pattern-recognition-and-intelligent-systems"
+    },
+    {
+      "id": "pharmaceutical-sciences-mres",
+      "name_en": "Pharmaceutical Sciences MRes",
+      "degree_type": "MRes",
+      "school": "Academy of Life and Natural Sciences",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 24,
+      "tuition_2026_rmb_total": 200000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [],
+      "intake_2027_status": "pending_official_programme_page_update",
+      "ielts_academic": {
+        "overall": 6,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "제약과학·화학·화학공학·생명과학·의학·재료과학·컴퓨터과학·생물정보학·경영·바이오의약·식품과학·의/약학 관련 전공 또는 관련 경력",
+      "additional_requirements_ko": "5개 pathway: Pharmaceutical Sciences, Regulatory Science, Pharmaceutical Management, AI Drug Discovery and Development, Clinical Pharmacy",
+      "mres_full_tuition_scholarship_eligible": true,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/pharmaceutical-sciences"
+    },
+    {
+      "id": "professional-accounting-msc",
+      "name_en": "Professional Accounting MSc",
+      "degree_type": "MSc",
+      "school": "International Business School Suzhou",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 180000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "회계 전공",
+      "additional_requirements_ko": "입학 시 ICAEW Certificate Level(CFAB) 최소 4과목 합격 필수. ICAEW/ACCA Credit for Prior Learning 등 동등 인정 가능. 회계 비전공자는 6개 CFAB 또는 동등요건으로 검토 가능",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/professional-accounting"
+    },
+    {
+      "id": "project-management-msc",
+      "name_en": "Project Management MSc",
+      "degree_type": "MSc",
+      "school": "International Business School Suzhou",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 180000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "학부 전공 제한 없음. Science/Engineering 배경은 선호될 수 있음",
+      "additional_requirements_ko": "IPMA ICB4 표준에 맞춘 Project Management 과정. 관련 경력은 필수 아님",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-project-management"
+    },
+    {
+      "id": "social-computing-msc",
+      "name_en": "Social Computing MSc",
+      "degree_type": "MSc",
+      "school": "Academy of Artificial Intelligence and Advanced Technology",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 180000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "컴퓨터과학·공학·정보시스템·전자상거래·수학 등 관련 전공, 프로그래밍/프로그램 설계 경험",
+      "additional_requirements_ko": "관련 실무경력이 충분하면 개별 심사. BCS accredited, XJTLU-JITRI joint-supervision pathway 제공",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-social-computing"
+    },
+    {
+      "id": "sustainable-building-design-and-engineering-msc",
+      "name_en": "Sustainable Building Design and Engineering MSc",
+      "degree_type": "MSc",
+      "school": "Design School",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 150000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [],
+      "intake_2027_status": "pending_official_programme_page_update",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "토목·건축·building services·건설/엔지니어링관리·환경·에너지·기계·재료 등 관련 engineering/built-environment 전공",
+      "additional_requirements_ko": "2개 Track: Sustainable Building Engineering, Facade Design. 현재 공식 Start Date는 February/September 2026",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/masters-msc-sustainable-construction"
+    },
+    {
+      "id": "sustainable-energy-technology-msc",
+      "name_en": "Sustainable Energy Technology MSc",
+      "degree_type": "MSc",
+      "school": "Academy of Artificial Intelligence and Advanced Technology",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 180000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 6,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "전기공학·전자과학/기술·통신·컴퓨터·수학·반도체물리·자동화/제어·임베디드·열공학 등 관련 전공",
+      "additional_requirements_ko": "XJTLU-JITRI joint-supervision pathway 제공. Renewable energy·smart grid·power electronics 중심",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-sustainable-energy-technology"
+    },
+    {
+      "id": "tesol-ma",
+      "name_en": "TESOL MA",
+      "degree_type": "MA",
+      "school": "School of Humanities and Social Sciences",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 180000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_programme_page",
+      "ielts_academic": {
+        "overall": 7,
+        "minimum_each": 6
+      },
+      "undergraduate_background_ko": "English, Linguistics, Education, Literature 전공. Interdisciplinary background도 지원 가능",
+      "additional_requirements_ko": "교직경력은 필수가 아니지만 관련 teaching experience는 강점",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/ma-tesol"
+    },
+    {
+      "id": "urban-planning-msc",
+      "name_en": "Urban Planning MSc",
+      "degree_type": "MSc",
+      "school": "Design School",
+      "attendance": "full_time",
+      "campus": "Suzhou",
+      "campus_verification": "programme_page_verified",
+      "full_time_duration_months": 18,
+      "tuition_2026_rmb_total": 150000,
+      "tuition_2027_status": "pending_official_update",
+      "intake_2027": [
+        "September 2027"
+      ],
+      "intake_2027_status": "confirmed_on_current_official_page",
+      "ielts_academic": {
+        "overall": 6.5,
+        "minimum_each": 5.5
+      },
+      "undergraduate_background_ko": "도시계획·도시설계·건축·조경·환경디자인·인테리어·산업디자인 등 관련 전공. 다른 전공도 case-by-case",
+      "additional_requirements_ko": "Urban Design 및 Landscape Design pathway는 대표 프로젝트 4~8개 포트폴리오 필수",
+      "mres_full_tuition_scholarship_eligible": false,
+      "official_programme_url": "https://www.xjtlu.edu.cn/en/study/masters/msc-urban-planning"
+    }
+  ]
+}

@@ -128,6 +128,8 @@ body { font-family:'Noto Sans KR',sans-serif; color:#111; background:#fff; overf
 }
 .nav-links li a:hover { color:var(--navy); background:#f5f5f5; }
 .nav-links li a.active { color:var(--gold); }
+.nav-links li a.nav-masters { color:#9a7827; font-weight:800; }
+.nav-links li a.nav-masters:hover { color:#7a5c18; background:#fbf7ea; }
 .nav-links li a.btn-inquiry {
   background:var(--navy); color:#fff !important;
   padding:9px 18px; border-radius:4px; font-weight:700;
@@ -728,14 +730,12 @@ html{scroll-padding-top:118px}
   </a>
   <ul class="nav-links">
     <li><a href="#information">학교소개</a></li>
-    <li><a href="#admission">입학·편입</a></li>
-    <li><a href="#calendar">학비·장학금</a></li>
-    <li><a href="#major">전공·진로</a></li>
+    <li><a href="#admission">학부 입학</a></li>
+    <li><a href="xjtlu-undergraduate-programmes.html">학부 전공</a></li>
+    <li><a class="nav-masters" href="/masters/">석사</a></li>
     <li><a href="#campus-life">학생생활</a></li>
-    <li><a href="#reviews">학생후기</a></li>
     <li><a href="#news">뉴스</a></li>
     <li><button type="button" class="nav-menu-btn" onclick="openSiteMenu()" aria-controls="siteMenu" aria-expanded="false">전체 메뉴 <span class="nav-menu-icon">☰</span></button></li>
-
   </ul>
   <button class="nav-ham" id="hamBtn" onclick="openSiteMenu()" aria-controls="siteMenu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -744,7 +744,7 @@ html{scroll-padding-top:118px}
 
 <div id="mobileNav">
   <div class="mob-group-title">MAIN PAGE</div>
-  <a href="#information">학교소개</a><a href="#admission">입학·편입</a><a href="#calendar">학비·장학금</a><a href="#major">전공·진로</a><a href="#campus-life">학생생활</a><a href="#reviews">학생후기</a><a href="#news">뉴스</a>
+  <a href="#information">학교소개</a><a href="#admission">학부 입학</a><a href="xjtlu-undergraduate-programmes.html">학부 전공</a><a href="/masters/">석사</a><a href="#campus-life">학생생활</a><a href="#news">뉴스</a>
   <div class="mob-group-title">DETAIL GUIDES</div>
   <a class="mob-detail" href="xjtlu-admission-requirements-korea-2027.html">2027 입학조건·편입</a>
   <a class="mob-detail" href="xjtlu-tuition-scholarships-2027.html">2027 학비·장학금</a>
@@ -752,7 +752,8 @@ html{scroll-padding-top:118px}
   <a class="mob-detail" href="xjtlu-dual-degree-liverpool-2plus2.html">리버풀대학교 복수학위·2+2</a>
   <a class="mob-detail" href="xjtlu-exchange.html">XJTLU 교환학생</a>
   <a class="mob-detail" href="xjtlu-suzhou-china-life.html">XJTLU 쑤저우 소개</a>
-    <a class="mob-detail" href="xjtlu-undergraduate-programmes.html">전공 전체 보기</a>
+    <a class="mob-detail" href="xjtlu-undergraduate-programmes.html">학부 전공 전체 보기</a>
+  <a class="mob-detail" href="/masters/programmes.html">석사 전공 전체 보기</a>
   <a class="mob-detail" href="xjtlu-graduate-destinations-careers.html">졸업 후 진로·대학원 진학</a>
   <a class="mob-detail" href="xjtlu-alumni-careers.html">한국학생 취업·진로 통계</a>
   <a class="mob-detail" href="xjtlu-accommodation-sip-taicang.html">SIP·Taicang 숙소 상세</a>
@@ -770,13 +771,12 @@ html{scroll-padding-top:118px}
     </div>
     <div class="site-menu-grid">
       <section class="site-menu-group"><h3><a href="#information">학교소개 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-dual-degree-liverpool-2plus2.html">리버풀대학교 복수학위·2+2</a><a href="xjtlu-exchange.html">XJTLU 교환학생</a><a href="xjtlu-suzhou-china-life.html">XJTLU 쑤저우 소개</a></section>
-      <section class="site-menu-group"><h3><a href="#admission">입학·편입 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-admission-requirements-korea-2027.html">2027 한국학생 입학조건·편입</a></section>
-      <section class="site-menu-group"><h3><a href="#calendar">학비·장학금 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-tuition-scholarships-2027.html">2027 학비·장학금 상세</a><a href="xjtlu-living-cost-2027.html">XJTLU 생활비 2027</a></section>
-      <section class="site-menu-group"><h3><a href="#major">전공·진로 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-undergraduate-programmes.html">전공 전체 보기</a><a href="xjtlu-graduate-destinations-careers.html">졸업 후 진로·대학원 진학</a><a href="xjtlu-alumni-careers.html">한국학생 취업·진로 통계</a></section>
-      <section class="site-menu-group"><h3><a href="#campus-life">학생생활 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-accommodation-sip-taicang.html">SIP·Taicang 숙소·기숙사</a><a href="xjtlu-suzhou-china-life.html">XJTLU 쑤저우 소개</a><a href="xjtlu-sports-facilities.html">스포츠·헬스장 시설</a><a href="xjtlu-clubs-student-organisations.html">동아리·학생단체</a></section>
-      <section class="site-menu-group"><h3><a href="#reviews">학생후기 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-student-videos.html">XJTLU 학생 후기 영상 모음</a></section>
+      <section class="site-menu-group"><h3><a href="#admission">학부 입학 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-admission-requirements-korea-2027.html">2027 학부 입학조건·편입</a><a href="xjtlu-tuition-scholarships-2027.html">2027 학부 학비·장학금</a><a href="xjtlu-living-cost-2027.html">XJTLU 생활비 2027</a></section>
+      <section class="site-menu-group"><h3><a href="xjtlu-undergraduate-programmes.html">학부 전공·진로 <small>전체 보기 →</small></a></h3><a href="xjtlu-undergraduate-programmes.html">학부 전공 전체 보기</a><a href="xjtlu-graduate-destinations-careers.html">졸업 후 진로·대학원 진학</a><a href="xjtlu-alumni-careers.html">한국학생 취업·진로 통계</a></section>
+      <section class="site-menu-group"><h3><a href="/masters/">석사 <small>석사 홈 →</small></a></h3><a href="/masters/programmes.html">석사 전공 전체 보기</a><a href="/masters/admission-requirements-2027.html">2027 석사 입학조건</a><a href="/masters/tuition-scholarships-2027.html">2027 석사 학비·장학금</a></section>
+      <section class="site-menu-group"><h3><a href="#campus-life">학생생활 <small>메인에서 보기 →</small></a></h3><a href="xjtlu-accommodation-sip-taicang.html">SIP·Taicang 숙소·기숙사</a><a href="xjtlu-suzhou-china-life.html">XJTLU 쑤저우 소개</a><a href="xjtlu-sports-facilities.html">스포츠·헬스장 시설</a><a href="xjtlu-clubs-student-organisations.html">동아리·학생단체</a><a href="xjtlu-student-videos.html">XJTLU 학생 후기 영상</a></section>
       <section class="site-menu-group"><h3><a href="#news">뉴스 <small>메인에서 보기 →</small></a></h3><a href="/news/">XJTLU 최신 뉴스 전체 보기</a></section>
-      <section class="site-menu-group"><h3><a href="#contact">입학문의 <small>메인에서 보기 →</small></a></h3><p>입학조건·학비·전공·숙소 상담은 TNS유학에서 안내합니다.</p><div class="site-menu-cta"><a class="kakao" href="https://open.kakao.com/o/slehLvKi" target="_blank" rel="noopener">카카오톡 상담</a><a class="phone" href="tel:01051500105">전화상담</a></div></section>
+      <section class="site-menu-group"><h3><a href="#contact">상담 <small>메인에서 보기 →</small></a></h3><p>입학조건·학비·전공·숙소 상담은 TNS유학에서 안내합니다.</p><div class="site-menu-cta"><a class="kakao" href="https://open.kakao.com/o/slehLvKi" target="_blank" rel="noopener">카카오톡 상담</a><a class="phone" href="tel:01051500105">전화상담</a></div></section>
     </div>
   </div>
 </div>
@@ -882,6 +882,10 @@ html{scroll-padding-top:118px}
         <div class="guide-title">학부 전공 안내 <span class="arr">→</span></div>
         <div class="guide-body">전공별 학위와 소속 단과대학, 대표 전공 분야를 확인하세요.</div>
       </a>
+      <a class="guide-card" href="/masters/programmes.html">
+        <div class="guide-title">석사 전공 안내 <span class="arr">→</span></div>
+        <div class="guide-body">54개 Full-time 석사 전공을 관심 분야, 학부 전공 조건과 IELTS 기준으로 찾아보세요.</div>
+      </a>
       <a class="guide-card" href="xjtlu-dual-degree-liverpool-2plus2.html">
         <div class="guide-title">리버풀대학교 복수학위·2+2 <span class="arr">→</span></div>
         <div class="guide-body">영국 리버풀대학교로 이어지는 2+2 프로그램과 복수학위 취득 방법을 안내합니다.</div>
@@ -903,7 +907,7 @@ html{scroll-padding-top:118px}
   <div class="sec fi">
     <p class="label">DEPARTMENTS</p>
     <h2 class="sec-h">전공안내</h2>
-    <p class="sec-p">총 전공 : 학사(Undergraduate) 52개 · 석사(Master's) 약 57개 · 박사(PhD) 17개</p>
+    <p class="sec-p">총 전공 : 학사(Undergraduate) 52개 · Full-time 석사(Master's) 54개 · 박사(PhD) 17개</p>
     <p class="sec-p">52개 학부 전공을 6개 분야로 묶어 대표 전공을 소개합니다.</p>
     <div class="major-grid fi d1">
       <div class="mc"><div class="mc-s">BUSINESS SCHOOL</div><div class="mc-n">경영·경제 (Business Administration, Economics and Finance 등)</div><div class="mc-d">BA/BSc (Hons)</div></div>
@@ -913,7 +917,7 @@ html{scroll-padding-top:118px}
       <div class="mc"><div class="mc-s">HUMANITIES</div><div class="mc-n">인문·미디어 (International Relations, Media &amp; Communication Studies 등)</div><div class="mc-d">BA (Hons)</div></div>
       <div class="mc"><div class="mc-s">DESIGN / FILM &amp; TV ARTS</div><div class="mc-n">디자인·영상 (Industrial Design, Filmmaking, Digital Media Arts 등)</div><div class="mc-d">BA/BEng (Hons)</div></div>
     </div>
-    <div class="related-links" aria-label="전공 전체 보기"><a class="related-link" href="xjtlu-undergraduate-programmes.html">전공 전체 보기<span class="arr">→</span></a><a class="related-link" href="xjtlu-graduate-destinations-careers.html">졸업 후 진로·대학원 진학<span class="arr">→</span></a></div>
+    <div class="related-links" aria-label="전공 전체 보기"><a class="related-link" href="xjtlu-undergraduate-programmes.html">학부 전공 전체 보기<span class="arr">→</span></a><a class="related-link" href="/masters/programmes.html">석사 전공 전체 보기<span class="arr">→</span></a><a class="related-link" href="xjtlu-graduate-destinations-careers.html">졸업 후 진로·대학원 진학<span class="arr">→</span></a></div>
   </div>
 </div>
 

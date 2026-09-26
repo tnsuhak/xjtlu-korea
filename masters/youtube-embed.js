@@ -57,3 +57,23 @@ if(document.readyState==='loading'){
   normalizeMastersNavigation();
 }
 
+
+
+function normalizeMastersTuitionWording(){
+  const replacements = [
+    ['2026 총 학비 참고','2026 전체 과정 학비'],
+    ['2026 Entry 총 학비 참고','2026 Entry 전체 과정 학비'],
+    ['2026 참고학비','2026 학비'],
+    ['2026 Entry 참고값','2026 Entry 학비']
+  ];
+  document.querySelectorAll('.quick span,.fee span,.next span,.detail-line span').forEach(function(el){
+    let text=el.textContent;
+    replacements.forEach(function(pair){ text=text.split(pair[0]).join(pair[1]); });
+    if(text!==el.textContent) el.textContent=text;
+  });
+}
+if(document.readyState==='loading'){
+  document.addEventListener('DOMContentLoaded',normalizeMastersTuitionWording);
+}else{
+  normalizeMastersTuitionWording();
+}
